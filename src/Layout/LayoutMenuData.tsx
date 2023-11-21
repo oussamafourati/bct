@@ -125,9 +125,9 @@ const Navdata = () => {
             },
             stateVariables: isVisitorQuote,
             subItems: [
-                { id: "level1.1", label: "New Quote", link: "/#", parentId: "VisitorQuote" },
-                { id: "level1.3", label: "Quote Request", link: "/#", parentId: "VisitorQuote" },
-                { id: "level1.4", label: "Listing & Management", link: "/#", parentId: "VisitorQuote" },
+                { id: "level1.1", label: "New Quote", link: "/new-quote", parentId: "VisitorQuote" },
+                { id: "level1.3", label: "Quote Request", link: "/quote-request", parentId: "VisitorQuote" },
+                { id: "level1.4", label: "Listing & Management", link: "/listing&management", parentId: "VisitorQuote" },
                 {
                     id: "level1.2",
                     label: "Push Jobs",
@@ -139,8 +139,8 @@ const Navdata = () => {
                     },
                     stateVariables: isLevel1,
                     childItems: [
-                        { id: 1, label: "Current ", link: "/#" },
-                        { id: 2, label: "History ", link: "/#" },
+                        { id: 1, label: "Current ", link: "/current-push-jobs" },
+                        { id: 2, label: "History ", link: "/history-push-job" },
                     ]
                 },
             ],
@@ -158,7 +158,7 @@ const Navdata = () => {
             },
             stateVariables: isCorporateTransport,
             subItems: [
-                { id: "level1.1", label: "Listing & Management", link: "/#", parentId: "CorporateTransport" },
+                { id: "level1.1", label: "Listing & Management", link: "/list-corporate-transport", parentId: "CorporateTransport" },
                 {
                     id: "level1.2",
                     label: "Programming",
@@ -170,13 +170,13 @@ const Navdata = () => {
                     },
                     stateVariables: isLevel1,
                     childItems: [
-                        { id: 1, label: "Scheduling", link: "/#" },
-                        { id: 2, label: "Offers", link: "/#" },
-                        { id: 3, label: "Stations", link: "/#" },
-                        { id: 4, label: "Trip Models", link: "/#" }
+                        { id: 1, label: "Scheduling", link: "/scheduling" },
+                        { id: 2, label: "Offers", link: "/offers" },
+                        { id: 3, label: "Stations", link: "/stations" },
+                        { id: 4, label: "Trip Models", link: "/trip-models" }
                     ]
                 },
-                { id: "level1.3", label: "New Contract", link: "/#", parentId: "CorporateTransport" },
+                { id: "level1.3", label: "New Contract", link: "/new-contract", parentId: "CorporateTransport" },
             ],
         },
         {
@@ -203,12 +203,12 @@ const Navdata = () => {
                     },
                     stateVariables: isLevel1,
                     childItems: [
-                        { id: 1, label: "New Applications", link: "/#" },
-                        { id: 2, label: "All Sub-contractors", link: "/#" },
+                        { id: 1, label: "New Applications", link: "/new-applications" },
+                        { id: 2, label: "All Sub-contractors", link: "/all-sub-contractors" },
                     ]
                 },
-                                { id: "level1.1", label: "Schools", link: "/#", parentId: "Corporate" },
-                { id: "level1.3", label: "Companies", link: "/#", parentId: "Corporate" },
+                                { id: "level1.1", label: "Schools", link: "/schools", parentId: "Corporate" },
+                { id: "level1.3", label: "Companies", link: "/companies", parentId: "Corporate" },
             ],
         },
         {

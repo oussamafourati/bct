@@ -104,7 +104,7 @@ const SearchModal = () => {
     return (
         <React.Fragment>
             <Button variant="link" type="button" size="sm" onClick={handleToggleModal} className="px-3 fs-15 user-name-text header-item d-none d-md-block">
-                <span className="bi bi-search me-2"></span> Search for Toner...
+                <span className="bi bi-search me-2"></span> Search...
             </Button>
 
                 <Modal

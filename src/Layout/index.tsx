@@ -16,7 +16,6 @@ import {
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
-import TopBar from './TopBar';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import RightSidebar from './RightSidebar';
@@ -94,7 +93,6 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <React.Fragment>
             <div id="layout-wrapper">
-                <TopBar />
                 <Header />
                 <Sidebar layoutType={layoutType} />
                 <div className="main-content">
