@@ -80,7 +80,7 @@ const Navdata = () => {
         {
             id: "dashboard",
             label: "Dashboard",
-            icon: "mdi mdi-view-dashboard",
+            icon: "mdi mdi-view-dashboard-outline",
             link: "/dashboard",
             badgeName : "Hot",
             badgeColor : "danger"
@@ -88,7 +88,7 @@ const Navdata = () => {
         {
             id: "tracking",
             label: "Tracking",
-            icon: "mdi mdi-map-marker-path",
+            icon: "mdi mdi-map-clock-outline",
             link: "/#",
             click: function (e: any) {
                 e.preventDefault();
@@ -115,7 +115,7 @@ const Navdata = () => {
         {
             id: "VisitorQuote",
             label: "Visitors Quote",
-            icon: "mdi mdi-file-compare",
+            icon: "mdi mdi-file-document-edit-outline",
             link: "/#",
             click: function (e: any) {
                 e.preventDefault();
@@ -148,7 +148,7 @@ const Navdata = () => {
         {
             id: "CorporateTransport",
             label: "Corporates Transport",
-            icon: "mdi mdi-calendar-clock",
+            icon: "mdi mdi-calendar-month-outline",
             link: "/#",
             click: function (e: any) {
                 e.preventDefault();
@@ -232,7 +232,7 @@ const Navdata = () => {
         {
             id: "Administration",
             label: "Administration",
-            icon: "mdi mdi-account-tie",
+            icon: "mdi mdi-account-multiple-plus-outline",
             link: "/#",
             click: function (e: any) {
                 e.preventDefault();

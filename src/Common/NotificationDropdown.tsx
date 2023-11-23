@@ -14,7 +14,7 @@ const NotificationDropdown = () => {
         <React.Fragment>
             <Dropdown className="topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
                 <Dropdown.Toggle id="notification" type="button" className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle arrow-none">
-                    <i className='bi bi-bell fs-18'></i>
+                    <i className='mdi mdi-bell-outline fs-22'></i>
                     <span className="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger"><span className="notification-badge">4</span><span className="visually-hidden">unread messages</span></span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">

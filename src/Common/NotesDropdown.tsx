@@ -10,12 +10,12 @@ import img5 from "assets/images/brands/img-5.png";
 import img6 from "assets/images/brands/img-6.png";
 import img4 from "assets/images/brands/img-4.png";
 
-const BrowseAppsDropdown = () => {
+const NotesDropdown = () => {
     return (
         <React.Fragment>
             <Dropdown className="topbar-head-dropdown ms-1 header-item dropdown-hover-end">
                 <Dropdown.Toggle className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle arrow-none">
-                    <i className='bi bi-pin fs-18'></i>
+                    <i className='ri ri-file-edit-line fs-20'></i>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu-lg p-0 dropdown-menu-end">
                     <div className="p-3 border-top-0 border-start-0 border-end-0 border-dashed border">
@@ -37,4 +37,4 @@ const BrowseAppsDropdown = () => {
     );
 }
 
-export default BrowseAppsDropdown;
+export default NotesDropdown;

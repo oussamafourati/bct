@@ -2,7 +2,6 @@ import { Navigate } from "react-router-dom";
 
 import Dashboard from "pages/Dashboard";
 
-
 import Categories from "pages/Products/Categories";
 import SubCategories from "pages/Products/SubCategories";
 
@@ -47,8 +46,6 @@ import Transactions from "pages/Localization/Transactions";
 import CurrencyRates from "pages/Localization/CurrencyRates";
 
 // Accounts
-import MyAccount from "pages/Accounts/MyAccount";
-import Settings from "pages/Accounts/Settings";
 import SignIn from "pages/Accounts/AuthenticationInner/SignIn";
 import PasswordReset from "pages/Accounts/AuthenticationInner/PasswordReset";
 import PasswordCreate from "pages/Accounts/AuthenticationInner/PasswordCreate";
@@ -60,10 +57,18 @@ import Error500 from "pages/Accounts/AuthenticationInner/Error500";
 import ComingSoon from "pages/Accounts/AuthenticationInner/ComingSoon";
 
 import UserProfile from "pages/Authentication/user-profile";
-import Vehicles from "pages/Vehicles";
+
+//? Administration
+import Driver from "pages/Administration/Driver";
+import Team from "pages/Administration/Team";
+import Vehicles from "pages/Administration/Vehicles";
+
+//? Vehicles
+import AddNewVehicle from "pages/Administration/Vehicles/AddNewVehicle";
 
 //? Notes
 import Notes from "pages/Notes";
+import AddNewDriver from "pages/Administration/Driver/AddNewDriver";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -105,12 +110,18 @@ const authProtectedRoutes = [
   //? Email Templates
   { path: "/email-templates", component: <Statistics /> },
 
-  //? Accounts
-  { path: "/team", component: <MyAccount /> },
-  { path: "/driver", component: <Settings /> },
+  //? Administration
+  { path: "/team", component: <Team /> },
+  { path: "/driver", component: <Driver /> },
   { path: "/vehicles", component: <Vehicles /> },
 
-   //? Notes
+  //? Vehicles
+  { path: "/administration/vehicles/new-vehicle", component: <AddNewVehicle /> },
+
+  //? Driver
+  { path: "/administration/driver/new-driver", component: <AddNewDriver /> },
+
+  //? Notes
   { path: "/notes", component: <Notes /> },
 
   // this route should be at the end of all other routes

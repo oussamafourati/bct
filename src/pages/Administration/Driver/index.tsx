@@ -1,24 +1,26 @@
 import React, { useMemo, useState } from 'react';
 import { Button, Card, Col, Container, Form, Modal, Row } from 'react-bootstrap';
 import Breadcrumb from 'Common/BreadCrumb';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Flatpickr from "react-flatpickr";
 import TableContainer from 'Common/TableContainer';
 import { shipments } from 'Common/data';
 
-const Vehicles = () => {
+const Driver = () => {
 
-    document.title = "Vehicles| Bouden Coach Travel";
+    document.title = "Driver | Bouden Coach Travel";
+
+    const navigate = useNavigate();
 
     const [modal_AddShippingModals, setmodal_AddShippingModals] = useState<boolean>(false);
     function tog_AddShippingModals() {
-        setmodal_AddShippingModals(!modal_AddShippingModals);
+        navigate("/administration/driver/new-driver")
     }
 
      const columns = useMemo(
         () => [
             {
-                Header: "Name",
+                Header: "Full Name",
                 disableFilters: true,
                 filterable: true,
                 accessor: (cellProps: any) => {
@@ -26,43 +28,43 @@ const Vehicles = () => {
                 },
             },
             {
-                Header: "Serial Number",
+                Header: "DOB",
                 accessor: "shipment_no",
                 disableFilters: true,
                 filterable: true,
             },
             {
-                Header: "Brand",
+                Header: "Service Date",
                 accessor: "customer_name",
                 disableFilters: true,
                 filterable: true,
             },
             {
-                Header: "Service Date",
+                Header: "Status",
                 accessor: "supplier",
                 disableFilters: true,
                 filterable: true,
             },
             {
-                Header: "Size",
+                Header: "Category",
                 accessor: "location",
                 disableFilters: true,
                 filterable: true,
             },
             {
-                Header: "Category",
+                Header: "Contract Type",
                 accessor: "order_date",
                 disableFilters: true,
                 filterable: true,
             },
             {
-                Header: "Capacity",
+                Header: "Salary",
                 accessor: "arrival_date",
                 disableFilters: true,
                 filterable: true,
              },
               {
-                Header: "Type",
+                Header: "Shift",
                 accessor: "status",
                 disableFilters: true,
                 filterable: true,
@@ -93,12 +95,12 @@ const Vehicles = () => {
         <React.Fragment>
            <div className="page-content">
                 <Container fluid={true}>
-                    <Breadcrumb title="Vehicles" pageTitle="Administration" />
+                    <Breadcrumb title="Driver" pageTitle="Administration" />
                     <Card id="shipmentsList">
                         <Card.Header className="border-bottom-dashed">
                             <Row className="align-items-center g-3">
                                 <Col className="col-xxl-auto col-sm-auto ms-auto">
-                                    <Button variant='success' onClick={() => tog_AddShippingModals()} className="add-btn"><i className="bi bi-plus-circle me-1 align-middle"></i> Add Vehicle</Button>
+                                    <Button variant='success' onClick={() => tog_AddShippingModals()} className="add-btn"><i className="bi bi-plus-circle me-1 align-middle"></i> Add Driver</Button>
                                 </Col>
                             </Row>
                         </Card.Header>
@@ -270,4 +272,4 @@ const Vehicles = () => {
     );
 };
 
-export default Vehicles;
+export default Driver;

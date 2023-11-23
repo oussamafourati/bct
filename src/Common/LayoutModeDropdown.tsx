@@ -11,7 +11,7 @@ const LayoutModeDropdown = () => {
         <React.Fragment>
             <Dropdown className="topbar-head-dropdown ms-1 header-item" drop="start">
                 <Dropdown.Toggle className="btn btn-icon btn-topbar btn-ghost-dark rounded-circle mode-layout arrow-none">
-                    <i className="bi bi-sun align-middle fs-20"></i>
+                    <i className="mdi mdi-theme-light-dark fs-22"></i>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="p-2 dropdown-menu-end" id="light-dark-mode">
                     <Dropdown.Item href="#" data-mode="light" onClick={() => dispatch(changeLayoutMode(LAYOUT_MODE_TYPES.LIGHTMODE))}><i className="bi bi-sun align-middle me-2"></i> Defualt (light mode)</Dropdown.Item>
