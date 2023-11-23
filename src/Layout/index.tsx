@@ -100,7 +100,7 @@ const Layout = ({ children }: LayoutProps) => {
                     <Footer />
                 </div>
             </div>
-            <RightSidebar />
+            {/* <RightSidebar /> */}
         </React.Fragment>
     );
 }

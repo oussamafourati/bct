@@ -69,6 +69,13 @@ import AddNewVehicle from "pages/Administration/Vehicles/AddNewVehicle";
 //? Notes
 import Notes from "pages/Notes";
 import AddNewDriver from "pages/Administration/Driver/AddNewDriver";
+import AddNewTeam from "pages/Administration/Team/AddNewTeam";
+import Companies from "pages/Corporate/Companies";
+import AddNewCompany from "pages/Corporate/Companies/AddNewCompany";
+import Schools from "pages/Corporate/Schools";
+import AddNewSchool from "pages/Corporate/Schools/AddNewSchool";
+import Subcontractors from "pages/Corporate/Subcontractor";
+import AddNewSubcontractor from "pages/Corporate/Subcontractor/AddNewSubcontractor";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -95,11 +102,21 @@ const authProtectedRoutes = [
   { path: "/trip-models", component: <SellersGridView /> },
 
   //? Corporate
-  { path: "/schools", component: <Categories /> },
-  { path: "/companies", component: <SubCategories /> },
+  { path: "/schools", component: <Schools /> },
+  { path: "/companies", component: <Companies /> },
   //? Corporate ==> Sub-Contractor
   { path: "/new-applications", component: <OrdersListView /> },
-  { path: "/all-sub-contractors", component: <OrdersOverview /> },
+  { path: "/all-sub-contractors", component: <Subcontractors /> },
+
+  //? Companies
+  { path: "/corporate/companies/new-company", component: <AddNewCompany /> },
+  //? Schools
+  { path: "/corporate/schools/new-school", component: <AddNewSchool /> },
+  //? Sub-Contractors
+  {
+    path: "/corporate/subcontractors/new-subcontractor",
+    component: <AddNewSubcontractor />,
+  },
 
   //? Feedback & Claims
   { path: "/feedback&claims", component: <ReviewRating /> },
@@ -116,10 +133,16 @@ const authProtectedRoutes = [
   { path: "/vehicles", component: <Vehicles /> },
 
   //? Vehicles
-  { path: "/administration/vehicles/new-vehicle", component: <AddNewVehicle /> },
+  {
+    path: "/administration/vehicles/new-vehicle",
+    component: <AddNewVehicle />,
+  },
 
   //? Driver
   { path: "/administration/driver/new-driver", component: <AddNewDriver /> },
+
+  //? Team
+  { path: "/administration/team/new-team", component: <AddNewTeam /> },
 
   //? Notes
   { path: "/notes", component: <Notes /> },

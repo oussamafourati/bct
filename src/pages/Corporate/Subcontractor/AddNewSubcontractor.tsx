@@ -7,8 +7,8 @@ import Dropzone from "react-dropzone";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-const AddNewDriver = () => {
-  document.title = "Create Driver | Bouden Coach Travel";
+const AddNewSubcontractor = () => {
+  document.title = "Create Sub-Contractor | Bouden Coach Travel";
 
   const [selectedFiles, setselectedFiles] = useState([]);
 
@@ -57,7 +57,9 @@ const AddNewDriver = () => {
                         </div>
                       </div>
                       <div className="flex-grow-1">
-                        <h5 className="card-title mb-1">Driver Information</h5>
+                        <h5 className="card-title mb-1">
+                          Sub-Contractor Information
+                        </h5>
                       </div>
                     </div>
                   </Card.Header>
@@ -67,51 +69,22 @@ const AddNewDriver = () => {
                         <input type="hidden" id="id-field" />
                         <Row>
                           <Row>
-                            {/* First Name  == Done */}
+                            {/* Name  == Done */}
                             <Col lg={4}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="customerName-field">
-                                  First Name
+                                  Name
                                 </Form.Label>
                                 <Form.Control
                                   type="text"
                                   id="customerName-field"
-                                  placeholder="Enter first name"
+                                  placeholder="Enter subcontractor name"
                                   required
                                 />
                               </div>
                             </Col>
-                            {/* Last Name == Done */}
+                            {/* Address == Done */}
                             <Col lg={3}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Last Name
-                                </Form.Label>
-                                <Form.Control
-                                  type="text"
-                                  id="supplierName-field"
-                                  placeholder="Enter last name"
-                                  required
-                                />
-                              </div>
-                            </Col>
-                            {/* Birth_Date  == Done */}
-                            <Col lg={3}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Birth Date
-                                </Form.Label>
-                                <Flatpickr
-                                  className="form-control flatpickr-input"
-                                  placeholder="Select Date"
-                                  options={{
-                                    dateFormat: "d M, Y",
-                                  }}
-                                />
-                              </div>
-                            </Col>
-                            {/* Address  == Done */}
-                            <Col lg={2}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
                                   Address
@@ -124,15 +97,13 @@ const AddNewDriver = () => {
                                 />
                               </div>
                             </Col>
-                          </Row>
-                          <Row>
                             {/* Email  == Done */}
-                            <Col lg={4}>
+                            <Col lg={3}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
                                   Email
                                 </Form.Label>
-                               <Form.Control
+                                <Form.Control
                                   type="email"
                                   id="supplierName-field"
                                   placeholder="Enter email"
@@ -141,95 +112,26 @@ const AddNewDriver = () => {
                               </div>
                             </Col>
                             {/* Phone  == Done */}
-                            <Col lg={3}>
+                            <Col lg={2}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
                                   Phone
                                 </Form.Label>
                                 <Form.Control
-                                  type="text"
+                                  type="terxt"
                                   id="supplierName-field"
                                   placeholder="Enter phone"
                                   required
                                 />
                               </div>
                             </Col>
-                            {/*  Nationaity == Not Yet */}
-                            <Col lg={3}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Nationaity 
-                                </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Capacity</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                  <option value="7">7</option>
-                                  <option value="8">8</option>
-                                  <option value="9">9</option>
-                                  <option value="10">10</option>
-                                  <option value="11">11</option>
-                                  <option value="12">12</option>
-                                  <option value="13">13</option>
-                                </select>
-                              </div>
-                            </Col>
-                            {/* Original_Nationality  == Not Yet */}
-                            <Col lg={2}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Original Nationality
-                                </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Capacity</option>
-                                  <option value="2">20kg</option>
-                                  <option value="3">75kg</option>
-                                </select>
-                              </div>
-                            </Col>
                           </Row>
-
                           <Row>
-                                                        {/* Gender  == Done */}
-                            <Col lg={3}>
-                              <div className="mb-3">
-                                <label
-                                  htmlFor="statusSelect"
-                                  className="form-label"
-                                >
-                                  Gender
-                                </label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Gender</option>
-                                  <option value="Male">Male</option>
-                                  <option value="Female">Female</option>
-                                  <option value="Other">Other</option>
-                                </select>
-                              </div>
-                            </Col>
-                            {/* Civil_Status  == Done */}
+                            {/* Category  == Done */}
                             <Col lg={4}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
-                                  Civil Status
+                                  Category
                                 </Form.Label>
                                 <select
                                   className="form-select text-muted"
@@ -237,206 +139,57 @@ const AddNewDriver = () => {
                                   id="statusSelect"
                                   required
                                 >
-                                  <option value="">Status</option>
-                                  <option value="Married">Married</option>
-                                  <option value="Single">Single</option>
-                                  <option value="Divorced">Divorced</option>
-                                  <option value="Widowed">Widowed</option>
+                                  <option value="">Category</option>
+                                  <option value="Small">Small</option>
+                                  <option value="Medium">Medium</option>
+                                  <option value="Large">Large</option>
                                 </select>
                               </div>
                             </Col>
-                            {/* Number of childs  == Done */}
+                            {/* Activity  == Done */}
                             <Col lg={3}>
                               <div className="mb-3">
-                                <label
-                                  htmlFor="statusSelect"
-                                  className="form-label"
-                                >
-                                 Number of childs
-                                </label>
-                                 <Form.Control
-                                  type="text"
-                                  id="supplierName-field"
-                                  placeholder="Enter number of childs"
+                                <Form.Label htmlFor="supplierName-field">
+                                  Region
+                                </Form.Label>
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
                                   required
+                                >
+                                  <option value="">Region</option>
+                                  <option value="Industry">Manchester</option>
+                                  <option value="Health">London</option>
+                                  <option value="School">Fulham</option>
+                                  <option value="High Education">
+                                    WestHam
+                                  </option>
+                                </select>
+                              </div>
+                            </Col>
+                            {/* Service_Date  == Done */}
+                            <Col lg={3}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="orderDate-field">
+                                  Service Date
+                                </Form.Label>
+                                <Flatpickr
+                                  className="form-control flatpickr-input"
+                                  placeholder="Select Date"
+                                  options={{
+                                    dateFormat: "d M, Y",
+                                  }}
                                 />
                               </div>
                             </Col>
-                          </Row>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">Legal Card</h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Row>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Number
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter number"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <Form.Label htmlFor="orderDate-field">
-                                      Date
-                                    </Form.Label>
-                                    <Flatpickr
-                                      className="form-control flatpickr-input"
-                                      placeholder="Select Date"
-                                      options={{
-                                        dateFormat: "d M, Y",
-                                      }}
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      File
-                                    </label>
-                                    <Form.Control
-                                      type="file"
-                                      id="supplierName-field"
-                                      placeholder="Enter number"
-                                      className="text-muted"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                              </Row>
-                            </Card.Body>
-                          </Col>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">Driving License </h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                             <Card.Body>
-                              <Row>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Number
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter number"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <Form.Label htmlFor="orderDate-field">
-                                      Date
-                                    </Form.Label>
-                                    <Flatpickr
-                                      className="form-control flatpickr-input"
-                                      placeholder="Select Date"
-                                      options={{
-                                        dateFormat: "d M, Y",
-                                      }}
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      File
-                                    </label>
-                                    <Form.Control
-                                      type="file"
-                                      id="supplierName-field"
-                                      placeholder="Enter number"
-                                      className="text-muted"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                              </Row>
-                            </Card.Body>
-                          </Col>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">Work</h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Row>
-                                <Col lg={2}>
-                                  <div className="mb-3">
-                                    <Form.Label htmlFor="orderDate-field">
-                                      Service Date
-                                    </Form.Label>
-                                    <Flatpickr
-                                      className="form-control flatpickr-input"
-                                      placeholder="Select Date"
-                                      options={{
-                                        dateFormat: "d M, Y",
-                                      }}
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={2}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Status 
-                                    </label>
-                                    <select
+                            {/* Status  == Done */}
+                            <Col lg={2}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Status
+                                </Form.Label>
+                                <select
                                   className="form-select text-muted"
                                   name="choices-single-default"
                                   id="statusSelect"
@@ -445,72 +198,193 @@ const AddNewDriver = () => {
                                   <option value="">Status</option>
                                   <option value="Active">Active</option>
                                   <option value="Inactive">Inactive</option>
-                                  <option value="Annual vacation">
-                                   Annual vacation
-                                  </option>
-                                      <option value="Exceptional vacation">Exceptional vacation</option>
-                                       <option value="Driving">Driving</option>
                                 </select>
+                              </div>
+                            </Col>
+                                                  </Row>
+                                                  <Col lg={12}>
+                            <Card.Header>
+                              <div className="d-flex">
+                                <div className="flex-shrink-0 me-3">
+                                  <div className="avatar-sm">
+                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
+                                      <i className="bi bi-box-seam"></i>
+                                    </div>
                                   </div>
-                                </Col>
-                                <Col lg={2}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Category
-                                    </label>
-                                    <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Category</option>
-                                  <option value="Only Car">Only Car</option>
-                                  <option value="Only Bus">Only Bus</option>
-                                  <option value="Both">
-                                   Both
-                                  </option>
-                                </select>
-                                  </div>
-                                </Col>
+                                </div>
+                                <div className="flex-grow-1">
+                                  <h5 className="card-title">
+                                    Legal Staus
+                                  </h5>
+                                </div>
+                              </div>
+                            </Card.Header>
+                            <Card.Body>
+                              <Row>
                                 <Col lg={3}>
                                   <div className="mb-3">
                                     <label
                                       htmlFor="statusSelect"
                                       className="form-label"
                                     >
-                                      Contract Type 
-                                    </label>
-                                    <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Contract</option>
-                                  <option value="CDI">CDI</option>
-                                  <option value="CDD">CDD</option>
-                                  <option value="Part Time">
-                                   Part Time
-                                  </option>
-                                </select>
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Salary
+                                      ID Number
                                     </label>
                                     <Form.Control
                                       type="text"
                                       id="supplierName-field"
-                                      placeholder="Enter salary"
+                                      placeholder="Enter Id number"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <Form.Label htmlFor="orderDate-field">
+                                      Creation Date
+                                    </Form.Label>
+                                    <Flatpickr
+                                      className="form-control flatpickr-input"
+                                      placeholder="Select Date"
+                                      options={{
+                                        dateFormat: "d M, Y",
+                                      }}
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      File
+                                    </label>
+                                    <Form.Control
+                                      type="file"
+                                      id="supplierName-field"
+                                      placeholder="Enter number"
+                                      className="text-muted"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                              </Row>
+                            </Card.Body>
+                                                  </Col>
+                                                                            <Col lg={12}>
+                            <Card.Header>
+                              <div className="d-flex">
+                                <div className="flex-shrink-0 me-3">
+                                  <div className="avatar-sm">
+                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
+                                      <i className="bi bi-box-seam"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="flex-grow-1">
+                                  <h5 className="card-title">
+                                    License Agreement
+                                  </h5>
+                                </div>
+                              </div>
+                            </Card.Header>
+                            <Card.Body>
+                              <Row>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      ID Number
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter Id number"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <Form.Label htmlFor="orderDate-field">
+                                      Date
+                                    </Form.Label>
+                                    <Flatpickr
+                                      className="form-control flatpickr-input"
+                                      placeholder="Select Date"
+                                      options={{
+                                        dateFormat: "d M, Y",
+                                      }}
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      File
+                                    </label>
+                                    <Form.Control
+                                      type="file"
+                                      id="supplierName-field"
+                                      placeholder="Enter number"
+                                      className="text-muted"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                              </Row>
+                            </Card.Body>
+                                                  </Col>
+                                                   <Col lg={12}>
+                            <Card.Header>
+                              <div className="d-flex">
+                                <div className="flex-shrink-0 me-3">
+                                  <div className="avatar-sm">
+                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
+                                      <i className="bi bi-box-seam"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="flex-grow-1">
+                                  <h5 className="card-title">Bank Account</h5>
+                                </div>
+                              </div>
+                            </Card.Header>
+                            <Card.Body>
+                              <Row>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      Bank Account Number
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter Bank Account Number"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      Bank Name
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter Bank Account Number"
                                       required
                                     />
                                   </div>
@@ -518,32 +392,162 @@ const AddNewDriver = () => {
                               </Row>
                             </Card.Body>
                           </Col>
-                          {/* <Col lg={6}>
-                            <div className="mb-3">
-                              <label
-                                htmlFor="statusSelect"
-                                className="form-label"
-                              >
-                                Shift
-                              </label>
-                              <select
-                                className="form-select"
-                                name="choices-single-default"
-                                id="statusSelect"
-                                required
-                              >
-                                <option value="">Shifts</option>
-                                <option value="Pickups">Night </option>
-                                <option value="Pending">Weekend </option>
-                                <option value="Shipping">Holiday </option>
-                                <option value="Delivered">Costum </option>
-                              </select>
-                            </div>
-                          </Col> */}
+                          <Col lg={12}>
+                            <Card.Header>
+                              <div className="d-flex">
+                                <div className="flex-shrink-0 me-3">
+                                  <div className="avatar-sm">
+                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
+                                      <i className="bi bi-box-seam"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="flex-grow-1">
+                                  <h5 className="card-title">Vehicles</h5>
+                                </div>
+                              </div>
+                            </Card.Header>
+                            <Card.Body>
+                              <Row>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      Category
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter Id number"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <Form.Label htmlFor="orderDate-field">
+                                      Matricle
+                                    </Form.Label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter Matricule"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <Form.Label htmlFor="orderDate-field">
+                                      Status
+                                    </Form.Label>
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Status</option>
+                                      <option value="Active">Active</option>
+                                      <option value="Inactive">Inactive</option>
+                                    </select>
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      Files
+                                    </label>
+                                    <Form.Control
+                                      type="file"
+                                      id="supplierName-field"
+                                      placeholder="Enter number"
+                                      className="text-muted"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                              </Row>
+                            </Card.Body>
+                          </Col>
+                         
+                          <Col lg={12}>
+                            <Card.Header>
+                              <div className="d-flex">
+                                <div className="flex-shrink-0 me-3">
+                                  <div className="avatar-sm">
+                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
+                                      <i className="bi bi-box-seam"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="flex-grow-1">
+                                  <h5 className="card-title">Account</h5>
+                                </div>
+                              </div>
+                            </Card.Header>
+                            <Card.Body>
+                              <Row>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      Login
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter Login"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      Password
+                                    </label>
+                                    <Form.Control
+                                      type="password"
+                                      id="supplierName-field"
+                                      placeholder="Enter password"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                                <Col lg={3}>
+                                  <div className="mb-3">
+                                    <label
+                                      htmlFor="statusSelect"
+                                      className="form-label"
+                                    >
+                                      Subdomaine
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter Url"
+                                      required
+                                    />
+                                  </div>
+                                </Col>
+                              </Row>
+                            </Card.Body>
+                          </Col>
                           <Col lg={12}>
                             <div className="hstack gap-2 justify-content-end">
                               <Button variant="primary" id="add-btn">
-                                Add Driver
+                                Add Company
                               </Button>
                             </div>
                           </Col>
@@ -561,4 +565,4 @@ const AddNewDriver = () => {
   );
 };
 
-export default AddNewDriver;
+export default AddNewSubcontractor;

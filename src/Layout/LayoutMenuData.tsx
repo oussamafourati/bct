@@ -148,7 +148,7 @@ const Navdata = () => {
         {
             id: "CorporateTransport",
             label: "Corporates Transport",
-            icon: "mdi mdi-calendar-month-outline",
+            icon: "mdi mdi-office-building-cog-outline",
             link: "/#",
             click: function (e: any) {
                 e.preventDefault();

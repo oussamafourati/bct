@@ -6,15 +6,15 @@ import Flatpickr from "react-flatpickr";
 import TableContainer from 'Common/TableContainer';
 import { shipments } from 'Common/data';
 
-const Team = () => {
+const Schools = () => {
 
-    document.title = "Team | Bouden Coach Travel";
+    document.title = "Schools | Bouden Coach Travel";
 
     const navigate = useNavigate()
 
     const [modal_AddShippingModals, setmodal_AddShippingModals] = useState<boolean>(false);
     function tog_AddShippingModals() {
-        navigate("/administration/team/new-team")
+        navigate("/corporate/schools/new-school")
     }
 
      const columns = useMemo(
@@ -95,12 +95,12 @@ const Team = () => {
         <React.Fragment>
            <div className="page-content">
                 <Container fluid={true}>
-                    <Breadcrumb title="Team" pageTitle="Administration" />
+                    <Breadcrumb title="Schools" pageTitle="Corporate" />
                     <Card id="shipmentsList">
                         <Card.Header className="border-bottom-dashed">
                             <Row className="align-items-center g-3">
                                 <Col className="col-xxl-auto col-sm-auto ms-auto">
-                                    <Button variant='success' onClick={() => tog_AddShippingModals()} className="add-btn"><i className="bi bi-plus-circle me-1 align-middle"></i> Add Team</Button>
+                                    <Button variant='success' onClick={() => tog_AddShippingModals()} className="add-btn"><i className="bi bi-plus-circle me-1 align-middle"></i> Add School</Button>
                                 </Col>
                             </Row>
                         </Card.Header>
@@ -272,4 +272,4 @@ const Team = () => {
     );
 };
 
-export default Team;
+export default Schools;

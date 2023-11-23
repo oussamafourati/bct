@@ -67,167 +67,167 @@ const AddNewVehicle = () => {
                         <input type="hidden" id="id-field" />
                         <Row>
                           <Row>
-{/* Name  == Done */}
-                          <Col lg={4}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="customerName-field">
-                                Name
-                              </Form.Label>
-                              <Form.Control
-                                type="text"
-                                id="customerName-field"
-                                placeholder="Enter vehicle name"
-                                required
-                              />
-                            </div>
-                          </Col>
-                          {/* Serial_Number == Done */}
-                          <Col lg={3}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="supplierName-field">
-                                Serial Number
-                              </Form.Label>
-                              <Form.Control
-                                type="text"
-                                id="supplierName-field"
-                                placeholder="Enter serial number"
-                                required
-                              />
-                            </div>
-                          </Col>
-                          {/* Service_Date  == Done */}
-                          <Col lg={3}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="supplierName-field">
-                                Service Date
-                              </Form.Label>
-                              <Flatpickr
-                                className="form-control flatpickr-input"
-                                placeholder="Select Date"
-                                options={{
-                                  dateFormat: "d M, Y",
-                                }}
-                              />
-                            </div>
-                          </Col>
-                          {/* Brand  == Done */}
-                          <Col lg={2}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="supplierName-field">
-                                Brand
-                              </Form.Label>
-                              <select
-                                className="form-select text-muted"
-                                name="choices-single-default"
-                                id="statusSelect"
-                                required
-                              >
-                                <option value="">Brand</option>
-                                <option value="Pickups">Tesla</option>
-                                <option value="Pending">BMW</option>
-                                <option value="Shipping">Ford</option>
-                                <option value="Pickups">Porsche</option>
-                                <option value="Pending">Bentley</option>
-                                <option value="Shipping">Toyota</option>
-                                <option value="Pickups">Audi</option>
-                                <option value="Pending">Jeep</option>
-                                <option value="Shipping">Jaguar</option>
-                                <option value="Pickups">Rolls-Royce</option>
-                                <option value="Pending">Mercedes-Benz</option>
-                                <option value="Infiniti ">Infiniti</option>
-                              </select>
-                            </div>
-                          </Col>
+                            {/* Name  == Done */}
+                            <Col lg={4}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="customerName-field">
+                                  Name
+                                </Form.Label>
+                                <Form.Control
+                                  type="text"
+                                  id="customerName-field"
+                                  placeholder="Enter vehicle name"
+                                  required
+                                />
+                              </div>
+                            </Col>
+                            {/* Serial_Number == Done */}
+                            <Col lg={3}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Serial Number
+                                </Form.Label>
+                                <Form.Control
+                                  type="text"
+                                  id="supplierName-field"
+                                  placeholder="Enter serial number"
+                                  required
+                                />
+                              </div>
+                            </Col>
+                            {/* Service_Date  == Done */}
+                            <Col lg={3}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Service Date
+                                </Form.Label>
+                                <Flatpickr
+                                  className="form-control flatpickr-input"
+                                  placeholder="Select Date"
+                                  options={{
+                                    dateFormat: "d M, Y",
+                                  }}
+                                />
+                              </div>
+                            </Col>
+                            {/* Brand  == Done */}
+                            <Col lg={2}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Brand
+                                </Form.Label>
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
+                                  required
+                                >
+                                  <option value="">Brand</option>
+                                  <option value="Pickups">Tesla</option>
+                                  <option value="Pending">BMW</option>
+                                  <option value="Shipping">Ford</option>
+                                  <option value="Pickups">Porsche</option>
+                                  <option value="Pending">Bentley</option>
+                                  <option value="Shipping">Toyota</option>
+                                  <option value="Pickups">Audi</option>
+                                  <option value="Pending">Jeep</option>
+                                  <option value="Shipping">Jaguar</option>
+                                  <option value="Pickups">Rolls-Royce</option>
+                                  <option value="Pending">Mercedes-Benz</option>
+                                  <option value="Infiniti ">Infiniti</option>
+                                </select>
+                              </div>
+                            </Col>
                           </Row>
                           <Row>
-{/* Size  == Done */}
-                          <Col lg={4}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="supplierName-field">
-                                Type
-                              </Form.Label>
-                              <select
-                                className="form-select text-muted"
-                                name="choices-single-default"
-                                id="statusSelect"
-                                required
-                              >
-                                <option value="">Type</option>
-                                <option value="Car">Car</option>
-                                <option value="Bus">Bus</option>
-                                <option value="Double Height">
-                                  Double Height
-                                </option>
-                              </select>
-                            </div>
-                          </Col>
-                          {/* Category  == Done */}
-                          <Col lg={3}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="supplierName-field">
-                                Category
-                              </Form.Label>
-                              <select
-                                className="form-select text-muted"
-                                name="choices-single-default"
-                                id="statusSelect"
-                                required
-                              >
-                                <option value="">Category</option>
-                                <option value="Standard">Standard</option>
-                                <option value="Executive">Executive</option>
-                                <option value="Luxury">Luxury</option>
-                              </select>
-                            </div>
-                          </Col>
-                          {/* Passenger_Capicity  == Not Yet */}
-                          <Col lg={3}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="supplierName-field">
-                                Passenger Capicity
-                              </Form.Label>
-                              <select
-                                className="form-select text-muted"
-                                name="choices-single-default"
-                                id="statusSelect"
-                                required
-                              >
-                                <option value="">Capacity</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                              </select>
-                            </div>
-                          </Col>
-                          {/* Luggage_Capacity  == Not Yet */}
-                          <Col lg={2}>
-                            <div className="mb-3">
-                              <Form.Label htmlFor="supplierName-field">
-                                Luggage capacity
-                              </Form.Label>
-                              <select
-                                className="form-select text-muted"
-                                name="choices-single-default"
-                                id="statusSelect"
-                                required
-                              >
-                                <option value="">Capacity</option>
-                                <option value="2">20kg</option>
-                                <option value="3">75kg</option>
-                              </select>
-                            </div>
-                          </Col>
+                            {/* Size  == Done */}
+                            <Col lg={4}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Type
+                                </Form.Label>
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
+                                  required
+                                >
+                                  <option value="">Type</option>
+                                  <option value="Car">Car</option>
+                                  <option value="Bus">Bus</option>
+                                  <option value="Double Height">
+                                    Double Height
+                                  </option>
+                                </select>
+                              </div>
+                            </Col>
+                            {/* Category  == Done */}
+                            <Col lg={3}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Category
+                                </Form.Label>
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
+                                  required
+                                >
+                                  <option value="">Category</option>
+                                  <option value="Standard">Standard</option>
+                                  <option value="Executive">Executive</option>
+                                  <option value="Luxury">Luxury</option>
+                                </select>
+                              </div>
+                            </Col>
+                            {/* Passenger_Capicity  == Not Yet */}
+                            <Col lg={3}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Passenger Capicity
+                                </Form.Label>
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
+                                  required
+                                >
+                                  <option value="">Capacity</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                  <option value="13">13</option>
+                                </select>
+                              </div>
+                            </Col>
+                            {/* Luggage_Capacity  == Not Yet */}
+                            <Col lg={2}>
+                              <div className="mb-3">
+                                <Form.Label htmlFor="supplierName-field">
+                                  Luggage capacity
+                                </Form.Label>
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
+                                  required
+                                >
+                                  <option value="">Capacity</option>
+                                  <option value="2">20kg</option>
+                                  <option value="3">75kg</option>
+                                </select>
+                              </div>
+                            </Col>
                           </Row>
-                          
+
                           <Row>
                             {/* Status  == Done */}
                             <Col lg={4}>
@@ -604,7 +604,7 @@ const AddNewVehicle = () => {
                                     >
                                       File
                                     </label>
-                                   <Form.Control
+                                    <Form.Control
                                       type="file"
                                       id="supplierName-field"
                                       placeholder="Enter number"

@@ -103,8 +103,8 @@ const SearchModal = () => {
     }, []);
     return (
         <React.Fragment>
-            <Button variant="link" type="button" size="sm" onClick={handleToggleModal} className="px-3 fs-15 user-name-text header-item d-none d-md-block">
-                <span className="bi bi-search me-2"></span> Search...
+            <Button variant="link" type="button" size="sm" onClick={handleToggleModal} className="px-3 fs-20 user-name-text header-item d-none d-md-block">
+                <span className="mdi mdi-magnify me-2"></span> Search...
             </Button>
 
                 <Modal
@@ -119,7 +119,7 @@ const SearchModal = () => {
                         <input 
                             type="text" 
                             className="form-control form-control-lg border-2" 
-                            placeholder="Search for toner..." 
+                            placeholder="Search for something..." 
                             autoComplete="off" 
                             ref={searchInputRef}
                             id="search-options" 
@@ -128,7 +128,7 @@ const SearchModal = () => {
                                 onChangeData(e.target.value);
                             }}
                             />
-                        <span className="bi bi-search search-widget-icon fs-17"></span>
+                        <span className="mdi mdi-magnify fs-20"></span>
                         <Link to="#" className="search-widget-icon fs-14 link-secondary text-decoration-underline search-widget-icon-close d-none" ref={searchCloseOptions} id="search-close-options">Clear</Link>
                     </div>
                 </ModalHeader>
