@@ -76,6 +76,11 @@ import Schools from "pages/Corporate/Schools";
 import AddNewSchool from "pages/Corporate/Schools/AddNewSchool";
 import Subcontractors from "pages/Corporate/Subcontractor";
 import AddNewSubcontractor from "pages/Corporate/Subcontractor/AddNewSubcontractor";
+import NewApplications from "pages/Corporate/Subcontractor/NewApplications";
+import EmailTemplates from "pages/EmailTemplate";
+import Feedback from "pages/Feedback&Claims/Feedback";
+import Claims from "pages/Feedback&Claims/Claims";
+import ReportingManagement from "pages/ReportingManagement";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -105,27 +110,28 @@ const authProtectedRoutes = [
   { path: "/schools", component: <Schools /> },
   { path: "/companies", component: <Companies /> },
   //? Corporate ==> Sub-Contractor
-  { path: "/new-applications", component: <OrdersListView /> },
+  { path: "/new-applications", component: <NewApplications /> },
   { path: "/all-sub-contractors", component: <Subcontractors /> },
 
   //? Companies
   { path: "/corporate/companies/new-company", component: <AddNewCompany /> },
   //? Schools
   { path: "/corporate/schools/new-school", component: <AddNewSchool /> },
-  //? Sub-Contractors
+  //? Sub-Contractor
   {
     path: "/corporate/subcontractors/new-subcontractor",
     component: <AddNewSubcontractor />,
   },
 
   //? Feedback & Claims
-  { path: "/feedback&claims", component: <ReviewRating /> },
+  { path: "/feedback", component: <Feedback /> },
+  { path: "/claims", component: <Claims /> },
 
   //? Reporting Management
-  { path: "/reporting-management", component: <Brands /> },
+  { path: "/reporting-management", component: <ReportingManagement /> },
 
   //? Email Templates
-  { path: "/email-templates", component: <Statistics /> },
+  { path: "/email-templates", component: <EmailTemplates /> },
 
   //? Administration
   { path: "/team", component: <Team /> },

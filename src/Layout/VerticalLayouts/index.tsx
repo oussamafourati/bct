@@ -107,6 +107,7 @@ const VerticalLayout = (props: any) => {
                                                             {!subItem.isChildItem ? (
                                                                 <li className="nav-item">
                                                                     <Link to={subItem.link ? subItem.link : "/"} className="nav-link">
+                                                                        <i className={subItem.icon} style={{fontSize: 14}}></i>
                                                                         {props.t(subItem.label)}
                                                                         {subItem.badgeName ?
                                                                             <span className={"badge badge-pill bg-soft-" + subItem.badgeColor} data-key="t-new">{subItem.badgeName}</span>

@@ -1,268 +1,335 @@
 import React, { useEffect, useState } from "react";
 
 const Navdata = () => {
-    //state data
-   
-    const [isTracking, setIsTracking] = useState(false);
-    const [isVisitorQuote, setIsVisitorQuote] = useState(false);
-    const [isCorporateTransport, setIsCorporateTransport] = useState(false);
-    const [isCorporate, setIsCorporate] = useState(false);
-    const [isFeedbackClaims, setIsFeedbackClaims] = useState(false);
-    const [isReportingManagement, setIsReportingManagement] = useState(false);
-     const [isEmailTemplates, setIsEmailTemplates] = useState(false);
-    const [isAdministration, setIsAdministration] = useState(false);
+  //state data
 
-    // Multi Level
-    const [isLevel1, setIsLevel1] = useState(false);
-    const [isLevel2, setIsLevel2] = useState(false);
+  const [isTracking, setIsTracking] = useState(false);
+  const [isVisitorQuote, setIsVisitorQuote] = useState(false);
+  const [isCorporateTransport, setIsCorporateTransport] = useState(false);
+  const [isCorporate, setIsCorporate] = useState(false);
+  const [isFeedbackClaims, setIsFeedbackClaims] = useState(false);
+  const [isReportingManagement, setIsReportingManagement] = useState(false);
+  const [isEmailTemplates, setIsEmailTemplates] = useState(false);
+  const [isAdministration, setIsAdministration] = useState(false);
 
-    const [iscurrentState, setIscurrentState] = useState('Dashboard');
+  // Multi Level
+  const [isLevel1, setIsLevel1] = useState(false);
+  const [isLevel2, setIsLevel2] = useState(false);
 
-    function updateIconSidebar(e: any) {
-        if (e && e.target && e.target.getAttribute("subitems")) {
-            const ul: any = document.getElementById("two-column-menu");
-            const iconItems: any = ul.querySelectorAll(".nav-icon.active");
-            let activeIconItems = [...iconItems];
-            activeIconItems.forEach((item) => {
-                item.classList.remove("active");
-                // var id: any = item.getAttribute("subitems");
-                // if (document.getElementById(id)){
-                //     document.getElementById(id).classList.remove("show");
-                // }
-            });
-        }
+  const [iscurrentState, setIscurrentState] = useState("Dashboard");
+
+  function updateIconSidebar(e: any) {
+    if (e && e.target && e.target.getAttribute("subitems")) {
+      const ul: any = document.getElementById("two-column-menu");
+      const iconItems: any = ul.querySelectorAll(".nav-icon.active");
+      let activeIconItems = [...iconItems];
+      activeIconItems.forEach((item) => {
+        item.classList.remove("active");
+        // var id: any = item.getAttribute("subitems");
+        // if (document.getElementById(id)){
+        //     document.getElementById(id).classList.remove("show");
+        // }
+      });
     }
+  }
 
-    useEffect(() => {
-        document.body.classList.remove('twocolumn-panel');
-        
-        if (iscurrentState !== 'Tracking') {
-            setIsTracking(false);
-        }
-        if (iscurrentState !== 'VisitorQuote') {
-            setIsVisitorQuote(false);
-        }
-        if (iscurrentState !== 'CorporateTransport') {
-            setIsCorporateTransport(false);
-        }
-        if (iscurrentState !== 'Corporate') {
-            setIsCorporate(false);
-        }
-        if (iscurrentState !== 'Feedback&Claims') {
-            setIsFeedbackClaims(false);
-        }
-        if (iscurrentState !== 'ReportingManagement') {
-            setIsReportingManagement(false);
-        }
-        if (iscurrentState !== 'EmailTemplates') {
-            setIsEmailTemplates(false);
-        }
-        if (iscurrentState !== 'Administration') {
-            setIsAdministration(false);
-        }
-    }, [
-        iscurrentState,
-        isEmailTemplates,
-        isTracking,
-        isVisitorQuote,
-        isCorporateTransport,
-        isCorporate,
-        isFeedbackClaims,
-        isReportingManagement,
-        isAdministration
-    ]);
+  useEffect(() => {
+    document.body.classList.remove("twocolumn-panel");
 
-    const menuItems: any = [
+    if (iscurrentState !== "Tracking") {
+      setIsTracking(false);
+    }
+    if (iscurrentState !== "VisitorQuote") {
+      setIsVisitorQuote(false);
+    }
+    if (iscurrentState !== "CorporateTransport") {
+      setIsCorporateTransport(false);
+    }
+    if (iscurrentState !== "Corporate") {
+      setIsCorporate(false);
+    }
+    if (iscurrentState !== "Feedback&Claims") {
+      setIsFeedbackClaims(false);
+    }
+    if (iscurrentState !== "ReportingManagement") {
+      setIsReportingManagement(false);
+    }
+    if (iscurrentState !== "EmailTemplates") {
+      setIsEmailTemplates(false);
+    }
+    if (iscurrentState !== "Administration") {
+      setIsAdministration(false);
+    }
+  }, [
+    iscurrentState,
+    isEmailTemplates,
+    isTracking,
+    isVisitorQuote,
+    isCorporateTransport,
+    isCorporate,
+    isFeedbackClaims,
+    isReportingManagement,
+    isAdministration,
+  ]);
+
+  const menuItems: any = [
+    {
+      label: "Menu",
+      isHeader: true,
+    },
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      icon: "mdi mdi-view-dashboard",
+      link: "/dashboard",
+      badgeName: "Hot",
+      badgeColor: "danger",
+    },
+    {
+      id: "tracking",
+      label: "Tracking",
+      icon: "mdi mdi-map-clock",
+      link: "/#",
+      click: function (e: any) {
+        e.preventDefault();
+        setIsTracking(!isTracking);
+        setIscurrentState("Tracking");
+        updateIconSidebar(e);
+      },
+      stateVariables: isTracking,
+      subItems: [
         {
-            label: "Menu",
-            isHeader: true,
+          id: "mapTracking",
+          label: "Map Tracking",
+          link: "/map-tracking",
+          icon: "mdi mdi-map",
+          parentId: "tracking",
         },
         {
-            id: "dashboard",
-            label: "Dashboard",
-            icon: "mdi mdi-view-dashboard-outline",
-            link: "/dashboard",
-            badgeName : "Hot",
-            badgeColor : "danger"
+          id: "delays&changes",
+          label: "Delays and changes",
+          icon: "mdi mdi-clock",
+          link: "/delays&changes",
+          parentId: "tracking",
+        },
+      ],
+    },
+    {
+      id: "VisitorQuote",
+      label: "Visitors Quote",
+      icon: "mdi mdi-file-document-edit",
+      link: "/#",
+      click: function (e: any) {
+        e.preventDefault();
+        setIsVisitorQuote(!isVisitorQuote);
+        setIscurrentState("VisitorQuote");
+        updateIconSidebar(e);
+      },
+      stateVariables: isVisitorQuote,
+      subItems: [
+        {
+          id: "level1.1",
+          label: "New Quote",
+          icon: "ri-file-add-fill",
+          link: "/new-quote",
+          parentId: "VisitorQuote",
         },
         {
-            id: "tracking",
-            label: "Tracking",
-            icon: "mdi mdi-map-clock-outline",
-            link: "/#",
-            click: function (e: any) {
-                e.preventDefault();
-                setIsTracking(!isTracking);
-                setIscurrentState('Tracking');
-                updateIconSidebar(e);
+          id: "level1.3",
+          label: "Quote Request",
+          icon: "ri-suitcase-fill",
+          link: "/quote-request",
+          parentId: "VisitorQuote",
+        },
+        {
+          id: "level1.4",
+          label: "Listing & Management",
+          icon:"ri-table-fill",
+          link: "/listing&management",
+          parentId: "VisitorQuote",
+        },
+        {
+          id: "level1.2",
+          label: "Push Jobs",
+          link: "/#",
+          icon: "ri-table-fill",
+          isChildItem: true,
+          click: function (e: any) {
+            e.preventDefault();
+            setIsLevel1(!isLevel1);
+          },
+          stateVariables: isLevel1,
+          childItems: [
+            { id: 1, label: "Current ", link: "/current-push-jobs" },
+            { id: 2, label: "History ", link: "/history-push-job" },
+          ],
+        },
+      ],
+    },
+    {
+      id: "CorporateTransport",
+      label: "Corporates Transport",
+      icon: "mdi mdi-office-building-cog-outline",
+      link: "/#",
+      click: function (e: any) {
+        e.preventDefault();
+        setIsCorporateTransport(!isCorporateTransport);
+        setIscurrentState("CorporateTransport");
+        updateIconSidebar(e);
+      },
+      stateVariables: isCorporateTransport,
+      subItems: [
+        {
+          id: "level1.1",
+          label: "Listing & Management",
+          link: "/list-corporate-transport",
+          parentId: "CorporateTransport",
+        },
+        {
+          id: "level1.2",
+          label: "Programming",
+          link: "/#",
+          isChildItem: true,
+          click: function (e: any) {
+            e.preventDefault();
+            setIsLevel1(!isLevel1);
+          },
+          stateVariables: isLevel1,
+          childItems: [
+            { id: 1, label: "Scheduling", link: "/scheduling" },
+            { id: 2, label: "Offers", link: "/offers" },
+            { id: 3, label: "Stations", link: "/stations" },
+            { id: 4, label: "Trip Models", link: "/trip-models" },
+          ],
+        },
+        {
+          id: "level1.3",
+          label: "New Contract",
+          link: "/new-contract",
+          parentId: "CorporateTransport",
+        },
+      ],
+    },
+    {
+      id: "Corporate",
+      label: "Corporate",
+      icon: "mdi mdi-handshake-outline",
+      link: "/#",
+      click: function (e: any) {
+        e.preventDefault();
+        setIsCorporate(!isCorporate);
+        setIscurrentState("Corporate");
+        updateIconSidebar(e);
+      },
+      stateVariables: isCorporate,
+      subItems: [
+        {
+          id: "level1.2",
+          label: "Sub-contractors",
+          link: "/#",
+          isChildItem: true,
+          click: function (e: any) {
+            e.preventDefault();
+            setIsLevel1(!isLevel1);
+          },
+          stateVariables: isLevel1,
+          childItems: [
+            { id: 1, label: "New Applications", link: "/new-applications" },
+            {
+              id: 2,
+              label: "All Sub-contractors",
+              link: "/all-sub-contractors",
             },
-            stateVariables: isTracking,
-            subItems: [
-                {
-                    id: "mapTracking",
-                    label: "Map Tracking",
-                    link: "/map-tracking",
-                    parentId: "tracking",
-                },
-                {
-                    id: "delays&changes",
-                    label: "Delays and changes",
-                    link: "/delays&changes",
-                    parentId: "tracking",
-                },
-            ],
+          ],
         },
         {
-            id: "VisitorQuote",
-            label: "Visitors Quote",
-            icon: "mdi mdi-file-document-edit-outline",
-            link: "/#",
-            click: function (e: any) {
-                e.preventDefault();
-                setIsVisitorQuote(!isVisitorQuote);
-                setIscurrentState('VisitorQuote');
-                updateIconSidebar(e);
-            },
-            stateVariables: isVisitorQuote,
-            subItems: [
-                { id: "level1.1", label: "New Quote", link: "/new-quote", parentId: "VisitorQuote" },
-                { id: "level1.3", label: "Quote Request", link: "/quote-request", parentId: "VisitorQuote" },
-                { id: "level1.4", label: "Listing & Management", link: "/listing&management", parentId: "VisitorQuote" },
-                {
-                    id: "level1.2",
-                    label: "Push Jobs",
-                    link: "/#",
-                    isChildItem: true,
-                    click: function (e: any) {
-                        e.preventDefault();
-                        setIsLevel1(!isLevel1);
-                    },
-                    stateVariables: isLevel1,
-                    childItems: [
-                        { id: 1, label: "Current ", link: "/current-push-jobs" },
-                        { id: 2, label: "History ", link: "/history-push-job" },
-                    ]
-                },
-            ],
+          id: "level1.1",
+          label: "Schools",
+          link: "/schools",
+          parentId: "Corporate",
         },
         {
-            id: "CorporateTransport",
-            label: "Corporates Transport",
-            icon: "mdi mdi-office-building-cog-outline",
-            link: "/#",
-            click: function (e: any) {
-                e.preventDefault();
-                setIsCorporateTransport(!isCorporateTransport);
-                setIscurrentState('CorporateTransport');
-                updateIconSidebar(e);
-            },
-            stateVariables: isCorporateTransport,
-            subItems: [
-                { id: "level1.1", label: "Listing & Management", link: "/list-corporate-transport", parentId: "CorporateTransport" },
-                {
-                    id: "level1.2",
-                    label: "Programming",
-                    link: "/#",
-                    isChildItem: true,
-                    click: function (e: any) {
-                        e.preventDefault();
-                        setIsLevel1(!isLevel1);
-                    },
-                    stateVariables: isLevel1,
-                    childItems: [
-                        { id: 1, label: "Scheduling", link: "/scheduling" },
-                        { id: 2, label: "Offers", link: "/offers" },
-                        { id: 3, label: "Stations", link: "/stations" },
-                        { id: 4, label: "Trip Models", link: "/trip-models" }
-                    ]
-                },
-                { id: "level1.3", label: "New Contract", link: "/new-contract", parentId: "CorporateTransport" },
-            ],
+          id: "level1.3",
+          label: "Companies",
+          link: "/companies",
+          parentId: "Corporate",
+        },
+      ],
+    },
+    {
+      id: "Feedback&Claims",
+      label: "Feedback & Claims",
+      icon: "mdi mdi-thumbs-up-down-outline",
+      link: "/#",
+      click: function (e: any) {
+        e.preventDefault();
+        setIsFeedbackClaims(!isFeedbackClaims);
+        setIscurrentState("Feedback&Claims");
+        updateIconSidebar(e);
+      },
+      stateVariables: isFeedbackClaims,
+      subItems: [
+        {
+          id: "feedback",
+          label: "Feedback",
+          icon: "ri-mail-open-line",
+          link: "/feedback",
+          parentId: "Feedback&Claims",
         },
         {
-            id: "Corporate",
-            label: "Corporate",
-            icon: "mdi mdi-handshake-outline",
-            link: "/#",
-            click: function (e: any) {
-                e.preventDefault();
-                setIsCorporate(!isCorporate);
-                setIscurrentState('Corporate');
-                updateIconSidebar(e);
-            },
-            stateVariables: isCorporate,
-            subItems: [
-                {
-                    id: "level1.2",
-                    label: "Sub-contractors",
-                    link: "/#",
-                    isChildItem: true,
-                    click: function (e: any) {
-                        e.preventDefault();
-                        setIsLevel1(!isLevel1);
-                    },
-                    stateVariables: isLevel1,
-                    childItems: [
-                        { id: 1, label: "New Applications", link: "/new-applications" },
-                        { id: 2, label: "All Sub-contractors", link: "/all-sub-contractors" },
-                    ]
-                },
-                                { id: "level1.1", label: "Schools", link: "/schools", parentId: "Corporate" },
-                { id: "level1.3", label: "Companies", link: "/companies", parentId: "Corporate" },
-            ],
+          id: "claims",
+          label: "Claims",
+          link: "/claims",
+          parentId: "Feedback&Claims",
+        },
+      ],
+    },
+    {
+      id: "ReportingManagement",
+      label: "Reporting Management",
+      icon: "mdi mdi-chart-box-outline",
+      link: "/reporting-management",
+    },
+    {
+      id: "EmailTemplates",
+      label: "Email Templates",
+      icon: "mdi mdi-email-sync-outline",
+      link: "/email-templates",
+    },
+    {
+      id: "Administration",
+      label: "Administration",
+      icon: "mdi mdi-account-multiple-plus-outline",
+      link: "/#",
+      click: function (e: any) {
+        e.preventDefault();
+        setIsAdministration(!isAdministration);
+        setIscurrentState("Administration");
+        updateIconSidebar(e);
+      },
+      stateVariables: isAdministration,
+      subItems: [
+        {
+          id: "Team",
+          label: "Team",
+          link: "/team",
+          parentId: "Administration",
         },
         {
-            id: "Feedback&Claims",
-            label: "Feedback & Claims",
-            icon: "mdi mdi-thumbs-up-down-outline",
-            link: "/feedback&claims",
+          id: "Driver",
+          label: "Driver",
+          link: "/driver",
+          parentId: "Administration",
         },
         {
-            id: "ReportingManagement",
-            label: "Reporting Management",
-            icon: "mdi mdi-chart-box-outline",
-            link: "/reporting-management",
+          id: "Vehicles",
+          label: "Vehicles",
+          link: "/vehicles",
+          parentId: "Administration",
         },
-        {
-            id: "EmailTemplates",
-            label: "Email Templates",
-            icon: "mdi mdi-email-sync-outline",
-            link: "/email-templates",
-        },
-        {
-            id: "Administration",
-            label: "Administration",
-            icon: "mdi mdi-account-multiple-plus-outline",
-            link: "/#",
-            click: function (e: any) {
-                e.preventDefault();
-                setIsAdministration(!isAdministration);
-                setIscurrentState('Administration');
-                updateIconSidebar(e);
-            },
-            stateVariables: isAdministration,
-            subItems: [
-                {
-                    id: "Team",
-                    label: "Team",
-                    link: "/team",
-                    parentId: "Administration",
-                },
-                {
-                    id: "Driver",
-                    label: "Driver",
-                    link: "/driver",
-                    parentId: "Administration",
-                },
-                {
-                    id: "Vehicles",
-                    label: "Vehicles",
-                    link: "/vehicles",
-                    parentId: "Administration",
-                }
-            ],
-        },
-    ];
-    return <React.Fragment>{menuItems}</React.Fragment>;
+      ],
+    },
+  ];
+  return <React.Fragment>{menuItems}</React.Fragment>;
 };
 export default Navdata;
