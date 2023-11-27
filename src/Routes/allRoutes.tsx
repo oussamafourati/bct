@@ -81,12 +81,13 @@ import EmailTemplates from "pages/EmailTemplate";
 import Feedback from "pages/Feedback&Claims/Feedback";
 import Claims from "pages/Feedback&Claims/Claims";
 import ReportingManagement from "pages/ReportingManagement";
+import Maptracking from "pages/Tracking/MapTracking";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
   //? Tracking
-  { path: "/map-tracking", component: <ShippingList /> },
+  { path: "/map-tracking", component: <Maptracking /> },
   { path: "/delays&changes", component: <Shipments /> },
 
   //? Visitors Quote

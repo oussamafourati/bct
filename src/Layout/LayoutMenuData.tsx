@@ -15,6 +15,7 @@ const Navdata = () => {
   // Multi Level
   const [isLevel1, setIsLevel1] = useState(false);
   const [isLevel2, setIsLevel2] = useState(false);
+  const [isLevel3, setIsLevel3] = useState(false);
 
   const [iscurrentState, setIscurrentState] = useState("Dashboard");
 
@@ -144,7 +145,7 @@ const Navdata = () => {
         {
           id: "level1.4",
           label: "Listing & Management",
-          icon:"ri-table-fill",
+          icon: "ri-table-fill",
           link: "/listing&management",
           parentId: "VisitorQuote",
         },
@@ -160,8 +161,18 @@ const Navdata = () => {
           },
           stateVariables: isLevel1,
           childItems: [
-            { id: 1, label: "Current ", link: "/current-push-jobs" },
-            { id: 2, label: "History ", link: "/history-push-job" },
+            {
+              id: 1,
+              label: "Current ",
+              icon: "ri-table-fill",
+              link: "/current-push-jobs",
+            },
+            {
+              id: 2,
+              label: "History ",
+              icon: "mdi mdi-office-building-cog",
+              link: "/history-push-job",
+            },
           ],
         },
       ],
@@ -169,7 +180,7 @@ const Navdata = () => {
     {
       id: "CorporateTransport",
       label: "Corporates Transport",
-      icon: "mdi mdi-office-building-cog-outline",
+      icon: "mdi mdi-office-building-cog",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
@@ -180,21 +191,21 @@ const Navdata = () => {
       stateVariables: isCorporateTransport,
       subItems: [
         {
-          id: "level1.1",
+          id: "Listing&Management",
           label: "Listing & Management",
           link: "/list-corporate-transport",
           parentId: "CorporateTransport",
         },
         {
-          id: "level1.2",
+          id: "Programming",
           label: "Programming",
           link: "/#",
           isChildItem: true,
           click: function (e: any) {
             e.preventDefault();
-            setIsLevel1(!isLevel1);
+            setIsLevel2(!isLevel2);
           },
-          stateVariables: isLevel1,
+          stateVariables: isLevel2,
           childItems: [
             { id: 1, label: "Scheduling", link: "/scheduling" },
             { id: 2, label: "Offers", link: "/offers" },
@@ -203,7 +214,7 @@ const Navdata = () => {
           ],
         },
         {
-          id: "level1.3",
+          id: "NewContract",
           label: "New Contract",
           link: "/new-contract",
           parentId: "CorporateTransport",
@@ -213,7 +224,7 @@ const Navdata = () => {
     {
       id: "Corporate",
       label: "Corporate",
-      icon: "mdi mdi-handshake-outline",
+      icon: "mdi mdi-handshake",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
@@ -224,15 +235,16 @@ const Navdata = () => {
       stateVariables: isCorporate,
       subItems: [
         {
-          id: "level1.2",
+          id: "Sub-contractors",
           label: "Sub-contractors",
           link: "/#",
+          icon: "mdi mdi-school",
           isChildItem: true,
           click: function (e: any) {
             e.preventDefault();
-            setIsLevel1(!isLevel1);
+            setIsLevel3(!isLevel3);
           },
-          stateVariables: isLevel1,
+          stateVariables: isLevel3,
           childItems: [
             { id: 1, label: "New Applications", link: "/new-applications" },
             {
@@ -243,15 +255,17 @@ const Navdata = () => {
           ],
         },
         {
-          id: "level1.1",
+          id: "Schools",
           label: "Schools",
           link: "/schools",
+          icon: "mdi mdi-school",
           parentId: "Corporate",
         },
         {
-          id: "level1.3",
+          id: "Companies",
           label: "Companies",
           link: "/companies",
+          icon: "mdi mdi-domain",
           parentId: "Corporate",
         },
       ],
@@ -259,7 +273,7 @@ const Navdata = () => {
     {
       id: "Feedback&Claims",
       label: "Feedback & Claims",
-      icon: "mdi mdi-thumbs-up-down-outline",
+      icon: "mdi mdi-thumbs-up-down",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
@@ -272,7 +286,7 @@ const Navdata = () => {
         {
           id: "feedback",
           label: "Feedback",
-          icon: "ri-mail-open-line",
+          icon: "ri-thumb-up-fill",
           link: "/feedback",
           parentId: "Feedback&Claims",
         },
@@ -280,6 +294,7 @@ const Navdata = () => {
           id: "claims",
           label: "Claims",
           link: "/claims",
+          icon: "ri-thumb-down-fill",
           parentId: "Feedback&Claims",
         },
       ],
@@ -287,19 +302,19 @@ const Navdata = () => {
     {
       id: "ReportingManagement",
       label: "Reporting Management",
-      icon: "mdi mdi-chart-box-outline",
+      icon: "mdi mdi-chart-box",
       link: "/reporting-management",
     },
     {
       id: "EmailTemplates",
       label: "Email Templates",
-      icon: "mdi mdi-email-sync-outline",
+      icon: "mdi mdi-email-edit",
       link: "/email-templates",
     },
     {
       id: "Administration",
       label: "Administration",
-      icon: "mdi mdi-account-multiple-plus-outline",
+      icon: "mdi mdi-account-tie",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
@@ -313,18 +328,21 @@ const Navdata = () => {
           id: "Team",
           label: "Team",
           link: "/team",
+          icon: "ri-team-fill",
           parentId: "Administration",
         },
         {
           id: "Driver",
           label: "Driver",
           link: "/driver",
+          icon: "ri-exchange-funds-fill",
           parentId: "Administration",
         },
         {
           id: "Vehicles",
           label: "Vehicles",
           link: "/vehicles",
+          icon: "ri-bus-2-fill",
           parentId: "Administration",
         },
       ],
