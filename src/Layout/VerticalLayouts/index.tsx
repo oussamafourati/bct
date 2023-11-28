@@ -161,7 +161,7 @@ const VerticalLayout = (props: any) => {
                                     <i
                                       className={subItem.icon}
                                       style={{
-                                        fontSize: 12,
+                                        fontSize: 14,
                                       }}
                                     ></i>
                                     {props.t(subItem.label)}

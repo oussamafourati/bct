@@ -144,7 +144,7 @@ const Navdata = () => {
         },
         {
           id: "level1.4",
-          label: "Listing & Management",
+          label: "Listing",
           icon: "ri-table-fill",
           link: "/listing&management",
           parentId: "VisitorQuote",
@@ -153,7 +153,7 @@ const Navdata = () => {
           id: "level1.2",
           label: "Push Jobs",
           link: "/#",
-          icon: "ri-table-fill",
+          icon: "ri-briefcase-2-fill",
           isChildItem: true,
           click: function (e: any) {
             e.preventDefault();
@@ -163,14 +163,14 @@ const Navdata = () => {
           childItems: [
             {
               id: 1,
-              label: "Current ",
-              icon: "ri-table-fill",
+              label: "Current",
+              icon: "ri-flashlight-fill",
               link: "/current-push-jobs",
             },
             {
               id: 2,
-              label: "History ",
-              icon: "mdi mdi-office-building-cog",
+              label: "History",
+              icon: "bx bxs-hourglass-top",
               link: "/history-push-job",
             },
           ],
@@ -192,13 +192,15 @@ const Navdata = () => {
       subItems: [
         {
           id: "Listing&Management",
-          label: "Listing & Management",
+          label: "Management",
+          icon: "ri-list-settings-fill",
           link: "/list-corporate-transport",
           parentId: "CorporateTransport",
         },
         {
           id: "Programming",
           label: "Programming",
+          icon: "ri-tools-fill",
           link: "/#",
           isChildItem: true,
           click: function (e: any) {
@@ -207,15 +209,21 @@ const Navdata = () => {
           },
           stateVariables: isLevel2,
           childItems: [
-            { id: 1, label: "Scheduling", link: "/scheduling" },
-            { id: 2, label: "Offers", link: "/offers" },
-            { id: 3, label: "Stations", link: "/stations" },
-            { id: 4, label: "Trip Models", link: "/trip-models" },
+            {
+              id: 1,
+              label: "Scheduling",
+              icon: "ri-calendar-check-fill",
+              link: "/scheduling",
+            },
+            { id: 2, label: "Offers", icon: "bx bxs-megaphone", link: "/offers" },
+            { id: 3, label: "Stations", icon: "ri-map-pin-add-fill", link: "/stations" },
+            { id: 4, label: "Trip Models", icon: "ri-suitcase-3-fill", link: "/trip-models" },
           ],
         },
         {
           id: "NewContract",
           label: "New Contract",
+          icon: "ri-file-edit-fill",
           link: "/new-contract",
           parentId: "CorporateTransport",
         },
@@ -238,7 +246,7 @@ const Navdata = () => {
           id: "Sub-contractors",
           label: "Sub-contractors",
           link: "/#",
-          icon: "mdi mdi-school",
+          icon: "ri-group-2-fill",
           isChildItem: true,
           click: function (e: any) {
             e.preventDefault();
@@ -246,9 +254,10 @@ const Navdata = () => {
           },
           stateVariables: isLevel3,
           childItems: [
-            { id: 1, label: "New Applications", link: "/new-applications" },
+            { id: 1, label: "New Applications", icon: "ri-user-add-line", link: "/new-applications" },
             {
               id: 2,
+              icon: "ri-list-check",
               label: "All Sub-contractors",
               link: "/all-sub-contractors",
             },

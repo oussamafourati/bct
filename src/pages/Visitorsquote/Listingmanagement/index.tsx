@@ -26,27 +26,9 @@ import img13 from "assets/images/brands/img-13.png";
 import img14 from "assets/images/brands/img-14.png";
 import { Link } from "react-router-dom";
 
-const ReportingManagement = () => {
-  document.title = " Reporting Management | Bouden Coach Travel";
+const Listingmanagement = () => {
+  document.title = " Listing & Management | Bouden Coach Travel";
   const columns = [
-    {
-      name: (
-        <Form.Check
-          className="fs-15"
-          type="checkbox"
-          name="checkAll"
-          value="option1"
-        />
-      ),
-      cell: () => (
-        <Form.Check
-          className="fs-15"
-          type="checkbox"
-          name="checkAll"
-          value="option1"
-        />
-      ),
-    },
     {
       name: <span className="font-weight-bold fs-13">SR No.</span>,
       selector: (row: any) => row.srNo,
@@ -148,25 +130,13 @@ const ReportingManagement = () => {
 
       cell: () => {
         return (
-          <Dropdown className="dropdown d-inline-block">
-            <Dropdown.Toggle className="btn btn-soft-secondary arrow-none btn-sm">
-              <i className="ri-more-fill align-middle"></i>
-            </Dropdown.Toggle>
-            <Dropdown.Menu className="dropdown-menu-end">
-              <Dropdown.Item to="#!">
-                <i className="ri-eye-fill align-bottom me-2 text-muted"></i>View
-              </Dropdown.Item>
-              <Dropdown.Item className="edit-item-btn">
-                <i className="ri-pencil-fill align-bottom me-2 text-muted"></i>
-                Edit
-              </Dropdown.Item>
-              <Dropdown.Item className="remove-item-btn">
-                {" "}
-                <i className="ri-delete-bin-fill align-bottom me-2 text-muted"></i>{" "}
-                Delete{" "}
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <ul className="hstack gap-2 list-unstyled mb-0">
+            <li>
+              <Link to="#" className="badge badge-soft-primary edit-item-btn">
+                Delete
+              </Link>
+            </li>
+          </ul>
         );
       },
     },
@@ -345,31 +315,8 @@ const ReportingManagement = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          <Breadcrumb title="Reporting Management" pageTitle="Dashboard" />
+          <Breadcrumb title="Listing&Management" pageTitle="Visitors Quote" />
           <Col lg={12}>
-            <Card>
-              <Card.Body>
-                <Row className="g-lg-2 g-4">
-                  <Col sm={9} className="col-lg-auto">
-                    <select
-                      className="form-select"
-                      data-choices
-                      data-choices-search-false
-                      name="choices-single-default"
-                      id="idStatus"
-                    >
-                      <option value="all">All</option>
-                      <option value="Today">Today</option>
-                      <option value="Yesterday">Yesterday</option>
-                      <option value="Last 7 Days">Last 7 Days</option>
-                      <option value="Last 30 Days">Last 30 Days</option>
-                      <option defaultValue="This Month">This Month</option>
-                      <option value="Last Month">Last Month</option>
-                    </select>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
             <Card id="shipmentsList">
               <Card.Header className="border-bottom-dashed">
                 <Row className="g-3">
@@ -381,24 +328,6 @@ const ReportingManagement = () => {
                         placeholder="Search for something..."
                       />
                       <i className="ri-search-line search-icon"></i>
-                    </div>
-                  </Col>
-                  <Col lg={7}></Col>
-                  <Col>
-                    <div
-                      className="btn-group btn-group-sm mt-2"
-                      role="group"
-                      aria-label="Basic example"
-                    >
-                      <button type="button" className="btn btn-outline-dark">
-                        Excel
-                      </button>
-                      <button type="button" className="btn btn-outline-dark">
-                        PDF
-                      </button>
-                      <button type="button" className="btn btn-outline-dark">
-                        Print
-                      </button>
                     </div>
                   </Col>
                 </Row>
@@ -413,4 +342,4 @@ const ReportingManagement = () => {
     </React.Fragment>
   );
 };
-export default ReportingManagement;
+export default Listingmanagement;

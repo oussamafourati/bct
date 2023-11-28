@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Dropdown,
+  Form,
+  Image,
+  Row,
+} from "react-bootstrap";
 import Breadcrumb from "Common/BreadCrumb";
 import { Link } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
 import Dropzone from "react-dropzone";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import SimpleBar from "simplebar-react";
+// Import Contry Data
+import country from "Common/country";
 
 const AddNewDriver = () => {
   document.title = "Create Driver | Bouden Coach Travel";
@@ -33,6 +45,10 @@ const AddNewDriver = () => {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
 
+  // Country Change States
+  const [seletedCountry, setseletedCountry] = useState("");
+  const [seletedCountry1, setseletedCountry1] = useState<any>({});
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -48,11 +64,11 @@ const AddNewDriver = () => {
               <Col lg={12}>
                 <Card>
                   <Card.Header>
-                    <div className="d-flex">
+                    <div className="d-flex align-items-center">
                       <div className="flex-shrink-0 me-3">
                         <div className="avatar-sm">
                           <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                            <i className="bi bi-box-seam"></i>
+                           <i className='bx bx-user'></i>
                           </div>
                         </div>
                       </div>
@@ -132,7 +148,7 @@ const AddNewDriver = () => {
                                 <Form.Label htmlFor="supplierName-field">
                                   Email
                                 </Form.Label>
-                               <Form.Control
+                                <Form.Control
                                   type="email"
                                   id="supplierName-field"
                                   placeholder="Enter email"
@@ -156,55 +172,136 @@ const AddNewDriver = () => {
                             </Col>
                             {/*  Nationaity == Not Yet */}
                             <Col lg={3}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Nationaity 
+                               <div className="mb-3">
+                                <Form.Label>
+                                  Nationality
                                 </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Capacity</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                  <option value="7">7</option>
-                                  <option value="8">8</option>
-                                  <option value="9">9</option>
-                                  <option value="10">10</option>
-                                  <option value="11">11</option>
-                                  <option value="12">12</option>
-                                  <option value="13">13</option>
-                                </select>
+                                <Dropdown>
+                                  <Dropdown.Toggle
+                                    as="input"
+                                    style={{
+                                      backgroundImage: `url(${
+                                        seletedCountry1.flagImg &&
+                                        seletedCountry1.flagImg
+                                      })`,
+                                    }}
+                                    className="form-control rounded-end flag-input form-select"
+                                    placeholder="Select country"
+                                    readOnly
+                                    defaultValue={seletedCountry1.countryName}
+                                  ></Dropdown.Toggle>
+                                  <Dropdown.Menu
+                                    as="ul"
+                                    className="list-unstyled w-100 dropdown-menu-list mb-0"
+                                  >
+                                    <SimpleBar
+                                      style={{ maxHeight: "220px" }}
+                                      className="px-3"
+                                    >
+                                      {(country || []).map(
+                                        (item: any, key: number) => (
+                                          <Dropdown.Item
+                                            as="li"
+                                            onClick={() =>
+                                              setseletedCountry1(item)
+                                            }
+                                            key={key}
+                                            className="dropdown-item d-flex"
+                                          >
+                                            <div className="flex-shrink-0 me-2">
+                                              <Image
+                                                src={item.flagImg}
+                                                alt="country flag"
+                                                className="options-flagimg"
+                                                height="20"
+                                              />
+                                            </div>
+                                            <div className="flex-grow-1">
+                                              <div className="d-flex">
+                                                <div className="country-name me-1">
+                                                  {item.countryName}
+                                                </div>
+                                                <span className="countrylist-codeno text-muted">
+                                                  {item.countryCode}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </Dropdown.Item>
+                                        )
+                                      )}
+                                    </SimpleBar>
+                                  </Dropdown.Menu>
+                                </Dropdown>
                               </div>
                             </Col>
                             {/* Original_Nationality  == Not Yet */}
                             <Col lg={2}>
                               <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
+                                <Form.Label>
                                   Original Nationality
                                 </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Capacity</option>
-                                  <option value="2">20kg</option>
-                                  <option value="3">75kg</option>
-                                </select>
+                                <Dropdown>
+                                  <Dropdown.Toggle
+                                    as="input"
+                                    style={{
+                                      backgroundImage: `url(${
+                                        seletedCountry1.flagImg &&
+                                        seletedCountry1.flagImg
+                                      })`,
+                                    }}
+                                    className="form-control rounded-end flag-input form-select"
+                                    placeholder="Select country"
+                                    readOnly
+                                    defaultValue={seletedCountry1.countryName}
+                                  ></Dropdown.Toggle>
+                                  <Dropdown.Menu
+                                    as="ul"
+                                    className="list-unstyled w-100 dropdown-menu-list mb-0"
+                                  >
+                                    <SimpleBar
+                                      style={{ maxHeight: "220px" }}
+                                      className="px-3"
+                                    >
+                                      {(country || []).map(
+                                        (item: any, key: number) => (
+                                          <Dropdown.Item
+                                            as="li"
+                                            onClick={() =>
+                                              setseletedCountry1(item)
+                                            }
+                                            key={key}
+                                            className="dropdown-item d-flex"
+                                          >
+                                            <div className="flex-shrink-0 me-2">
+                                              <Image
+                                                src={item.flagImg}
+                                                alt="country flag"
+                                                className="options-flagimg"
+                                                height="20"
+                                              />
+                                            </div>
+                                            <div className="flex-grow-1">
+                                              <div className="d-flex">
+                                                <div className="country-name me-1">
+                                                  {item.countryName}
+                                                </div>
+                                                <span className="countrylist-codeno text-muted">
+                                                  {item.countryCode}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </Dropdown.Item>
+                                        )
+                                      )}
+                                    </SimpleBar>
+                                  </Dropdown.Menu>
+                                </Dropdown>
                               </div>
                             </Col>
                           </Row>
-
                           <Row>
-                                                        {/* Gender  == Done */}
-                            <Col lg={3}>
+                            {/* Gender  == Done */}
+                            <Col lg={4}>
                               <div className="mb-3">
                                 <label
                                   htmlFor="statusSelect"
@@ -226,7 +323,7 @@ const AddNewDriver = () => {
                               </div>
                             </Col>
                             {/* Civil_Status  == Done */}
-                            <Col lg={4}>
+                            <Col lg={3}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
                                   Civil Status
@@ -252,9 +349,9 @@ const AddNewDriver = () => {
                                   htmlFor="statusSelect"
                                   className="form-label"
                                 >
-                                 Number of childs
+                                  Number of childs
                                 </label>
-                                 <Form.Control
+                                <Form.Control
                                   type="text"
                                   id="supplierName-field"
                                   placeholder="Enter number of childs"
@@ -265,11 +362,11 @@ const AddNewDriver = () => {
                           </Row>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className='bx bxs-user-account'></i>
                                     </div>
                                   </div>
                                 </div>
@@ -332,20 +429,22 @@ const AddNewDriver = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className='bx bx-id-card'></i>
                                     </div>
                                   </div>
                                 </div>
                                 <div className="flex-grow-1">
-                                  <h5 className="card-title">Driving License </h5>
+                                  <h5 className="card-title">
+                                    Driving License{" "}
+                                  </h5>
                                 </div>
                               </div>
                             </Card.Header>
-                             <Card.Body>
+                            <Card.Body>
                               <Row>
                                 <Col lg={3}>
                                   <div className="mb-3">
@@ -399,11 +498,11 @@ const AddNewDriver = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                     <i className='bx bx-briefcase'></i>
                                     </div>
                                   </div>
                                 </div>
@@ -434,23 +533,25 @@ const AddNewDriver = () => {
                                       htmlFor="statusSelect"
                                       className="form-label"
                                     >
-                                      Status 
+                                      Status
                                     </label>
                                     <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Status</option>
-                                  <option value="Active">Active</option>
-                                  <option value="Inactive">Inactive</option>
-                                  <option value="Annual vacation">
-                                   Annual vacation
-                                  </option>
-                                      <option value="Exceptional vacation">Exceptional vacation</option>
-                                       <option value="Driving">Driving</option>
-                                </select>
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Status</option>
+                                      <option value="Active">Active</option>
+                                      <option value="Inactive">Inactive</option>
+                                      <option value="Annual vacation">
+                                        Annual vacation
+                                      </option>
+                                      <option value="Exceptional vacation">
+                                        Exceptional vacation
+                                      </option>
+                                      <option value="Driving">Driving</option>
+                                    </select>
                                   </div>
                                 </Col>
                                 <Col lg={2}>
@@ -462,18 +563,16 @@ const AddNewDriver = () => {
                                       Category
                                     </label>
                                     <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Category</option>
-                                  <option value="Only Car">Only Car</option>
-                                  <option value="Only Bus">Only Bus</option>
-                                  <option value="Both">
-                                   Both
-                                  </option>
-                                </select>
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Category</option>
+                                      <option value="Only Car">Only Car</option>
+                                      <option value="Only Bus">Only Bus</option>
+                                      <option value="Both">Both</option>
+                                    </select>
                                   </div>
                                 </Col>
                                 <Col lg={3}>
@@ -482,21 +581,21 @@ const AddNewDriver = () => {
                                       htmlFor="statusSelect"
                                       className="form-label"
                                     >
-                                      Contract Type 
+                                      Contract Type
                                     </label>
                                     <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Contract</option>
-                                  <option value="CDI">CDI</option>
-                                  <option value="CDD">CDD</option>
-                                  <option value="Part Time">
-                                   Part Time
-                                  </option>
-                                </select>
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Contract</option>
+                                      <option value="CDI">CDI</option>
+                                      <option value="CDD">CDD</option>
+                                      <option value="Part Time">
+                                        Part Time
+                                      </option>
+                                    </select>
                                   </div>
                                 </Col>
                                 <Col lg={3}>

@@ -2,16 +2,6 @@ import { Navigate } from "react-router-dom";
 
 import Dashboard from "pages/Dashboard";
 
-import Categories from "pages/Products/Categories";
-import SubCategories from "pages/Products/SubCategories";
-
-// Orders
-import OrdersListView from "pages/Orders/ListView";
-import OrdersOverview from "pages/Orders/Overview";
-
-// Calender
-import Calendar from "pages/Calendar";
-
 // Sellers
 import SellersListView from "pages/Sellers/ListView";
 import SellersGridView from "pages/Sellers/GridView";
@@ -21,29 +11,6 @@ import SellersOverview from "pages/Sellers/Overview";
 import InvoiceList from "pages/Invoices/InvoiceList";
 import InvoiceDetails from "pages/Invoices/InvoiceDetails";
 import CreateInvoice from "pages/Invoices/CreateInvoice";
-
-// User List
-import UsersList from "pages/UsersList";
-
-// Shipping
-import Shipments from "pages/Shipping/Shipments";
-import ShippingList from "pages/Shipping/ShippingList";
-
-// Coupons
-import Coupons from "pages/Coupons";
-
-//Review & Rating
-import ReviewRating from "pages/Reviews-Rating";
-
-//Brands
-import Brands from "pages/Brands";
-
-//statistics
-import Statistics from "pages/Statistics";
-
-// Localization
-import Transactions from "pages/Localization/Transactions";
-import CurrencyRates from "pages/Localization/CurrencyRates";
 
 // Accounts
 import SignIn from "pages/Accounts/AuthenticationInner/SignIn";
@@ -82,25 +49,33 @@ import Feedback from "pages/Feedback&Claims/Feedback";
 import Claims from "pages/Feedback&Claims/Claims";
 import ReportingManagement from "pages/ReportingManagement";
 import Maptracking from "pages/Tracking/MapTracking";
+import Delayschanges from "pages/Tracking/Delayschanges";
+import Newquote from "pages/Visitorsquote/Newquote";
+import Quotesrequest from "pages/Visitorsquote/Quotesrequest";
+import Listingmanagement from "pages/Visitorsquote/Listingmanagement";
+import Current from "pages/Visitorsquote/Pushjobs/Current";
+import History from "pages/Visitorsquote/Pushjobs/History";
+import Management from "pages/CorporateTransport/Management";
+import NewContract from "pages/CorporateTransport/NewContract";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
 
   //? Tracking
   { path: "/map-tracking", component: <Maptracking /> },
-  { path: "/delays&changes", component: <Shipments /> },
+  { path: "/delays&changes", component: <Delayschanges /> },
 
   //? Visitors Quote
-  { path: "/new-quote", component: <UsersList /> },
-  { path: "/quote-request", component: <Coupons /> },
-  { path: "/listing&management", component: <Calendar /> },
+  { path: "/new-quote", component: <Newquote /> },
+  { path: "/quote-request", component: <Quotesrequest /> },
+  { path: "/listing&management", component: <Listingmanagement /> },
   //? Visitors Quote ==> Push Jobs
-  { path: "/current-push-jobs", component: <Transactions /> },
-  { path: "/history-push-job", component: <CurrencyRates /> },
+  { path: "/current-push-jobs", component: <Current /> },
+  { path: "/history-push-job", component: <History /> },
 
   //? Corporate Transport
-  { path: "/list-corporate-transport", component: <InvoiceList /> },
-  { path: "/new-contract", component: <SellersListView /> },
+  { path: "/list-corporate-transport", component: <Management /> },
+  { path: "/new-contract", component: <NewContract /> },
   //? Corporate Transport ==> Programming
   { path: "/scheduling", component: <InvoiceDetails /> },
   { path: "/offers", component: <CreateInvoice /> },

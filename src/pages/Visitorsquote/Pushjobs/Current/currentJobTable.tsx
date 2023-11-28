@@ -3,7 +3,7 @@ import TableContainer from "Common/TableContainer";
 import { currencyRate } from "Common/data";
 import { Link } from 'react-router-dom';
 
-const CurrencyTable = () => {
+const CurrentTable = () => {
 
     const columns = useMemo(
         () => [
@@ -70,4 +70,4 @@ const CurrencyTable = () => {
     );
 }
 
-export default CurrencyTable;
+export default CurrentTable;
