@@ -117,7 +117,7 @@ const Navdata = () => {
     },
     {
       id: "VisitorQuote",
-      label: "Visitors Quote",
+      label: "Quotes Management",
       icon: "mdi mdi-file-document-edit",
       link: "/#",
       click: function (e: any) {
@@ -129,29 +129,22 @@ const Navdata = () => {
       stateVariables: isVisitorQuote,
       subItems: [
         {
-          id: "level1.1",
-          label: "New Quote",
-          icon: "ri-file-add-fill",
-          link: "/new-quote",
-          parentId: "VisitorQuote",
-        },
-        {
           id: "level1.3",
-          label: "Quote Request",
+          label: "Quote Requests",
           icon: "ri-suitcase-fill",
           link: "/quote-request",
           parentId: "VisitorQuote",
         },
         {
           id: "level1.4",
-          label: "Listing",
+          label: "All Quotes",
           icon: "ri-table-fill",
           link: "/listing&management",
           parentId: "VisitorQuote",
         },
         {
           id: "level1.2",
-          label: "Push Jobs",
+          label: "Pushed Jobs",
           link: "/#",
           icon: "ri-briefcase-2-fill",
           isChildItem: true,
@@ -174,6 +167,13 @@ const Navdata = () => {
               link: "/history-push-job",
             },
           ],
+        },
+        {
+          id: "level1.1",
+          label: "New Quote",
+          icon: "ri-file-add-fill",
+          link: "/new-quote",
+          parentId: "VisitorQuote",
         },
       ],
     },

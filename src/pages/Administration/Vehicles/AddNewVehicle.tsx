@@ -10,6 +10,34 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 const AddNewVehicle = () => {
   document.title = "Create Vehicle | Bouden Coach Travel";
 
+  const [changeColor, setChangeColor] = useState<boolean>(false);
+
+  // function for handleClick
+  const handleClick = () => {
+    setChangeColor(!changeColor);
+  };
+
+  const [changeColorAC, setChangeColorAC] = useState<boolean>(false);
+
+  // function for handleClick AC
+  const handleClickAC = () => {
+    setChangeColorAC(!changeColorAC);
+  };
+
+  const [changeColorFrigo, setChangeColorFrigo] = useState<boolean>(false);
+
+  // function for handleClick Frigo
+  const handleClickFrigo = () => {
+    setChangeColorFrigo(!changeColorFrigo);
+  };
+
+  const [changeColorScreen, setChangeColorScreen] = useState<boolean>(false);
+
+  // function for handleClick Screen
+  const handleClickScreen = () => {
+    setChangeColorScreen(!changeColorScreen);
+  };
+
   const [selectedFiles, setselectedFiles] = useState([]);
 
   function handleAcceptedFiles(files: any) {
@@ -48,11 +76,11 @@ const AddNewVehicle = () => {
               <Col lg={12}>
                 <Card>
                   <Card.Header>
-                    <div className="d-flex">
+                    <div className="d-flex align-items-center">
                       <div className="flex-shrink-0 me-3">
                         <div className="avatar-sm">
                           <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                            <i className="bi bi-box-seam"></i>
+                            <i className="ri-roadster-line"></i>
                           </div>
                         </div>
                       </div>
@@ -339,80 +367,114 @@ const AddNewVehicle = () => {
                               </div>
                             </Col>
                           </Row>
-                          <Row>
+                          <Row className="d-flex justify-content-center">
+                            {/* <Col lg={2}></Col> */}
                             {/* Wifi == Done*/}
-                            <Col lg={3}>
+                            <Col lg={2}>
                               <div className="mb-3">
                                 <button
+                                  onClick={handleClick}
                                   type="button"
-                                  className="btn btn-success custom-toggle"
+                                  className={`btn btn-success custom-toggle ${
+                                    changeColor === false
+                                      ? "btn-success"
+                                      : "btn-danger"
+                                  }`}
                                   data-bs-toggle="button"
                                 >
                                   <span className="icon-on">
-                                    <i className="ri-check-line align-bottom me-1"></i>{" "}
-                                    Wifi
-                                  </span>
-                                  <span className="icon-off">
-                                    <i className="ri-thumb-down-line align-bottom me-1"></i>{" "}
-                                    No
+                                    <i
+                                      className={`${
+                                        changeColor === false
+                                          ? "ri-check-line align-bottom me-1"
+                                          : "ri-close-fill align-bottom me-1"
+                                      }`}
+                                    ></i>
+                                    {changeColor === false ? "Wifi" : "No Wifi"}
                                   </span>
                                 </button>
                               </div>
                             </Col>
                             {/* Frigo  == Done  */}
-                            <Col lg={3}>
+                            <Col lg={2}>
                               <div className="mb-3">
                                 <button
                                   type="button"
-                                  className="btn btn-success custom-toggle"
+                                  onClick={handleClickFrigo}
+                                  className={`btn btn-success custom-toggle ${
+                                    changeColorFrigo === false
+                                      ? "btn-success"
+                                      : "btn-danger"
+                                  }`}
                                   data-bs-toggle="button"
                                 >
                                   <span className="icon-on">
-                                    <i className="ri-check-line align-bottom me-1"></i>{" "}
-                                    Fridge
-                                  </span>
-                                  <span className="icon-off">
-                                    <i className="ri-thumb-down-line align-bottom me-1"></i>{" "}
-                                    No
+                                    <i
+                                      className={`${
+                                        changeColorFrigo === false
+                                          ? "ri-check-line align-bottom me-1"
+                                          : "ri-close-fill align-bottom me-1"
+                                      }`}
+                                    ></i>
+                                    {changeColorFrigo === false
+                                      ? "Fridge"
+                                      : "No Fridge"}
                                   </span>
                                 </button>
                               </div>
                             </Col>
                             {/* Smart_Screen  == Done */}
-                            <Col lg={3}>
+                            <Col lg={2}>
                               <div className="mb-3">
                                 <button
                                   type="button"
-                                  className="btn btn-success custom-toggle"
+                                  onClick={handleClickScreen}
+                                  className={`btn btn-success custom-toggle ${
+                                    changeColorScreen === false
+                                      ? "btn-success"
+                                      : "btn-danger"
+                                  }`}
                                   data-bs-toggle="button"
                                 >
                                   <span className="icon-on">
-                                    <i className="ri-check-line align-bottom me-1"></i>{" "}
-                                    Smart Screen
-                                  </span>
-                                  <span className="icon-off">
-                                    <i className="ri-thumb-down-line align-bottom me-1"></i>{" "}
-                                    No
+                                    <i
+                                      className={`${
+                                        changeColorScreen === false
+                                          ? "ri-check-line align-bottom me-1"
+                                          : "ri-close-fill align-bottom me-1"
+                                      }`}
+                                    ></i>
+                                    {changeColorScreen === false
+                                      ? "Smart Screen"
+                                      : "No Smart Screen"}
                                   </span>
                                 </button>
                               </div>
                             </Col>
-
                             {/* Air_Conditionner  == Done */}
-                            <Col lg={3}>
+                            <Col lg={2}>
                               <div className="mb-3">
                                 <button
                                   type="button"
-                                  className="btn btn-success custom-toggle"
+                                  onClick={handleClickAC}
+                                  className={`btn btn-success custom-toggle ${
+                                    changeColorAC === false
+                                      ? "btn-success"
+                                      : "btn-danger"
+                                  }`}
                                   data-bs-toggle="button"
                                 >
                                   <span className="icon-on">
-                                    <i className="ri-check-line align-bottom me-1"></i>{" "}
-                                    Air Conditioner
-                                  </span>
-                                  <span className="icon-off">
-                                    <i className="ri-thumb-down-line align-bottom me-1"></i>{" "}
-                                    No
+                                    <i
+                                      className={`${
+                                        changeColorAC === false
+                                          ? "ri-check-line align-bottom me-1"
+                                          : "ri-close-fill align-bottom me-1"
+                                      }`}
+                                    ></i>
+                                    {changeColorAC === false
+                                      ? "Air Conditioner"
+                                      : "No Air Conditioner"}
                                   </span>
                                 </button>
                               </div>
@@ -421,11 +483,11 @@ const AddNewVehicle = () => {
 
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-profile-line"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -488,11 +550,11 @@ const AddNewVehicle = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="bx bx-credit-card-front"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -553,11 +615,11 @@ const AddNewVehicle = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ph ph-cards"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -618,11 +680,11 @@ const AddNewVehicle = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-money-pound-box-line"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -683,11 +745,11 @@ const AddNewVehicle = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="bx bx-pound"></i>
                                     </div>
                                   </div>
                                 </div>

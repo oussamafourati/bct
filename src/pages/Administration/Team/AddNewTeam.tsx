@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Dropdown,
+  Form,
+  Image,
+  Row,
+} from "react-bootstrap";
 import Breadcrumb from "Common/BreadCrumb";
 import { Link } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
 import Dropzone from "react-dropzone";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
+import SimpleBar from "simplebar-react";
+// Import Contry Data
+import country from "Common/country";
 const AddNewTeam = () => {
   document.title = "Create Team | Bouden Coach Travel";
 
   const [selectedFiles, setselectedFiles] = useState([]);
-
+  // Country Change States
+  const [seletedCountry, setseletedCountry] = useState("");
+  const [seletedCountry1, setseletedCountry1] = useState("");
   function handleAcceptedFiles(files: any) {
     files.map((file: any) =>
       Object.assign(file, {
@@ -52,7 +65,7 @@ const AddNewTeam = () => {
                       <div className="flex-shrink-0 me-3">
                         <div className="avatar-sm">
                           <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                            <i className="bi bi-box-seam"></i>
+                            <i className="ri-group-line"></i>
                           </div>
                         </div>
                       </div>
@@ -156,32 +169,64 @@ const AddNewTeam = () => {
                                 />
                               </div>
                             </Col>
-                            {/*  Nationaity == Not Yet */}
+                            {/*  Nationaity == Done */}
                             <Col lg={3}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
                                   Nationaity
                                 </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Capacity</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                  <option value="7">7</option>
-                                  <option value="8">8</option>
-                                  <option value="9">9</option>
-                                  <option value="10">10</option>
-                                  <option value="11">11</option>
-                                  <option value="12">12</option>
-                                  <option value="13">13</option>
-                                </select>
+                                <Dropdown>
+                                  <Dropdown.Toggle
+                                    as="input"
+                                    className="form-control rounded-end flag-input form-select"
+                                    placeholder="Select country"
+                                    readOnly
+                                    defaultValue={seletedCountry}
+                                  ></Dropdown.Toggle>
+                                  <Dropdown.Menu
+                                    as="ul"
+                                    className="list-unstyled w-100 dropdown-menu-list mb-0"
+                                  >
+                                    <SimpleBar
+                                      style={{ maxHeight: "220px" }}
+                                      className="px-3"
+                                    >
+                                      {(country || []).map(
+                                        (item: any, key: number) => (
+                                          <Dropdown.Item
+                                            as="li"
+                                            onClick={() =>
+                                              setseletedCountry(
+                                                item.countryName
+                                              )
+                                            }
+                                            key={key}
+                                            className="dropdown-item d-flex"
+                                          >
+                                            <div className="flex-shrink-0 me-2">
+                                              <Image
+                                                src={item.flagImg}
+                                                alt="country flag"
+                                                className="options-flagimg"
+                                                height="20"
+                                              />
+                                            </div>
+                                            <div className="flex-grow-1">
+                                              <div className="d-flex">
+                                                <div className="country-name me-1">
+                                                  {item.countryName}
+                                                </div>
+                                                <span className="countrylist-codeno text-muted">
+                                                  {item.countryCode}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </Dropdown.Item>
+                                        )
+                                      )}
+                                    </SimpleBar>
+                                  </Dropdown.Menu>
+                                </Dropdown>
                               </div>
                             </Col>
                             {/* Original_Nationality  == Not Yet */}
@@ -190,16 +235,58 @@ const AddNewTeam = () => {
                                 <Form.Label htmlFor="supplierName-field">
                                   Original Nationality
                                 </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">Capacity</option>
-                                  <option value="2">20kg</option>
-                                  <option value="3">75kg</option>
-                                </select>
+                                <Dropdown>
+                                  <Dropdown.Toggle
+                                    as="input"
+                                    className="form-control rounded-end flag-input form-select"
+                                    placeholder="Select country"
+                                    readOnly
+                                    defaultValue={seletedCountry1}
+                                  ></Dropdown.Toggle>
+                                  <Dropdown.Menu
+                                    as="ul"
+                                    className="list-unstyled w-100 dropdown-menu-list mb-0"
+                                  >
+                                    <SimpleBar
+                                      style={{ maxHeight: "220px" }}
+                                      className="px-3"
+                                    >
+                                      {(country || []).map(
+                                        (item: any, key: number) => (
+                                          <Dropdown.Item
+                                            as="li"
+                                            onClick={() =>
+                                              setseletedCountry1(
+                                                item.countryName
+                                              )
+                                            }
+                                            key={key}
+                                            className="dropdown-item d-flex"
+                                          >
+                                            <div className="flex-shrink-0 me-2">
+                                              <Image
+                                                src={item.flagImg}
+                                                alt="country flag"
+                                                className="options-flagimg"
+                                                height="20"
+                                              />
+                                            </div>
+                                            <div className="flex-grow-1">
+                                              <div className="d-flex">
+                                                <div className="country-name me-1">
+                                                  {item.countryName}
+                                                </div>
+                                                <span className="countrylist-codeno text-muted">
+                                                  {item.countryCode}
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </Dropdown.Item>
+                                        )
+                                      )}
+                                    </SimpleBar>
+                                  </Dropdown.Menu>
+                                </Dropdown>
                               </div>
                             </Col>
                           </Row>
@@ -271,7 +358,7 @@ const AddNewTeam = () => {
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-profile-line"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -338,7 +425,7 @@ const AddNewTeam = () => {
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-briefcase-line"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -406,8 +493,12 @@ const AddNewTeam = () => {
                                     >
                                       <option value="">Access</option>
                                       <option value="Full">Full</option>
-                                      <option value="Visitor Jobs">Visitor Jobs</option>
-                                      <option value="Corporate Jobs">Corporate Jobs</option>
+                                      <option value="Visitor Jobs">
+                                        Visitor Jobs
+                                      </option>
+                                      <option value="Corporate Jobs">
+                                        Corporate Jobs
+                                      </option>
                                     </select>
                                   </div>
                                 </Col>

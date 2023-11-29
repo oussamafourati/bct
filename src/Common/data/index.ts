@@ -1,14 +1,50 @@
-import { recentOrders, stockReport, productDelivery, newcustomers, allRevenueChartData, monthRevenueChartData, halfYearRevenueChartData, yearRevenueChartData } from "./dashboard";
+import {
+  recentOrders,
+  stockReport,
+  productDelivery,
+  newcustomers,
+  allRevenueChartData,
+  monthRevenueChartData,
+  halfYearRevenueChartData,
+  yearRevenueChartData,
+} from "./dashboard";
 import { productList, categoryListData, subCategoryListData } from "./products";
-import { ordersList } from "./orders"
-import { sellerList, sellerGrid } from "./sellers"
+import { ordersList } from "./orders";
+import { vehicleList } from "./sellers";
 import { currencyRate, transaction } from "./localization";
 import { couponsList } from "./coupons";
 import { shipments } from "./shipping";
-import { userList } from "./userlist";
-import { profile, account, accountTransaction } from "./recentorders"
-import { calenderDefaultCategories, events, defaultevent } from "./calendar"
-import { ListView } from "./invoiceListView"
+import { driverList } from "./driverlist";
+import { profile, account, accountTransaction } from "./recentorders";
+import { calenderDefaultCategories, events, defaultevent } from "./calendar";
+import { ListView } from "./invoiceListView";
+import { teamList } from "./teamlist";
 
-
-export { ListView, profile, account, accountTransaction, recentOrders, stockReport, productDelivery, newcustomers, productList, categoryListData, subCategoryListData, ordersList, sellerList, sellerGrid, currencyRate, transaction, couponsList, shipments, userList, calenderDefaultCategories, events, defaultevent, allRevenueChartData, monthRevenueChartData, halfYearRevenueChartData, yearRevenueChartData };
+export {
+  ListView,
+  profile,
+  account,
+  accountTransaction,
+  recentOrders,
+  stockReport,
+  productDelivery,
+  newcustomers,
+  productList,
+  categoryListData,
+  subCategoryListData,
+  ordersList,
+  vehicleList,
+  currencyRate,
+  transaction,
+  couponsList,
+  shipments,
+  driverList,
+  teamList,
+  calenderDefaultCategories,
+  events,
+  defaultevent,
+  allRevenueChartData,
+  monthRevenueChartData,
+  halfYearRevenueChartData,
+  yearRevenueChartData,
+};

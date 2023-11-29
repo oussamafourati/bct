@@ -2,11 +2,6 @@ import { Navigate } from "react-router-dom";
 
 import Dashboard from "pages/Dashboard";
 
-// Sellers
-import SellersListView from "pages/Sellers/ListView";
-import SellersGridView from "pages/Sellers/GridView";
-import SellersOverview from "pages/Sellers/Overview";
-
 // Invoice
 import InvoiceList from "pages/Invoices/InvoiceList";
 import InvoiceDetails from "pages/Invoices/InvoiceDetails";
@@ -57,6 +52,11 @@ import Current from "pages/Visitorsquote/Pushjobs/Current";
 import History from "pages/Visitorsquote/Pushjobs/History";
 import Management from "pages/CorporateTransport/Management";
 import NewContract from "pages/CorporateTransport/NewContract";
+import Scheduling from "pages/CorporateTransport/Programming/Scheduling";
+import Offers from "pages/CorporateTransport/Programming/Offers";
+import Stations from "pages/CorporateTransport/Programming/Stations";
+import TripModels from "pages/CorporateTransport/Programming/TripModels";
+import TeamDetails from "pages/Administration/Team/TeamDetails";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -77,10 +77,10 @@ const authProtectedRoutes = [
   { path: "/list-corporate-transport", component: <Management /> },
   { path: "/new-contract", component: <NewContract /> },
   //? Corporate Transport ==> Programming
-  { path: "/scheduling", component: <InvoiceDetails /> },
-  { path: "/offers", component: <CreateInvoice /> },
-  { path: "/stations", component: <SellersOverview /> },
-  { path: "/trip-models", component: <SellersGridView /> },
+  { path: "/scheduling", component: <Scheduling /> },
+  { path: "/offers", component: <Offers /> },
+  { path: "/stations", component: <Stations /> },
+  { path: "/trip-models", component: <TripModels /> },
 
   //? Corporate
   { path: "/schools", component: <Schools /> },
@@ -111,6 +111,7 @@ const authProtectedRoutes = [
 
   //? Administration
   { path: "/team", component: <Team /> },
+  { path: "/team-details", component: <TeamDetails /> },
   { path: "/driver", component: <Driver /> },
   { path: "/vehicles", component: <Vehicles /> },
 

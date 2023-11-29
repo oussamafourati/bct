@@ -46,7 +46,7 @@ const AddNewDriver = () => {
   }
 
   // Country Change States
-  const [seletedCountry, setseletedCountry] = useState("");
+  const [seletedCountry, setseletedCountry] = useState<any>({});
   const [seletedCountry1, setseletedCountry1] = useState<any>({});
 
   return (
@@ -245,14 +245,14 @@ const AddNewDriver = () => {
                                     as="input"
                                     style={{
                                       backgroundImage: `url(${
-                                        seletedCountry1.flagImg &&
-                                        seletedCountry1.flagImg
+                                        seletedCountry.flagImg &&
+                                        seletedCountry.flagImg
                                       })`,
                                     }}
                                     className="form-control rounded-end flag-input form-select"
                                     placeholder="Select country"
                                     readOnly
-                                    defaultValue={seletedCountry1.countryName}
+                                    defaultValue={seletedCountry.countryName}
                                   ></Dropdown.Toggle>
                                   <Dropdown.Menu
                                     as="ul"
@@ -267,7 +267,7 @@ const AddNewDriver = () => {
                                           <Dropdown.Item
                                             as="li"
                                             onClick={() =>
-                                              setseletedCountry1(item)
+                                              setseletedCountry(item)
                                             }
                                             key={key}
                                             className="dropdown-item d-flex"
