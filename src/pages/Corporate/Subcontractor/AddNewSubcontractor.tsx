@@ -48,11 +48,11 @@ const AddNewSubcontractor = () => {
               <Col lg={12}>
                 <Card>
                   <Card.Header>
-                    <div className="d-flex">
+                    <div className="d-flex align-items-center">
                       <div className="flex-shrink-0 me-3">
                         <div className="avatar-sm">
                           <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                            <i className="bi bi-box-seam"></i>
+                            <i className="ri-group-line"></i>
                           </div>
                         </div>
                       </div>
@@ -201,21 +201,19 @@ const AddNewSubcontractor = () => {
                                 </select>
                               </div>
                             </Col>
-                                                  </Row>
-                                                  <Col lg={12}>
+                          </Row>
+                          <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-profile-line"></i>
                                     </div>
                                   </div>
                                 </div>
                                 <div className="flex-grow-1">
-                                  <h5 className="card-title">
-                                    Legal Staus
-                                  </h5>
+                                  <h5 className="card-title">Legal Staus</h5>
                                 </div>
                               </div>
                             </Card.Header>
@@ -270,14 +268,14 @@ const AddNewSubcontractor = () => {
                                 </Col>
                               </Row>
                             </Card.Body>
-                                                  </Col>
-                                                                            <Col lg={12}>
+                          </Col>
+                          <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="mdi mdi-card-account-mail-outline"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -339,14 +337,14 @@ const AddNewSubcontractor = () => {
                                 </Col>
                               </Row>
                             </Card.Body>
-                                                  </Col>
-                                                   <Col lg={12}>
+                          </Col>
+                          <Col lg={12}>
                             <Card.Header>
                               <div className="d-flex">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-bank-line"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -394,11 +392,11 @@ const AddNewSubcontractor = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-bus-line"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -475,14 +473,13 @@ const AddNewSubcontractor = () => {
                               </Row>
                             </Card.Body>
                           </Col>
-                         
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="ri-user-line"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -547,7 +544,7 @@ const AddNewSubcontractor = () => {
                           <Col lg={12}>
                             <div className="hstack gap-2 justify-content-end">
                               <Button variant="primary" id="add-btn">
-                                Add Company
+                                Add Sub-Contractor
                               </Button>
                             </div>
                           </Col>

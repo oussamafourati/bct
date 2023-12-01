@@ -179,8 +179,8 @@
   }
 
   &[data-sidebar="gradient-4"] {
-    --#{$prefix}vertical-menu-bg: linear-gradient(#343a40, #41474d);
-    --#{$prefix}vertical-menu-border: #{$cyan-700};
+    --#{$prefix}vertical-menu-bg: linear-gradient(#343a40, #4d5358);
+    --#{$prefix}vertical-menu-border: #343a40;
     --#{$prefix}twocolumn-menu-iconview-bg: linear-gradient(
       to left,
       #{$cyan-700},

@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import Breadcrumb from "Common/BreadCrumb";
+import Flatpickr from "react-flatpickr";
 import img1 from "assets/images/brands/img-1.png";
 import img2 from "assets/images/brands/img-2.png";
 import img3 from "assets/images/brands/img-3.png";
@@ -30,60 +31,42 @@ const ReportingManagement = () => {
   document.title = " Reporting Management | Bouden Coach Travel";
   const columns = [
     {
-      name: (
-        <Form.Check
-          className="fs-15"
-          type="checkbox"
-          name="checkAll"
-          value="option1"
-        />
-      ),
-      cell: () => (
-        <Form.Check
-          className="fs-15"
-          type="checkbox"
-          name="checkAll"
-          value="option1"
-        />
-      ),
-    },
-    {
-      name: <span className="font-weight-bold fs-13">SR No.</span>,
+      name: <span className="font-weight-bold fs-13">Group</span>,
       selector: (row: any) => row.srNo,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">ID</span>,
-      selector: (row: any) => row.modalId,
+      name: <span className="font-weight-bold fs-13">Driver</span>,
+      selector: (row: any) => row.srNo,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Purchase ID</span>,
-      selector: (row: any) => row.purchaseId,
+      name: <span className="font-weight-bold fs-13">Vehicle</span>,
+      selector: (row: any) => <Link to="#!">{row.purchaseId}</Link>,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Title</span>,
-      selector: (row: any) => <Link to="#!">{row.title}</Link>,
-      sortable: true,
-    },
-    {
-      name: <span className="font-weight-bold fs-13">User</span>,
+      name: <span className="font-weight-bold fs-13">Cost</span>,
       selector: (row: any) => row.user,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Assigned To</span>,
+      name: <span className="font-weight-bold fs-13">Start Station</span>,
       selector: (row: any) => row.assigned,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Create By</span>,
+      name: <span className="font-weight-bold fs-13">Start Time</span>,
       selector: (row: any) => row.createdBy,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Create Date</span>,
+      name: <span className="font-weight-bold fs-13">Destination</span>,
+      selector: (row: any) => row.createDate,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Arrival Time</span>,
       selector: (row: any) => row.createDate,
       sortable: true,
     },
@@ -127,7 +110,7 @@ const ReportingManagement = () => {
       },
     },
     {
-      name: <span className="font-weight-bold fs-13">Priority</span>,
+      name: <span className="font-weight-bold fs-13">Delay</span>,
       sortable: true,
       selector: (cell: any) => {
         switch (cell.priority) {
@@ -173,10 +156,10 @@ const ReportingManagement = () => {
   ];
   const data = [
     {
-      srNo: "01",
+      srNo: "Alfred Hurst",
       modalId: "VLZ-452",
       purchaseId: "VLZ1400087402",
-      title: "Post launch reminder/ post list",
+      title: "MBS2018",
       user: "Joseph Parker",
       assigned: "Alexis Clarke",
       createdBy: "Joseph Parker",
@@ -185,9 +168,9 @@ const ReportingManagement = () => {
       priority: "High",
     },
     {
-      srNo: "02",
+      srNo: "Tommy Carey",
       modalId: "VLZ-453",
-      purchaseId: "VLZ1400087425",
+      purchaseId: "BMWE2017",
       title: "Additional Calendar",
       user: "Diana Kohler",
       assigned: "Admin",
@@ -197,9 +180,9 @@ const ReportingManagement = () => {
       priority: "Medium",
     },
     {
-      srNo: "03",
+      srNo: "Cassius Brock",
       modalId: "VLZ-454",
-      purchaseId: "VLZ1400087438",
+      purchaseId: "MBL2019",
       title: "Make a creating an account profile",
       user: "Tonya Noble",
       assigned: "Admin",
@@ -209,9 +192,9 @@ const ReportingManagement = () => {
       priority: "Low",
     },
     {
-      srNo: "04",
+      srNo: "Gabrielle Holden",
       modalId: "VLZ-455",
-      purchaseId: "VLZ1400087748",
+      purchaseId: "MBS2020",
       title: "Apologize for shopping Error!",
       user: "Joseph Parker",
       assigned: "Alexis Clarke",
@@ -221,9 +204,9 @@ const ReportingManagement = () => {
       priority: "Medium",
     },
     {
-      srNo: "05",
+      srNo: "Jacques Leon",
       modalId: "VLZ-456",
-      purchaseId: "VLZ1400087547",
+      purchaseId: "RRS2021",
       title: "Support for theme",
       user: "Donald Palmer",
       assigned: "Admin",
@@ -233,9 +216,9 @@ const ReportingManagement = () => {
       priority: "Low",
     },
     {
-      srNo: "06",
+      srNo: "Edward Rogers",
       modalId: "VLZ-457",
-      purchaseId: "VLZ1400087245",
+      purchaseId: "AE2018",
       title: "Benner design for FB & Twitter",
       user: "Mary Rucker",
       assigned: "Jennifer Carter",
@@ -245,9 +228,9 @@ const ReportingManagement = () => {
       priority: "Medium",
     },
     {
-      srNo: "07",
+      srNo: "Harrison Matthews",
       modalId: "VLZ-458",
-      purchaseId: "VLZ1400087785",
+      purchaseId: "MBL2018",
       title: "Change email option process",
       user: "James Morris",
       assigned: "Admin",
@@ -257,9 +240,9 @@ const ReportingManagement = () => {
       priority: "High",
     },
     {
-      srNo: "08",
+      srNo: "Zachariah Poole",
       modalId: "VLZ-460",
-      purchaseId: "VLZ1400087745",
+      purchaseId: "MBS2018",
       title: "Support for theme",
       user: "Nathan Cole",
       assigned: "Nancy Martino",
@@ -269,9 +252,9 @@ const ReportingManagement = () => {
       priority: "Low",
     },
     {
-      srNo: "09",
+      srNo: "Carter Francis",
       modalId: "VLZ-461",
-      purchaseId: "VLZ1400087179",
+      purchaseId: "MBL2019",
       title: "Form submit issue",
       user: "Grace Coles",
       assigned: "Admin",
@@ -281,9 +264,9 @@ const ReportingManagement = () => {
       priority: "High",
     },
     {
-      srNo: "10",
+      srNo: "Jasper Parry",
       modalId: "VLZ-462",
-      purchaseId: "VLZ140008856",
+      purchaseId: "MBS2018",
       title: "Edit customer testimonial",
       user: "Freda",
       assigned: "Alexis Clarke",
@@ -293,9 +276,9 @@ const ReportingManagement = () => {
       priority: "Medium",
     },
     {
-      srNo: "11",
+      srNo: "Maximilian Holland",
       modalId: "VLZ-463",
-      purchaseId: "VLZ1400078031",
+      purchaseId: "MBS2020",
       title: "Ca i have an e-copy invoice",
       user: "Williams",
       assigned: "Admin",
@@ -305,9 +288,9 @@ const ReportingManagement = () => {
       priority: "Low",
     },
     {
-      srNo: "12",
+      srNo: "Carter Francis",
       modalId: "VLZ-464",
-      purchaseId: "VLZ1400087416",
+      purchaseId: "RRS2021",
       title: "Brand logo design",
       user: "Richard V.",
       assigned: "Admin",
@@ -317,9 +300,9 @@ const ReportingManagement = () => {
       priority: "High",
     },
     {
-      srNo: "13",
+      srNo: "Harrison Matthews",
       modalId: "VLZ-466",
-      purchaseId: "VLZ1400089015",
+      purchaseId: "AE2018",
       title: "Issue with finding information about order ?",
       user: "Olive Gunther",
       assigned: "Alexis Clarke",
@@ -329,9 +312,9 @@ const ReportingManagement = () => {
       priority: "High",
     },
     {
-      srNo: "14",
+      srNo: "Gabrielle Holden",
       modalId: "VLZ-467",
-      purchaseId: "VLZ1400090324",
+      purchaseId: "AE2018",
       title: "Make a creating an account profile",
       user: "Edwin",
       assigned: "Admin",
@@ -352,7 +335,7 @@ const ReportingManagement = () => {
                 <Row className="g-lg-2 g-4">
                   <Col sm={9} className="col-lg-auto">
                     <select
-                      className="form-select"
+                      className="form-select text-muted"
                       data-choices
                       data-choices-search-false
                       name="choices-single-default"
@@ -367,6 +350,33 @@ const ReportingManagement = () => {
                       <option value="Last Month">Last Month</option>
                     </select>
                   </Col>
+                  <Col xxl={2} lg={6}>
+                    <select
+                      className="form-select text-muted"
+                      data-choices
+                      data-choices-search-false
+                      name="choices-single-default"
+                      id="idStatus"
+                    >
+                      <option value="">Status</option>
+                      <option value="Pickups">Pickups</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Shipping">Shipping</option>
+                      <option value="Delivered">Delivered</option>
+                      <option value="Out Of Delivery">Out Of Delivery</option>
+                    </select>
+                  </Col>
+                  <Col xxl={3} lg={6}>
+                                    {/* <input type="text" className="form-control" data-provider="flatpickr" data-date-format="d M, Y" data-range-date="true" id="demo-datepicker" placeholder="Select date" /> */}
+                                    <Flatpickr
+                                        className="form-control flatpickr-input"
+                                        placeholder='Select Date'
+                                        options={{
+                                            mode: "range",
+                                            dateFormat: "d M, Y",
+                                        }}
+                                    />
+                                </Col>
                 </Row>
               </Card.Body>
             </Card>

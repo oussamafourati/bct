@@ -2,11 +2,6 @@ import { Navigate } from "react-router-dom";
 
 import Dashboard from "pages/Dashboard";
 
-// Invoice
-import InvoiceList from "pages/Invoices/InvoiceList";
-import InvoiceDetails from "pages/Invoices/InvoiceDetails";
-import CreateInvoice from "pages/Invoices/CreateInvoice";
-
 // Accounts
 import SignIn from "pages/Accounts/AuthenticationInner/SignIn";
 import PasswordReset from "pages/Accounts/AuthenticationInner/PasswordReset";
@@ -57,6 +52,11 @@ import Offers from "pages/CorporateTransport/Programming/Offers";
 import Stations from "pages/CorporateTransport/Programming/Stations";
 import TripModels from "pages/CorporateTransport/Programming/TripModels";
 import TeamDetails from "pages/Administration/Team/TeamDetails";
+import DriverDetails from "pages/Administration/Driver/DriverDetails";
+import CompanyDetails from "pages/Corporate/Companies/CompanyDetails";
+import SchoolDetails from "pages/Corporate/Schools/SchoolDetails";
+import SubcontractorDetails from "pages/Corporate/Subcontractor/SubcontractorDetails";
+import VehicleDetails from "pages/Administration/Vehicles/VehicleDetails";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -91,13 +91,16 @@ const authProtectedRoutes = [
 
   //? Companies
   { path: "/corporate/companies/new-company", component: <AddNewCompany /> },
+  { path: "/company-details/:name", component: <CompanyDetails /> },
   //? Schools
   { path: "/corporate/schools/new-school", component: <AddNewSchool /> },
+  { path: "/school-details/:name", component: <SchoolDetails /> },
   //? Sub-Contractor
   {
     path: "/corporate/subcontractors/new-subcontractor",
     component: <AddNewSubcontractor />,
   },
+{ path: "/subcontractor-details/:name", component: <SubcontractorDetails /> },
 
   //? Feedback & Claims
   { path: "/feedback", component: <Feedback /> },
@@ -111,9 +114,11 @@ const authProtectedRoutes = [
 
   //? Administration
   { path: "/team", component: <Team /> },
-  { path: "/team-details", component: <TeamDetails /> },
+  { path: "/team-details/:fullName", component: <TeamDetails /> },
   { path: "/driver", component: <Driver /> },
+  { path: "/driver-details/:fullName", component: <DriverDetails /> },
   { path: "/vehicles", component: <Vehicles /> },
+  { path: "/vehicle-details/:name", component: <VehicleDetails /> },
 
   //? Vehicles
   {

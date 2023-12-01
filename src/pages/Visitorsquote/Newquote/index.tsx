@@ -222,14 +222,12 @@ const Newquote = () => {
                                 >
                                   Collection address
                                 </label>
-                                <VectorMap
-                                  {...world}
-                                  style={{ height: "120px" }}
+                                 <Form.Control
+                                  type="text"
+                                  id="customerName-field"
+                                  placeholder="Enter collection address"
+                                  required
                                 />
-                                <div
-                                  id="world-map-line-markers"
-                                  data-colors='["--tb-light"]'
-                                ></div>
                               </div>
                             </Col>
                             {/* Extra Drop  == Done */}
@@ -241,14 +239,12 @@ const Newquote = () => {
                                 >
                                   Extra Drop
                                 </label>
-                                <VectorMap
-                                  {...world}
-                                  style={{ height: "120px" }}
+                                <Form.Control
+                                  type="text"
+                                  id="customerName-field"
+                                  placeholder="Enter Extra Drop"
+                                  required
                                 />
-                                <div
-                                  id="world-map-line-markers"
-                                  data-colors='["--tb-light"]'
-                                ></div>
                               </div>
                             </Col>
                             {/* Destination Address  == Done */}
@@ -260,14 +256,12 @@ const Newquote = () => {
                                 >
                                   Destination Address
                                 </label>
-                                <VectorMap
-                                  {...world}
-                                  style={{ height: "120px" }}
+                                <Form.Control
+                                  type="text"
+                                  id="customerName-field"
+                                  placeholder="Enter destination address"
+                                  required
                                 />
-                                <div
-                                  id="world-map-line-markers"
-                                  data-colors='["--tb-light"]'
-                                ></div>
                               </div>
                             </Col>
                           </Row>

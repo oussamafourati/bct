@@ -65,7 +65,7 @@ const Template = ({ emails }: any) => {
             onClick={() => setShow(true)}
             className="w-100"
           >
-            <i className="bi bi-plus-circle me-1 align-middle"></i> Add Template
+            <i className="mdi mdi-email-plus-outline me-1 align-middle"></i> Add Template
           </Button>
         </Col>
       </Row>
@@ -79,13 +79,13 @@ const Template = ({ emails }: any) => {
           <Col key={key}>
             <Card className="card brand-widget card-animate" onClick={() => { setShowDetails(true); setInfo(item) }}>
                     <Card.Body className="card-body text-center pb-2">
-                        <i className={item.categoryIcon} style={{fontSize: 26}}></i>
+                        <i className={item.templateIcon} style={{fontSize: 26}}></i>
               </Card.Body>
               <div className="card-footer text-center border-0">
-                <h6 className="fs-17">{item.brandName}</h6>
+                <h6 className="fs-17">{item.templateName}</h6>
                 <p className="mb-0">
                   <Link to="#" className="link-success stretched-link">
-                    {item.productItems}
+                    {item.for}
                   </Link>
                 </p>
               </div>
@@ -240,23 +240,20 @@ const Template = ({ emails }: any) => {
           </Modal>
           <Offcanvas show={showDetails} onHide={() => setShowDetails(false)} placement="end">
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>#TB12</Offcanvas.Title>
+                    <Offcanvas.Title>{info.templateName}</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <div className="avatar-lg mx-auto">
                         <div className="avatar-title bg-light rounded">
-                            <img src={info.categoryImg} alt="" className="avatar-sm overview-img" />
+              <i className={`${info.templateIcon} fs-24 text-dark`}></i>
                         </div>
                     </div>
                     <div className="text-center mt-3">
-                        <h5 className="overview-title">{info.categoryTitle}</h5>
-                        <p className="text-muted">for <Link to="#" className="text-reset">Visitor</Link></p>
+                        <h5 className="overview-title">{info.templateName}</h5>
+            <p className="text-muted">for <Link to="#" className="text-reset">{info.for}</Link></p>
                     </div>
-
-                    <h6 className="fs-14">Title</h6>
-                    <p className="text-muted overview-desc">{info.description}</p>
-
-                    <h6 className="fs-14 mb-3">Body</h6>
+          <h6 className="fs-14 mb-3">Body</h6>
+          <p>{info.body}</p>
                     <ul className="vstack gap-2 mb-0 subCategory" style={{ listStyleType: "circle" }}>
                         {(info.subCategory || []).map((item: any, key: number) => (key < 4 && <li key={key}><Link to="#" className="text-reset">{item}</Link></li>))}
                     </ul>

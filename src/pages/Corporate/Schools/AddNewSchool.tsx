@@ -304,7 +304,7 @@ const AddNewSchool = () => {
                                       htmlFor="statusSelect"
                                       className="form-label"
                                     >
-                                      Subdomaine
+                                      Sub-Domaine
                                     </label>
                                     <Form.Control
                                       type="text"

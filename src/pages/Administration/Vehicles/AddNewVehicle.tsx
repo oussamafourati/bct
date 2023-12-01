@@ -782,7 +782,7 @@ const AddNewVehicle = () => {
                                       htmlFor="statusSelect"
                                       className="form-label"
                                     >
-                                      Standard distance
+                                      Standard Distance
                                     </label>
                                     <Form.Control
                                       type="text"

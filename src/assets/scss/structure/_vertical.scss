@@ -22,6 +22,7 @@
 
 .page-content {
     padding: calc(#{$header-height} + #{$top-tagbar-height} + #{$grid-gutter-width}) calc(#{$grid-gutter-width} * 0.5) $footer-height calc(#{$grid-gutter-width} * 0.5);
+    // background-color: #f3f3f3;
 }
 
 .navbar-menu {
@@ -57,7 +58,7 @@
             i {
                 display: inline-block;
                 min-width: $vertical-menu-item-icon-width;
-                font-size: 16px;
+                font-size: 18px;
                 line-height: inherit;
             }
 

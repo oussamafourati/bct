@@ -36,11 +36,9 @@ const bookmarkProduct = (e: any) => {
   }
 };
 
-const TeamDetails = () => {
-  document.title = "Team Details | Bouden Coach Travel";
-  const LocationTeam = useLocation();
-
-  console.log(LocationTeam.state);
+const DriverDetails = () => {
+  document.title = "Driver Details | Bouden Coach Travel";
+  const LocationDriver = useLocation();
 
   return (
     <React.Fragment>
@@ -53,7 +51,7 @@ const TeamDetails = () => {
                   <Col lg={3}>
                     <div className="profile-user-img position-relative">
                       <img
-                        src={LocationTeam.state.avatar}
+                        src={LocationDriver.state.avatar}
                         alt=""
                         className="rounded object-fit-cover"
                       />
@@ -65,7 +63,7 @@ const TeamDetails = () => {
                   <Col lg={9}>
                     <div className="d-flex border-bottom border-bottom-dashed pb-3 mb-3 mt-4 mt-lg-0">
                       <div className="flex-grow-1">
-                        <h5>{LocationTeam.state.fullName}</h5>
+                        <h5>{LocationDriver.state.fullName}</h5>
                         {/* <p className="text-muted mb-0">Sales & Marketing Manager</p> */}
                       </div>
                       {/* <div className="flex-shrink-0">
@@ -90,43 +88,43 @@ const TeamDetails = () => {
                               <tr>
                                 <td>Address</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.address}
+                                  {LocationDriver.state.address}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Email</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.email}
+                                  {LocationDriver.state.email}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Date of Birth</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.dateofbirth}
+                                  {LocationDriver.state.dateofbirth}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Mobile / Phone No.</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.phone}
+                                  {LocationDriver.state.phone}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Gender</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.gender}
+                                  {LocationDriver.state.gender}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Civil Status</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.civilStatus}
+                                  {LocationDriver.state.civilStatus}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Number of Child</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.numberofchild}
+                                  {LocationDriver.state.numberofchild}
                                 </td>
                               </tr>
                             </tbody>
@@ -140,19 +138,19 @@ const TeamDetails = () => {
                               <tr>
                                 <td>Nationality</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.nationality}
+                                  {LocationDriver.state.nationality}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Original Nationality</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.originalNationality}
+                                  {LocationDriver.state.originalNationality}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Status</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.status === "Active" ? (
+                                  {LocationDriver.state.status === "Active" ? (
                                     <span className="badge badge-soft-success">Active</span>
                                   ) : (
                                     <span className="badge badge-soft-danger">Inactive</span>
@@ -162,25 +160,25 @@ const TeamDetails = () => {
                               <tr>
                                 <td>Joining Date</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.serviceDate}
+                                  {LocationDriver.state.serviceDate}
                                 </td>
                               </tr>
                               <tr>
-                                <td>Access Level</td>
+                                <td>Category</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.accessLevel}
+                                  {LocationDriver.state.category}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Contract Type</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.contractType}
+                                  {LocationDriver.state.contractType}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Salary</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.salary}
+                                  {LocationDriver.state.salary}
                                 </td>
                               </tr>
                             </tbody>
@@ -199,4 +197,4 @@ const TeamDetails = () => {
   );
 };
 
-export default TeamDetails;
+export default DriverDetails;

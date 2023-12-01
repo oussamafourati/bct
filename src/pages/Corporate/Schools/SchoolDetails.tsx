@@ -10,21 +10,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import profilebgImg from "../../../assets/images/profile-bg.jpg";
-import companyImg3 from "../../../assets/images/companies/img-3.png";
 
-import avatar1 from "../../../assets/images/users/avatar-1.jpg";
-
-import productsImg1 from "../../../assets/images/products/img-1.png";
-import productsImg4 from "../../../assets/images/products/img-4.png";
-import productsImg5 from "../../../assets/images/products/img-5.png";
-import productsImg6 from "../../../assets/images/products/img-6.png";
-import productsImg7 from "../../../assets/images/products/img-7.png";
-import productsImg8 from "../../../assets/images/products/img-8.png";
-import productsImg9 from "../../../assets/images/products/img-9.png";
-import productsImg11 from "../../../assets/images/products/img-11.png";
-import productsImg14 from "../../../assets/images/products/img-14.png";
-import productsImg15 from "../../../assets/images/products/img-15.png";
 import { Link } from "react-router-dom";
 
 const bookmarkProduct = (e: any) => {
@@ -36,11 +22,11 @@ const bookmarkProduct = (e: any) => {
   }
 };
 
-const TeamDetails = () => {
-  document.title = "Team Details | Bouden Coach Travel";
-  const LocationTeam = useLocation();
+const SchoolDetails = () => {
+  document.title = "School Details | Bouden Coach Travel";
+  const LocationSchool = useLocation();
 
-  console.log(LocationTeam.state);
+  console.log(LocationSchool.state);
 
   return (
     <React.Fragment>
@@ -53,9 +39,9 @@ const TeamDetails = () => {
                   <Col lg={3}>
                     <div className="profile-user-img position-relative">
                       <img
-                        src={LocationTeam.state.avatar}
+                        src={LocationSchool.state.logo}
                         alt=""
-                        className="rounded object-fit-cover"
+                        className="rounded"
                       />
                       {/* <span className="position-absolute top-0 start-100 translate-middle badge border border-3 border-white rounded-circle bg-success p-1 mt-1 me-1">
                         <span className="visually-hidden">unread messages</span>
@@ -65,7 +51,7 @@ const TeamDetails = () => {
                   <Col lg={9}>
                     <div className="d-flex border-bottom border-bottom-dashed pb-3 mb-3 mt-4 mt-lg-0">
                       <div className="flex-grow-1">
-                        <h5>{LocationTeam.state.fullName}</h5>
+                        <h5>{LocationSchool.state.name}</h5>
                         {/* <p className="text-muted mb-0">Sales & Marketing Manager</p> */}
                       </div>
                       {/* <div className="flex-shrink-0">
@@ -90,43 +76,37 @@ const TeamDetails = () => {
                               <tr>
                                 <td>Address</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.address}
+                                  {LocationSchool.state.address}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Email</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.email}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Date of Birth</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.dateofbirth}
+                                  {LocationSchool.state.email}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Mobile / Phone No.</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.phone}
+                                  {LocationSchool.state.phone}
                                 </td>
                               </tr>
                               <tr>
-                                <td>Gender</td>
+                                <td>Category</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.gender}
+                                  {LocationSchool.state.corporateCategory}
                                 </td>
                               </tr>
                               <tr>
-                                <td>Civil Status</td>
+                                <td>Activity</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.civilStatus}
+                                  {LocationSchool.state.activity}
                                 </td>
                               </tr>
                               <tr>
-                                <td>Number of Child</td>
+                                <td>Bank Name</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.numberofchild}
+                                  {LocationSchool.state.bankName}
                                 </td>
                               </tr>
                             </tbody>
@@ -138,21 +118,21 @@ const TeamDetails = () => {
                           <Table className="table-borderless table-sm mb-0">
                             <tbody>
                               <tr>
-                                <td>Nationality</td>
+                                <td>Bank Account Swift</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.nationality}
+                                  {LocationSchool.state.bankAccountSwift}
                                 </td>
                               </tr>
                               <tr>
-                                <td>Original Nationality</td>
+                                <td>Bank Account Number</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.originalNationality}
+                                  {LocationSchool.state.bankAccountNumber}
                                 </td>
                               </tr>
                               <tr>
                                 <td>Status</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.status === "Active" ? (
+                                  {LocationSchool.state.status === "Active" ? (
                                     <span className="badge badge-soft-success">Active</span>
                                   ) : (
                                     <span className="badge badge-soft-danger">Inactive</span>
@@ -162,25 +142,19 @@ const TeamDetails = () => {
                               <tr>
                                 <td>Joining Date</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.serviceDate}
+                                  {LocationSchool.state.serviceDate}
                                 </td>
                               </tr>
                               <tr>
-                                <td>Access Level</td>
+                                <td>login</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.accessLevel}
+                                  {LocationSchool.state.login}
                                 </td>
                               </tr>
                               <tr>
-                                <td>Contract Type</td>
+                                <td>Sub-Domaine</td>
                                 <td className="fw-medium">
-                                  {LocationTeam.state.contractType}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Salary</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.salary}
+                                  {LocationSchool.state.subDomaine}
                                 </td>
                               </tr>
                             </tbody>
@@ -199,4 +173,4 @@ const TeamDetails = () => {
   );
 };
 
-export default TeamDetails;
+export default SchoolDetails;

@@ -258,7 +258,7 @@ const Navdata = () => {
             {
               id: 2,
               icon: "ri-list-check",
-              label: "All Sub-contractors",
+              label: "All Subcontractors",
               link: "/all-sub-contractors",
             },
           ],

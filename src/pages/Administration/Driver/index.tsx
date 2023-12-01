@@ -102,7 +102,7 @@ const Driver = () => {
           return (
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
-                <Link to="#" className="badge badge-soft-primary edit-item-btn">
+                <Link to={`/driver-details/${cellProps.fullName}`} className="badge badge-soft-primary edit-item-btn" state={cellProps}>
                   <i className="ri-eye-line"></i>
                 </Link>
               </li>

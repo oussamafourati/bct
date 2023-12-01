@@ -19,9 +19,13 @@ import { profile, account, accountTransaction } from "./recentorders";
 import { calenderDefaultCategories, events, defaultevent } from "./calendar";
 import { ListView } from "./invoiceListView";
 import { teamList } from "./teamlist";
+import { corporateList } from "./corporateList"
+import { schoolList } from "./schoolList"
 
 export {
   ListView,
+  corporateList,
+  schoolList,
   profile,
   account,
   accountTransaction,

@@ -30,117 +30,44 @@ const Delayschanges = () => {
     document.title = " Delays & Changes | Bouden Coach Travel";
   const columns = [
     {
-      name: (
-        <Form.Check
-          className="fs-15"
-          type="checkbox"
-          name="checkAll"
-          value="option1"
-        />
-      ),
-      cell: () => (
-        <Form.Check
-          className="fs-15"
-          type="checkbox"
-          name="checkAll"
-          value="option1"
-        />
-      ),
-    },
-    {
-      name: <span className="font-weight-bold fs-13">SR No.</span>,
-      selector: (row: any) => row.srNo,
+      name: <span className="font-weight-bold fs-13">Date</span>,
+      selector: (row: any) => row.date,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">ID</span>,
+      name: <span className="font-weight-bold fs-13">Driver</span>,
+      selector: (row: any) => row.driver,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Group</span>,
       selector: (row: any) => row.modalId,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Purchase ID</span>,
-      selector: (row: any) => row.purchaseId,
+      name: <span className="font-weight-bold fs-13">Vehicle</span>,
+      selector: (row: any) => row.vehicle,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Title</span>,
+      name: <span className="font-weight-bold fs-13">Start Station</span>,
       selector: (row: any) => <Link to="#!">{row.title}</Link>,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">User</span>,
+      name: <span className="font-weight-bold fs-13">Start Time</span>,
       selector: (row: any) => row.user,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Assigned To</span>,
+      name: <span className="font-weight-bold fs-13">Destination</span>,
       selector: (row: any) => row.assigned,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Create By</span>,
+      name: <span className="font-weight-bold fs-13">Arrival Time</span>,
       selector: (row: any) => row.createdBy,
       sortable: true,
-    },
-    {
-      name: <span className="font-weight-bold fs-13">Create Date</span>,
-      selector: (row: any) => row.createDate,
-      sortable: true,
-    },
-    {
-      name: <span className="font-weight-bold fs-13">Status</span>,
-      sortable: true,
-      selector: (cell: any) => {
-        switch (cell.status) {
-          case "Re-open":
-            return (
-              <span className="badge badge-soft-info"> {cell.status} </span>
-            );
-          case "On-Hold":
-            return (
-              <span className="badge badge-soft-secondary">
-                {" "}
-                {cell.status}{" "}
-              </span>
-            );
-          case "Closed":
-            return (
-              <span className="badge badge-soft-danger"> {cell.status} </span>
-            );
-          case "Inprogress":
-            return (
-              <span className="badge badge-soft-warning"> {cell.status} </span>
-            );
-          case "Open":
-            return (
-              <span className="badge badge-soft-primary"> {cell.status} </span>
-            );
-          case "New":
-            return (
-              <span className="badge badge-soft-success"> {cell.status} </span>
-            );
-          default:
-            return (
-              <span className="badge badge-soft-success"> {cell.status} </span>
-            );
-        }
-      },
-    },
-    {
-      name: <span className="font-weight-bold fs-13">Priority</span>,
-      sortable: true,
-      selector: (cell: any) => {
-        switch (cell.priority) {
-          case "High":
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-          case "Medium":
-            return <span className="badge bg-info"> {cell.priority} </span>;
-          case "Low":
-            return <span className="badge bg-success"> {cell.priority} </span>;
-          default:
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-        }
-      },
     },
     {
       name: <span className="font-weight-bold fs-13">Action</span>,
@@ -175,168 +102,168 @@ const Delayschanges = () => {
     {
       srNo: "01",
       modalId: "VLZ-452",
-      purchaseId: "VLZ1400087402",
+      vehicle: "MBS2018",
       title: "Post launch reminder/ post list",
-      user: "Joseph Parker",
+      driver: "Joseph Parker",
       assigned: "Alexis Clarke",
       createdBy: "Joseph Parker",
-      createDate: "03 Oct, 2021",
+      date: "03 Oct, 2021",
       status: "Re-open",
       priority: "High",
     },
     {
       srNo: "02",
       modalId: "VLZ-453",
-      purchaseId: "VLZ1400087425",
+      vehicle: "BMWE2017",
       title: "Additional Calendar",
-      user: "Diana Kohler",
+      driver: "Diana Kohler",
       assigned: "Admin",
       createdBy: "Mary Rucker",
-      createDate: "05 Oct, 2021",
+      date: "05 Oct, 2021",
       status: "On-Hold",
       priority: "Medium",
     },
     {
       srNo: "03",
       modalId: "VLZ-454",
-      purchaseId: "VLZ1400087438",
+      vehicle: "MBL2019",
       title: "Make a creating an account profile",
-      user: "Tonya Noble",
+      driver: "Tonya Noble",
       assigned: "Admin",
       createdBy: "Tonya Noble",
-      createDate: "27 April, 2022",
+      date: "27 April, 2022",
       status: "Closed",
       priority: "Low",
     },
     {
       srNo: "04",
       modalId: "VLZ-455",
-      purchaseId: "VLZ1400087748",
+      vehicle: "MBS2020",
       title: "Apologize for shopping Error!",
-      user: "Joseph Parker",
+      driver: "Joseph Parker",
       assigned: "Alexis Clarke",
       createdBy: "Joseph Parker",
-      createDate: "14 June, 2021",
+      date: "14 June, 2021",
       status: "Inprogress",
       priority: "Medium",
     },
     {
       srNo: "05",
       modalId: "VLZ-456",
-      purchaseId: "VLZ1400087547",
+      vehicle: "RRS2021",
       title: "Support for theme",
-      user: "Donald Palmer",
+      driver: "Donald Palmer",
       assigned: "Admin",
       createdBy: "Donald Palmer",
-      createDate: "25 June, 2021",
+      date: "25 June, 2021",
       status: "Closed",
       priority: "Low",
     },
     {
       srNo: "06",
       modalId: "VLZ-457",
-      purchaseId: "VLZ1400087245",
+      vehicle: "AE2018",
       title: "Benner design for FB & Twitter",
-      user: "Mary Rucker",
+      driver: "Mary Rucker",
       assigned: "Jennifer Carter",
       createdBy: "Mary Rucker",
-      createDate: "14 Aug, 2021",
+      date: "14 Aug, 2021",
       status: "Inprogress",
       priority: "Medium",
     },
     {
       srNo: "07",
       modalId: "VLZ-458",
-      purchaseId: "VLZ1400087785",
+      vehicle: "MBL2018",
       title: "Change email option process",
-      user: "James Morris",
+      driver: "James Morris",
       assigned: "Admin",
       createdBy: "James Morris",
-      createDate: "12 March, 2022",
+      date: "12 March, 2022",
       status: "Open",
       priority: "High",
     },
     {
       srNo: "08",
       modalId: "VLZ-460",
-      purchaseId: "VLZ1400087745",
+      vehicle: "MBE2021",
       title: "Support for theme",
-      user: "Nathan Cole",
+      driver: "Nathan Cole",
       assigned: "Nancy Martino",
       createdBy: "Nathan Cole",
-      createDate: "28 Feb, 2022",
+      date: "28 Feb, 2022",
       status: "On-Hold",
       priority: "Low",
     },
     {
       srNo: "09",
       modalId: "VLZ-461",
-      purchaseId: "VLZ1400087179",
+      vehicle: "RRS2021",
       title: "Form submit issue",
-      user: "Grace Coles",
+      driver: "Grace Coles",
       assigned: "Admin",
       createdBy: "Grace Coles",
-      createDate: "07 Jan, 2022",
+      date: "07 Jan, 2022",
       status: "New",
       priority: "High",
     },
     {
       srNo: "10",
       modalId: "VLZ-462",
-      purchaseId: "VLZ140008856",
+      vehicle: "BMWE2017",
       title: "Edit customer testimonial",
-      user: "Freda",
+      driver: "Freda",
       assigned: "Alexis Clarke",
       createdBy: "Freda",
-      createDate: "16 Aug, 2021",
+      date: "16 Aug, 2021",
       status: "Closed",
       priority: "Medium",
     },
     {
       srNo: "11",
       modalId: "VLZ-463",
-      purchaseId: "VLZ1400078031",
+      vehicle: "MBS2018",
       title: "Ca i have an e-copy invoice",
-      user: "Williams",
+      driver: "Williams",
       assigned: "Admin",
       createdBy: "Williams",
-      createDate: "24 Feb, 2022",
+      date: "24 Feb, 2022",
       status: "Open",
       priority: "Low",
     },
     {
       srNo: "12",
       modalId: "VLZ-464",
-      purchaseId: "VLZ1400087416",
+      vehicle: "MBL2018",
       title: "Brand logo design",
-      user: "Richard V.",
+      driver: "Richard V.",
       assigned: "Admin",
       createdBy: "Richard V.",
-      createDate: "16 March, 2021",
+      date: "16 March, 2021",
       status: "Inprogress",
       priority: "High",
     },
     {
       srNo: "13",
       modalId: "VLZ-466",
-      purchaseId: "VLZ1400089015",
+      vehicle: "AE2018",
       title: "Issue with finding information about order ?",
-      user: "Olive Gunther",
+      driver: "Olive Gunther",
       assigned: "Alexis Clarke",
       createdBy: "Schaefer",
-      createDate: "32 March, 2022",
+      date: "32 March, 2022",
       status: "New",
       priority: "High",
     },
     {
       srNo: "14",
       modalId: "VLZ-467",
-      purchaseId: "VLZ1400090324",
+      vehicle: "VLZ1400090324",
       title: "Make a creating an account profile",
-      user: "Edwin",
+      driver: "Edwin",
       assigned: "Admin",
       createdBy: "Edwin",
-      createDate: "05 April, 2022",
+      date: "05 April, 2022",
       status: "Inprogress",
       priority: "Low",
     },

@@ -279,6 +279,7 @@ const VerticalLayout = (props: any) => {
                 </Link>
               </li>
             )}
+          
           </React.Fragment>
         );
       })}

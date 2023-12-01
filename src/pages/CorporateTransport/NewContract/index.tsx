@@ -98,19 +98,15 @@ const NewContract = () => {
                     <Breadcrumb title="New Contract" pageTitle="Corporates Transport" />
                     <Card id="shipmentsList">
                         <Card.Header className="border-bottom-dashed">
-                            <Row className="align-items-center g-3">
-                                <Col className="col-xxl-auto col-sm-auto ms-auto">
-                                    <Button variant='success' onClick={() => tog_AddShippingModals()} className="add-btn"><i className="bi bi-plus-circle me-1 align-middle"></i> Add Contract</Button>
-                                </Col>
-                            </Row>
-                        </Card.Header>
-                        <Card.Header className="border-bottom-dashed">
                             <Row className="g-3">
                                 <Col xxl={3} lg={6}>
                                     <div className="search-box">
                                         <input type="text" className="form-control search" placeholder="Search for something..." />
                                         <i className="ri-search-line search-icon"></i>
                                     </div>
+                                </Col>
+                                <Col className="col-xxl-auto col-sm-auto ms-auto">
+                                    <Button variant='success' onClick={() => tog_AddShippingModals()} className="add-btn"><i className="bi bi-plus-circle me-1 align-middle"></i> Add Contract</Button>
                                 </Col>
                             </Row>
                         </Card.Header>

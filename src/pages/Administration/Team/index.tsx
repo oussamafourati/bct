@@ -129,7 +129,7 @@ const Team = () => {
           return (
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
-                <Link to="/team-details" className="badge badge-soft-primary edit-item-btn" state={cellProps}>
+                <Link to={`/team-details/${cellProps.fullName}`} className="badge badge-soft-primary edit-item-btn" state={cellProps}>
                   <i className="ri-eye-line"></i>
                 </Link>
               </li>

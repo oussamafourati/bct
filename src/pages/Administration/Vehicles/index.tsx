@@ -31,7 +31,7 @@ const Vehicles = () => {
         filterable: true,
         accessor: (cellProps: any) => {
           return (
-            <Link to="#" className="fw-medium link-primary">
+            <Link to={`/vehicle-details/${cellProps.name}`} className="fw-medium link-primary" state={cellProps}>
               {cellProps.name}
             </Link>
           );
