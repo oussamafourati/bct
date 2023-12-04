@@ -59,8 +59,14 @@ import SubcontractorDetails from "pages/Corporate/Subcontractor/SubcontractorDet
 import VehicleDetails from "pages/Administration/Vehicles/VehicleDetails";
 
 const authProtectedRoutes = [
-  { path: "/dashboard", component: <Dashboard /> },
+  
 
+  
+];
+
+const publicRoutes = [
+  // AuthenticationInner
+  { path: "/dashboard", component: <Dashboard /> },
   //? Tracking
   { path: "/map-tracking", component: <Maptracking /> },
   { path: "/delays&changes", component: <Delayschanges /> },
@@ -68,7 +74,7 @@ const authProtectedRoutes = [
   //? Visitors Quote
   { path: "/new-quote", component: <Newquote /> },
   { path: "/quote-request", component: <Quotesrequest /> },
-  { path: "/listing&management", component: <Listingmanagement /> },
+  { path: "/all-quotes", component: <Listingmanagement /> },
   //? Visitors Quote ==> Push Jobs
   { path: "/current-push-jobs", component: <Current /> },
   { path: "/history-push-job", component: <History /> },
@@ -140,19 +146,8 @@ const authProtectedRoutes = [
   { path: "/", exact: true, component: <Navigate to="/dashboard" /> },
   { path: "*", component: <Navigate to="/dashboard" /> },
   { path: "/user-profile", component: <UserProfile /> },
+
 ];
 
-const publicRoutes = [
-  // AuthenticationInner
-  { path: "/auth-signin-basic", component: <SignIn /> },
-  { path: "/auth-pass-reset-basic", component: <PasswordReset /> },
-  { path: "/auth-pass-change-basic", component: <PasswordCreate /> },
-  { path: "/auth-success-msg-basic", component: <SuccessMessage /> },
-  { path: "/auth-twostep-basic", component: <TwoStepVerify /> },
-  { path: "/auth-logout-basic", component: <BasicLogout /> },
-  { path: "/auth-404", component: <Error404 /> },
-  { path: "/auth-500", component: <Error500 /> },
-  { path: "/coming-soon", component: <ComingSoon /> },
-];
-
-export { authProtectedRoutes, publicRoutes };
+// export { authProtectedRoutes, publicRoutes };
+export { publicRoutes };

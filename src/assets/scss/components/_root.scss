@@ -111,14 +111,14 @@
       [data-sidebar="gradient-3"],
       [data-sidebar="gradient-4"]
     ) {
-    --#{$prefix}vertical-menu-item-color: #ffffff;
-    --#{$prefix}vertical-menu-item-hover-color: #{$yellow};
-    --#{$prefix}vertical-menu-item-hover-bg: #{$white};
-    --#{$prefix}vertical-menu-item-active-color: #{$yellow};
-    --#{$prefix}vertical-menu-sub-item-color: #ffffff;
-    --#{$prefix}vertical-menu-sub-item-hover-color: #{$yellow};
-    --#{$prefix}vertical-menu-sub-item-active-color: #{$white};
-    --#{$prefix}vertical-menu-title-color: #ffffff;
+    --#{$prefix}vertical-menu-item-color: #000000;
+    --#{$prefix}vertical-menu-item-hover-color: #{$purple};
+    --#{$prefix}vertical-menu-item-hover-bg: #{$purple};
+    --#{$prefix}vertical-menu-item-active-color: #{$purple};
+    --#{$prefix}vertical-menu-sub-item-color: #000000;
+    --#{$prefix}vertical-menu-sub-item-hover-color: #{$purple};
+    --#{$prefix}vertical-menu-sub-item-active-color: #{$purple};
+    --#{$prefix}vertical-menu-title-color: #000000;
   }
 
   &[data-sidebar="gradient"] {
@@ -179,8 +179,8 @@
   }
 
   &[data-sidebar="gradient-4"] {
-    --#{$prefix}vertical-menu-bg: linear-gradient(#343a40, #4d5358);
-    --#{$prefix}vertical-menu-border: #343a40;
+    --#{$prefix}vertical-menu-bg: linear-gradient(#ffffff, #f7f7f7);
+    --#{$prefix}vertical-menu-border: #f0f0f0;
     --#{$prefix}twocolumn-menu-iconview-bg: linear-gradient(
       to left,
       #{$cyan-700},

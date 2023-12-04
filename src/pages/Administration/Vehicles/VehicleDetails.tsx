@@ -221,7 +221,7 @@ const VehicleDetails = () => {
                       <p className="mb-2 text-uppercase text-muted fs-13">
                         Cost per km/mile :
                       </p>
-                      <h5 className="mb-0">1,230</h5>
+                      <h5 className="mb-0">$120.40</h5>
                     </div>
                   </Col>
 

@@ -87,9 +87,15 @@ const Navdata = () => {
       badgeColor: "danger",
     },
     {
-      id: "tracking",
-      label: "Tracking",
-      icon: "mdi mdi-map-clock",
+      id: "mapTracking",
+      label: "Live Tracking",
+      icon: "mdi mdi-map",
+      link: "/map-tracking",
+    },
+    {
+      id: "jobs",
+      label: "Jobs",
+      icon: "mdi mdi-briefcase-edit",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
@@ -100,86 +106,38 @@ const Navdata = () => {
       stateVariables: isTracking,
       subItems: [
         {
-          id: "mapTracking",
-          label: "Map Tracking",
-          link: "/map-tracking",
-          icon: "mdi mdi-map",
-          parentId: "tracking",
-        },
-        {
-          id: "delays&changes",
-          label: "Delays and changes",
-          icon: "mdi mdi-clock",
-          link: "/delays&changes",
-          parentId: "tracking",
-        },
-      ],
-    },
-    {
-      id: "VisitorQuote",
-      label: "Quotes Management",
-      icon: "mdi mdi-file-document-edit",
-      link: "/#",
-      click: function (e: any) {
-        e.preventDefault();
-        setIsVisitorQuote(!isVisitorQuote);
-        setIscurrentState("VisitorQuote");
-        updateIconSidebar(e);
-      },
-      stateVariables: isVisitorQuote,
-      subItems: [
-        {
-          id: "level1.3",
-          label: "Quote Requests",
-          icon: "ri-suitcase-fill",
-          link: "/quote-request",
-          parentId: "VisitorQuote",
-        },
-        {
-          id: "level1.4",
-          label: "All Quotes",
-          icon: "ri-table-fill",
-          link: "/listing&management",
-          parentId: "VisitorQuote",
-        },
-        {
-          id: "level1.2",
-          label: "Pushed Jobs",
-          link: "/#",
-          icon: "ri-briefcase-2-fill",
-          isChildItem: true,
-          click: function (e: any) {
-            e.preventDefault();
-            setIsLevel1(!isLevel1);
-          },
-          stateVariables: isLevel1,
-          childItems: [
-            {
-              id: 1,
-              label: "Current",
-              icon: "ri-flashlight-fill",
-              link: "/current-push-jobs",
-            },
-            {
-              id: 2,
-              label: "History",
-              icon: "bx bxs-hourglass-top",
-              link: "/history-push-job",
-            },
-          ],
-        },
-        {
-          id: "level1.1",
+          id: "newQuote",
           label: "New Quote",
-          icon: "ri-file-add-fill",
           link: "/new-quote",
-          parentId: "VisitorQuote",
+          icon: "mdi mdi-file-document-edit",
+          parentId: "jobs",
+        },
+        {
+          id: "QuoteRequests",
+          label: "Quote Requests",
+          icon: "mdi mdi-format-quote-open",
+          link: "/quote-request",
+          parentId: "jobs",
+        },
+        {
+          id: "AllQuotes",
+          label: "All Quotes",
+          icon: "mdi mdi-clipboard-list",
+          link: "/all-quotes",
+          parentId: "jobs",
+        },
+        {
+          id: "NewPushedJobs",
+          label: "New Pushed Jobs",
+          icon: "mdi mdi-lightning-bolt",
+          link: "/current-push-jobs",
+          parentId: "jobs",
         },
       ],
     },
     {
-      id: "CorporateTransport",
-      label: "Corporates Transport",
+      id: "Lists",
+      label: "Lists",
       icon: "mdi mdi-office-building-cog",
       link: "/#",
       click: function (e: any) {
@@ -191,11 +149,53 @@ const Navdata = () => {
       stateVariables: isCorporateTransport,
       subItems: [
         {
-          id: "Listing&Management",
-          label: "Management",
-          icon: "ri-list-settings-fill",
-          link: "/list-corporate-transport",
-          parentId: "CorporateTransport",
+          id: "Schools",
+          label: "Schools",
+          link: "/schools",
+          icon: "mdi mdi-school",
+          parentId: "Lists",
+        },
+        {
+          id: "Companies",
+          label: "Companies",
+          link: "/companies",
+          icon: "mdi mdi-domain",
+          parentId: "Lists",
+        },
+        {
+          id: "Subcontractors",
+          label: "Sub-Contractors",
+          link: "/all-sub-contractors",
+          icon: "mdi mdi-account-supervisor",
+          parentId: "Lists",
+        },
+        {
+          id: "Team",
+          label: "Team",
+          link: "/team",
+          icon: "ri-team-fill",
+          parentId: "Lists",
+        },
+        {
+          id: "Driver",
+          label: "Driver",
+          link: "/driver",
+          icon: "ri-exchange-funds-fill",
+          parentId: "Lists",
+        },
+        {
+          id: "Vehicles",
+          label: "Vehicles",
+          link: "/vehicles",
+          icon: "ri-bus-2-fill",
+          parentId: "Lists",
+        },
+        {
+          id: "OldPushedJobs",
+          label: "Old Pushed Jobs",
+          link: "/history-push-job",
+          icon: "mdi mdi-timer-sand-complete",
+          parentId: "Lists",
         },
         {
           id: "Programming",
@@ -212,77 +212,36 @@ const Navdata = () => {
             {
               id: 1,
               label: "Scheduling",
-              icon: "ri-calendar-check-fill",
+              icon: "mdi mdi-calendar-edit",
               link: "/scheduling",
             },
-            { id: 2, label: "Offers", icon: "bx bxs-megaphone", link: "/offers" },
-            { id: 3, label: "Stations", icon: "ri-map-pin-add-fill", link: "/stations" },
-            { id: 4, label: "Trip Models", icon: "ri-suitcase-3-fill", link: "/trip-models" },
-          ],
-        },
-        {
-          id: "NewContract",
-          label: "New Contract",
-          icon: "ri-file-edit-fill",
-          link: "/new-contract",
-          parentId: "CorporateTransport",
-        },
-      ],
-    },
-    {
-      id: "Corporate",
-      label: "Corporate",
-      icon: "mdi mdi-handshake",
-      link: "/#",
-      click: function (e: any) {
-        e.preventDefault();
-        setIsCorporate(!isCorporate);
-        setIscurrentState("Corporate");
-        updateIconSidebar(e);
-      },
-      stateVariables: isCorporate,
-      subItems: [
-        {
-          id: "Sub-contractors",
-          label: "Sub-contractors",
-          link: "/#",
-          icon: "ri-group-2-fill",
-          isChildItem: true,
-          click: function (e: any) {
-            e.preventDefault();
-            setIsLevel3(!isLevel3);
-          },
-          stateVariables: isLevel3,
-          childItems: [
-            { id: 1, label: "New Applications", icon: "ri-user-add-line", link: "/new-applications" },
             {
               id: 2,
-              icon: "ri-list-check",
-              label: "All Subcontractors",
-              link: "/all-sub-contractors",
+              label: "Offers",
+              icon: "bx bxs-megaphone",
+              link: "/offers",
+            },
+            {
+              id: 3,
+              label: "Stations",
+              icon: "ri-map-pin-add-fill",
+              link: "/stations",
+            },
+            {
+              id: 4,
+              label: "Trip Models",
+              icon: "ri-suitcase-3-fill",
+              link: "/trip-models",
             },
           ],
         },
-        {
-          id: "Schools",
-          label: "Schools",
-          link: "/schools",
-          icon: "mdi mdi-school",
-          parentId: "Corporate",
-        },
-        {
-          id: "Companies",
-          label: "Companies",
-          link: "/companies",
-          icon: "mdi mdi-domain",
-          parentId: "Corporate",
-        },
+       
       ],
     },
     {
-      id: "Feedback&Claims",
-      label: "Feedback & Claims",
-      icon: "mdi mdi-thumbs-up-down",
+      id: "Management",
+      label: "Management",
+      icon: "mdi mdi-tools",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
@@ -292,16 +251,65 @@ const Navdata = () => {
       },
       stateVariables: isFeedbackClaims,
       subItems: [
+       {
+          id: "NewContract",
+          label: "New Contract",
+          icon: "ri-file-edit-fill",
+          link: "/new-contract",
+          parentId: "CorporateTransport",
+        },
         {
-          id: "feedback",
-          label: "Feedback",
+          id: "Scheduling",
+          label: "Scheduling",
+          link: "/history-push-job",
+          icon: "mdi mdi-timer-sand-complete",
+          parentId: "Lists",
+        },
+        {
+          id: "NewDriver",
+          label: "New Driver",
           icon: "ri-thumb-up-fill",
           link: "/feedback",
           parentId: "Feedback&Claims",
         },
         {
-          id: "claims",
-          label: "Claims",
+          id: "NewTeam",
+          label: "New Team",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
+        },
+        {
+          id: "NewVehicle",
+          label: "New Vehicle",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
+        },
+        {
+          id: "NewSchool",
+          label: "New School",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
+        },
+        {
+          id: "NewCompany",
+          label: "New Company",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
+        },
+        {
+          id: "NewSubContractor",
+          label: "New Sub-Contractor",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
+        },
+        {
+          id: "Emails",
+          label: "Emails",
           link: "/claims",
           icon: "ri-thumb-down-fill",
           parentId: "Feedback&Claims",
@@ -309,20 +317,8 @@ const Navdata = () => {
       ],
     },
     {
-      id: "ReportingManagement",
-      label: "Reporting Management",
-      icon: "mdi mdi-chart-box",
-      link: "/reporting-management",
-    },
-    {
-      id: "EmailTemplates",
-      label: "Email Templates",
-      icon: "mdi mdi-email-edit",
-      link: "/email-templates",
-    },
-    {
-      id: "Administration",
-      label: "Administration",
+      id: "Reporting",
+      label: "Reporting",
       icon: "mdi mdi-account-tie",
       link: "/#",
       click: function (e: any) {
@@ -334,25 +330,25 @@ const Navdata = () => {
       stateVariables: isAdministration,
       subItems: [
         {
-          id: "Team",
-          label: "Team",
-          link: "/team",
-          icon: "ri-team-fill",
-          parentId: "Administration",
+          id: "Report",
+          label: "Report",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
         },
         {
-          id: "Driver",
-          label: "Driver",
-          link: "/driver",
-          icon: "ri-exchange-funds-fill",
-          parentId: "Administration",
+          id: "Feedback",
+          label: "Feedback",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
         },
         {
-          id: "Vehicles",
-          label: "Vehicles",
-          link: "/vehicles",
-          icon: "ri-bus-2-fill",
-          parentId: "Administration",
+          id: "Claims",
+          label: "Claims",
+          link: "/claims",
+          icon: "ri-thumb-down-fill",
+          parentId: "Feedback&Claims",
         },
       ],
     },

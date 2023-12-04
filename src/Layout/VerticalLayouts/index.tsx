@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import withRouter from "Common/withRouter";
-import { Collapse } from "react-bootstrap";
+import { Col, Collapse, Row } from "react-bootstrap";
+import CountUp from "react-countup";
 
 import { withTranslation } from "react-i18next";
 
 // Import Data
 import navdata from "../LayoutMenuData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const VerticalLayout = (props: any) => {
   const path = props.router.location.pathname;
@@ -84,6 +85,12 @@ const VerticalLayout = (props: any) => {
     });
   };
 
+  const navigate = useNavigate();
+
+  function tog_NewQuote() {
+    navigate("/new-quote");
+  }
+
   return (
     <React.Fragment>
       {/* menu Items */}
@@ -132,10 +139,7 @@ const VerticalLayout = (props: any) => {
                                     to={subItem.link ? subItem.link : "/"}
                                     className="nav-link"
                                   >
-                                    <i
-                                      className={subItem.icon}
-                                      style={{ fontSize: 14 }}
-                                    ></i>
+                                    <i className={subItem.icon}></i>
                                     {props.t(subItem.label)}
                                     {subItem.badgeName ? (
                                       <span
@@ -158,12 +162,7 @@ const VerticalLayout = (props: any) => {
                                     className="nav-link"
                                     data-bs-toggle="collapse"
                                   >
-                                    <i
-                                      className={subItem.icon}
-                                      style={{
-                                        fontSize: 14,
-                                      }}
-                                    ></i>
+                                    <i className={subItem.icon}></i>
                                     {props.t(subItem.label)}
                                   </Link>
                                   <Collapse
@@ -192,7 +191,7 @@ const VerticalLayout = (props: any) => {
                                                           childItem.icon
                                                         }
                                                         style={{
-                                                          fontSize: 12,
+                                                          fontSize: 14,
                                                         }}
                                                       ></i>
                                                       {props.t(childItem.label)}
@@ -279,10 +278,64 @@ const VerticalLayout = (props: any) => {
                 </Link>
               </li>
             )}
-          
           </React.Fragment>
         );
       })}
+      <Row className="g-0 text-center">
+        <Col>
+          <div className="p-3 border border-dashed border-bottom-0">
+            <button
+              type="button"
+              title="New Quote"
+              className="btn btn-outline-info btn-icon btn-lg"
+              onClick={() => tog_NewQuote()}
+            >
+              <i
+                className="mdi mdi-shape-square-plus"
+                style={{ fontSize: "24px" }}
+              ></i>
+            </button>
+          </div>
+        </Col>
+
+        <Col>
+          <div className="p-3 border border-dashed border-start-0 border-bottom-0">
+            <button
+              title="Send Email"
+              type="button"
+              className="btn btn-outline-secondary btn-icon btn-lg"
+            >
+              <i
+                className="mdi mdi-email-plus-outline"
+                style={{ fontSize: "24px" }}
+              ></i>
+            </button>
+          </div>
+        </Col>
+
+        <Col>
+          <div className="p-3 border border-dashed">
+            <button
+              title="Send Email"
+              type="button"
+              className="btn btn-outline-success btn-icon btn-lg"
+            >
+              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+            </button>
+          </div>
+        </Col>
+        <Col>
+          <div className="p-3 border border-dashed border-start-0">
+            <button
+              title="Send Email"
+              type="button"
+              className="btn btn-outline-dark btn-icon  btn-lg"
+            >
+              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+            </button>
+          </div>
+        </Col>
+      </Row>
     </React.Fragment>
   );
 };
