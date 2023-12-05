@@ -57,12 +57,9 @@ import CompanyDetails from "pages/Corporate/Companies/CompanyDetails";
 import SchoolDetails from "pages/Corporate/Schools/SchoolDetails";
 import SubcontractorDetails from "pages/Corporate/Subcontractor/SubcontractorDetails";
 import VehicleDetails from "pages/Administration/Vehicles/VehicleDetails";
+import LatestQuotes from "pages/LatestQuotes";
 
-const authProtectedRoutes = [
-  
-
-  
-];
+const authProtectedRoutes = [];
 
 const publicRoutes = [
   // AuthenticationInner
@@ -96,17 +93,18 @@ const publicRoutes = [
   { path: "/all-sub-contractors", component: <Subcontractors /> },
 
   //? Companies
-  { path: "/corporate/companies/new-company", component: <AddNewCompany /> },
+  { path: "/new-company", component: <AddNewCompany /> },
   { path: "/company-details/:name", component: <CompanyDetails /> },
   //? Schools
-  { path: "/corporate/schools/new-school", component: <AddNewSchool /> },
+  { path: "/new-school", component: <AddNewSchool /> },
   { path: "/school-details/:name", component: <SchoolDetails /> },
   //? Sub-Contractor
   {
     path: "/corporate/subcontractors/new-subcontractor",
     component: <AddNewSubcontractor />,
   },
-{ path: "/subcontractor-details/:name", component: <SubcontractorDetails /> },
+  { path: "/subcontractor-details/:name", component: <SubcontractorDetails /> },
+  { path: "/latest-quotes", component: <LatestQuotes /> },
 
   //? Feedback & Claims
   { path: "/feedback", component: <Feedback /> },
@@ -128,15 +126,15 @@ const publicRoutes = [
 
   //? Vehicles
   {
-    path: "/administration/vehicles/new-vehicle",
+    path: "/new-vehicle",
     component: <AddNewVehicle />,
   },
 
   //? Driver
-  { path: "/administration/driver/new-driver", component: <AddNewDriver /> },
+  { path: "/new-driver", component: <AddNewDriver /> },
 
   //? Team
-  { path: "/administration/team/new-team", component: <AddNewTeam /> },
+  { path: "/new-team", component: <AddNewTeam /> },
 
   //? Notes
   { path: "/notes", component: <Notes /> },
@@ -146,7 +144,6 @@ const publicRoutes = [
   { path: "/", exact: true, component: <Navigate to="/dashboard" /> },
   { path: "*", component: <Navigate to="/dashboard" /> },
   { path: "/user-profile", component: <UserProfile /> },
-
 ];
 
 // export { authProtectedRoutes, publicRoutes };

@@ -22,24 +22,24 @@ $vertical-menu-bg:                                var(--#{$prefix}vertical-menu-
 $vertical-menu-box-shadow:                        0 2px 4px rgba(15,34,58,0.12);
 $vertical-menu-border:                            var(--#{$prefix}vertical-menu-border);
 $vertical-menu-z-index:                           1002;
-$vertical-menu-item-font-size:                    0.9900rem;
+$vertical-menu-item-font-size:                    0.8100rem;
 $vertical-menu-item-font-family:                  $font-family-primary;
 $vertical-menu-item-color:                        var(--#{$prefix}vertical-menu-item-color);
 $vertical-menu-item-hover-color:                  var(--#{$prefix}vertical-menu-item-hover-color);
 $vertical-menu-item-hover-bg:                     var(--#{$prefix}vertical-menu-item-hover-bg);
 $vertical-menu-item-active-color:                 var(--#{$prefix}vertical-menu-item-active-color);
-$vertical-menu-item-padding-x:                    1.5rem;
-$vertical-menu-item-padding-y:                    0.625rem;
-$vertical-menu-sub-item-font-size:                0.9450rem;
+$vertical-menu-item-padding-x:                    0.9rem;
+$vertical-menu-item-padding-y:                    0.4rem;
+$vertical-menu-sub-item-font-size:                0.7400rem;
 $vertical-menu-sub-item-font-family:              $font-family-primary;
 $vertical-menu-sub-item-color:                    var(--#{$prefix}vertical-menu-sub-item-color);
 $vertical-menu-sub-item-hover-color:              var(--#{$prefix}vertical-menu-sub-item-hover-color);
 $vertical-menu-sub-item-active-color:             var(--#{$prefix}vertical-menu-sub-item-active-color);
 $vertical-menu-sub-item-padding-x:                1.5rem;
-$vertical-menu-sub-item-padding-y:                0.55rem;
+$vertical-menu-sub-item-padding-y:                0.35rem;
 $vertical-menu-dropdown-box-shadow:               0 2px 4px rgba(15,34,58,0.12);
 $vertical-menu-title-color:                       var(--#{$prefix}vertical-menu-title-color);
-$vertical-menu-item-icon-width:                   1.85rem;
+$vertical-menu-item-icon-width:                   1.70rem;
 
 //
 // Horizontal Menu

@@ -281,18 +281,18 @@ const VerticalLayout = (props: any) => {
           </React.Fragment>
         );
       })}
-      <Row className="g-0 text-center">
+      <Row className="g-0 text-center mt-4">
         <Col>
           <div className="p-3 border border-dashed border-bottom-0">
             <button
               type="button"
               title="New Quote"
-              className="btn btn-outline-info btn-icon btn-lg"
+              className="btn btn-outline-info btn-icon"
               onClick={() => tog_NewQuote()}
             >
               <i
                 className="mdi mdi-shape-square-plus"
-                style={{ fontSize: "24px" }}
+                style={{ fontSize: "18px" }}
               ></i>
             </button>
           </div>
@@ -303,11 +303,11 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-secondary btn-icon btn-lg"
+              className="btn btn-outline-secondary btn-icon"
             >
               <i
                 className="mdi mdi-email-plus-outline"
-                style={{ fontSize: "24px" }}
+                style={{ fontSize: "18px" }}
               ></i>
             </button>
           </div>
@@ -318,9 +318,9 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-success btn-icon btn-lg"
+              className="btn btn-outline-success btn-icon"
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
             </button>
           </div>
         </Col>
@@ -329,9 +329,31 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-dark btn-icon  btn-lg"
+              className="btn btn-outline-dark btn-icon"
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
+            </button>
+          </div>
+        </Col>
+        <Col>
+          <div className="p-3 border border-dashed border-start-0">
+            <button
+              title="Send Email"
+              type="button"
+              className="btn btn-outline-dark btn-icon"
+            >
+              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
+            </button>
+          </div>
+        </Col>
+        <Col>
+          <div className="p-3 border border-dashed border-start-0">
+            <button
+              title="Send Email"
+              type="button"
+              className="btn btn-outline-dark btn-icon"
+            >
+              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
             </button>
           </div>
         </Col>

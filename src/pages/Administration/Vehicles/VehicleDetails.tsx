@@ -48,17 +48,17 @@ const VehicleDetails = () => {
       <div className="page-content">
         <Container fluid={true}>
           <Breadcrumb title="Overview" pageTitle="Vehicle" />
-          <Row className="gx-lg-4">
+          <Row className="gx-lg-4" style={{backgroundColor: "#ffffff"}}>
             <Col xl={4} lg={8} className="mx-auto">
               <Row className="sticky-side-div">
-                <Col lg={2}>
+                <Col lg={2} className="mt-4">
                   <Swiper
                     onSwiper={setThumbsSwiper}
                     direction={"vertical"}
                     slidesPerView={4}
                     freeMode={true}
                     watchSlidesProgress={true}
-                    spaceBetween={10}
+                    spaceBetween={4}
                     className="productSwiper productswiper-2 mb-3 mb-lg-0"
                   >
                     {/* thumbsSlider */}
@@ -111,7 +111,7 @@ const VehicleDetails = () => {
                     </div>
                   </Swiper>
                 </Col>
-                <Col lg={10}>
+                <Col lg={10} className="mt-4">
                   <div className="bg-light rounded-3 position-relative ribbon-box overflow-hidden">
                     <Swiper
                       navigation={true}

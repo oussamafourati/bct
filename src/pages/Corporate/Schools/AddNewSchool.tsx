@@ -48,16 +48,16 @@ const AddNewSchool = () => {
               <Col lg={12}>
                 <Card>
                   <Card.Header>
-                    <div className="d-flex">
+                    <div className="d-flex align-items-center">
                       <div className="flex-shrink-0 me-3">
                         <div className="avatar-sm">
                           <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                            <i className="bi bi-box-seam"></i>
+                            <i className="mdi mdi-school"></i>
                           </div>
                         </div>
                       </div>
                       <div className="flex-grow-1">
-                        <h5 className="card-title mb-1">Company Information</h5>
+                        <h5 className="card-title mb-1">School Information</h5>
                       </div>
                     </div>
                   </Card.Header>
@@ -199,11 +199,11 @@ const AddNewSchool = () => {
                           </Row>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="mdi mdi-bank-plus"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -251,11 +251,11 @@ const AddNewSchool = () => {
                           </Col>
                           <Col lg={12}>
                             <Card.Header>
-                              <div className="d-flex">
+                              <div className="d-flex align-items-center">
                                 <div className="flex-shrink-0 me-3">
                                   <div className="avatar-sm">
                                     <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="bi bi-box-seam"></i>
+                                      <i className="mdi mdi-clipboard-account"></i>
                                     </div>
                                   </div>
                                 </div>
@@ -320,7 +320,7 @@ const AddNewSchool = () => {
                           <Col lg={12}>
                             <div className="hstack gap-2 justify-content-end">
                               <Button variant="primary" id="add-btn">
-                                Add Company
+                                Add School
                               </Button>
                             </div>
                           </Col>
