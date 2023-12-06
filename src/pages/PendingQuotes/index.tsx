@@ -27,8 +27,8 @@ import img13 from "assets/images/brands/img-13.png";
 import img14 from "assets/images/brands/img-14.png";
 import { Link } from "react-router-dom";
 
-const LatestQuotes = () => {
-  document.title = " Latest Quotes | Bouden Coach Travel";
+const PendingQuotes = () => {
+  document.title = "Pending Quotes | Bouden Coach Travel";
   const columns = [
     {
       name: <span className="font-weight-bold fs-13">Quote ID</span>,
@@ -36,9 +36,7 @@ const LatestQuotes = () => {
       sortable: true,
     },
     {
-      name: (
-        <span className="mdi mdi-account-tie-hat font-weight-bold fs-24"></span>
-      ),
+      name: <span className="mdi mdi-account-tie-hat font-weight-bold fs-24"></span>,
       selector: (row: any) => row.srNo,
       sortable: true,
     },
@@ -142,14 +140,14 @@ const LatestQuotes = () => {
       name: <span className="font-weight-bold fs-13">Mobile</span>,
       sortable: true,
       selector: (cell: any) => {
-        return <span className="mdi mdi-phone-in-talk-outline"></span>;
+        return <span className="mdi mdi-phone-in-talk-outline"></span>
       },
-    },
+      },
     {
       name: <span className="font-weight-bold fs-13">Email</span>,
       sortable: true,
       selector: (cell: any) => {
-        return <span className="mdi mdi-email-outline"></span>;
+        return <span className="mdi mdi-email-outline"></span>
       },
     },
     {
@@ -248,7 +246,7 @@ const LatestQuotes = () => {
         }
       },
     },
-
+    
     {
       name: <span className="font-weight-bold fs-13">Flight N°</span>,
       sortable: true,
@@ -632,7 +630,7 @@ const LatestQuotes = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          <Breadcrumb title="Latest Quotes" pageTitle="Jobs" />
+          <Breadcrumb title="Pending Quotes" pageTitle="Jobs" />
           <Col lg={12}>
             <Card>
               <Card.Body>
@@ -652,21 +650,6 @@ const LatestQuotes = () => {
                       <option value="Last 30 Days">Last 30 Days</option>
                       <option defaultValue="This Month">This Month</option>
                       <option value="Last Month">Last Month</option>
-                    </select>
-                  </Col>
-                  <Col sm={9} className="col-lg-auto">
-                    <select
-                      className="form-select text-muted"
-                      data-choices
-                      data-choices-search-false
-                      name="choices-single-default"
-                      id="idStatus"
-                    >
-                      <option value="all">All Payment</option>
-                      <option value="Today">Not paid</option>
-                      <option value="Yesterday">Part paid</option>
-                      <option value="Last 7 Days">Paid</option>
-                      <option value="Last 30 Days">Pay Cash</option>
                     </select>
                   </Col>
                   <Col xxl={2} lg={6}>
@@ -742,4 +725,4 @@ const LatestQuotes = () => {
     </React.Fragment>
   );
 };
-export default LatestQuotes;
+export default PendingQuotes;

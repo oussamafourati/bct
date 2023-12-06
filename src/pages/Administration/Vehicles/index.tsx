@@ -20,7 +20,7 @@ const Vehicles = () => {
   const navigate = useNavigate();
 
   function tog_AddNewVehicle() {
-    navigate("/administration/vehicles/new-vehicle");
+    navigate("/new-vehicle");
   }
 
   const columns = useMemo(

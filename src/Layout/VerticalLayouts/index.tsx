@@ -283,7 +283,7 @@ const VerticalLayout = (props: any) => {
       })}
       <Row className="g-0 text-center mt-4">
         <Col>
-          <div className="p-3 border border-dashed border-bottom-0">
+          <div className="p-3">
             <button
               type="button"
               title="New Quote"
@@ -292,68 +292,68 @@ const VerticalLayout = (props: any) => {
             >
               <i
                 className="mdi mdi-shape-square-plus"
-                style={{ fontSize: "18px" }}
+                style={{ fontSize: "24px" }}
               ></i>
             </button>
           </div>
         </Col>
 
         <Col>
-          <div className="p-3 border border-dashed border-start-0 border-bottom-0">
+          <div className="p-3">
             <button
-              title="Send Email"
+              title="Affiliates"
               type="button"
               className="btn btn-outline-secondary btn-icon"
             >
               <i
-                className="mdi mdi-email-plus-outline"
-                style={{ fontSize: "18px" }}
+                className="mdi mdi-account-group"
+                style={{ fontSize: "24px" }}
               ></i>
             </button>
           </div>
         </Col>
 
         <Col>
-          <div className="p-3 border border-dashed">
+          <div className="p-3">
             <button
               title="Send Email"
               type="button"
               className="btn btn-outline-success btn-icon"
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
+              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
             </button>
           </div>
         </Col>
         <Col>
-          <div className="p-3 border border-dashed border-start-0">
+          <div className="p-3">
             <button
               title="Send Email"
               type="button"
               className="btn btn-outline-dark btn-icon"
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
+              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
             </button>
           </div>
         </Col>
         <Col>
-          <div className="p-3 border border-dashed border-start-0">
+          <div className="p-3">
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-dark btn-icon"
+              className="btn btn-outline-danger btn-icon"
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
+              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
             </button>
           </div>
         </Col>
         <Col>
-          <div className="p-3 border border-dashed border-start-0">
+          <div className="p-3">
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-dark btn-icon"
+              className="btn btn-outline-warning btn-icon"
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "18px" }}></i>
+              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
             </button>
           </div>
         </Col>

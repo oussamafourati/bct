@@ -58,6 +58,14 @@ import SchoolDetails from "pages/Corporate/Schools/SchoolDetails";
 import SubcontractorDetails from "pages/Corporate/Subcontractor/SubcontractorDetails";
 import VehicleDetails from "pages/Administration/Vehicles/VehicleDetails";
 import LatestQuotes from "pages/LatestQuotes";
+import PendingQuotes from "pages/PendingQuotes";
+import Bookings from "pages/Bookings";
+import CompletedJobs from "pages/CompletedJobs";
+import DeletedJobs from "pages/DeletedJobs";
+import Callbacks from "pages/Callbacks";
+import JobShare from "pages/JobShare";
+import PartialQuotes from "pages/PartialQuotes";
+import JobsTemplates from "pages/JobsTemplates";
 
 const authProtectedRoutes = [];
 
@@ -105,7 +113,15 @@ const publicRoutes = [
   },
   { path: "/subcontractor-details/:name", component: <SubcontractorDetails /> },
   { path: "/latest-quotes", component: <LatestQuotes /> },
-
+  { path: "/pending-quotes", component: <PendingQuotes /> },
+  { path: "/bookings", component: <Bookings /> },
+  { path: "/completed-jobs", component: <CompletedJobs /> },
+  { path: "/deleted-jobs", component: <DeletedJobs /> },
+  { path: "/callbacks", component: <Callbacks /> },
+   { path: "/job-share", component: <JobShare /> },
+  { path: "/partial-quotes", component: <PartialQuotes /> },
+  { path: "/job-template", component: <JobsTemplates /> },
+ 
   //? Feedback & Claims
   { path: "/feedback", component: <Feedback /> },
   { path: "/claims", component: <Claims /> },
