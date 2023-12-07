@@ -16,14 +16,14 @@ import Flatpickr from "react-flatpickr";
 import CurrentTable from "./currentJobTable";
 
 const Current = () => {
-  document.title = "Current Push Job | Bouden Coach Travel";
+  document.title = "Job Push  | Bouden Coach Travel";
 
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Breadcrumb title="Current Push Job" pageTitle="Push Jobs" />
-         <CurrentTable />
+          <Breadcrumb title="Job Push" pageTitle="Jobs" />
+          <CurrentTable />
         </Container>
       </div>
     </React.Fragment>

@@ -1,271 +1,322 @@
-import React, { useMemo, useState } from 'react';
-import { Button, Card, Col, Container, Form, Modal, Row } from 'react-bootstrap';
-import Breadcrumb from 'Common/BreadCrumb';
-import { Link, useNavigate } from 'react-router-dom';
-import Flatpickr from "react-flatpickr";
-import TableContainer from 'Common/TableContainer';
-import { shipments } from 'Common/data';
+import React from "react";
+import {
+  Container,
+  Dropdown,
+  Form,
+  Row,
+  Card,
+  Col,
+  Button,
+} from "react-bootstrap";
+import DataTable from "react-data-table-component";
+import Breadcrumb from "Common/BreadCrumb";
+import img1 from "assets/images/brands/img-1.png";
+import img2 from "assets/images/brands/img-2.png";
+import img3 from "assets/images/brands/img-3.png";
+import img4 from "assets/images/brands/img-4.png";
+import img5 from "assets/images/brands/img-5.png";
+import img6 from "assets/images/brands/img-6.png";
+import img7 from "assets/images/brands/img-7.png";
+import img8 from "assets/images/brands/img-8.png";
+import img9 from "assets/images/brands/img-9.png";
+import img10 from "assets/images/brands/img-10.png";
+import img11 from "assets/images/brands/img-11.png";
+import img12 from "assets/images/brands/img-12.png";
+import img13 from "assets/images/brands/img-13.png";
+import img14 from "assets/images/brands/img-14.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const NewContract = () => {
+  document.title = "Contract | Bouden Coach Travel";
 
-    document.title = "New Contract | Bouden Coach Travel";
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  function tog_AddContract() {
+    navigate("/new-contract");
+  }
+  const columns = [
+    {
+      name: <span className="font-weight-bold fs-13">Contract ID</span>,
+      selector: (row: any) => row.modalId,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Customer</span>,
+      selector: (row: any) => row.purchaseId,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Acc ID</span>,
+      selector: (row: any) => <Link to="#!">{row.title}</Link>,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Phone</span>,
+      selector: (row: any) => row.user,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Invoice Frequency</span>,
+      selector: (row: any) => row.assigned,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Price</span>,
+      selector: (row: any) => row.createDate,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Action</span>,
+      sortable: true,
 
-    const [modal_AddShippingModals, setmodal_AddShippingModals] = useState<boolean>(false);
-    function tog_AddShippingModals() {
-        navigate("/administration/driver/new-driver")
-    }
-
-     const columns = useMemo(
-        () => [
-            {
-                Header: "Full Name",
-                disableFilters: true,
-                filterable: true,
-                accessor: (cellProps: any) => {
-                    return (<Link to="#" className="fw-medium link-primary">{cellProps.orderId}</Link>)
-                },
-            },
-            {
-                Header: "DOB",
-                accessor: "shipment_no",
-                disableFilters: true,
-                filterable: true,
-            },
-            {
-                Header: "Service Date",
-                accessor: "customer_name",
-                disableFilters: true,
-                filterable: true,
-            },
-            {
-                Header: "Status",
-                accessor: "supplier",
-                disableFilters: true,
-                filterable: true,
-            },
-            {
-                Header: "Category",
-                accessor: "location",
-                disableFilters: true,
-                filterable: true,
-            },
-            {
-                Header: "Contract Type",
-                accessor: "order_date",
-                disableFilters: true,
-                filterable: true,
-            },
-            {
-                Header: "Salary",
-                accessor: "arrival_date",
-                disableFilters: true,
-                filterable: true,
-             },
-              {
-                Header: "Shift",
-                accessor: "status",
-                disableFilters: true,
-                filterable: true,
-             },
-            {
-                Header: "Action",
-                disableFilters: true,
-                filterable: true,
-                accessor: (cellProps: any) => {
-                    return (
-                        <ul className="hstack gap-2 list-unstyled mb-0">
-                            <li>
-                                <Link to="#" className="badge badge-soft-primary edit-item-btn">Edit</Link>
-                            </li>
-                            <li>
-                                <Link to="#" className="badge badge-soft-danger remove-item-btn">Delete</Link>
-                            </li>
-                        </ul>
-                    )
-                },
-            },
-        ],
-        []
-    );
-
-
-    return (
-        <React.Fragment>
-           <div className="page-content">
-                <Container fluid={true}>
-                    <Breadcrumb title="New Contract" pageTitle="Corporates Transport" />
-                    <Card id="shipmentsList">
-                        <Card.Header className="border-bottom-dashed">
-                            <Row className="g-3">
-                                <Col xxl={3} lg={6}>
-                                    <div className="search-box">
-                                        <input type="text" className="form-control search" placeholder="Search for something..." />
-                                        <i className="ri-search-line search-icon"></i>
-                                    </div>
-                                </Col>
-                                <Col className="col-xxl-auto col-sm-auto ms-auto">
-                                    <Button variant='success' onClick={() => tog_AddShippingModals()} className="add-btn"><i className="bi bi-plus-circle me-1 align-middle"></i> Add Contract</Button>
-                                </Col>
-                            </Row>
-                        </Card.Header>
-                        <Card.Body>
-                            <div className="table-responsive table-card">
-                                <TableContainer
-                                    columns={(columns || [])}
-                                    data={(shipments || [])}
-                                    // isGlobalFilter={false}
-                                    iscustomPageSize={false}
-                                    isBordered={false}
-                                    customPageSize={10}
-                                    className="custom-header-css table align-middle table-nowrap"
-                                    tableClassName="table-centered align-middle table-nowrap mb-0"
-                                    theadClassName="text-muted table-light"
-                                    SearchPlaceholder='Search Products...'
-                                />
-                            </div>
-                            <div className="noresult" style={{ display: "none" }}>
-                                <div className="text-center py-4">
-                                    <div className="avatar-md mx-auto mb-4">
-                                        <div className="avatar-title bg-primary-subtle text-primary rounded-circle fs-24">
-                                            <i className="bi bi-search"></i>
-                                        </div>
-                                    </div>
-                                    <h5 className="mt-2">Sorry! No Result Found</h5>
-                                    <p className="text-muted mb-0">We've searched more than 150+ shipment orders We did not find any shipment orders for you search.</p>
-                                </div>
-                            </div>
-                        </Card.Body>
-                    </Card>
-
-                    <Modal className="fade zoomIn" size="lg" show={modal_AddShippingModals} onHide={() => { tog_AddShippingModals(); }} centered>
-                        <Modal.Header className="px-4 pt-4" closeButton>
-                            <h5 className="modal-title fs-18" id="exampleModalLabel">Add Vehicles</h5>
-                        </Modal.Header>
-                        <Modal.Body className="p-4">
-                            <div id="alert-error-msg" className="d-none alert alert-danger py-2"></div>
-                            <Form className="tablelist-form">
-                                <input type="hidden" id="id-field" />
-                                <Row>
-                                    <Col lg={12}>
-                                        <div className="mb-3">
-                                            <Form.Label htmlFor="customerName-field">Customer Name</Form.Label>
-                                            <Form.Control type="text" id="customerName-field" placeholder="Enter customer name" required />
-                                        </div>
-                                    </Col>
-                                    <Col lg={12}>
-                                        <div className="mb-3">
-                                            <Form.Label htmlFor="supplierName-field">Supplier Name</Form.Label>
-                                            <Form.Control type="text" id="supplierName-field" placeholder="Enter supplier name" required />
-                                        </div>
-                                    </Col>
-
-                                    <Col lg={6}>
-                                        <div className="mb-3">
-                                            <Form.Label htmlFor="orderDate-field">Order Date</Form.Label>
-                                            <Flatpickr
-                                                className="form-control flatpickr-input"
-                                                placeholder='Select Date'
-                                                options={{
-                                                    dateFormat: "d M, Y",
-                                                }}
-                                            />
-                                            {/* <Form.Control type="text" id="orderDate-field" data-provider="flatpickr" data-date-format="d M, Y" placeholder="Select date" required /> */}
-                                        </div>
-                                    </Col>
-                                    <Col lg={6}>
-                                        <div className="mb-3">
-                                            <Form.Label htmlFor="arrivalDate-field">Arrival Date</Form.Label>
-                                            <Flatpickr
-                                                className="form-control flatpickr-input"
-                                                placeholder='Select Date'
-                                                options={{
-                                                    dateFormat: "d M, Y",
-                                                }}
-                                            />
-                                            {/* <Form.Control type="text" id="arrivalDate-field" data-provider="flatpickr" data-date-format="d M, Y" placeholder="Select date" required /> */}
-                                        </div>
-                                    </Col>
-                                    <div className="col-lg-6">
-                                        <div className="mb-3">
-                                            <label htmlFor="locationSelect" className="form-label">Location</label>
-                                            <select className="form-select" name="choices-single-default" id="locationSelect" required>
-                                                <option value="">Location</option>
-                                                <option value="Ascension Island">Ascension Island</option>
-                                                <option value="Andorra">Andorra</option>
-                                                <option value="United Arab Emirates">United Arab Emirates</option>
-                                                <option value="Afghanistan">Afghanistan</option>
-                                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                                <option value="Armenia">Armenia</option>
-                                                <option value="Antarctica">Antarctica</option>
-                                                <option value="Argentina">Argentina</option>
-                                                <option value="Australia">Australia</option>
-                                                <option value="Bangladesh">Bangladesh</option>
-                                                <option value="Belgium">Belgium</option>
-                                                <option value="Benin">Benin</option>
-                                                <option value="Bermuda">Bermuda</option>
-                                                <option value="Brazil">Brazil</option>
-                                                <option value="Belarus">Belarus</option>
-                                                <option value="Canada">Canada</option>
-                                                <option value="Switzerland">Switzerland</option>
-                                                <option value="Cook Islands">Cook Islands</option>
-                                                <option value="Chile">Chile</option>
-                                                <option value="China">China</option>
-                                                <option value="Christmas Island">Christmas Island</option>
-                                                <option value="Cyprus">Cyprus</option>
-                                                <option value="Germany">Germany</option>
-                                                <option value="Denmark">Denmark</option>
-                                                <option value="Egypt">Egypt</option>
-                                                <option value="Estonia">Estonia</option>
-                                                <option value="Spain">Spain</option>
-                                                <option value="Ethiopia">Ethiopia</option>
-                                                <option value="Europe">Europe</option>
-                                                <option value="Finland">Finland</option>
-                                                <option value="Faroe Islands">Faroe Islands</option>
-                                                <option value="France">France</option>
-                                                <option value="England">England</option>
-                                                <option value="Scotland">Scotland</option>
-                                                <option value="Georgia">Georgia</option>
-                                                <option value="UA">UA</option>
-                                                <option value="Poland">Poland</option>
-                                                <option value="Italy">Italy</option>
-                                                <option value="Ukraine">Ukraine</option>
-                                                <option value="Serbia">Serbia</option>
-                                                <option value="Sweden">Sweden</option>
-                                                <option value="Albania">Albania</option>
-                                                <option value="Spain">Spain</option>
-                                                <option value="Jersey">Jersey</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <Col lg={6}>
-                                        <div className="mb-3">
-                                            <label htmlFor="statusSelect" className="form-label">Status</label>
-                                            <select className="form-select" name="choices-single-default" id="statusSelect" required>
-                                                <option value="">Status</option>
-                                                <option value="Pickups">Pickups</option>
-                                                <option value="Pending">Pending</option>
-                                                <option value="Shipping">Shipping</option>
-                                                <option value="Delivered">Delivered</option>
-                                                <option value="Out Of Delivery">Out Of Delivery</option>
-                                            </select>
-                                        </div>
-                                    </Col>
-                                    <Col lg={12}>
-                                        <div className="hstack gap-2 justify-content-end">
-                                            <Button className="btn-ghost-danger" onClick={() => { tog_AddShippingModals(); }} data-bs-dismiss="modal"><i className="ri-close-line align-bottom me-1"></i> Close</Button>
-                                            <Button variant='primary' id="add-btn">Add Shipping</Button>
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </Form>
-                        </Modal.Body>
-                    </Modal>
-                </Container>
-            </div>
-        </React.Fragment>
-    );
+      cell: () => {
+        return (
+          <ul className="hstack gap-2 list-unstyled mb-0">
+            <li>
+              <Link to="#" className="badge badge-soft-primary edit-item-btn">
+                <i className="ri-eye-line"></i>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="badge badge-soft-success edit-item-btn">
+                <i className="ri-edit-2-line"></i>
+              </Link>
+            </li>
+            <li>
+              <Link to="#" className="badge badge-soft-danger remove-item-btn">
+                <i className="ri-delete-bin-2-line"></i>
+              </Link>
+            </li>
+          </ul>
+        );
+      },
+    },
+  ];
+  const data = [
+    {
+      srNo: "01",
+      modalId: "VLZ-452",
+      purchaseId: "VLZ1400087402",
+      title: "Post launch reminder/ post list",
+      user: "Joseph Parker",
+      assigned: "Alexis Clarke",
+      createdBy: "Joseph Parker",
+      createDate: "03 Oct, 2021",
+      status: "Re-open",
+      priority: "High",
+    },
+    {
+      srNo: "02",
+      modalId: "VLZ-453",
+      purchaseId: "VLZ1400087425",
+      title: "Additional Calendar",
+      user: "Diana Kohler",
+      assigned: "Admin",
+      createdBy: "Mary Rucker",
+      createDate: "05 Oct, 2021",
+      status: "On-Hold",
+      priority: "Medium",
+    },
+    {
+      srNo: "03",
+      modalId: "VLZ-454",
+      purchaseId: "VLZ1400087438",
+      title: "Make a creating an account profile",
+      user: "Tonya Noble",
+      assigned: "Admin",
+      createdBy: "Tonya Noble",
+      createDate: "27 April, 2022",
+      status: "Closed",
+      priority: "Low",
+    },
+    {
+      srNo: "04",
+      modalId: "VLZ-455",
+      purchaseId: "VLZ1400087748",
+      title: "Apologize for shopping Error!",
+      user: "Joseph Parker",
+      assigned: "Alexis Clarke",
+      createdBy: "Joseph Parker",
+      createDate: "14 June, 2021",
+      status: "Inprogress",
+      priority: "Medium",
+    },
+    {
+      srNo: "05",
+      modalId: "VLZ-456",
+      purchaseId: "VLZ1400087547",
+      title: "Support for theme",
+      user: "Donald Palmer",
+      assigned: "Admin",
+      createdBy: "Donald Palmer",
+      createDate: "25 June, 2021",
+      status: "Closed",
+      priority: "Low",
+    },
+    {
+      srNo: "06",
+      modalId: "VLZ-457",
+      purchaseId: "VLZ1400087245",
+      title: "Benner design for FB & Twitter",
+      user: "Mary Rucker",
+      assigned: "Jennifer Carter",
+      createdBy: "Mary Rucker",
+      createDate: "14 Aug, 2021",
+      status: "Inprogress",
+      priority: "Medium",
+    },
+    {
+      srNo: "07",
+      modalId: "VLZ-458",
+      purchaseId: "VLZ1400087785",
+      title: "Change email option process",
+      user: "James Morris",
+      assigned: "Admin",
+      createdBy: "James Morris",
+      createDate: "12 March, 2022",
+      status: "Open",
+      priority: "High",
+    },
+    {
+      srNo: "08",
+      modalId: "VLZ-460",
+      purchaseId: "VLZ1400087745",
+      title: "Support for theme",
+      user: "Nathan Cole",
+      assigned: "Nancy Martino",
+      createdBy: "Nathan Cole",
+      createDate: "28 Feb, 2022",
+      status: "On-Hold",
+      priority: "Low",
+    },
+    {
+      srNo: "09",
+      modalId: "VLZ-461",
+      purchaseId: "VLZ1400087179",
+      title: "Form submit issue",
+      user: "Grace Coles",
+      assigned: "Admin",
+      createdBy: "Grace Coles",
+      createDate: "07 Jan, 2022",
+      status: "New",
+      priority: "High",
+    },
+    {
+      srNo: "10",
+      modalId: "VLZ-462",
+      purchaseId: "VLZ140008856",
+      title: "Edit customer testimonial",
+      user: "Freda",
+      assigned: "Alexis Clarke",
+      createdBy: "Freda",
+      createDate: "16 Aug, 2021",
+      status: "Closed",
+      priority: "Medium",
+    },
+    {
+      srNo: "11",
+      modalId: "VLZ-463",
+      purchaseId: "VLZ1400078031",
+      title: "Ca i have an e-copy invoice",
+      user: "Williams",
+      assigned: "Admin",
+      createdBy: "Williams",
+      createDate: "24 Feb, 2022",
+      status: "Open",
+      priority: "Low",
+    },
+    {
+      srNo: "12",
+      modalId: "VLZ-464",
+      purchaseId: "VLZ1400087416",
+      title: "Brand logo design",
+      user: "Richard V.",
+      assigned: "Admin",
+      createdBy: "Richard V.",
+      createDate: "16 March, 2021",
+      status: "Inprogress",
+      priority: "High",
+    },
+    {
+      srNo: "13",
+      modalId: "VLZ-466",
+      purchaseId: "VLZ1400089015",
+      title: "Issue with finding information about order ?",
+      user: "Olive Gunther",
+      assigned: "Alexis Clarke",
+      createdBy: "Schaefer",
+      createDate: "32 March, 2022",
+      status: "New",
+      priority: "High",
+    },
+    {
+      srNo: "14",
+      modalId: "VLZ-467",
+      purchaseId: "VLZ1400090324",
+      title: "Make a creating an account profile",
+      user: "Edwin",
+      assigned: "Admin",
+      createdBy: "Edwin",
+      createDate: "05 April, 2022",
+      status: "Inprogress",
+      priority: "Low",
+    },
+  ];
+  return (
+    <React.Fragment>
+      <div className="page-content">
+        <Container fluid>
+          <Breadcrumb title="Contract" pageTitle="Finance" />
+          <Col lg={12}>
+            <Card id="shipmentsList">
+              <Card.Header className="border-bottom-dashed">
+                <Row className="g-3">
+                  <Col xxl={3} lg={6}>
+                    <div className="search-box">
+                      <input
+                        type="text"
+                        className="form-control search"
+                        placeholder="Search for something..."
+                      />
+                      <i className="ri-search-line search-icon"></i>
+                    </div>
+                  </Col>
+                  <Col
+                    sm={9}
+                    className="d-flex col-lg-auto justify-content-end"
+                  >
+                    <select
+                      className="form-select text-muted"
+                      data-choices
+                      data-choices-search-false
+                      name="choices-single-default"
+                      id="idStatus"
+                    >
+                      <option value="all">Select</option>
+                      <option value="Today">Extra Personnel</option>
+                      <option value="Yesterday">CHB</option>
+                    </select>
+                  </Col>
+                  <Col className="col-xxl-auto col-sm-auto ms-auto">
+                    <Button
+                      variant="success"
+                      onClick={() => tog_AddContract()}
+                      className="add-btn"
+                    >
+                      <i className="ph ph-file-plus me-1 align-middle"></i> Add
+                      Contract
+                    </Button>
+                  </Col>
+                </Row>
+              </Card.Header>
+              <Card.Body>
+                <DataTable columns={columns} data={data} pagination />
+              </Card.Body>
+            </Card>
+          </Col>
+        </Container>
+      </div>
+    </React.Fragment>
+  );
 };
-
 export default NewContract;

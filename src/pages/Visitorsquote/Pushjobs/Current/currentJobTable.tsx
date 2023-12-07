@@ -29,44 +29,65 @@ import { Link } from "react-router-dom";
 const CurrentTable = () => {
   const columns = [
     {
-      name: <span className="font-weight-bold fs-13">SR No.</span>,
-      selector: (row: any) => row.srNo,
-      sortable: true,
-    },
-    {
-      name: <span className="font-weight-bold fs-13">ID</span>,
+      name: <span className="font-weight-bold fs-13">ID Quote</span>,
       selector: (row: any) => row.modalId,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Purchase ID</span>,
+      name: <span className="font-weight-bold fs-13">Date Pushed</span>,
       selector: (row: any) => row.purchaseId,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Title</span>,
+      name: <span className="font-weight-bold fs-13">Company</span>,
       selector: (row: any) => <Link to="#!">{row.title}</Link>,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">User</span>,
+      name: <span className="font-weight-bold fs-13">Date Out</span>,
       selector: (row: any) => row.user,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Assigned To</span>,
+      name: <span className="font-weight-bold fs-13">Date Back</span>,
       selector: (row: any) => row.assigned,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Create By</span>,
+      name: <span className="mdi mdi-car font-weight-bold fs-24"></span>,
       selector: (row: any) => row.createdBy,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Create Date</span>,
+      name: <span className="font-weight-bold fs-13">Pax</span>,
       selector: (row: any) => row.createDate,
       sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Category</span>,
+      selector: (row: any) => row.createDate,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Type</span>,
+      selector: (row: any) => row.createDate,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Pay</span>,
+      sortable: true,
+      selector: (cell: any) => {
+        switch (cell.priority) {
+          case "High":
+            return <span className="badge bg-danger"> {cell.priority} </span>;
+          case "Medium":
+            return <span className="badge bg-info"> {cell.priority} </span>;
+          case "Low":
+            return <span className="badge bg-success"> {cell.priority} </span>;
+          default:
+            return <span className="badge bg-danger"> {cell.priority} </span>;
+        }
+      },
     },
     {
       name: <span className="font-weight-bold fs-13">Status</span>,
@@ -107,22 +128,7 @@ const CurrentTable = () => {
         }
       },
     },
-    {
-      name: <span className="font-weight-bold fs-13">Priority</span>,
-      sortable: true,
-      selector: (cell: any) => {
-        switch (cell.priority) {
-          case "High":
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-          case "Medium":
-            return <span className="badge bg-info"> {cell.priority} </span>;
-          case "Low":
-            return <span className="badge bg-success"> {cell.priority} </span>;
-          default:
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-        }
-      },
-    },
+
     {
       name: <span className="font-weight-bold fs-13">Action</span>,
       sortable: true,
@@ -325,6 +331,32 @@ const CurrentTable = () => {
                   />
                   <i className="ri-search-line search-icon"></i>
                 </div>
+              </Col>
+              <Col sm={9} className="d-flex col-lg-auto justify-content-end">
+                <select
+                  className="form-select text-muted"
+                  data-choices
+                  data-choices-search-false
+                  name="choices-single-default"
+                  id="idStatus"
+                >
+                  <option value="all">All Type</option>
+                  <option value="Today">Sent</option>
+                  <option value="Yesterday">Recieved</option>
+                </select>
+              </Col>
+              <Col sm={9} className="d-flex col-lg-auto justify-content-end">
+                <select
+                  className="form-select text-muted"
+                  data-choices
+                  data-choices-search-false
+                  name="choices-single-default"
+                  id="idStatus"
+                >
+                  <option value="all">All Category</option>
+                  <option value="Today">Basic</option>
+                  <option value="Yesterday">Journey</option>
+                </select>
               </Col>
             </Row>
           </Card.Header>

@@ -669,7 +669,7 @@ const LatestQuotes = () => {
                       <option value="Last 30 Days">Pay Cash</option>
                     </select>
                   </Col>
-                  <Col xxl={2} lg={6}>
+                  <Col sm={9} className="col-lg-auto">
                     <select
                       className="form-select text-muted"
                       data-choices
@@ -677,15 +677,36 @@ const LatestQuotes = () => {
                       name="choices-single-default"
                       id="idStatus"
                     >
-                      <option value="">Status</option>
-                      <option value="Pickups">Pickups</option>
-                      <option value="Pending">Pending</option>
-                      <option value="Shipping">Shipping</option>
-                      <option value="Delivered">Delivered</option>
-                      <option value="Out Of Delivery">Out Of Delivery</option>
+                      <option value="all">All Progress</option>
+                      <option value="Today">Accepted</option>
+                      <option value="Yesterday">Allocated</option>
+                      <option value="Last 7 Days">Confirmed</option>
+                      <option value="Last 30 Days">Ended</option>
+                      <option value="Today">In Progress</option>
+                      <option value="Yesterday">Internal Job</option>
+                      <option value="Last 7 Days">New</option>
+                      <option value="Today">On route</option>
+                      <option value="Yesterday">On site</option>
+                      <option value="Last 7 Days">Under bid</option>
                     </select>
                   </Col>
-                  <Col xxl={3} lg={6}>
+                  <Col sm={9} className="col-lg-auto">
+                    <select
+                      className="form-select text-muted"
+                      data-choices
+                      data-choices-search-false
+                      name="choices-single-default"
+                      id="idStatus"
+                    >
+                      <option value="all">All Priority</option>
+                      <option value="Today">1</option>
+                      <option value="Yesterday">2</option>
+                      <option value="Last 7 Days">3</option>
+                      <option value="Last 30 Days">4</option>
+                      <option value="Today">5</option>
+                    </select>
+                  </Col>
+                  <Col lg={2}>
                     {/* <input type="text" className="form-control" data-provider="flatpickr" data-date-format="d M, Y" data-range-date="true" id="demo-datepicker" placeholder="Select date" /> */}
                     <Flatpickr
                       className="form-control flatpickr-input"
@@ -695,6 +716,50 @@ const LatestQuotes = () => {
                         dateFormat: "d M, Y",
                       }}
                     />
+                  </Col>
+                  <Col className="d-flex align-items-center">
+                    <div className="form-check form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox1"
+                        value="option1"
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="inlineCheckbox1"
+                      >
+                        Private Hire
+                      </label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox2"
+                        value="option2"
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="inlineCheckbox2"
+                      >
+                        Contract
+                      </label>
+                    </div>
+                    <div className="form-check form-check-inline">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id="inlineCheckbox3"
+                        value="option3"
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor="inlineCheckbox3"
+                      >
+                        Non Invoiced
+                      </label>
+                    </div>
                   </Col>
                 </Row>
               </Card.Body>

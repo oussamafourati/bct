@@ -105,7 +105,7 @@ const Navdata = () => {
       },
       stateVariables: isTracking,
       subItems: [
-       {
+        {
           id: "newQuote",
           label: "New Job",
           link: "/new-quote",
@@ -126,7 +126,7 @@ const Navdata = () => {
           link: "/pending-quotes",
           parentId: "jobs",
         },
-         {
+        {
           id: "newQuote",
           label: "Bookings",
           link: "/bookings",
@@ -154,7 +154,7 @@ const Navdata = () => {
           icon: "mdi mdi-phone",
           parentId: "jobs",
         },
-         {
+        {
           id: "newQuote",
           label: "Job Share",
           link: "/job-share",
@@ -162,10 +162,10 @@ const Navdata = () => {
           parentId: "jobs",
         },
         {
-          id: "QuoteRequests",
+          id: "JobPush",
           label: "Job Push",
-          icon: "mdi mdi-share-all",
-          link: "/job-share",
+          link: "/current-push-jobs",
+          icon: "mdi mdi-send",
           parentId: "jobs",
         },
         {
@@ -175,7 +175,7 @@ const Navdata = () => {
           link: "/partial-quotes",
           parentId: "jobs",
         },
-         {
+        {
           id: "newQuote",
           label: "Job Template",
           link: "/job-template",
@@ -184,7 +184,7 @@ const Navdata = () => {
         },
       ],
     },
-     {
+    {
       id: "Administration",
       label: "Finance",
       icon: "mdi mdi-currency-gbp",
@@ -200,7 +200,7 @@ const Navdata = () => {
         {
           id: "Report",
           label: "Contracts",
-          link: "/claims",
+          link: "/contract",
           icon: "mdi mdi-file-document",
           parentId: "Reporting",
         },
@@ -304,7 +304,7 @@ const Navdata = () => {
       },
       stateVariables: isFeedbackClaims,
       subItems: [
-       {
+        {
           id: "NewContract",
           label: "New Contract",
           icon: "ri-file-edit-fill",

@@ -66,6 +66,7 @@ import Callbacks from "pages/Callbacks";
 import JobShare from "pages/JobShare";
 import PartialQuotes from "pages/PartialQuotes";
 import JobsTemplates from "pages/JobsTemplates";
+import AddNewContract from "pages/CorporateTransport/NewContract/AddNewContract";
 
 const authProtectedRoutes = [];
 
@@ -86,7 +87,8 @@ const publicRoutes = [
 
   //? Corporate Transport
   { path: "/list-corporate-transport", component: <Management /> },
-  { path: "/new-contract", component: <NewContract /> },
+  { path: "/contract", component: <NewContract /> },
+  { path: "/new-contract", component: <AddNewContract /> },
   //? Corporate Transport ==> Programming
   { path: "/scheduling", component: <Scheduling /> },
   { path: "/offers", component: <Offers /> },
@@ -118,10 +120,10 @@ const publicRoutes = [
   { path: "/completed-jobs", component: <CompletedJobs /> },
   { path: "/deleted-jobs", component: <DeletedJobs /> },
   { path: "/callbacks", component: <Callbacks /> },
-   { path: "/job-share", component: <JobShare /> },
+  { path: "/job-share", component: <JobShare /> },
   { path: "/partial-quotes", component: <PartialQuotes /> },
   { path: "/job-template", component: <JobsTemplates /> },
- 
+
   //? Feedback & Claims
   { path: "/feedback", component: <Feedback /> },
   { path: "/claims", component: <Claims /> },
