@@ -488,7 +488,7 @@ const AddNewContract = () => {
                             ""
                           )}
                         </Row>
-                        <Row className="d-flex justify-content-center">
+                        <Row className="d-flex justify-content-start mt-2">
                           {/* Email  == Done */}
                           <Col lg={4}>
                             <div className="mb-3">
@@ -510,7 +510,7 @@ const AddNewContract = () => {
                           {/* Email  == Done */}
                           <Col lg={4}>
                             <button type="button" className="btn btn-success">
-                              Success
+                              Add
                             </button>
                           </Col>
                         </Row>
@@ -536,111 +536,182 @@ const AddNewContract = () => {
                       <Form className="tablelist-form">
                         <Row>
                           {/* Name  == Done */}
-                          <Col lg={12}>
+                          <Col lg={4}>
                             <div>
                               <Form.Label htmlFor="supplierName-field">
-                                Type
+                                Days ahead
                               </Form.Label>
-                              <div className="d-flex">
-                                <div className="form-check form-check-inline">
-                                  <input
-                                    className="form-check-input"
-                                    type="radio"
-                                    name="flexRadioDefault"
-                                    id="flexRadioDefault1"
-                                    onChange={radioHandler}
-                                    value="By Range"
-                                  />
-                                  <label
-                                    className="form-check-label"
-                                    htmlFor="flexRadioDefault1"
-                                  >
-                                    By Range
-                                  </label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                  <input
-                                    className="form-check-input"
-                                    type="radio"
-                                    name="flexRadioDefault"
-                                    id="flexRadioDefault1"
-                                    value="Multiples Day"
-                                    onChange={radioHandler}
-                                  />
-                                  <label
-                                    className="form-check-label"
-                                    htmlFor="flexRadioDefault1"
-                                  >
-                                    Multiples Day
-                                  </label>
-                                </div>
-                              </div>
                             </div>
                           </Col>
-                          {selectedType === "By Range" ? (
-                            <Row className="mt-2">
-                              {/* Email  == Done */}
-                              <Col lg={5}>
-                                <div className="mb-3">
-                                  <Form.Control
-                                    type="text"
-                                    id="supplierName-field"
-                                    placeholder="Enter name"
-                                    required
-                                  />
-                                </div>
-                              </Col>
-                              <Col className="d-flex justify-content-center align-items-center">
-                                <h5>to</h5>
-                              </Col>
-                              {/* Phone  == Done */}
-                              <Col lg={5}>
-                                <div className="mb-3">
-                                  <Form.Control
-                                    type="text"
-                                    id="supplierName-field"
-                                    placeholder="Enter email"
-                                    required
-                                  />
-                                </div>
-                              </Col>
-                            </Row>
-                          ) : selectedType === "Multiples Day" ? (
-                            <Row className="mt-2">
-                              {/* Email  == Done */}
-                              <Col
-                                lg={12}
-                                className="d-flex justify-content-center"
+                          <Col lg={3}>
+                            <select
+                              className="form-select text-muted"
+                              name="choices-single-default"
+                              id="statusSelect"
+                              required
+                            >
+                              <option value="">Days</option>
+                              <option value="Entreprise">1</option>
+                              <option value="Schools">2</option>
+                              <option value="Entreprise">3</option>
+                              <option value="Schools">4</option>
+                              <option value="Schools">5</option>
+                              <option value="Entreprise">6</option>
+                              <option value="Schools">7</option>
+                              <option value="Entreprise">8</option>
+                              <option value="Schools">9</option>
+                              <option value="Schools">10</option>
+                              <option value="Entreprise">11</option>
+                              <option value="Schools">12</option>
+                              <option value="Entreprise">13</option>
+                              <option value="Schools">14</option>
+                              <option value="Schools">15</option>
+                              <option value="Entreprise">16</option>
+                              <option value="Schools">17</option>
+                              <option value="Entreprise">18</option>
+                              <option value="Schools">19</option>
+                              <option value="Schools">20</option>
+                              <option value="Entreprise">21</option>
+                              <option value="Schools">22</option>
+                              <option value="Entreprise">23</option>
+                              <option value="Schools">24</option>
+                              <option value="Schools">25</option>
+                              <option value="Entreprise">26</option>
+                              <option value="Schools">27</option>
+                              <option value="Entreprise">28</option>
+                              <option value="Schools">29</option>
+                              <option value="Schools">30</option>
+                              <option value="Entreprise">31</option>
+                              <option value="Schools">32</option>
+                              <option value="Entreprise">33</option>
+                              <option value="Schools">34</option>
+                              <option value="Schools">35</option>
+                              <option value="Entreprise">36</option>
+                              <option value="Schools">37</option>
+                              <option value="Entreprise">38</option>
+                              <option value="Schools">39</option>
+                              <option value="Schools">40</option>
+                              <option value="Entreprise">41</option>
+                              <option value="Schools">42</option>
+                              <option value="Entreprise">43</option>
+                              <option value="Schools">44</option>
+                              <option value="Schools">45</option>
+                            </select>
+                          </Col>
+                          <Col lg={3} className="d-flex align-items-center">
+                            <div className="form-check mb-2">
+                              <input
+                                className="form-check-input"
+                                type="checkbox"
+                                id="formCheck1"
+                              />
+                              <label
+                                className="form-check-label"
+                                htmlFor="formCheck1"
                               >
-                                <div className="mb-3">
-                                  <Form.Control
-                                    type="text"
-                                    id="supplierName-field"
-                                    placeholder="Enter name"
-                                    required
-                                  />
-                                </div>
-                              </Col>
-                            </Row>
-                          ) : (
-                            ""
-                          )}
+                                or 60 Days
+                              </label>
+                            </div>
+                          </Col>
                         </Row>
-                        <Row className="d-flex justify-content-center">
+                        <Row className="d-flex mt-3">
                           {/* Email  == Done */}
                           <Col lg={4}>
                             <div className="mb-3">
                               <Form.Label htmlFor="supplierName-field">
-                                Notes
+                                Number of day to spawn
                               </Form.Label>
-                              <div>
-                                <textarea
-                                  className="form-control"
-                                  id="exampleFormControlTextarea5"
-                                  placeholder="for everyone : customer can see it"
-                                  rows={3}
-                                ></textarea>
-                              </div>
+                            </div>
+                          </Col>
+                          <Col lg={3}>
+                            <div className="form-check form-check-inline">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                                onChange={radioHandler}
+                                value="By Range"
+                              />
+                              <select
+                                className="form-select text-muted"
+                                name="choices-single-default"
+                                id="statusSelect"
+                                required
+                              >
+                                <option value="">Days</option>
+                                <option value="Entreprise">1</option>
+                                <option value="Schools">2</option>
+                                <option value="Entreprise">3</option>
+                                <option value="Schools">4</option>
+                                <option value="Schools">5</option>
+                                <option value="Entreprise">6</option>
+                                <option value="Schools">7</option>
+                                <option value="Entreprise">8</option>
+                                <option value="Schools">9</option>
+                                <option value="Schools">10</option>
+                                <option value="Entreprise">11</option>
+                                <option value="Schools">12</option>
+                                <option value="Entreprise">13</option>
+                                <option value="Schools">14</option>
+                                <option value="Schools">15</option>
+                                <option value="Entreprise">16</option>
+                                <option value="Schools">17</option>
+                                <option value="Entreprise">18</option>
+                                <option value="Schools">19</option>
+                                <option value="Schools">20</option>
+                                <option value="Entreprise">21</option>
+                                <option value="Schools">22</option>
+                                <option value="Entreprise">23</option>
+                                <option value="Schools">24</option>
+                                <option value="Schools">25</option>
+                                <option value="Entreprise">26</option>
+                                <option value="Schools">27</option>
+                                <option value="Entreprise">28</option>
+                                <option value="Schools">29</option>
+                                <option value="Schools">30</option>
+                                <option value="Entreprise">31</option>
+                                <option value="Schools">32</option>
+                                <option value="Entreprise">33</option>
+                                <option value="Schools">34</option>
+                                <option value="Schools">35</option>
+                                <option value="Entreprise">36</option>
+                                <option value="Schools">37</option>
+                                <option value="Entreprise">38</option>
+                                <option value="Schools">39</option>
+                                <option value="Schools">40</option>
+                                <option value="Entreprise">41</option>
+                                <option value="Schools">42</option>
+                                <option value="Entreprise">43</option>
+                                <option value="Schools">44</option>
+                                <option value="Schools">45</option>
+                              </select>
+                            </div>
+                          </Col>
+                          <Col lg={5}>
+                            <div className="form-check form-check-inline">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                                value="Multiples Day"
+                                onChange={radioHandler}
+                              />
+                              <label>
+                                <Col lg={3}>
+                                  <Form.Control
+                                    type="text"
+                                    id="customerName-field"
+                                    required
+                                  />
+                                </Col>
+                                <Col lg={1}>
+                                  <Form.Label htmlFor="customerName-field">
+                                    Days
+                                  </Form.Label>
+                                </Col>
+                              </label>
                             </div>
                           </Col>
                         </Row>
@@ -662,7 +733,7 @@ const AddNewContract = () => {
                       </div>
                     </div>
                     <div className="flex-grow-1">
-                      <h5 className="card-title mb-1">School Information</h5>
+                      <h5 className="card-title mb-1">Job Prototype</h5>
                     </div>
                   </div>
                 </Card.Header>
@@ -947,294 +1018,133 @@ const AddNewContract = () => {
               </Card>
               <Card>
                 <Card.Header>
-                  <div className="d-flex align-items-center">
-                    <div className="flex-shrink-0 me-3">
-                      <div className="avatar-sm">
-                        <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                          <i className="mdi mdi-school"></i>
-                        </div>
+                  <button
+                    type="button"
+                    className="btn btn-secondary btn-sm"
+                    data-bs-toggle="button"
+                  >
+                    <span className="icon-on">
+                      <i className="ri-user-add-line align-bottom me-1"></i>{" "}
+                      Assign Driver
+                    </span>
+                  </button>
+                  <Row className="mt-3">
+                    <Col lg={6}>
+                      <div className="form-check form-check-inline">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                          onChange={radioHandler}
+                          value="By Range"
+                        />
+                        <label className="form-check-label">Check All</label>
                       </div>
-                    </div>
-                    <div className="flex-grow-1">
-                      <h5 className="card-title mb-1">School Information</h5>
-                    </div>
-                  </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="form-check form-check-inline">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                          value="Multiples Day"
+                          onChange={radioHandler}
+                        />
+                        <label className="form-check-label">Uncheck All</label>
+                      </div>
+                    </Col>
+                  </Row>
                 </Card.Header>
                 <Card.Body>
                   <Form className="tablelist-form">
-                    <Row>
-                      {/* Name  == Done */}
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="customerName-field">
-                            Job Pattern Name
-                          </Form.Label>
-                          <Form.Control
-                            type="text"
-                            id="customerName-field"
-                            placeholder="Enter job pattern name"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      {/* Address == Done */}
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            From already quote
-                          </Form.Label>
-                          <Form.Control
-                            type="text"
-                            id="supplierName-field"
-                            placeholder="search pattern name"
-                            required
-                          />
-                        </div>
-                      </Col>
+                    <Row className="d-flex justify-content-end">
+                      <div className="form-check mb-2">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck1"
+                        >
+                          Mouvement
+                        </label>
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          id="formCheck1"
+                        />
+                      </div>
                     </Row>
-                    <Row>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Company name
-                          </Form.Label>
-                          <Form.Control
-                            type="text"
-                            id="supplierName-field"
-                            placeholder="Enter Company name"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      {/* Email  == Done */}
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            External Reference
-                          </Form.Label>
-                          <Form.Control
-                            type="text"
-                            id="supplierName-field"
-                            placeholder="Enter name"
-                            required
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      {/* Phone  == Done */}
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Contact Name
-                          </Form.Label>
-                          <Form.Control
-                            type="text"
-                            id="supplierName-field"
-                            placeholder="Enter contact name"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Contact Number
-                          </Form.Label>
-                          <Form.Control
-                            type="email"
-                            id="supplierName-field"
-                            placeholder="Enter contact phone number"
-                            required
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Mobile Number
-                          </Form.Label>
-                          <Form.Control
-                            type="email"
-                            id="supplierName-field"
-                            placeholder="Enter Mobile number"
-                            required
-                          />
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Number of passengers
-                          </Form.Label>
-                          <div>
-                            <select
-                              className="form-select text-muted"
-                              name="choices-single-default"
-                              id="statusSelect"
-                              required
-                            >
-                              <option value="">Select Passengers Number</option>
-                              <option value="Entreprise">1</option>
-                              <option value="Schools">2</option>
-                              <option value="Entreprise">3</option>
-                              <option value="Schools">4</option>
-                              <option value="Schools">5</option>
-                              <option value="Entreprise">6</option>
-                              <option value="Schools">7</option>
-                              <option value="Entreprise">8</option>
-                              <option value="Schools">9</option>
-                              <option value="Schools">10</option>
-                              <option value="Entreprise">11</option>
-                              <option value="Schools">12</option>
-                              <option value="Entreprise">13</option>
-                              <option value="Schools">14</option>
-                              <option value="Schools">15</option>
-                            </select>
-                          </div>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Vehicle Type
-                          </Form.Label>
-                          <div>
-                            <select
-                              className="form-select text-muted"
-                              name="choices-single-default"
-                              id="statusSelect"
-                              required
-                            >
-                              <option value="">Select Vehicle</option>
-                              <option value="Entreprise">
-                                Standard Sallon Car
-                              </option>
-                              <option value="Schools">
-                                Standard Sallon Car
-                              </option>
-                              <option value="Entreprise">VIP Sallon Car</option>
-                              <option value="Schools">
-                                Standard 6 Seat MPV
-                              </option>
-                              <option value="Schools">
-                                Standard 6 Seat MPV
-                              </option>
-                            </select>
-                          </div>
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Luggage Details
-                          </Form.Label>
-                          <select
-                            className="form-select text-muted"
-                            name="choices-single-default"
-                            id="statusSelect"
-                            required
-                          >
-                            <option value="">Select Luggage</option>
-                            <option value="Entreprise">No Luggage</option>
-                            <option value="Schools">Lap Luggage Only</option>
-                            <option value="Entreprise">
-                              1 x 10kg Check in Luggage person only
-                            </option>
-                            <option value="Schools">
-                              1 x 20kg Check in Luggage person only
-                            </option>
-                            <option value="Schools">
-                              1 x 22kg Check in Luggage person only
-                            </option>
-                          </select>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Journey Type
-                          </Form.Label>
-                          <select
-                            className="form-select text-muted"
-                            name="choices-single-default"
-                            id="statusSelect"
-                            required
-                          >
-                            <option value="">Select Journey Type</option>
-                            <option value="Weeding">Airport Transfer</option>
-                            <option value="Weeding">Charity Event</option>
-                            <option value="Weeding">Christmas Party</option>
-                            <option value="10Kg">Corporate Event</option>
-                            <option value="20Kg">Day Trip</option>
-                            <option value="20Kg">Emergency</option>
-                            <option value="20Kg">
-                              Football Away Game( fan trip)
-                            </option>
-                            <option value="10Kg">Funeral</option>
-                            <option value="10Kg">Golf Trip</option>
-                            <option value="10Kg">Night Out</option>
-                            <option value="20Kg">Rail Replacement</option>
-                            <option value="10Kg">
-                              School or University Educational Trip
-                            </option>
-                            <option value="Weeding">Site Tour</option>
-                            <option value="10Kg">Sporting Event</option>
-                            <option value="20Kg">
-                              Sports Team (players transport)
-                            </option>
-                            <option value="10Kg">
-                              Staff Shuttles or Transport
-                            </option>
-                            <option value="Weeding">Stag/Hen Do</option>
-                            <option value="20Kg">
-                              UK Tour or International Tour
-                            </option>
-                            <option value="Weeding">
-                              Vehicle Maintenance(internal book out)
-                            </option>
-                            <option value="20Kg">Wedding</option>
-                            <option value="20Kg">Weekend Away</option>
-                            <option value="10Kg">Other</option>
-                          </select>
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Notes
-                          </Form.Label>
-                          <div>
-                            <textarea
-                              className="form-control"
-                              id="exampleFormControlTextarea5"
-                              placeholder="for everyone : customer can see it"
-                              rows={3}
-                            ></textarea>
-                          </div>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg={6}>
-                        <div className="mb-3">
-                          <Form.Label htmlFor="supplierName-field">
-                            Price
-                          </Form.Label>
-                          <Form.Control
-                            type="terxt"
-                            id="supplierName-field"
-                            placeholder="00.00"
-                            required
-                          />
-                        </div>
-                      </Col>
+                    <div className="row mb-3">
+                      <label
+                        htmlFor="colFormLabelSm"
+                        className="col-sm-4 col-form-label col-form-label-sm"
+                      >
+                        Pickup Time
+                      </label>
+                      <div className="col-sm-8">
+                        <input
+                          type="email"
+                          className="form-control form-control-sm"
+                          id="colFormLabelSm"
+                          placeholder="08:12"
+                        />
+                      </div>
+                    </div>
+                    <div className="row mb-3">
+                      <label
+                        htmlFor="colFormLabelSm"
+                        className="col-sm-4 col-form-label col-form-label-sm"
+                      >
+                        Collection Address
+                      </label>
+                      <div className="col-sm-8">
+                        <input
+                          type="email"
+                          className="form-control form-control-sm"
+                          id="colFormLabelSm"
+                          placeholder="Enter Collection Address"
+                        />
+                      </div>
+                    </div>
+                    <div className="row">
+                      <label
+                        htmlFor="colFormLabelSm"
+                        className="col-sm-4 col-form-label col-form-label-sm"
+                      >
+                        Destination Address
+                      </label>
+                      <div className="col-sm-8">
+                        <input
+                          type="email"
+                          className="form-control form-control-sm"
+                          id="colFormLabelSm"
+                          placeholder="Enter Destination Address"
+                        />
+                      </div>
+                    </div>
+                    <Row className="mt-2">
+                      <div className="d-flex justify-content-evenly mb-2">
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-sm fs-10"
+                        >
+                          <i className="ph ph-first-aid-thin"></i> Mouvement
+                        </button>
+
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-sm fs-10"
+                        >
+                          <i className="ph ph-key-return"></i> Return
+                        </button>
+
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-sm fs-10"
+                        >
+                          <i className="ph ph-note-blank"></i> Blank Journey
+                        </button>
+                      </div>
                     </Row>
                   </Form>
                 </Card.Body>

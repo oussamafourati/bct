@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -6,7 +6,10 @@ import {
   Container,
   Dropdown,
   Form,
+  Image,
+  Nav,
   Row,
+  Tab,
   Table,
 } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
@@ -40,155 +43,462 @@ const DriverDetails = () => {
   document.title = "Driver Details | Bouden Coach Travel";
   const LocationDriver = useLocation();
 
+  const [activeTab, setactiveTab] = useState<number>(0);
+  const [activeArrowTab, setactiveArrowTab] = useState(1);
+
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
           <Row className="d-flex align-items-center">
-            <Col lg={12}>
-              <Card.Body style={{ width: "100%", height: "100%" }}>
-                <Row>
-                  <Col lg={3}>
-                    <div className="profile-user-img position-relative">
-                      <img
-                        src={LocationDriver.state.avatar}
-                        alt=""
-                        className="rounded object-fit-cover"
-                      />
-                      {/* <span className="position-absolute top-0 start-100 translate-middle badge border border-3 border-white rounded-circle bg-success p-1 mt-1 me-1">
-                        <span className="visually-hidden">unread messages</span>
-                      </span>*/}
-                    </div>
-                  </Col>
-                  <Col lg={9}>
-                    <div className="d-flex border-bottom border-bottom-dashed pb-3 mb-3 mt-4 mt-lg-0">
-                      <div className="flex-grow-1">
-                        <h5>{LocationDriver.state.fullName}</h5>
-                        {/* <p className="text-muted mb-0">Sales & Marketing Manager</p> */}
+            <Col xxl={12}>
+              <Card>
+                <Card.Header>
+                  <h4 className="card-title mb-0">
+                    {LocationDriver.state.brandName}
+                  </h4>
+                </Card.Header>
+                <Card.Body className="form-steps">
+                  <Form action="#">
+                    <Tab.Container activeKey={activeArrowTab}>
+                      <div className="text-center pt-3 pb-4 mb-1">
+                        <Image src={avatar1} alt="" height="22" />
                       </div>
-                      {/* <div className="flex-shrink-0">
-                                            <Dropdown>
-                                                <Dropdown.Toggle href="#" className="arrow-none btn btn-ghost-primary btn-sm btn-icon" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i className="ph-dots-three-outline"></i>
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <li><Dropdown.Item href="/#">Action</Dropdown.Item></li>
-                                                    <li><Dropdown.Item href="/#">Another action</Dropdown.Item></li>
-                                                    <li><Dropdown.Item href="/#">Something else here</Dropdown.Item></li>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </div> */}
-                    </div>
+                      <div className="step-arrow-nav mb-4">
+                        <Nav
+                          as="ul"
+                          variant="pills"
+                          className="custom-nav nav-justified"
+                        >
+                          <Nav.Item as="li">
+                            <Nav.Link
+                              as="button"
+                              eventKey="1"
+                              onClick={() => setactiveArrowTab(1)}
+                            >
+                              Profile
+                            </Nav.Link>
+                          </Nav.Item>
+                          <Nav.Item as="li">
+                            <Nav.Link
+                              as="button"
+                              eventKey="2"
+                              onClick={() => setactiveArrowTab(2)}
+                            >
+                              Document
+                            </Nav.Link>
+                          </Nav.Item>
+                          <Nav.Item as="li">
+                            <Nav.Link
+                              as="button"
+                              eventKey="3"
+                              onClick={() => setactiveArrowTab(3)}
+                            >
+                              Payment
+                            </Nav.Link>
+                          </Nav.Item>
+                          <Nav.Item as="li">
+                            <Nav.Link
+                              as="button"
+                              eventKey="4"
+                              onClick={() => setactiveArrowTab(4)}
+                            >
+                              Bank Details
+                            </Nav.Link>
+                          </Nav.Item>
+                        </Nav>
+                      </div>
 
-                    <Row>
-                      <Col lg={6}>
-                        <div className="table-responsive">
-                          <Table className="table-borderless table-sm mb-0">
-                            <tbody>
-                              <tr>
-                                <td>Address</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.address}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.email}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Date of Birth</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.dateofbirth}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Mobile / Phone No.</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.phone}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Gender</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.gender}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Civil Status</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.civilStatus}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Number of Child</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.numberofchild}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </Table>
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="table-responsive">
-                          <Table className="table-borderless table-sm mb-0">
-                            <tbody>
-                              <tr>
-                                <td>Nationality</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.nationality}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Original Nationality</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.originalNationality}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Status</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.status === "Active" ? (
-                                    <span className="badge badge-soft-success">Active</span>
-                                  ) : (
-                                    <span className="badge badge-soft-danger">Inactive</span>
-                                  )}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Joining Date</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.serviceDate}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Category</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.category}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Contract Type</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.contractType}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Salary</td>
-                                <td className="fw-medium">
-                                  {LocationDriver.state.salary}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </Table>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Row>
-              </Card.Body>
+                      <Tab.Content>
+                        <Tab.Pane eventKey="1">
+                          <Row>
+                            <Col lg={4}>
+                              <div>
+                                <table>
+                                  <tr>
+                                    <td>Ref</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Username</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Password</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Email</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Driver Image</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Title</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>First Name</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Surname</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Date of birth</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Driver Type</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Days Available</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Time Available</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Date Joined</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Enabled</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </Col>
+                            <Col lg={6}>
+                              <div>
+                                <table>
+                                  <tr>
+                                    <td>Ref</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Username</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Password</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Email</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Driver Image</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Title</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>First Name</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Surname</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Date of birth</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Driver Type</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Days Available</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Time Available</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Date Joined</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Enabled</td>
+                                    <td>
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="steparrow-gen-info-email-input"
+                                        placeholder="Enter Email"
+                                      />
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Tab.Pane>
+
+                        <Tab.Pane eventKey="2">
+                          <div>
+                            <div className="mb-3">
+                              <label htmlFor="formFile" className="form-label">
+                                Upload Image
+                              </label>
+                              <input
+                                className="form-control"
+                                type="file"
+                                id="formFile"
+                              />
+                            </div>
+                            <div>
+                              <label
+                                className="form-label"
+                                htmlFor="des-info-description-input"
+                              >
+                                Description
+                              </label>
+                              <textarea
+                                className="form-control"
+                                placeholder="Enter Description"
+                                id="des-info-description-input"
+                                rows={3}
+                              ></textarea>
+                            </div>
+                          </div>
+                          <div className="d-flex align-items-start gap-3 mt-4">
+                            <button
+                              type="button"
+                              className="btn btn-light btn-label previestab"
+                              onClick={() => setactiveArrowTab(1)}
+                            >
+                              <i className="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>{" "}
+                              Back to General
+                            </button>
+                            <button
+                              type="button"
+                              className="btn btn-success btn-label right ms-auto nexttab nexttab"
+                              onClick={() => setactiveArrowTab(3)}
+                            >
+                              <i className="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>
+                              Submit
+                            </button>
+                          </div>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="3">
+                          <div className="text-center">
+                            <div className="avatar-md mt-5 mb-4 mx-auto">
+                              <div className="avatar-title bg-light text-success display-4 rounded-circle">
+                                <i className="ri-checkbox-circle-fill"></i>
+                              </div>
+                            </div>
+                            <h5>Well Done !</h5>
+                            <p className="text-muted">
+                              You have Successfully Signed Up
+                            </p>
+                          </div>
+                        </Tab.Pane>
+                      </Tab.Content>
+                    </Tab.Container>
+                  </Form>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
         </Container>

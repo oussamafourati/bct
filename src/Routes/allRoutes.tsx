@@ -67,6 +67,10 @@ import JobShare from "pages/JobShare";
 import PartialQuotes from "pages/PartialQuotes";
 import JobsTemplates from "pages/JobsTemplates";
 import AddNewContract from "pages/CorporateTransport/NewContract/AddNewContract";
+import Outstanding from "pages/Outstanding";
+import AgedDebtors from "pages/AgedDebtors";
+import Payments from "pages/Payments/index";
+import Invoices from "pages/Invoices";
 
 const authProtectedRoutes = [];
 
@@ -85,6 +89,10 @@ const publicRoutes = [
   { path: "/current-push-jobs", component: <Current /> },
   { path: "/history-push-job", component: <History /> },
 
+  { path: "/outstanding", component: <Outstanding /> },
+  { path: "/aged-debtors", component: <AgedDebtors /> },
+  { path: "/payments", component: <Payments /> },
+  { path: "/invoices", component: <Invoices /> },
   //? Corporate Transport
   { path: "/list-corporate-transport", component: <Management /> },
   { path: "/contract", component: <NewContract /> },

@@ -340,9 +340,10 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-danger btn-icon"
+              className="btn btn-soft-danger btn-icon d-grid"
             >
               <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+              <span className="text-danger">Connect</span>
             </button>
           </div>
         </Col>
