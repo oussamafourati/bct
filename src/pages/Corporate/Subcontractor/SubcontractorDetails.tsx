@@ -6,10 +6,13 @@ import {
   Container,
   Dropdown,
   Form,
+  Image,
   Row,
   Table,
 } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import avatar1 from "assets/images/users/avatar-1.jpg";
+import img4 from "assets/images/small/img-4.jpg";
 
 const bookmarkProduct = (e: any) => {
   const ele = e.target.closest("button");
@@ -28,139 +31,134 @@ const SubcontractorDetails = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Row className="d-flex align-items-center">
+          <Row>
             <Col lg={12}>
-              <Card.Body style={{ width: "100%", height: "100%" }}>
-                <Row>
-                  <Col lg={3}>
-                    <div className="profile-user-img position-relative">
-                      <img
-                        src={LocationSubContractor.state.logo}
-                        alt=""
-                        className="rounded"
-                      />
-                      {/* <span className="position-absolute top-0 start-100 translate-middle badge border border-3 border-white rounded-circle bg-success p-1 mt-1 me-1">
-                        <span className="visually-hidden">unread messages</span>
-                      </span>*/}
-                    </div>
-                  </Col>
-                  <Col lg={9}>
-                    <div className="d-flex border-bottom border-bottom-dashed pb-3 mb-3 mt-4 mt-lg-0">
-                      <div className="flex-grow-1">
-                        <h5>{LocationSubContractor.state.name}</h5>
-                        {/* <p className="text-muted mb-0">Sales & Marketing Manager</p> */}
+              <Card>
+                <Card.Header>
+                  <h5 className="card-title mb-0">
+                    {LocationSubContractor.state.orderId}
+                  </h5>
+                </Card.Header>
+                <Card.Body>
+                  <Card className="border-0 shadow-none mb-0">
+                    <Card.Body
+                      className="rounded profile-basic"
+                      style={{
+                        backgroundImage: `url(${img4})`,
+                        backgroundSize: "cover",
+                      }}
+                    ></Card.Body>
+                    <Card.Body>
+                      <div className="mt-n5 text-end">
+                        <Image
+                          src={avatar1}
+                          alt=""
+                          className="avatar-lg img-thumbnail rounded-circle p-1 bg-card-custom mt-n3"
+                        />
                       </div>
-                      {/* <div className="flex-shrink-0">
-                                            <Dropdown>
-                                                <Dropdown.Toggle href="#" className="arrow-none btn btn-ghost-primary btn-sm btn-icon" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i className="ph-dots-three-outline"></i>
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <li><Dropdown.Item href="/#">Action</Dropdown.Item></li>
-                                                    <li><Dropdown.Item href="/#">Another action</Dropdown.Item></li>
-                                                    <li><Dropdown.Item href="/#">Something else here</Dropdown.Item></li>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </div> */}
-                    </div>
+                    </Card.Body>
+                    <Card.Body className="pt-0">
+                      <Row className="justify-content-between gy-4">
+                        <Col
+                          xl={3}
+                          md={5}
+                          className="order-last order-lg-first"
+                        >
+                          <div className="text-end text-lg-start">
+                            <p className="text-muted fw-medium mb-2">
+                              Language Knows
+                            </p>
+                            <ul className="list-inline mb-4">
+                              <li className="list-inline-item">
+                                <span className="badge badge-soft-info">
+                                  English
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-soft-info">
+                                  Russian
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-soft-info">
+                                  Chinese
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
 
-                    <Row>
-                      <Col lg={6}>
-                        <div className="table-responsive">
-                          <Table className="table-borderless table-sm mb-0">
-                            <tbody>
-                              <tr>
-                                <td>Address</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.address}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.email}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Mobile / Phone No.</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.phone}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Category</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.corporateCategory}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Activity</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.activity}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Bank Name</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.bankName}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </Table>
-                        </div>
-                      </Col>
-                      <Col lg={6}>
-                        <div className="table-responsive">
-                          <Table className="table-borderless table-sm mb-0">
-                            <tbody>
-                              <tr>
-                                <td>Bank Account Swift</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.bankAccountSwift}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Bank Account Number</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.bankAccountNumber}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Status</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.status === "Active" ? (
-                                    <span className="badge badge-soft-success">Active</span>
-                                  ) : (
-                                    <span className="badge badge-soft-danger">Inactive</span>
-                                  )}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Joining Date</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.serviceDate}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>login</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.login}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Sub-Domaine</td>
-                                <td className="fw-medium">
-                                  {LocationSubContractor.state.subDomaine}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </Table>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Row>
-              </Card.Body>
+                          <div className="text-end text-lg-start">
+                            <p className="text-muted fw-medium mb-2">
+                              Featured Skills
+                            </p>
+                            <ul className="d-flex gap-2 flex-wrap list-unstyled mb-0 justify-content-end justify-content-lg-start">
+                              <li>
+                                <span className="badge badge-soft-dark">
+                                  Business Marketing
+                                </span>
+                              </li>
+                              <li>
+                                <span className="badge badge-soft-dark">
+                                  Google Ads Management
+                                </span>
+                              </li>
+                              <li>
+                                <span className="badge badge-soft-dark">
+                                  Social Ads Management
+                                </span>
+                              </li>
+                              <li>
+                                <span className="badge badge-soft-dark">
+                                  Content SEO
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                        </Col>
+                        <Col xl={5} md={7} className="text-end">
+                          <h5 className="fs-17">Edward Diana</h5>
+                          <div className="mb-3 text-muted">
+                            <i className="bi bi-geo-alt"></i> Phoenix, USA
+                          </div>
+                          <p>Product visual designer, expert in UI design</p>
+
+                          <div className="hstack gap-2 justify-content-end">
+                            <Button variant="primary">Invite to Project</Button>
+                            <Button variant="soft-info" className="btn-icon">
+                              <i className="bi bi-chat-left-text"></i>
+                            </Button>
+                            <Dropdown role="button">
+                              <Dropdown.Toggle
+                                as="a"
+                                className="btn btn-soft-danger btn-icon arrow-none"
+                              >
+                                <i className="bi bi-three-dots-vertical"></i>
+                              </Dropdown.Toggle>
+                              <Dropdown.Menu as="ul" className="dropdown-menu">
+                                <li>
+                                  <Link className="dropdown-item" to="#">
+                                    Action
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link className="dropdown-item" to="#">
+                                    Another action
+                                  </Link>
+                                </li>
+                                <li>
+                                  <Link className="dropdown-item" to="#">
+                                    Something else here
+                                  </Link>
+                                </li>
+                              </Dropdown.Menu>
+                            </Dropdown>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
         </Container>

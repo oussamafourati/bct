@@ -265,7 +265,7 @@ const Navdata = () => {
           id: "Subcontractors",
           label: "Affiliate",
           link: "/all-sub-contractors",
-          icon: "mdi mdi-account-supervisor",
+          icon: "mdi mdi-handshake",
           parentId: "Lists",
         },
         {
@@ -305,13 +305,6 @@ const Navdata = () => {
       stateVariables: isFeedbackClaims,
       subItems: [
         {
-          id: "NewContract",
-          label: "New Contract",
-          icon: "ri-file-edit-fill",
-          link: "/new-contract",
-          parentId: "Management",
-        },
-        {
           id: "Scheduling",
           label: "Scheduling",
           link: "/scheduling",
@@ -319,45 +312,10 @@ const Navdata = () => {
           parentId: "Management",
         },
         {
-          id: "NewTeam",
-          label: "New Team",
-          link: "/new-team",
-          icon: "mdi mdi-account-multiple-plus",
-          parentId: "Management",
-        },
-        {
           id: "NewVehicle",
           label: "Vehicle",
           link: "/vehicles",
           icon: "mdi mdi-car-side",
-          parentId: "Management",
-        },
-        {
-          id: "NewSchool",
-          label: "New School",
-          link: "/new-school",
-          icon: "mdi mdi-town-hall",
-          parentId: "Management",
-        },
-        {
-          id: "NewCompany",
-          label: "New Company",
-          link: "/new-company",
-          icon: "mdi mdi-table-large-plus",
-          parentId: "Management",
-        },
-        {
-          id: "NewSubContractor",
-          label: "New Sub-Contractor",
-          link: "/new-applications",
-          icon: "mdi mdi-handshake",
-          parentId: "Management",
-        },
-        {
-          id: "Emails",
-          label: "Emails",
-          link: "/email-templates",
-          icon: "mdi mdi-email-plus",
           parentId: "Management",
         },
         {
@@ -379,6 +337,13 @@ const Navdata = () => {
           label: "Trip Models",
           link: "/trip-models",
           icon: "mdi mdi-bag-suitcase",
+          parentId: "Management",
+        },
+        {
+          id: "Emails",
+          label: "Emails",
+          link: "/email-templates",
+          icon: "mdi mdi-email-plus",
           parentId: "Management",
         },
       ],

@@ -3,7 +3,7 @@ import { Button, Card, Col, Image, Modal, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import avtar1 from "assets/images/users/avatar-1.jpg";
 
-const DriverTable = ({ driver }: any) => {
+const TeamTable = ({ team }: any) => {
   const noresult: any = useRef();
   const teamList: any = useRef();
   const [brandList, setBrandList] = useState([]);
@@ -18,9 +18,9 @@ const DriverTable = ({ driver }: any) => {
   const totalPages = Math.ceil(brandList.length / itemsPerPage);
 
   useEffect(() => {
-    setBrandList(driver);
+    setBrandList(team);
     setItemsPerPage(15);
-  }, [driver]);
+  }, [team]);
 
   const handleSearchClick = (event: any) => {
     setCurrentPage(1);
@@ -32,7 +32,7 @@ const DriverTable = ({ driver }: any) => {
       });
     };
 
-    let filterData = filterItems(driver, inputVal);
+    let filterData = filterItems(team, inputVal);
     setBrandList(filterData);
     if (filterData.length === 0) {
       noresult.current.style.display = "block";
@@ -45,8 +45,8 @@ const DriverTable = ({ driver }: any) => {
 
   const navigate = useNavigate();
 
-  function tog_AddDriver() {
-    navigate("/new-driver");
+  function tog_AddTeam() {
+    navigate("/new-team");
   }
 
   return (
@@ -68,11 +68,11 @@ const DriverTable = ({ driver }: any) => {
         <Col sm={3} className="col-lg-auto ms-auto">
           <Button
             variant="success"
-            onClick={() => tog_AddDriver()}
+            onClick={() => tog_AddTeam()}
             className="w-100"
           >
-            <i className="mdi mdi-account-plus me-1 align-middle"></i> Add
-            Driver
+            <i className="mdi mdi-account-multiple-plus me-1 align-middle"></i>{" "}
+            Add Team
           </Button>
         </Col>
       </Row>
@@ -85,65 +85,30 @@ const DriverTable = ({ driver }: any) => {
         {(paginatedData || []).map((item: any, key: number) => (
           <Link
             className="page-link"
-            to={`/driver-details/${item.brandName}`}
+            to={`/team-details/${item.brandName}`}
             state={item}
           >
             <Col key={key}>
-              <Card className="card brand-widget card-animate p-1">
-                <div className="d-flex mb-4 align-items-center">
-                  <div className="flex-shrink-0">
-                    <Image
+              <Card>
+                <Card.Header>
+                  <Button
+                    className="btn-close float-end fs-11"
+                    aria-label="Close"
+                  ></Button>
+                  <h6 className="card-title mb-0">Employee Card</h6>
+                </Card.Header>
+                <Card.Body className="p-4 text-center">
+                  <div className="mx-auto avatar-md mb-3">
+                    <img
                       src={avtar1}
                       alt=""
-                      className="avatar-sm rounded-circle"
+                      className="img-fluid rounded-circle"
                     />
                   </div>
-                  <div className="flex-grow-1 ms-2">
-                    <h5 className="card-title mb-1">Alfred Hurst</h5>
-                    <p className="badge bg-danger">Inactive</p>
-                    <span>
-                      {" "}
-                      <i className="mdi mdi-bus align-middle"></i>
-                    </span>
-                    {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p> */}
-                  </div>
-                </div>
-                <span>
-                  <i className="mdi mdi-phone align-middle"></i> +44 203 048
-                  4377
-                </span>
-                {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> */}
-                <p>
-                  <b>Driving Licence:</b> Exp. 18/05/2025
-                </p>
-                <p>
-                  <b>DQC:</b> Exp. 18/05/2025
-                </p>
-                <Card.Footer className="p-0">
-                  <span className="d-flex justify-content-end">
-                    142{" "}
-                    <i className="mdi mdi-briefcase-variant align-middle"></i>
-                  </span>
-                </Card.Footer>
+                  <h5 className="card-title mb-1">{item.brandName}</h5>
+                  <p className="text-muted mb-0">{item.productItems}</p>
+                </Card.Body>
               </Card>
-              {/* <Card className="card brand-widget card-animate">
-              <Card.Body className="card-body text-center pb-2">
-                <img src={item.companyLogo} alt="" className="brand-img" />
-              </Card.Body>
-              <div className="card-footer text-center border-0">
-                <h6 className="fs-17">{item.brandName}</h6>
-                <p className="mb-0">
-                  <Link to="#" className="link-success stretched-link">
-                    {item.productItems} Items
-                  </Link>
-                </p>
-              </div>
-            </Card> */}
             </Col>
           </Link>
         ))}
@@ -340,4 +305,4 @@ const DriverTable = ({ driver }: any) => {
   );
 };
 
-export default DriverTable;
+export default TeamTable;

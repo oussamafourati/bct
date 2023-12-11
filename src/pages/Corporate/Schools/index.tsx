@@ -20,10 +20,10 @@ const Schools = () => {
   const navigate = useNavigate();
 
   function tog_AddSchool() {
-    navigate("/corporate/schools/new-school");
+    navigate("/new-school");
   }
 
- const columns = useMemo(
+  const columns = useMemo(
     () => [
       {
         Header: "Name",
@@ -31,7 +31,11 @@ const Schools = () => {
         filterable: true,
         accessor: (cellProps: any) => {
           return (
-            <Link to={`/school-details/${cellProps.name}`} className="fw-medium link-primary" state={cellProps}>
+            <Link
+              to={`/school-details/${cellProps.name}`}
+              className="fw-medium link-primary"
+              state={cellProps}
+            >
               {cellProps.name}
             </Link>
           );
@@ -76,7 +80,7 @@ const Schools = () => {
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
                 <Link to="#" className="badge badge-soft-success edit-item-btn">
-                 <i className="ri-edit-2-line"></i>
+                  <i className="ri-edit-2-line"></i>
                 </Link>
               </li>
               <li>

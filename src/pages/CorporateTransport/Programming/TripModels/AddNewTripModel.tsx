@@ -8,8 +8,8 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import Select from "react-select";
 
-const AddNewSubcontractor = () => {
-  document.title = "Create Sub-Contractor | Bouden Coach Travel";
+const AddNewTripModel = () => {
+  document.title = "Create New Trip Model | Bouden Coach Travel";
 
   const [selectedFiles, setselectedFiles] = useState([]);
 
@@ -567,7 +567,7 @@ const AddNewSubcontractor = () => {
                           <Col lg={12}>
                             <div className="hstack gap-2 justify-content-end">
                               <Button variant="primary" id="add-btn">
-                                Add Sub-Contractor
+                                Add Trip Model
                               </Button>
                             </div>
                           </Col>
@@ -585,4 +585,4 @@ const AddNewSubcontractor = () => {
   );
 };
 
-export default AddNewSubcontractor;
+export default AddNewTripModel;

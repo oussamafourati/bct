@@ -31,7 +31,11 @@ const Vehicles = () => {
         filterable: true,
         accessor: (cellProps: any) => {
           return (
-            <Link to={`/vehicle-details/${cellProps.name}`} className="fw-medium link-primary" state={cellProps}>
+            <Link
+              to={`/vehicle-details/${cellProps.name}`}
+              className="fw-medium link-primary"
+              state={cellProps}
+            >
               {cellProps.name}
             </Link>
           );
@@ -96,7 +100,7 @@ const Vehicles = () => {
                   to="#"
                   className="badge badge-soft-danger remove-item-btn"
                 >
-                 <i className="ri-delete-bin-2-line"></i>
+                  <i className="ri-delete-bin-2-line"></i>
                 </Link>
               </li>
             </ul>
@@ -111,7 +115,7 @@ const Vehicles = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Breadcrumb title="Vehicles" pageTitle="Administration" />
+          <Breadcrumb title="Vehicles" pageTitle="Management" />
           <Card id="shipmentsList">
             <Card.Header className="border-bottom-dashed">
               <Row className="g-3">
@@ -124,15 +128,14 @@ const Vehicles = () => {
                     />
                     <i className="ri-search-line search-icon"></i>
                   </div>
-                              </Col>
-                              <Col className="col-xxl-auto col-sm-auto ms-auto">
+                </Col>
+                <Col className="col-xxl-auto col-sm-auto ms-auto">
                   <Button
                     variant="success"
                     onClick={() => tog_AddNewVehicle()}
                     className="add-btn"
                   >
-                    <i className="bx bx-car me-1 align-middle"></i> Add
-                    Vehicle
+                    <i className="bx bx-car me-1 align-middle"></i> Add Vehicle
                   </Button>
                 </Col>
               </Row>

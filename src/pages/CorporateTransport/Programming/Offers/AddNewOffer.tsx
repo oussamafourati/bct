@@ -8,8 +8,8 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import Select from "react-select";
 
-const AddNewSubcontractor = () => {
-  document.title = "Create Sub-Contractor | Bouden Coach Travel";
+const AddNewOffer = () => {
+  document.title = "Create New Offer | Bouden Coach Travel";
 
   const [selectedFiles, setselectedFiles] = useState([]);
 
@@ -585,4 +585,4 @@ const AddNewSubcontractor = () => {
   );
 };
 
-export default AddNewSubcontractor;
+export default AddNewOffer;

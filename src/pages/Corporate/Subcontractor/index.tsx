@@ -26,56 +26,38 @@ const Subcontractors = () => {
   const columns = useMemo(
     () => [
       {
-        Header: "Full Name",
+        Header: "Company",
         disableFilters: true,
         filterable: true,
-        accessor: (cellProps: any) => {
-          return (
-            <Link to="#" className="fw-medium link-primary">
-              {cellProps.orderId}
-            </Link>
-          );
-        },
+        accessor: "orderId",
       },
       {
-        Header: "DOB",
+        Header: "Address",
         accessor: "shipment_no",
         disableFilters: true,
         filterable: true,
       },
       {
-        Header: "Address",
+        Header: "Email",
         accessor: "location",
         disableFilters: true,
         filterable: true,
       },
       {
-        Header: "Service Date",
+        Header: "Phone",
         accessor: "customer_name",
         disableFilters: true,
         filterable: true,
       },
       {
-        Header: "Status",
+        Header: "Region",
         accessor: "supplier",
         disableFilters: true,
         filterable: true,
       },
       {
-        Header: "Contract Type",
+        Header: "Status",
         accessor: "order_date",
-        disableFilters: true,
-        filterable: true,
-      },
-      {
-        Header: "Salary",
-        accessor: "arrival_date",
-        disableFilters: true,
-        filterable: true,
-      },
-      {
-        Header: "Shift",
-        accessor: "status",
         disableFilters: true,
         filterable: true,
       },
@@ -87,13 +69,17 @@ const Subcontractors = () => {
           return (
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
-                <Link to={`/team-details/${cellProps.fullName}`} className="badge badge-soft-primary edit-item-btn" state={cellProps}>
+                <Link
+                  to={`/subcontractor-details/${cellProps.fullName}`}
+                  className="badge badge-soft-primary edit-item-btn"
+                  state={cellProps}
+                >
                   <i className="ri-eye-line"></i>
                 </Link>
               </li>
               <li>
                 <Link to="#" className="badge badge-soft-success edit-item-btn">
-                 <i className="ri-edit-2-line"></i>
+                  <i className="ri-edit-2-line"></i>
                 </Link>
               </li>
               <li>
@@ -136,7 +122,7 @@ const Subcontractors = () => {
                     onClick={() => tog_AddSubContractor()}
                     className="add-btn"
                   >
-                    <i className="ph ph-users me-1 align-middle"></i> Add
+                    <i className="mdi mdi-hands-pray me-1 align-middle"></i> Add
                     Sub-Contractor
                   </Button>
                 </Col>

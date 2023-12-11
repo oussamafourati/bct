@@ -285,19 +285,19 @@ const VerticalLayout = (props: any) => {
         <Col>
           <div className="p-3">
             <button
-              type="button"
               title="New Quote"
-              className="btn btn-outline-info btn-icon"
+              type="button"
+              className="btn btn-soft-info btn-icon d-grid"
               onClick={() => tog_NewQuote()}
             >
               <i
                 className="mdi mdi-shape-square-plus"
                 style={{ fontSize: "24px" }}
               ></i>
+              <span className="text-info">NewQuote</span>
             </button>
           </div>
         </Col>
-
         <Col>
           <div className="p-3">
             <button

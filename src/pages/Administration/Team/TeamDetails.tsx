@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -6,7 +6,9 @@ import {
   Container,
   Dropdown,
   Form,
+  Nav,
   Row,
+  Tab,
   Table,
 } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
@@ -40,159 +42,642 @@ const TeamDetails = () => {
   document.title = "Team Details | Bouden Coach Travel";
   const LocationTeam = useLocation();
 
-  console.log(LocationTeam.state);
-
+  const [activeVerticalTab, setactiveVerticalTab] = useState<number>(1);
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Row className="d-flex align-items-center">
-            <Col lg={12}>
-              <Card.Body style={{ width: "100%", height: "100%" }}>
-                <Row>
-                  <Col lg={3}>
-                    <div className="profile-user-img position-relative">
-                      <img
-                        src={LocationTeam.state.avatar}
-                        alt=""
-                        className="rounded object-fit-cover"
-                      />
-                      {/* <span className="position-absolute top-0 start-100 translate-middle badge border border-3 border-white rounded-circle bg-success p-1 mt-1 me-1">
-                        <span className="visually-hidden">unread messages</span>
-                      </span>*/}
-                    </div>
-                  </Col>
-                  <Col lg={9}>
-                    <div className="d-flex border-bottom border-bottom-dashed pb-3 mb-3 mt-4 mt-lg-0">
-                      <div className="flex-grow-1">
-                        <h5>{LocationTeam.state.fullName}</h5>
-                        {/* <p className="text-muted mb-0">Sales & Marketing Manager</p> */}
-                      </div>
-                      {/* <div className="flex-shrink-0">
-                                            <Dropdown>
-                                                <Dropdown.Toggle href="#" className="arrow-none btn btn-ghost-primary btn-sm btn-icon" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i className="ph-dots-three-outline"></i>
-                                                </Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    <li><Dropdown.Item href="/#">Action</Dropdown.Item></li>
-                                                    <li><Dropdown.Item href="/#">Another action</Dropdown.Item></li>
-                                                    <li><Dropdown.Item href="/#">Something else here</Dropdown.Item></li>
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </div> */}
-                    </div>
-
-                    <Row>
-                      <Col lg={6}>
-                        <div className="table-responsive">
-                          <Table className="table-borderless table-sm mb-0">
-                            <tbody>
-                              <tr>
-                                <td>Address</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.address}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Email</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.email}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Date of Birth</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.dateofbirth}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Mobile / Phone No.</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.phone}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Gender</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.gender}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Civil Status</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.civilStatus}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Number of Child</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.numberofchild}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </Table>
-                        </div>
+          <Col xl={12}>
+            <Card>
+              <div className="d-flex align-items-center p-2">
+                <div className="flex-grow-1">
+                  <h5 className="card-title mb-1">
+                    {LocationTeam.state.brandName}
+                  </h5>
+                </div>
+                <div className="hstack gap-2 justify-content-end">
+                  <button
+                    type="button"
+                    className="btn btn-info btn-label btn-sm"
+                  >
+                    <i className="ri-check-fill label-icon align-middle fs-16 me-2"></i>{" "}
+                    Apply
+                  </button>
+                </div>
+              </div>
+              <hr className="my-2 text-muted" />
+              <Card.Body className="form-steps">
+                <Form className="vertical-navs-step">
+                  <Tab.Container activeKey={activeVerticalTab}>
+                    <Row className="gy-5">
+                      <Col lg={3}>
+                        <Nav
+                          as="div"
+                          variant="pills"
+                          className="nav flex-column custom-nav nav-pills"
+                          role="tablist"
+                          aria-orientation="vertical"
+                        >
+                          <Nav.Link
+                            as="button"
+                            className="nav-link done"
+                            eventKey="1"
+                            onClick={() => setactiveVerticalTab(1)}
+                          >
+                            <span className="step-title me-2">
+                              <i className="ri-user-line step-icon me-2"></i>{" "}
+                            </span>
+                            Profile
+                          </Nav.Link>
+                          <Nav.Link
+                            as="button"
+                            className={
+                              activeVerticalTab > 2
+                                ? "nav-link done"
+                                : "nav-link"
+                            }
+                            eventKey="2"
+                            onClick={() => setactiveVerticalTab(2)}
+                          >
+                            <span className="step-title me-2">
+                              <i className="ri-file-copy-2-line step-icon me-2"></i>{" "}
+                            </span>
+                            Document
+                          </Nav.Link>
+                          <Nav.Link
+                            as="button"
+                            className={
+                              activeVerticalTab > 3
+                                ? "nav-link done"
+                                : "nav-link"
+                            }
+                            eventKey="3"
+                            onClick={() => setactiveVerticalTab(3)}
+                          >
+                            <span className="step-title me-2">
+                              <i className="ri-briefcase-fill step-icon me-2"></i>{" "}
+                            </span>
+                            Work
+                          </Nav.Link>
+                          <Nav.Link
+                            as="button"
+                            className={
+                              activeVerticalTab > 4
+                                ? "nav-link done"
+                                : "nav-link"
+                            }
+                            eventKey="4"
+                            onClick={() => setactiveVerticalTab(4)}
+                          >
+                            <span className="step-title me-2">
+                              <i className="ri-close-circle-fill step-icon me-2"></i>{" "}
+                            </span>
+                            Bank Details
+                          </Nav.Link>
+                        </Nav>
                       </Col>
                       <Col lg={6}>
-                        <div className="table-responsive">
-                          <Table className="table-borderless table-sm mb-0">
-                            <tbody>
-                              <tr>
-                                <td>Nationality</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.nationality}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Original Nationality</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.originalNationality}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Status</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.status === "Active" ? (
-                                    <span className="badge badge-soft-success">Active</span>
-                                  ) : (
-                                    <span className="badge badge-soft-danger">Inactive</span>
-                                  )}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Joining Date</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.serviceDate}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Access Level</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.accessLevel}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Contract Type</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.contractType}
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>Salary</td>
-                                <td className="fw-medium">
-                                  {LocationTeam.state.salary}
-                                </td>
-                              </tr>
-                            </tbody>
-                          </Table>
+                        <div className="px-lg-4">
+                          <Tab.Content>
+                            <Tab.Pane eventKey="1">
+                              <div>
+                                <h5>Profile</h5>
+                              </div>
+                              <div>
+                                <Row className="g-3">
+                                  <Col sm={6}>
+                                    <label
+                                      htmlFor="firstName"
+                                      className="form-label"
+                                    >
+                                      First name
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="firstName"
+                                      placeholder="Enter First Name"
+                                      defaultValue=""
+                                    />
+                                  </Col>
+
+                                  <Col sm={6}>
+                                    <label
+                                      htmlFor="lastName"
+                                      className="form-label"
+                                    >
+                                      Last name
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="lastName"
+                                      placeholder="Enter Last Name"
+                                      defaultValue=""
+                                    />
+                                  </Col>
+
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="username"
+                                      className="form-label"
+                                    >
+                                      Address
+                                    </label>
+                                    <div className="input-group">
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        id="username"
+                                        placeholder="Username"
+                                      />
+                                    </div>
+                                  </div>
+
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="email"
+                                      className="form-label"
+                                    >
+                                      Email{" "}
+                                    </label>
+                                    <input
+                                      type="email"
+                                      className="form-control"
+                                      id="email"
+                                      placeholder="Enter Email"
+                                    />
+                                  </div>
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="email"
+                                      className="form-label"
+                                    >
+                                      Date of Birth
+                                    </label>
+                                    <input
+                                      type="email"
+                                      className="form-control"
+                                      id="email"
+                                      placeholder="Enter Email"
+                                    />
+                                  </div>
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="email"
+                                      className="form-label"
+                                    >
+                                      Mobile / Phone No.{" "}
+                                    </label>
+                                    <input
+                                      type="email"
+                                      className="form-control"
+                                      id="email"
+                                      placeholder="Enter Email"
+                                    />
+                                  </div>
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="email"
+                                      className="form-label"
+                                    >
+                                      Gender
+                                    </label>
+                                    <input
+                                      type="email"
+                                      className="form-control"
+                                      id="email"
+                                      placeholder="Enter Email"
+                                    />
+                                  </div>
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="email"
+                                      className="form-label"
+                                    >
+                                      Civil Status
+                                    </label>
+                                    <input
+                                      type="email"
+                                      className="form-control"
+                                      id="email"
+                                      placeholder="Enter Email"
+                                    />
+                                  </div>
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="email"
+                                      className="form-label"
+                                    >
+                                      Number of Child
+                                    </label>
+                                    <input
+                                      type="email"
+                                      className="form-control"
+                                      id="email"
+                                      placeholder="Enter Email"
+                                    />
+                                  </div>
+                                  <div className="col-12">
+                                    <label
+                                      htmlFor="email"
+                                      className="form-label"
+                                    >
+                                      Nationality
+                                    </label>
+                                    <input
+                                      type="email"
+                                      className="form-control"
+                                      id="email"
+                                      placeholder="Enter Email"
+                                    />
+                                  </div>
+                                </Row>
+                              </div>
+                            </Tab.Pane>
+
+                            <Tab.Pane eventKey="2">
+                              <div>
+                                <h5>Document</h5>
+                              </div>
+
+                              <div>
+                                <Row className="g-3">
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      DQC
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      DQC Expiry
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      DBS Check
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      DBS Issue Date
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      DBS badge Date
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      PCV Expiry
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      Contract
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      Deposit Held
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                  <div>
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      Notes
+                                    </label>
+                                    <textarea
+                                      className="form-control"
+                                      placeholder="Enter Description"
+                                      id="des-info-description-input"
+                                      rows={3}
+                                    ></textarea>
+                                  </div>
+                                </Row>
+                              </div>
+                              <div className="d-flex align-items-start gap-3 mt-4">
+                                <Button
+                                  type="button"
+                                  className="btn btn-light btn-label previestab"
+                                  onClick={() => setactiveVerticalTab(1)}
+                                >
+                                  <i className="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>{" "}
+                                  Back to Profile
+                                </Button>
+                              </div>
+                            </Tab.Pane>
+
+                            <Tab.Pane eventKey="3">
+                              <div>
+                                <h5>Work</h5>
+                              </div>
+                              <div>
+                                <Row className="gy-3">
+                                  <Col md={12}>
+                                    <label
+                                      htmlFor="cc-name"
+                                      className="form-label"
+                                    >
+                                      Name on card
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-name"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </Col>
+
+                                  <Col md={6}>
+                                    <label
+                                      htmlFor="cc-number"
+                                      className="form-label"
+                                    >
+                                      Joining Date
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-number"
+                                      placeholder=""
+                                      required
+                                    />
+                                    <div className="invalid-feedback">
+                                      Credit card number is required
+                                    </div>
+                                  </Col>
+
+                                  <Col md={3}>
+                                    <label
+                                      htmlFor="cc-expiration"
+                                      className="form-label"
+                                    >
+                                      Access Level
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-expiration"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </Col>
+
+                                  <Col md={3}>
+                                    <label
+                                      htmlFor="cc-cvv"
+                                      className="form-label"
+                                    >
+                                      Contract Type
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-cvv"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </Col>
+                                </Row>
+                                <Row className="gy-3">
+                                  <Col md={12}>
+                                    <label
+                                      htmlFor="cc-name"
+                                      className="form-label"
+                                    >
+                                      Salary
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-name"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </Col>
+
+                                  <Col md={6}>
+                                    <label
+                                      htmlFor="cc-number"
+                                      className="form-label"
+                                    >
+                                      Day Shift
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-number"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </Col>
+
+                                  <Col md={3}>
+                                    <label
+                                      htmlFor="cc-expiration"
+                                      className="form-label"
+                                    >
+                                      Weekend Shift
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-expiration"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </Col>
+
+                                  <Col md={3}>
+                                    <label
+                                      htmlFor="cc-cvv"
+                                      className="form-label"
+                                    >
+                                      Holiday Shift
+                                    </label>
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      id="cc-cvv"
+                                      placeholder=""
+                                      required
+                                    />
+                                  </Col>
+                                </Row>
+                              </div>
+
+                              <div className="d-flex align-items-start gap-3 mt-4">
+                                <Button
+                                  type="button"
+                                  className="btn btn-light btn-label previestab"
+                                  onClick={() => setactiveVerticalTab(2)}
+                                >
+                                  <i className="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>{" "}
+                                  Back to Document
+                                </Button>
+                              </div>
+                            </Tab.Pane>
+
+                            <Tab.Pane eventKey="4">
+                              <div>
+                                <h5>Bank Details</h5>
+                              </div>
+                              <div>
+                                <Row className="gy-3">
+                                  <div className="mt-2">
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      Bank Name
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter salary"
+                                      required
+                                    />
+                                  </div>
+                                  <div className="mt-2">
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      Account Name
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter salary"
+                                      required
+                                    />
+                                  </div>
+                                  <div className="mt-2">
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      Account Number
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter salary"
+                                      required
+                                    />
+                                  </div>
+                                  <div className="mt-2">
+                                    <label
+                                      className="form-label"
+                                      htmlFor="des-info-description-input"
+                                    >
+                                      Sort Code
+                                    </label>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter salary"
+                                      required
+                                    />
+                                  </div>
+                                </Row>
+                              </div>
+                            </Tab.Pane>
+                          </Tab.Content>
                         </div>
                       </Col>
                     </Row>
-                  </Col>
-                </Row>
+                  </Tab.Container>
+                </Form>
               </Card.Body>
-            </Col>
-          </Row>
+              <Card.Footer className="d-flex justify-content-center">
+                <button
+                  type="button"
+                  className="d-flex justify-content-center btn btn-info btn-label"
+                >
+                  <i className="ri-check-fill label-icon align-middle fs-16 me-2"></i>{" "}
+                  Apply
+                </button>
+              </Card.Footer>
+            </Card>
+          </Col>
         </Container>
       </div>
     </React.Fragment>

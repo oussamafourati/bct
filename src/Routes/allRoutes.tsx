@@ -71,6 +71,10 @@ import Outstanding from "pages/Outstanding";
 import AgedDebtors from "pages/AgedDebtors";
 import Payments from "pages/Payments/index";
 import Invoices from "pages/Invoices";
+import AddNewOffer from "pages/CorporateTransport/Programming/Offers/AddNewOffer";
+import OfferDetails from "pages/CorporateTransport/Programming/Offers/OfferDetails";
+import AddNewTripModel from "pages/CorporateTransport/Programming/TripModels/AddNewTripModel";
+import TripModelDetails from "pages/CorporateTransport/Programming/TripModels/TripModelDetails";
 
 const authProtectedRoutes = [];
 
@@ -102,6 +106,11 @@ const publicRoutes = [
   { path: "/offers", component: <Offers /> },
   { path: "/stations", component: <Stations /> },
   { path: "/trip-models", component: <TripModels /> },
+  { path: "/new-trip-model", component: <AddNewTripModel /> },
+  { path: "/trip-model-details/:name", component: <TripModelDetails /> },
+
+  { path: "/new-offer", component: <AddNewOffer /> },
+  { path: "/offer-details/:name", component: <OfferDetails /> },
 
   //? Corporate
   { path: "/schools", component: <Schools /> },

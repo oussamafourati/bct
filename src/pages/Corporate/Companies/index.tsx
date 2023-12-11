@@ -20,7 +20,7 @@ const Companies = () => {
   const navigate = useNavigate();
 
   function tog_AddCompany() {
-    navigate("/corporate/companies/new-company");
+    navigate("/new-company");
   }
 
   const columns = useMemo(
@@ -31,7 +31,11 @@ const Companies = () => {
         filterable: true,
         accessor: (cellProps: any) => {
           return (
-            <Link to={`/company-details/${cellProps.name}`} className="fw-medium link-primary" state={cellProps}>
+            <Link
+              to={`/company-details/${cellProps.name}`}
+              className="fw-medium link-primary"
+              state={cellProps}
+            >
               {cellProps.name}
             </Link>
           );
@@ -76,7 +80,7 @@ const Companies = () => {
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
                 <Link to="#" className="badge badge-soft-success edit-item-btn">
-                 <i className="ri-edit-2-line"></i>
+                  <i className="ri-edit-2-line"></i>
                 </Link>
               </li>
               <li>
@@ -112,8 +116,8 @@ const Companies = () => {
                     />
                     <i className="ri-search-line search-icon"></i>
                   </div>
-                              </Col>
-                              <Col className="col-xxl-auto col-sm-auto ms-auto">
+                </Col>
+                <Col className="col-xxl-auto col-sm-auto ms-auto">
                   <Button
                     variant="success"
                     onClick={() => tog_AddCompany()}
