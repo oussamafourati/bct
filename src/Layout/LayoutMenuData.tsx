@@ -11,6 +11,7 @@ const Navdata = () => {
   const [isReportingManagement, setIsReportingManagement] = useState(false);
   const [isEmailTemplates, setIsEmailTemplates] = useState(false);
   const [isAdministration, setIsAdministration] = useState(false);
+  const [isRevelance, setIsRevelance] = useState(false);
 
   // Multi Level
   const [isLevel1, setIsLevel1] = useState(false);
@@ -39,6 +40,9 @@ const Navdata = () => {
 
     if (iscurrentState !== "Tracking") {
       setIsTracking(false);
+    }
+    if (iscurrentState !== "Revelance") {
+      setIsRevelance(false);
     }
     if (iscurrentState !== "VisitorQuote") {
       setIsVisitorQuote(false);
@@ -71,6 +75,7 @@ const Navdata = () => {
     isFeedbackClaims,
     isReportingManagement,
     isAdministration,
+    isRevelance,
   ]);
 
   const menuItems: any = [
@@ -282,13 +287,6 @@ const Navdata = () => {
           icon: "mdi mdi-account-tie-hat",
           parentId: "Lists",
         },
-        // {
-        //   id: "OldPushedJobs",
-        //   label: "Old Pushed Jobs",
-        //   link: "/history-push-job",
-        //   icon: "mdi mdi-timer-sand-complete",
-        //   parentId: "Lists",
-        // },
       ],
     },
     {
@@ -349,38 +347,38 @@ const Navdata = () => {
       ],
     },
     {
-      id: "Reporting",
+      id: "Revelance",
       label: "Relevance",
       icon: "mdi mdi-star-cog",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
-        setIsAdministration(!isAdministration);
-        setIscurrentState("Administration");
+        setIsRevelance(!isRevelance);
+        setIscurrentState("Revelance");
         updateIconSidebar(e);
       },
-      stateVariables: isAdministration,
+      stateVariables: isRevelance,
       subItems: [
         {
           id: "Report",
           label: "Report",
-          link: "/claims",
+          link: "/reporting-management",
           icon: "mdi mdi-chart-bar",
-          parentId: "Reporting",
+          parentId: "Revelance",
         },
         {
           id: "Feedback",
           label: "Feedback",
-          link: "/claims",
+          link: "/feedback",
           icon: "mdi mdi-thumb-up",
-          parentId: "Reporting",
+          parentId: "Revelance",
         },
         {
           id: "Claims",
           label: "Claims",
           link: "/claims",
           icon: "mdi mdi-thumb-down",
-          parentId: "Reporting",
+          parentId: "Revelance",
         },
       ],
     },
