@@ -637,7 +637,7 @@ const Newquote = () => {
                       <div className="flex-shrink-0 me-3">
                         <div className="avatar-sm">
                           <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                            <i className="ph ph-user"></i>
+                            <i className="ph ph-car"></i>
                           </div>
                         </div>
                       </div>

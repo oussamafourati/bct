@@ -88,7 +88,7 @@ const Navdata = () => {
     },
     {
       id: "mapTracking",
-      label: "Live Tracking",
+      label: "Tracking",
       icon: "mdi mdi-map",
       link: "/map-tracking",
     },

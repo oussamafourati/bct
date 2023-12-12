@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import withRouter from "Common/withRouter";
-import { Col, Collapse, Row } from "react-bootstrap";
+import { Col, Collapse, Row, Modal } from "react-bootstrap";
 import CountUp from "react-countup";
 
 import { withTranslation } from "react-i18next";
@@ -9,10 +9,17 @@ import { withTranslation } from "react-i18next";
 // Import Data
 import navdata from "../LayoutMenuData";
 import { Link, useNavigate } from "react-router-dom";
+import ModalAffiliate from "./ModalAffiliate";
 
 const VerticalLayout = (props: any) => {
   const path = props.router.location.pathname;
   const navData = navdata().props.children;
+
+  const [modal_AddModalAffiliate, setmodal_AddModalAffiliate] =
+    useState<boolean>(false);
+  function tog_AddModalAffiliate() {
+    setmodal_AddModalAffiliate(!modal_AddModalAffiliate);
+  }
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -294,7 +301,7 @@ const VerticalLayout = (props: any) => {
                 className="mdi mdi-shape-square-plus"
                 style={{ fontSize: "24px" }}
               ></i>
-              <span className="text-info">NewQuote</span>
+              <span className="text-info mt-1 fs-12">NewQuote</span>
             </button>
           </div>
         </Col>
@@ -303,12 +310,14 @@ const VerticalLayout = (props: any) => {
             <button
               title="Affiliates"
               type="button"
-              className="btn btn-outline-secondary btn-icon"
+              className="btn btn-soft-secondary btn-icon d-grid"
+              onClick={() => tog_AddModalAffiliate()}
             >
               <i
                 className="mdi mdi-account-group"
                 style={{ fontSize: "24px" }}
               ></i>
+              <span className="text-secondary mt-1 fs-12">Affiliates</span>
             </button>
           </div>
         </Col>
@@ -359,6 +368,24 @@ const VerticalLayout = (props: any) => {
           </div>
         </Col>
       </Row>
+      <Modal
+        className="fade zoomIn"
+        size="lg"
+        show={modal_AddModalAffiliate}
+        onHide={() => {
+          tog_AddModalAffiliate();
+        }}
+        centered
+      >
+        <Modal.Header className="px-4 pt-4" closeButton>
+          <h5 className="modal-title fs-18" id="exampleModalLabel">
+            List Affiliate
+          </h5>
+        </Modal.Header>
+        <Modal.Body className="p-4">
+          <ModalAffiliate />
+        </Modal.Body>
+      </Modal>
     </React.Fragment>
   );
 };
