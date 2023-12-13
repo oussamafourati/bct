@@ -147,7 +147,7 @@ const Navdata = () => {
           id: "AllQuotes",
           label: "Deleted Jobs",
           icon: "mdi mdi-delete-forever",
-          link: "/all-quotes",
+          link: "/deleted-jobs",
           parentId: "jobs",
         },
         {

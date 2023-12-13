@@ -111,11 +111,11 @@
       [data-sidebar="gradient-3"],
       [data-sidebar="gradient-4"]
     ) {
-    --#{$prefix}vertical-menu-item-color: #000000;
+    --#{$prefix}vertical-menu-item-color: #bbb5b5;
     --#{$prefix}vertical-menu-item-hover-color: #{$purple};
     --#{$prefix}vertical-menu-item-hover-bg: #{$purple};
     --#{$prefix}vertical-menu-item-active-color: #{$purple};
-    --#{$prefix}vertical-menu-sub-item-color: #000000;
+    --#{$prefix}vertical-menu-sub-item-color: #bbb5b5;
     --#{$prefix}vertical-menu-sub-item-hover-color: #{$purple};
     --#{$prefix}vertical-menu-sub-item-active-color: #{$purple};
     --#{$prefix}vertical-menu-title-color: #000000;

@@ -10,6 +10,7 @@ import {
   Form,
   Image,
   Dropdown,
+  Table,
 } from "react-bootstrap";
 import Breadcrumb from "Common/BreadCrumb";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
@@ -20,8 +21,7 @@ import DataTable from "react-data-table-component";
 // import './google-map.scss';
 
 const mapStyles = {
-  width: "100%",
-  height: "160%",
+  height: "180%",
 };
 
 const LoadingContainer = () => <div>Loading...</div>;
@@ -30,27 +30,55 @@ const Maptracking = (props: any) => {
 
   const columns = [
     {
-      name: <span className="font-weight-bold fs-13">Driver</span>,
+      name: <span className="font-weight-bold fs-13">Quote ID</span>,
       selector: (row: any) => row.srNo,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Vehicle</span>,
+      name: <span className="font-weight-bold fs-13">Name</span>,
       selector: (row: any) => row.FixHeadId,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Date</span>,
-      selector: (row: any) => row.purchaseId,
-      sortable: true,
-    },
-    {
-      name: <span className="font-weight-bold fs-13">Start</span>,
+      name: <span className="font-weight-bold fs-13">Collection</span>,
       selector: (row: any) => <Link to="#!">{row.title}</Link>,
       sortable: true,
     },
     {
-      name: <span className="font-weight-bold fs-13">Arrival</span>,
+      name: <span className="font-weight-bold fs-13">Destination</span>,
+      selector: (row: any) => row.user,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Price</span>,
+      selector: (row: any) => row.purchaseId,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Date</span>,
+      selector: (row: any) => row.assigned,
+      sortable: true,
+    },
+  ];
+
+  const columns1 = [
+    {
+      name: <span className="font-weight-bold fs-13">Account</span>,
+      selector: (row: any) => row.srNo,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Pay Date</span>,
+      selector: (row: any) => row.FixHeadId,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Pay Method</span>,
+      selector: (row: any) => <Link to="#!">{row.title}</Link>,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Amount</span>,
       selector: (row: any) => row.user,
       sortable: true,
     },
@@ -58,264 +86,289 @@ const Maptracking = (props: any) => {
 
   const data = [
     {
-      srNo: "01",
-      FixHeadId: "VLZ-452",
-      purchaseId: "VLZ1400087402",
-      title: "Post launch reminder/ post list",
-      user: "Joseph Parker",
-      assigned: "Alexis Clarke",
+      srNo: "86929",
+      FixHeadId: "Nicole Wojtynia",
+      purchaseId: "£195.00",
+      title: "Paget Primary School, 110 Paget Rd",
+      user: "Birmingham B24 0JP",
+      assigned: "2023-10-02 12:30:00",
       createdBy: "Joseph Parker",
       createDate: "03 Oct, 2021",
       status: "Re-open",
       priority: "High",
     },
     {
-      srNo: "02",
-      FixHeadId: "VLZ-453",
-      purchaseId: "VLZ1400087425",
-      title: "Additional Calendar",
-      user: "Diana Kohler",
-      assigned: "Admin",
+      srNo: "86930",
+      FixHeadId: "Nicole Wojtynia",
+      purchaseId: "£195.00",
+      title: "Paget Primary School, 110 Paget Rd",
+      user: "Birmingham B24 0JP",
+      assigned: "2023-10-02 12:30:00",
       createdBy: "Mary Rucker",
       createDate: "05 Oct, 2021",
       status: "On-Hold",
       priority: "Medium",
     },
     {
-      srNo: "03",
-      FixHeadId: "VLZ-454",
-      purchaseId: "VLZ1400087438",
-      title: "Make a creating an account profile",
-      user: "Tonya Noble",
-      assigned: "Admin",
+      srNo: "86931",
+      FixHeadId: "Nicole Wojtynia",
+      purchaseId: "£195.00",
+      title: "Paget Primary School, 110 Paget Rd",
+      user: "Birmingham B24 0JP",
+      assigned: "2023-10-02 12:30:00",
       createdBy: "Tonya Noble",
       createDate: "27 April, 2022",
       status: "Closed",
       priority: "Low",
     },
+  ];
+  const data1 = [
     {
-      srNo: "04",
-      FixHeadId: "VLZ-455",
-      purchaseId: "VLZ1400087748",
-      title: "Apologize for shopping Error!",
-      user: "Joseph Parker",
-      assigned: "Alexis Clarke",
+      srNo: "Priya Naker",
+      FixHeadId: "06-03-2023",
+      title: "Bank Transfert",
+      user: "£4,620.00",
+      assigned: "2023-10-02 12:30:00",
       createdBy: "Joseph Parker",
-      createDate: "14 June, 2021",
-      status: "Inprogress",
-      priority: "Medium",
-    },
-    {
-      srNo: "05",
-      FixHeadId: "VLZ-456",
-      purchaseId: "VLZ1400087547",
-      title: "Support for theme",
-      user: "Donald Palmer",
-      assigned: "Admin",
-      createdBy: "Donald Palmer",
-      createDate: "25 June, 2021",
-      status: "Closed",
-      priority: "Low",
-    },
-    {
-      srNo: "06",
-      FixHeadId: "VLZ-457",
-      purchaseId: "VLZ1400087245",
-      title: "Benner design for FB & Twitter",
-      user: "Mary Rucker",
-      assigned: "Jennifer Carter",
-      createdBy: "Mary Rucker",
-      createDate: "14 Aug, 2021",
-      status: "Inprogress",
-      priority: "Medium",
-    },
-    {
-      srNo: "07",
-      FixHeadId: "VLZ-458",
-      purchaseId: "VLZ1400087785",
-      title: "Change email option process",
-      user: "James Morris",
-      assigned: "Admin",
-      createdBy: "James Morris",
-      createDate: "12 March, 2022",
-      status: "Open",
+      createDate: "03 Oct, 2021",
+      status: "Re-open",
       priority: "High",
-    },
-    {
-      srNo: "08",
-      FixHeadId: "VLZ-460",
-      purchaseId: "VLZ1400087745",
-      title: "Support for theme",
-      user: "Nathan Cole",
-      assigned: "Nancy Martino",
-      createdBy: "Nathan Cole",
-      createDate: "28 Feb, 2022",
-      status: "On-Hold",
-      priority: "Low",
-    },
-    {
-      srNo: "09",
-      FixHeadId: "VLZ-461",
-      purchaseId: "VLZ1400087179",
-      title: "Form submit issue",
-      user: "Grace Coles",
-      assigned: "Admin",
-      createdBy: "Grace Coles",
-      createDate: "07 Jan, 2022",
-      status: "New",
-      priority: "High",
-    },
-    {
-      srNo: "10",
-      FixHeadId: "VLZ-462",
-      purchaseId: "VLZ140008856",
-      title: "Edit customer testimonial",
-      user: "Freda",
-      assigned: "Alexis Clarke",
-      createdBy: "Freda",
-      createDate: "16 Aug, 2021",
-      status: "Closed",
-      priority: "Medium",
-    },
-    {
-      srNo: "11",
-      FixHeadId: "VLZ-463",
-      purchaseId: "VLZ1400078031",
-      title: "Ca i have an e-copy invoice",
-      user: "Williams",
-      assigned: "Admin",
-      createdBy: "Williams",
-      createDate: "24 Feb, 2022",
-      status: "Open",
-      priority: "Low",
-    },
-    {
-      srNo: "12",
-      FixHeadId: "VLZ-464",
-      purchaseId: "VLZ1400087416",
-      title: "Brand logo design",
-      user: "Richard V.",
-      assigned: "Admin",
-      createdBy: "Richard V.",
-      createDate: "16 March, 2021",
-      status: "Inprogress",
-      priority: "High",
-    },
-    {
-      srNo: "13",
-      FixHeadId: "VLZ-466",
-      purchaseId: "VLZ1400089015",
-      title: "Issue with finding information about order ?",
-      user: "Olive Gunther",
-      assigned: "Alexis Clarke",
-      createdBy: "Schaefer",
-      createDate: "32 March, 2022",
-      status: "New",
-      priority: "High",
-    },
-    {
-      srNo: "14",
-      FixHeadId: "VLZ-467",
-      purchaseId: "VLZ1400090324",
-      title: "Make a creating an account profile",
-      user: "Edwin",
-      assigned: "Admin",
-      createdBy: "Edwin",
-      createDate: "05 April, 2022",
-      status: "Inprogress",
-      priority: "Low",
     },
   ];
+
   const [activeVerticalTab, setactiveVerticalTab] = useState<number>(1);
+  const [isHovered, setHover] = useState(false);
+  const [navWidth, setNavWidth] = useState(150);
+  function openNav() {
+    setNavWidth(100);
+  }
+
+  function closeNav() {
+    setNavWidth(150);
+  }
 
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          <Breadcrumb title="Map Tracking" pageTitle="Tracking" />
           <Row>
-            <Col xl={5}>
-              <Card>
-                <Card.Body>
-                  <Tab.Container
-                    defaultActiveKey="animation-home"
-                    activeKey={activeVerticalTab}
+            <Col lg={8}>
+              <Row>
+                <Col lg={12}>
+                  <div
+                    className="card-body"
+                    onMouseOver={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
                   >
-                    <Nav
-                      as="ul"
-                      variant="pills"
-                      className="animation-nav nav-justified gap-2 mb-3"
-                      role="tablist"
+                    <div
+                      id="gmaps-types"
+                      className="gmaps"
+                      style={{ position: "relative" }}
                     >
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          onClick={() => setactiveVerticalTab(1)}
-                          eventKey="1 animation-home"
+                      <Map
+                        google={props.google}
+                        zoom={13}
+                        style={{ height: "200%", width: `${navWidth}%` }}
+                        initialCenter={{ lat: 52.5244734, lng: -1.9857876 }}
+                      >
+                        <Marker
+                          position={{ lat: 52.5471571, lng: -1.9042587 }}
+                          onClick={() => openNav()}
+                        />
+                        <Marker
+                          position={{ lat: 52.4843454, lng: -1.8992083 }}
+                          onClick={() => openNav()}
+                        />
+                        <Marker
+                          position={{ lat: 52.5088171, lng: -2.003195 }}
+                          onClick={() => openNav()}
+                        />
+                      </Map>
+                      {navWidth === 100 ? (
+                        <button
+                          type="button"
+                          className="btn btn-danger btn-icon"
+                          onClick={() => closeNav()}
                         >
-                          Live
-                        </Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link
-                          onClick={() => setactiveVerticalTab(2)}
-                          eventKey="2 animation-profile"
+                          <i className="ri-close-line"></i>
+                        </button>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    {isHovered && (
+                      <Dropdown
+                        style={{
+                          position: "absolute",
+                          top: "5px",
+                          right: "-365px",
+                        }}
+                      >
+                        <Dropdown.Toggle
+                          className="btn-icon btn btn-warning arrow-none"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
                         >
-                          Historical
-                        </Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                    <Tab.Content className="text-muted">
-                      <Tab.Pane eventKey="1">
-                        <DataTable columns={columns} data={data} pagination />
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="2">
-                        <DataTable columns={columns} data={data} pagination />
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Tab.Container>
-                </Card.Body>
-              </Card>
+                          Filter
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu as="ul">
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <i className="ph ph-users-four align-middle"></i>{" "}
+                              All Clients
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <i className="ph ph-check-circle align-middle"></i>{" "}
+                              All Status
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <i className="ph ph-clock-afternoon align-middle"></i>{" "}
+                              Delayed
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <i className="ph ph-arrow-clockwise align-middle"></i>{" "}
+                              Changing
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <i className="ph ph-map-pin align-middle"></i> On
+                              Site
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <i className="ph ph-thumbs-up align-middle"></i>{" "}
+                              Normal
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="#">
+                              <i className="ph ph-checks align-middle"></i>{" "}
+                              Compeleted
+                            </Link>
+                          </li>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    )}
+                  </div>
+                </Col>
+              </Row>
             </Col>
-            {activeVerticalTab === 1 ? (
-              <Col lg={7}>
-                <div
-                  id="gmaps-markers"
-                  className="gmaps"
-                  style={{ position: "relative" }}
-                >
-                  <Map
-                    google={props.google}
-                    zoom={9}
-                    style={mapStyles}
-                    initialCenter={{ lat: 52.4974437, lng: -2.0284377 }}
-                  >
-                    <Marker position={{ lat: 52.5471571, lng: -1.9042587 }} />
-                    <Marker position={{ lat: 52.4843454, lng: -1.8992083 }} />
-                    <Marker position={{ lat: 52.5088171, lng: -2.003195 }} />
-                  </Map>
-                </div>
+            {navWidth === 100 ? (
+              <Col xl={4}>
+                <Card style={{ height: "110%" }}>
+                  <Card.Header>
+                    <h3>Trip: 89089</h3>
+                  </Card.Header>
+                  <Card.Body>
+                    <Card>
+                      <Card.Body>
+                        <Tab.Container defaultActiveKey="home1">
+                          <Nav
+                            as="ul"
+                            variant="pills"
+                            className="nav-pills-custom nav-success mb-3 "
+                          >
+                            <Nav.Item as="li">
+                              <Nav.Link eventKey="home1">General</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item as="li">
+                              <Nav.Link eventKey="profile1">History</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item as="li">
+                              <Nav.Link eventKey="messages1">Payment</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item as="li">
+                              <Nav.Link eventKey="settings1">Contract</Nav.Link>
+                            </Nav.Item>
+                          </Nav>
+                          <Tab.Content className="text-muted">
+                            <Tab.Pane eventKey="home1">
+                              <Table className="table-borderless table-sm mb-0">
+                                <tbody>
+                                  <tr className="fw-bold">
+                                    <td>Driver:</td>
+                                    <td className="fw-medium">Andrew</td>
+                                  </tr>
+                                  <tr className="fw-bold">
+                                    <td>Vehicle</td>
+                                    <td className="fw-medium">415-778-3654</td>
+                                  </tr>
+                                  <tr className="fw-bold">
+                                    <td>Vehicle Type</td>
+                                    <td className="fw-medium">
+                                      10-16 Seat Standard Minibus
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td className="fw-bold">PickUp</td>
+                                    <td className="fw-medium">
+                                      Paget Primary School, 110 Paget Rd
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td className="fw-bold">Destination</td>
+                                    <td className="fw-medium">
+                                      Birmingham B24 0JP
+                                    </td>
+                                  </tr>
+                                  <tr className="fw-bold">
+                                    <td>Arrival Date</td>
+                                    <td className="fw-medium">
+                                      2023-12-13 17:30:00
+                                    </td>
+                                  </tr>
+                                  <tr className="fw-bold">
+                                    <td>Customer Name</td>
+                                    <td className="fw-medium">
+                                      Nicole Wojtynia
+                                    </td>
+                                  </tr>
+                                  <tr className="fw-bold">
+                                    <td>Status</td>
+                                    <td className="fw-medium">On road</td>
+                                  </tr>
+                                </tbody>
+                              </Table>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="profile1">
+                              <DataTable
+                                columns={columns}
+                                data={data}
+                                // pagination
+                              />
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="messages1">
+                              <DataTable
+                                columns={columns1}
+                                data={data1}
+                                // pagination
+                              />
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="settings1">
+                              <div className="d-flex mt-2">
+                                <div className="flex-shrink-0">
+                                  <i className="ri-checkbox-circle-fill text-success"></i>
+                                </div>
+                                <div className="flex-grow-1 ms-2">Contract</div>
+                              </div>
+                            </Tab.Pane>
+                          </Tab.Content>
+                        </Tab.Container>
+                      </Card.Body>
+                    </Card>
+                  </Card.Body>
+                </Card>
               </Col>
             ) : (
-              <Col lg={7}>
-                <div className="card-body">
-                  <div
-                    id="gmaps-types"
-                    className="gmaps"
-                    style={{ position: "relative" }}
-                  >
-                    <Map
-                      google={props.google}
-                      zoom={13}
-                      style={mapStyles}
-                      initialCenter={{ lat: 52.4974437, lng: -2.0284377 }}
-                    >
-                      <Marker position={{ lat: 52.5471571, lng: -1.9042587 }} />
-                      <Marker position={{ lat: 52.4843454, lng: -1.8992083 }} />
-                      <Marker position={{ lat: 52.5088171, lng: -2.003195 }} />
-                    </Map>
-                  </div>
-                </div>
-              </Col>
+              ""
             )}
           </Row>
         </Container>

@@ -89,6 +89,7 @@ const publicRoutes = [
   { path: "/new-quote", component: <Newquote /> },
   { path: "/quote-request", component: <Quotesrequest /> },
   { path: "/all-quotes", component: <Listingmanagement /> },
+  { path: "/deleted-jobs", component: <DeletedJobs /> },
   //? Visitors Quote ==> Push Jobs
   { path: "/current-push-jobs", component: <Current /> },
   { path: "/history-push-job", component: <History /> },
@@ -135,7 +136,6 @@ const publicRoutes = [
   { path: "/pending-quotes", component: <PendingQuotes /> },
   { path: "/bookings", component: <Bookings /> },
   { path: "/completed-jobs", component: <CompletedJobs /> },
-  { path: "/deleted-jobs", component: <DeletedJobs /> },
   { path: "/callbacks", component: <Callbacks /> },
   { path: "/job-share", component: <JobShare /> },
   { path: "/partial-quotes", component: <PartialQuotes /> },
