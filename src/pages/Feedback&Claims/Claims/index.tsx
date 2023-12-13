@@ -40,15 +40,15 @@ const Claims = () => {
         text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText: "Yes, archive it!",
         cancelButtonText: "No, cancel!",
         reverseButtons: true,
       })
       .then((result) => {
         if (result.isConfirmed) {
           swalWithBootstrapButtons.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
+            title: "Archived!",
+            text: "Your file has been archived.",
             icon: "success",
           });
         } else if (
@@ -57,7 +57,7 @@ const Claims = () => {
         ) {
           swalWithBootstrapButtons.fire({
             title: "Cancelled",
-            text: "Your imaginary file is safe :)",
+            text: "Your claim is safe :)",
             icon: "error",
           });
         }

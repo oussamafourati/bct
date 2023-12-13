@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import withRouter from "Common/withRouter";
 import { Col, Collapse, Row, Modal } from "react-bootstrap";
 import CountUp from "react-countup";
+import Swal from "sweetalert2";
 
 import { withTranslation } from "react-i18next";
 
@@ -10,8 +11,49 @@ import { withTranslation } from "react-i18next";
 import navdata from "../LayoutMenuData";
 import { Link, useNavigate } from "react-router-dom";
 import ModalAffiliate from "./ModalAffiliate";
+import ModalEmail from "./Modal Email";
+import ModalNote from "./ModalNote";
 
 const VerticalLayout = (props: any) => {
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger",
+    },
+    buttonsStyling: false,
+  });
+
+  const clearQueue = () => {
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, clear it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire({
+            title: "Cleared!",
+            text: "Your Queue has been cleared.",
+            icon: "success",
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelled",
+            text: "Your queue is safe :)",
+            icon: "error",
+          });
+        }
+      });
+  };
+
   const path = props.router.location.pathname;
   const navData = navdata().props.children;
 
@@ -19,6 +61,16 @@ const VerticalLayout = (props: any) => {
     useState<boolean>(false);
   function tog_AddModalAffiliate() {
     setmodal_AddModalAffiliate(!modal_AddModalAffiliate);
+  }
+
+  const [modal_Email, setmodal_Email] = useState<boolean>(false);
+  function tog_ModalEmail() {
+    setmodal_Email(!modal_Email);
+  }
+
+  const [modal_Note, setmodal_Note] = useState<boolean>(false);
+  function tog_ModalNotes() {
+    setmodal_Note(!modal_Note);
   }
 
   useEffect(() => {
@@ -96,6 +148,14 @@ const VerticalLayout = (props: any) => {
 
   function tog_NewQuote() {
     navigate("/new-quote");
+  }
+
+  function tog_Calendar() {
+    navigate("/scheduling");
+  }
+
+  function tog_Contract() {
+    navigate("/new-contract");
   }
 
   return (
@@ -321,15 +381,19 @@ const VerticalLayout = (props: any) => {
             </button>
           </div>
         </Col>
-
         <Col>
           <div className="p-3">
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-success btn-icon"
+              className="btn btn-soft-dark btn-icon d-grid position-relative"
+              onClick={() => tog_ModalEmail()}
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+              <i className="ri-mail-send-line" style={{ fontSize: "24px" }}></i>
+              <span className="text-dark mt-1 fs-12">Emails</span>
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                +2 <span className="visually-hidden">unread messages</span>
+              </span>
             </button>
           </div>
         </Col>
@@ -338,9 +402,14 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-dark btn-icon"
+              className="btn btn-soft-success btn-icon d-grid"
+              onClick={() => tog_Calendar()}
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+              <i
+                className="mdi mdi-calendar-blank-outline"
+                style={{ fontSize: "24px" }}
+              ></i>
+              <span className="text-success mt-1 fs-12">Calendar</span>
             </button>
           </div>
         </Col>
@@ -350,9 +419,13 @@ const VerticalLayout = (props: any) => {
               title="Send Email"
               type="button"
               className="btn btn-soft-danger btn-icon d-grid"
+              onClick={() => tog_ModalNotes()}
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
-              <span className="text-danger">Connect</span>
+              <i
+                className="mdi mdi-note-edit-outline"
+                style={{ fontSize: "24px" }}
+              ></i>
+              <span className="text-danger mt-1 fs-12">Notes</span>
             </button>
           </div>
         </Col>
@@ -361,9 +434,14 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-outline-warning btn-icon"
+              className="btn btn-soft-warning btn-icon d-grid"
+              onClick={() => tog_Contract()}
             >
-              <i className="ri-24-hours-fill" style={{ fontSize: "24px" }}></i>
+              <i
+                className="mdi mdi-file-plus-outline"
+                style={{ fontSize: "24px" }}
+              ></i>
+              <span className="text-warning mt-1 fs-12">Contract</span>
             </button>
           </div>
         </Col>
@@ -384,6 +462,49 @@ const VerticalLayout = (props: any) => {
         </Modal.Header>
         <Modal.Body className="p-4">
           <ModalAffiliate />
+        </Modal.Body>
+      </Modal>
+      <Modal
+        className="fade zoomIn"
+        size="sm"
+        show={modal_Email}
+        onHide={() => {
+          tog_ModalEmail();
+        }}
+        centered
+      >
+        <Modal.Header className="px-4 pt-4" closeButton>
+          <h5 className="modal-title fs-18" id="exampleModalLabel">
+            Email Queue{" "}
+            <Link
+              to="#"
+              className="link-danger fw-medium float-end"
+              onClick={clearQueue}
+            >
+              <span className="badge badge-label bg-primary">Clear</span>
+            </Link>
+          </h5>
+        </Modal.Header>
+        <Modal.Body className="p-4">
+          <ModalEmail />
+        </Modal.Body>
+      </Modal>
+      <Modal
+        className="fade zoomIn"
+        size="sm"
+        show={modal_Note}
+        onHide={() => {
+          tog_ModalNotes();
+        }}
+        centered
+      >
+        <Modal.Header className="px-4 pt-4" closeButton>
+          <h5 className="modal-title fs-18" id="exampleModalLabel">
+            Add New Note{" "}
+          </h5>
+        </Modal.Header>
+        <Modal.Body className="p-4">
+          <ModalNote />
         </Modal.Body>
       </Modal>
     </React.Fragment>

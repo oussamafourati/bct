@@ -287,31 +287,33 @@ const Maptracking = (props: any) => {
                     google={props.google}
                     zoom={9}
                     style={mapStyles}
-                    initialCenter={{ lat: 52.4974437, lng: -2.6062285 }}
+                    initialCenter={{ lat: 52.4974437, lng: -2.0284377 }}
                   >
-                    <Marker position={{ lat: 52.4974437, lng: -2.0284377 }} />
-                    <Marker position={{ lat: 51.4621959, lng: -0.1614497 }} />
-                    <Marker position={{ lat: 53.1242542, lng: -2.1543333 }} />
+                    <Marker position={{ lat: 52.5471571, lng: -1.9042587 }} />
+                    <Marker position={{ lat: 52.4843454, lng: -1.8992083 }} />
+                    <Marker position={{ lat: 52.5088171, lng: -2.003195 }} />
                   </Map>
                 </div>
               </Col>
             ) : (
               <Col lg={7}>
-                <div
-                  id="gmaps-markers"
-                  className="gmaps"
-                  style={{ position: "relative" }}
-                >
-                  <Map
-                    google={props.google}
-                    zoom={9}
-                    style={mapStyles}
-                    initialCenter={{ lat: 52.4974437, lng: -2.6062285 }}
+                <div className="card-body">
+                  <div
+                    id="gmaps-types"
+                    className="gmaps"
+                    style={{ position: "relative" }}
                   >
-                    <Marker position={{ lat: 52.4974437, lng: -2.0284377 }} />
-                    <Marker position={{ lat: 51.4621959, lng: -0.1614497 }} />
-                    <Marker position={{ lat: 53.1242542, lng: -2.1543333 }} />
-                  </Map>
+                    <Map
+                      google={props.google}
+                      zoom={13}
+                      style={mapStyles}
+                      initialCenter={{ lat: 52.4974437, lng: -2.0284377 }}
+                    >
+                      <Marker position={{ lat: 52.5471571, lng: -1.9042587 }} />
+                      <Marker position={{ lat: 52.4843454, lng: -1.8992083 }} />
+                      <Marker position={{ lat: 52.5088171, lng: -2.003195 }} />
+                    </Map>
+                  </div>
                 </div>
               </Col>
             )}

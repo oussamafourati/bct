@@ -317,95 +317,33 @@ const LatestQuotes = () => {
         "We wondered if it would be possible to pick up from every ones homes or if this is not possible?",
     },
     {
-      Quote_ID: "89089",
+      Quote_ID: "86563",
       driver: "No driver",
-      vehicletype: "10-16 Seat Standard Minibus",
+      vehicletype: "29 Seat Standard Midi Coach",
       vehicle: "No Vehicle",
-      Date: "21 Dec 2023",
-      Time: "18:00",
-      Pax: "7",
-      PickUp: "Dwyran, Wales LL61 6AX",
-      Destination: "BIRMINGHAM NEW STREET STATION",
+      Date: "15 Dec 2023",
+      Time: "09:30",
+      Pax: "24",
+      PickUp:
+        "Becketts Farm A435 Alcester Road Birmingham England B47 6AJ United Kingdom",
+      Destination: "ONeills Poplar Rd Solihull England B91 3AJ United Kingdom",
       Progress: "New",
-      PassengerName: "Erica",
-      Mobile: "07990547241",
-      Email: "erica7018@gmail.com",
-      Mileage: "37",
-      ArrivalDate: "24 Dec 2023 09:00",
-      Price: "£0.00",
-      Balance: "£0.00",
+      PassengerName: "Simon Ray",
+      Mobile: "07828250084",
+      Email: "simon@touchwoodbuilding.co.uk",
+      Mileage: "46",
+      ArrivalDate: "Fri 15th Dec 2023 19:00",
+      Price: "£450.00",
+      Balance: "£450.00",
       Contract: "None",
-      EnquiryDate: "10th Nov 2023",
+      EnquiryDate: "Tue 19th Sep 2023",
       Affiliate: "No affiliate",
-      Callback: "10th Nov 2023 14:29",
+      Callback: "Not Set",
       PaymentStatus: "Not Paid",
       Status: "Pending",
       AccountName: "N/A",
-      Notes: "The next day pick up point might be changing (within London)",
-    },
-    {
-      Quote_ID: "Alfred Hurst",
-      driver: "Gabrielle Holden",
-      vehicle: "VLZ1400087402",
-      Date: "MBS2018",
-      Time: "Joseph Parker",
-      Pax: "Alexis Clarke",
-      PickUp: "Joseph Parker",
-      Destination: "03 Oct, 2021",
-      Progress: "Re-open",
-      PassengerName: "High",
-      Mobile: "MBS2018",
-      Email: "Joseph Parker",
-      Mileage: "Alexis Clarke",
-      Arrival: "Joseph Parker",
-      OtherPart: "03 Oct, 2021",
-      Price: "Re-open",
-      Balance: "High",
-      Contract: "MBS2018",
-      FlightNum: "Joseph Parker",
-      FlightArrival: "Alexis Clarke",
-      FlightIn: "Joseph Parker",
-      FlightOut: "03 Oct, 2021",
-      EnquiryDate: "Re-open",
-      Affiliate: "High",
-      Callback: "Joseph Parker",
-      PaymentStatus: "Alexis Clarke",
-      Status: "Joseph Parker",
-      AccountName: "03 Oct, 2021",
-      ExternalReference: "Re-open",
-      Notes: "High",
-    },
-    {
-      Quote_ID: "Alfred Hurst",
-      driver: "Jacques Leon",
-      vehicle: "VLZ1400087402",
-      Date: "MBS2018",
-      Time: "Joseph Parker",
-      Pax: "Alexis Clarke",
-      PickUp: "Joseph Parker",
-      Destination: "03 Oct, 2021",
-      Progress: "Re-open",
-      PassengerName: "High",
-      Mobile: "MBS2018",
-      Email: "Joseph Parker",
-      Mileage: "Alexis Clarke",
-      Arrival: "Joseph Parker",
-      OtherPart: "03 Oct, 2021",
-      Price: "Re-open",
-      Balance: "High",
-      Contract: "MBS2018",
-      // FlightNum: "Joseph Parker",
-      // FlightArrival: "Alexis Clarke",
-      // FlightIn: "Joseph Parker",
-      // FlightOut: "03 Oct, 2021",
-      EnquiryDate: "Re-open",
-      Affiliate: "High",
-      Callback: "Joseph Parker",
-      PaymentStatus: "Alexis Clarke",
-      Status: "Joseph Parker",
-      AccountName: "03 Oct, 2021",
-      ExternalReference: "Re-open",
-      Notes: "High",
+      Notes:
+        "Hi, I would also like a quote for the same journey on 16/12 for approx 12 with an 11am collection - 4pm return, & them 6pm that evening for 6pm drop off 11.30pm collection for approx 24 (these are just rough times & numbers at the moment to get an idea of costs)  Thank you in advance, ",
     },
   ];
   return (
@@ -433,6 +371,17 @@ const LatestQuotes = () => {
                       <option defaultValue="This Month">This Month</option>
                       <option value="Last Month">Last Month</option>
                     </select>
+                  </Col>
+                  <Col lg={2}>
+                    {/* <input type="text" className="form-control" data-provider="flatpickr" data-date-format="d M, Y" data-range-date="true" id="demo-datepicker" placeholder="Select date" /> */}
+                    <Flatpickr
+                      className="form-control flatpickr-input"
+                      placeholder="Select Date"
+                      options={{
+                        mode: "range",
+                        dateFormat: "d M, Y",
+                      }}
+                    />
                   </Col>
                   <Col sm={9} className="col-lg-auto">
                     <select
@@ -486,17 +435,7 @@ const LatestQuotes = () => {
                       <option value="Today">5</option>
                     </select>
                   </Col>
-                  <Col lg={2}>
-                    {/* <input type="text" className="form-control" data-provider="flatpickr" data-date-format="d M, Y" data-range-date="true" id="demo-datepicker" placeholder="Select date" /> */}
-                    <Flatpickr
-                      className="form-control flatpickr-input"
-                      placeholder="Select Date"
-                      options={{
-                        mode: "range",
-                        dateFormat: "d M, Y",
-                      }}
-                    />
-                  </Col>
+
                   <Col className="d-flex align-items-center">
                     <div className="form-check form-check-inline">
                       <input

@@ -88,8 +88,6 @@ const Navdata = () => {
       label: "Dashboard",
       icon: "mdi mdi-view-dashboard",
       link: "/dashboard",
-      badgeName: "Hot",
-      badgeColor: "danger",
     },
     {
       id: "mapTracking",

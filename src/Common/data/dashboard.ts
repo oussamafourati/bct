@@ -187,37 +187,16 @@ const productDelivery = [
     {
         id: 1,
         productImage: productImg8,
-        productName: "Men's Running Shoes Activ...",
+        productName: "erica7018@gmail.com",
         productBy: "Aisha Bradley",
         productStatus: "Shipping"
     },
     {
         id: 2,
         productImage: productImg4,
-        productName: "Striped Baseball Cap",
+        productName: "Oadby-50plus@outlook.com",
         productBy: "Edgar Bailey",
         productStatus: "Delivered"
-    },
-    {
-        id: 3,
-        productImage: productImg3,
-        productName: "350 ml Glass Groce...",
-        productBy: "Adam Small",
-        productStatus: "Out of Delivery"
-    },
-    {
-        id: 4,
-        productImage: productImg6,
-        productName: "Monte Carlo Sweaters",
-        productBy: "Evie Merrill",
-        productStatus: "Delivered"
-    },
-    {
-        id: 5,
-        productImage: productImg9,
-        productName: "Ceramic Coffee Mug",
-        productBy: "Keaton Larson",
-        productStatus: "Shipping"
     },
 ];
 
