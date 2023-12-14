@@ -402,14 +402,14 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-soft-success btn-icon d-grid"
+              className="btn btn-darken-info btn-icon d-grid"
               onClick={() => tog_Calendar()}
             >
               <i
                 className="mdi mdi-calendar-blank-outline"
                 style={{ fontSize: "24px" }}
               ></i>
-              <span className="text-success mt-1 fs-12">Calendar</span>
+              <span className="text-info mt-1 fs-12">Calendar</span>
             </button>
           </div>
         </Col>
@@ -418,14 +418,14 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-soft-danger btn-icon d-grid"
+              className="btn btn-darken-secondary btn-icon d-grid"
               onClick={() => tog_ModalNotes()}
             >
               <i
                 className="mdi mdi-note-edit-outline"
                 style={{ fontSize: "24px" }}
               ></i>
-              <span className="text-danger mt-1 fs-12">Notes</span>
+              <span className="text-secondary mt-1 fs-12">Notes</span>
             </button>
           </div>
         </Col>
@@ -434,14 +434,14 @@ const VerticalLayout = (props: any) => {
             <button
               title="Send Email"
               type="button"
-              className="btn btn-soft-warning btn-icon d-grid"
+              className="btn btn-darken-dark btn-icon d-grid"
               onClick={() => tog_Contract()}
             >
               <i
                 className="mdi mdi-file-plus-outline"
                 style={{ fontSize: "24px" }}
               ></i>
-              <span className="text-warning mt-1 fs-12">Contract</span>
+              <span className="text-dark mt-1 fs-12">Contract</span>
             </button>
           </div>
         </Col>

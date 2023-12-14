@@ -28,6 +28,15 @@ const LoadingContainer = () => <div>Loading...</div>;
 const Maptracking = (props: any) => {
   document.title = "Tracking | Bouden Coach Travel";
 
+  const [navList, setNavList] = useState(150);
+  function openMap() {
+    setNavList(50);
+  }
+
+  function closeMap() {
+    setNavList(150);
+  }
+
   const columns = [
     {
       name: <span className="font-weight-bold fs-13">Quote ID</span>,
@@ -58,6 +67,58 @@ const Maptracking = (props: any) => {
       name: <span className="font-weight-bold fs-13">Date</span>,
       selector: (row: any) => row.assigned,
       sortable: true,
+    },
+  ];
+
+  const columns2 = [
+    {
+      name: <span className="font-weight-bold fs-13">Quote ID</span>,
+      selector: (row: any) => row.srNo,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Name</span>,
+      selector: (row: any) => row.FixHeadId,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Collection</span>,
+      selector: (row: any) => row.title,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Destination</span>,
+      selector: (row: any) => row.user,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Price</span>,
+      selector: (row: any) => row.purchaseId,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Date</span>,
+      selector: (row: any) => row.assigned,
+      sortable: true,
+    },
+    {
+      name: <span className="font-weight-bold fs-13">Action</span>,
+      sortable: true,
+      selector: (cell: any) => {
+        return (
+          <ul className="hstack gap-2 list-unstyled mb-0">
+            <li>
+              <Link
+                to="#"
+                className="badge badge-soft-success edit-item-btn"
+                onClick={() => openMap()}
+              >
+                <i className="ri-map-2-line" title="Map View"></i>
+              </Link>
+            </li>
+          </ul>
+        );
+      },
     },
   ];
 
@@ -122,6 +183,44 @@ const Maptracking = (props: any) => {
       priority: "Low",
     },
   ];
+  const data2 = [
+    {
+      srNo: "86929",
+      FixHeadId: "Nicole Wojtynia",
+      purchaseId: "£195.00",
+      title: "Paget Primary School, 110 Paget Rd",
+      user: "Birmingham B24 0JP",
+      assigned: "2023-10-02 12:30:00",
+      createdBy: "Joseph Parker",
+      createDate: "03 Oct, 2021",
+      status: "Re-open",
+      priority: "High",
+    },
+    {
+      srNo: "86930",
+      FixHeadId: "Nicole Wojtynia",
+      purchaseId: "£195.00",
+      title: "Paget Primary School, 110 Paget Rd",
+      user: "Birmingham B24 0JP",
+      assigned: "2023-10-02 12:30:00",
+      createdBy: "Mary Rucker",
+      createDate: "05 Oct, 2021",
+      status: "On-Hold",
+      priority: "Medium",
+    },
+    {
+      srNo: "86931",
+      FixHeadId: "Nicole Wojtynia",
+      purchaseId: "£195.00",
+      title: "Paget Primary School, 110 Paget Rd",
+      user: "Birmingham B24 0JP",
+      assigned: "2023-10-02 12:30:00",
+      createdBy: "Tonya Noble",
+      createDate: "27 April, 2022",
+      status: "Closed",
+      priority: "Low",
+    },
+  ];
   const data1 = [
     {
       srNo: "Priya Naker",
@@ -147,120 +246,195 @@ const Maptracking = (props: any) => {
     setNavWidth(150);
   }
 
+  const [changeColor, setChangeColor] = useState<boolean>(false);
+
+  // function for handleClick
+  const handleClick = () => {
+    setChangeColor(!changeColor);
+  };
+
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
+          <div className="d-flex justify-content-end">
+            <button
+              onClick={handleClick}
+              type="button"
+              className={`btn btn-darken-success custom-toggle btn-sm mb-1 ${
+                changeColor === false ? "btn-darken-success" : "btn-darken-info"
+              }`}
+              data-bs-toggle="button"
+            >
+              <span className="icon-on">
+                <i
+                  className={`${
+                    changeColor === false
+                      ? "ri-road-map-line align-bottom me-1"
+                      : "ri-table-2 align-bottom me-1"
+                  }`}
+                ></i>
+                {changeColor === false ? "Map" : "List"}
+              </span>
+            </button>
+          </div>
+
           <Row>
-            <Col lg={8}>
-              <Row>
-                <Col lg={12}>
-                  <div
-                    className="card-body"
-                    onMouseOver={() => setHover(true)}
-                    onMouseLeave={() => setHover(false)}
-                  >
+            {changeColor === false ? (
+              <Col lg={8}>
+                <Row>
+                  <Col lg={12}>
                     <div
-                      id="gmaps-types"
-                      className="gmaps"
-                      style={{ position: "relative" }}
+                      className="card-body"
+                      onMouseOver={() => setHover(true)}
+                      onMouseLeave={() => setHover(false)}
                     >
-                      <Map
-                        google={props.google}
-                        zoom={13}
-                        style={{ height: "200%", width: `${navWidth}%` }}
-                        initialCenter={{ lat: 52.5244734, lng: -1.9857876 }}
+                      <div
+                        id="gmaps-types"
+                        className="gmaps"
+                        style={{ position: "relative" }}
                       >
-                        <Marker
-                          position={{ lat: 52.5471571, lng: -1.9042587 }}
-                          onClick={() => openNav()}
-                        />
-                        <Marker
-                          position={{ lat: 52.4843454, lng: -1.8992083 }}
-                          onClick={() => openNav()}
-                        />
-                        <Marker
-                          position={{ lat: 52.5088171, lng: -2.003195 }}
-                          onClick={() => openNav()}
-                        />
-                      </Map>
-                      {navWidth === 100 ? (
+                        <Map
+                          google={props.google}
+                          zoom={13}
+                          style={{ height: "200%", width: `${navWidth}%` }}
+                          initialCenter={{ lat: 52.5244734, lng: -1.9857876 }}
+                        >
+                          <Marker
+                            position={{ lat: 52.5471571, lng: -1.9042587 }}
+                            onClick={() => openNav()}
+                          />
+                          <Marker
+                            position={{ lat: 52.4843454, lng: -1.8992083 }}
+                            onClick={() => openNav()}
+                          />
+                          <Marker
+                            position={{ lat: 52.5088171, lng: -2.003195 }}
+                            onClick={() => openNav()}
+                          />
+                        </Map>
+                        {navWidth === 100 ? (
+                          <button
+                            type="button"
+                            className="btn btn-danger btn-icon"
+                            onClick={() => closeNav()}
+                          >
+                            <i className="ri-close-line"></i>
+                          </button>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                      {isHovered && (
+                        <Dropdown
+                          style={{
+                            position: "absolute",
+                            top: "5px",
+                            right: "-365px",
+                          }}
+                        >
+                          <Dropdown.Toggle
+                            className="btn-icon btn btn-warning arrow-none btn-sm w-sm"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i className="ri-equalizer-line"></i>
+                          </Dropdown.Toggle>
+                          <Dropdown.Menu as="ul">
+                            <li>
+                              <Link className="dropdown-item" to="#">
+                                <i className="ph ph-users-four align-middle"></i>{" "}
+                                All Clients
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="#">
+                                <i className="ph ph-check-circle align-middle"></i>{" "}
+                                All Status
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="#">
+                                <i className="ph ph-clock-afternoon align-middle"></i>{" "}
+                                Delayed
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="#">
+                                <i className="ph ph-arrow-clockwise align-middle"></i>{" "}
+                                Changing
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="#">
+                                <i className="ph ph-map-pin align-middle"></i>{" "}
+                                On Site
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="#">
+                                <i className="ph ph-thumbs-up align-middle"></i>{" "}
+                                Normal
+                              </Link>
+                            </li>
+                            <li>
+                              <Link className="dropdown-item" to="#">
+                                <i className="ph ph-checks align-middle"></i>{" "}
+                                Compeleted
+                              </Link>
+                            </li>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      )}
+                    </div>
+                  </Col>
+                </Row>
+              </Col>
+            ) : (
+              <div style={{ height: "200%", width: `${navList}%` }}>
+                {" "}
+                <DataTable columns={columns2} data={data2} pagination />
+              </div>
+            )}
+            {navList === 50 ? (
+              <Col lg={4}>
+                <Row>
+                  <Col lg={12}>
+                    <div
+                      className="card-body"
+                      onMouseOver={() => setHover(true)}
+                      onMouseLeave={() => setHover(false)}
+                    >
+                      <div
+                        id="gmaps-types"
+                        className="gmaps"
+                        style={{ position: "relative" }}
+                      >
+                        <Map
+                          google={props.google}
+                          zoom={13}
+                          style={{ height: "118%", width: "160%" }}
+                          initialCenter={{ lat: 52.5244734, lng: -1.9857876 }}
+                        >
+                          <Marker
+                            position={{ lat: 52.5471571, lng: -1.9042587 }}
+                          />
+                        </Map>
                         <button
                           type="button"
                           className="btn btn-danger btn-icon"
-                          onClick={() => closeNav()}
+                          onClick={() => closeMap()}
                         >
                           <i className="ri-close-line"></i>
                         </button>
-                      ) : (
-                        ""
-                      )}
+                      </div>
                     </div>
-                    {isHovered && (
-                      <Dropdown
-                        style={{
-                          position: "absolute",
-                          top: "5px",
-                          right: "-365px",
-                        }}
-                      >
-                        <Dropdown.Toggle
-                          className="btn-icon btn btn-warning arrow-none"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Filter
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu as="ul">
-                          <li>
-                            <Link className="dropdown-item" to="#">
-                              <i className="ph ph-users-four align-middle"></i>{" "}
-                              All Clients
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className="dropdown-item" to="#">
-                              <i className="ph ph-check-circle align-middle"></i>{" "}
-                              All Status
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className="dropdown-item" to="#">
-                              <i className="ph ph-clock-afternoon align-middle"></i>{" "}
-                              Delayed
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className="dropdown-item" to="#">
-                              <i className="ph ph-arrow-clockwise align-middle"></i>{" "}
-                              Changing
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className="dropdown-item" to="#">
-                              <i className="ph ph-map-pin align-middle"></i> On
-                              Site
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className="dropdown-item" to="#">
-                              <i className="ph ph-thumbs-up align-middle"></i>{" "}
-                              Normal
-                            </Link>
-                          </li>
-                          <li>
-                            <Link className="dropdown-item" to="#">
-                              <i className="ph ph-checks align-middle"></i>{" "}
-                              Compeleted
-                            </Link>
-                          </li>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    )}
-                  </div>
-                </Col>
-              </Row>
-            </Col>
+                  </Col>
+                </Row>
+              </Col>
+            ) : (
+              ""
+            )}
             {navWidth === 100 ? (
               <Col xl={4}>
                 <Card style={{ height: "110%" }}>
