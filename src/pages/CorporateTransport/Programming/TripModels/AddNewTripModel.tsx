@@ -45,6 +45,18 @@ const AddNewTripModel = () => {
       label: "10-16 Seat Standard Minibus",
     },
   ];
+  const [selected, setSelected] = useState("");
+  const handleOwner = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const ownerName = e.target.value;
+    setSelected(await ownerName);
+  };
+
+  const [changeColor, setChangeColor] = useState<boolean>(false);
+
+  // function for handleClick
+  const handleClick = () => {
+    setChangeColor(!changeColor);
+  };
 
   return (
     <React.Fragment>
@@ -60,22 +72,6 @@ const AddNewTripModel = () => {
             <Row>
               <Col lg={12}>
                 <Card>
-                  <Card.Header>
-                    <div className="d-flex align-items-center">
-                      <div className="flex-shrink-0 me-3">
-                        <div className="avatar-sm">
-                          <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                            <i className="ri-group-line"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex-grow-1">
-                        <h5 className="card-title mb-1">
-                          Sub-Contractor Information
-                        </h5>
-                      </div>
-                    </div>
-                  </Card.Header>
                   <Card.Body>
                     <div className="mb-3">
                       <Form className="tablelist-form">
@@ -86,484 +82,219 @@ const AddNewTripModel = () => {
                             <Col lg={4}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="customerName-field">
-                                  Name
+                                  Corporate
                                 </Form.Label>
-                                <Form.Control
-                                  type="text"
-                                  id="customerName-field"
-                                  placeholder="Enter subcontractor name"
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
                                   required
-                                />
+                                >
+                                  <option value="">All Corporate</option>
+                                  <option value="Small">
+                                    CITY ROAD PRIMARY SCHOOL
+                                  </option>
+                                  <option value="Medium">
+                                    Denstone College
+                                  </option>
+                                  <option value="Large">ZEELO PROLOGIS</option>
+                                </select>
                               </div>
                             </Col>
                             {/* Address == Done */}
-                            <Col lg={3}>
+                            <Col lg={4}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
-                                  Address
+                                  Handled By
                                 </Form.Label>
-                                <Form.Control
-                                  type="text"
-                                  id="supplierName-field"
-                                  placeholder="Enter address"
+                                <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
                                   required
-                                />
+                                  onChange={handleOwner}
+                                >
+                                  <option value="">Select</option>
+                                  <option value="Bouden">Bouden</option>
+                                  <option value="Affiliate">Affiliate</option>
+                                </select>
                               </div>
                             </Col>
-                            {/* Email  == Done */}
-                            <Col lg={3}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Email
-                                </Form.Label>
-                                <Form.Control
-                                  type="email"
-                                  id="supplierName-field"
-                                  placeholder="Enter email"
-                                  required
-                                />
-                              </div>
-                            </Col>
-                            {/* Phone  == Done */}
-                            <Col lg={2}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Phone
-                                </Form.Label>
-                                <Form.Control
-                                  type="terxt"
-                                  id="supplierName-field"
-                                  placeholder="Enter phone"
-                                  required
-                                />
-                              </div>
-                            </Col>
+                            {selected === "Affiliate" ? (
+                              <Col lg={4}>
+                                <div className="mb-3">
+                                  <Form.Label htmlFor="supplierName-field">
+                                    Affiliates
+                                  </Form.Label>
+                                  <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                    onChange={handleOwner}
+                                  >
+                                    <option value="">All Affiliates</option>
+                                    <option value="Brit Coaches Ltd">
+                                      Brit Coaches Ltd
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      Dorset Mini Coach
+                                    </option>
+                                    <option value="Brit Coaches Ltd">
+                                      HOUSEM MORSI
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      Top line travel- Amjad
+                                    </option>
+                                  </select>
+                                </div>
+                              </Col>
+                            ) : (
+                              ""
+                            )}
+                            {selected === "Affiliate" ? (
+                              ""
+                            ) : (
+                              <Col lg={4}>
+                                <div className="mb-3">
+                                  <Form.Label htmlFor="supplierName-field">
+                                    Driver
+                                  </Form.Label>
+                                  <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                    onChange={handleOwner}
+                                  >
+                                    <option value="">All Drivers</option>
+                                    <option value="Brit Coaches Ltd">
+                                      Wadi Hussain
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      Amar Bashir
+                                    </option>
+                                    <option value="Brit Coaches Ltd">
+                                      Ahmed Zeeshan
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      Raghban Ali
+                                    </option>
+                                  </select>
+                                </div>
+                              </Col>
+                            )}
+                            {selected === "Affiliate" ? (
+                              ""
+                            ) : (
+                              <Col lg={4}>
+                                <div className="mb-3">
+                                  <Form.Label htmlFor="supplierName-field">
+                                    Vehicle
+                                  </Form.Label>
+                                  <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                    onChange={handleOwner}
+                                  >
+                                    <option value="">All Vehicles</option>
+                                    <option value="Brit Coaches Ltd">
+                                      Standard Saloon Car
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      Executive Saloon Car
+                                    </option>
+                                    <option value="Brit Coaches Ltd">
+                                      VIP Saloon Car
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      Standard 6 Seat MPV
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      Executive 6 Seat MPV
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      10-16 Seat Standard Minibus
+                                    </option>
+                                  </select>
+                                </div>
+                              </Col>
+                            )}
                           </Row>
                           <Row>
                             {/* Category  == Done */}
                             <Col lg={4}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
-                                  Category
+                                  Customer Name
                                 </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
+                                <Form.Control
+                                  type="text"
+                                  id="customerName-field"
+                                  placeholder="Enter Customer name"
                                   required
-                                >
-                                  <option value="">Category</option>
-                                  <option value="Small">Small</option>
-                                  <option value="Medium">Medium</option>
-                                  <option value="Large">Large</option>
-                                </select>
+                                />
                               </div>
                             </Col>
                             {/* Activity  == Done */}
                             <Col lg={3}>
                               <div className="mb-3">
                                 <Form.Label htmlFor="supplierName-field">
-                                  Region
+                                  Customer Email
                                 </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
+                                <Form.Control
+                                  type="email"
+                                  id="customerName-field"
+                                  placeholder="Enter Customer Email"
                                   required
-                                >
-                                  <option value="">Region</option>
-                                  <option value="Industry">Manchester</option>
-                                  <option value="Health">London</option>
-                                  <option value="School">Fulham</option>
-                                  <option value="High Education">
-                                    WestHam
-                                  </option>
-                                </select>
-                              </div>
-                            </Col>
-                            {/* Service_Date  == Done */}
-                            <Col lg={3}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="orderDate-field">
-                                  Service Date
-                                </Form.Label>
-                                <Flatpickr
-                                  className="form-control flatpickr-input"
-                                  placeholder="Select Date"
-                                  options={{
-                                    dateFormat: "d M, Y",
-                                  }}
                                 />
                               </div>
                             </Col>
-                            {/* Status  == Done */}
-                            <Col lg={2}>
+                            <Col lg={3}>
                               <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Status
-                                </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
+                                <button
+                                  onClick={handleClick}
+                                  type="button"
+                                  className={`btn btn-darken-light custom-toggle text-dark btn-sm ${
+                                    changeColor === false
+                                      ? "btn-darken-light"
+                                      : "btn-darken-light"
+                                  }`}
+                                  data-bs-toggle="button"
                                 >
-                                  <option value="">Status</option>
-                                  <option value="Active">Active</option>
-                                  <option value="Inactive">Inactive</option>
-                                </select>
+                                  <span className="icon-on">
+                                    <i
+                                      className={`${
+                                        changeColor === false
+                                          ? "mdi mdi-cog-counterclockwise align-bottom me-1"
+                                          : "mdi mdi-robot align-bottom me-1"
+                                      }`}
+                                    ></i>
+                                    {changeColor === false
+                                      ? "Manual"
+                                      : "Automatic"}
+                                  </span>
+                                </button>
+                                {changeColor === false ? (
+                                  <Form.Control
+                                    type="email"
+                                    id="customerName-field"
+                                    placeholder="Enter trip cost"
+                                    required
+                                  />
+                                ) : (
+                                  <Form.Control
+                                    type="email"
+                                    id="customerName-field"
+                                    defaultValue={520}
+                                    required
+                                  />
+                                )}
                               </div>
                             </Col>
                           </Row>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex align-items-center">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="ri-profile-line"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">Legal Staus</h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Row>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      ID Number
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Id number"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <Form.Label htmlFor="orderDate-field">
-                                      Creation Date
-                                    </Form.Label>
-                                    <Flatpickr
-                                      className="form-control flatpickr-input"
-                                      placeholder="Select Date"
-                                      options={{
-                                        dateFormat: "d M, Y",
-                                      }}
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      File
-                                    </label>
-                                    <Form.Control
-                                      type="file"
-                                      id="supplierName-field"
-                                      placeholder="Enter number"
-                                      className="text-muted"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                              </Row>
-                            </Card.Body>
-                          </Col>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex align-items-center">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="mdi mdi-card-account-mail-outline"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">
-                                    License Agreement
-                                  </h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Row>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      ID Number
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Id number"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <Form.Label htmlFor="orderDate-field">
-                                      Date
-                                    </Form.Label>
-                                    <Flatpickr
-                                      className="form-control flatpickr-input"
-                                      placeholder="Select Date"
-                                      options={{
-                                        dateFormat: "d M, Y",
-                                      }}
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      File
-                                    </label>
-                                    <Form.Control
-                                      type="file"
-                                      id="supplierName-field"
-                                      placeholder="Enter number"
-                                      className="text-muted"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                              </Row>
-                            </Card.Body>
-                          </Col>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="ri-bank-line"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">Bank Account</h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Row>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Bank Account Number
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Bank Account Number"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Bank Name
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Bank Account Number"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                              </Row>
-                            </Card.Body>
-                          </Col>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex align-items-center">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="ri-bus-line"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">Vehicles</h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Row>
-                                {/* <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Category
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Id number"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <Form.Label htmlFor="orderDate-field">
-                                      Matricle
-                                    </Form.Label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Matricule"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <Form.Label htmlFor="orderDate-field">
-                                      Status
-                                    </Form.Label>
-                                    <select
-                                      className="form-select text-muted"
-                                      name="choices-single-default"
-                                      id="statusSelect"
-                                      required
-                                    >
-                                      <option value="">Status</option>
-                                      <option value="Active">Active</option>
-                                      <option value="Inactive">Inactive</option>
-                                    </select>
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Files
-                                    </label>
-                                    <Form.Control
-                                      type="file"
-                                      id="supplierName-field"
-                                      placeholder="Enter number"
-                                      className="text-muted"
-                                      required
-                                    />
-                                  </div>
-                                </Col> */}
-                                <Col lg={6}>
-                                  <div className="mb-3">
-                                    <Select
-                                      closeMenuOnSelect={false}
-                                      defaultValue={[options[1]]}
-                                      isMulti
-                                      options={options}
-                                    />
-                                  </div>
-                                </Col>
-                              </Row>
-                            </Card.Body>
-                          </Col>
-                          <Col lg={12}>
-                            <Card.Header>
-                              <div className="d-flex align-items-center">
-                                <div className="flex-shrink-0 me-3">
-                                  <div className="avatar-sm">
-                                    <div className="avatar-title rounded-circle bg-light text-primary fs-20">
-                                      <i className="ri-user-line"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <h5 className="card-title">Account</h5>
-                                </div>
-                              </div>
-                            </Card.Header>
-                            <Card.Body>
-                              <Row>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Login
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Login"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Password
-                                    </label>
-                                    <Form.Control
-                                      type="password"
-                                      id="supplierName-field"
-                                      placeholder="Enter password"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                                <Col lg={3}>
-                                  <div className="mb-3">
-                                    <label
-                                      htmlFor="statusSelect"
-                                      className="form-label"
-                                    >
-                                      Subdomaine
-                                    </label>
-                                    <Form.Control
-                                      type="text"
-                                      id="supplierName-field"
-                                      placeholder="Enter Url"
-                                      required
-                                    />
-                                  </div>
-                                </Col>
-                              </Row>
-                            </Card.Body>
-                          </Col>
                           <Col lg={12}>
                             <div className="hstack gap-2 justify-content-end">
                               <Button variant="primary" id="add-btn">

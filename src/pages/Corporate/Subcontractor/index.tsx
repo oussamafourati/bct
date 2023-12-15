@@ -15,7 +15,7 @@ import TableContainer from "Common/TableContainer";
 import { shipments } from "Common/data";
 
 const Subcontractors = () => {
-  document.title = "Sub-Contractors | Bouden Coach Travel";
+  document.title = "Affiliates | Bouden Coach Travel";
 
   const navigate = useNavigate();
 
@@ -102,7 +102,7 @@ const Subcontractors = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Breadcrumb title="Sub-Contractors" pageTitle="Corporate" />
+          <Breadcrumb title="Affiliates" pageTitle="Contacts" />
           <Card id="shipmentsList">
             <Card.Header className="border-bottom-dashed">
               <Row className="g-3">
@@ -123,7 +123,7 @@ const Subcontractors = () => {
                     className="add-btn"
                   >
                     <i className="mdi mdi-hands-pray me-1 align-middle"></i> Add
-                    Sub-Contractor
+                    Affiliate
                   </Button>
                 </Col>
               </Row>

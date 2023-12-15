@@ -9,7 +9,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import Select from "react-select";
 
 const AddNewSubcontractor = () => {
-  document.title = "Create Sub-Contractor | Bouden Coach Travel";
+  document.title = "Create Affiliate | Bouden Coach Travel";
 
   const [selectedFiles, setselectedFiles] = useState([]);
 
@@ -71,7 +71,7 @@ const AddNewSubcontractor = () => {
                       </div>
                       <div className="flex-grow-1">
                         <h5 className="card-title mb-1">
-                          Sub-Contractor Information
+                          Affiliate Information
                         </h5>
                       </div>
                     </div>
@@ -91,7 +91,7 @@ const AddNewSubcontractor = () => {
                                 <Form.Control
                                   type="text"
                                   id="customerName-field"
-                                  placeholder="Enter subcontractor name"
+                                  placeholder="Enter Affiliate name"
                                   required
                                 />
                               </div>
@@ -567,7 +567,7 @@ const AddNewSubcontractor = () => {
                           <Col lg={12}>
                             <div className="hstack gap-2 justify-content-end">
                               <Button variant="primary" id="add-btn">
-                                Add Sub-Contractor
+                                Add Affiliate
                               </Button>
                             </div>
                           </Col>

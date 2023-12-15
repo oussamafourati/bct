@@ -251,6 +251,7 @@ const Maptracking = (props: any) => {
   // function for handleClick
   const handleClick = () => {
     setChangeColor(!changeColor);
+    setNavWidth(150);
   };
 
   return (
@@ -334,7 +335,7 @@ const Maptracking = (props: any) => {
                           }}
                         >
                           <Dropdown.Toggle
-                            className="btn-icon btn btn-warning arrow-none btn-sm w-sm"
+                            className="btn-icon btn btn-darken-warning arrow-none btn-sm w-sm"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                           >
@@ -422,7 +423,7 @@ const Maptracking = (props: any) => {
                         </Map>
                         <button
                           type="button"
-                          className="btn btn-danger btn-icon"
+                          className="btn btn-darken-danger btn-icon"
                           onClick={() => closeMap()}
                         >
                           <i className="ri-close-line"></i>
@@ -527,12 +528,63 @@ const Maptracking = (props: any) => {
                               />
                             </Tab.Pane>
                             <Tab.Pane eventKey="settings1">
-                              <div className="d-flex mt-2">
-                                <div className="flex-shrink-0">
-                                  <i className="ri-checkbox-circle-fill text-success"></i>
-                                </div>
-                                <div className="flex-grow-1 ms-2">Contract</div>
-                              </div>
+                              <Card>
+                                <Card.Header>
+                                  <Link
+                                    to="#"
+                                    className="link-danger fw-medium float-end"
+                                  >
+                                    <i className="ri-download-line align-middle"></i>{" "}
+                                    Download
+                                  </Link>
+                                  <h5 className="card-title text-dark mb-0">
+                                    Balfour Beatty - HS2
+                                  </h5>
+                                  <h6 className="text-muted mt-1">
+                                    balfourbeatty@hs2contract.org
+                                  </h6>
+                                  <h6 className="text-muted mt-1">
+                                    0800 1123770
+                                  </h6>
+                                </Card.Header>
+                                <Card.Body>
+                                  <div className="table-responsive">
+                                    <Table className="table-borderless table-sm mb-0">
+                                      <tbody>
+                                        <tr>
+                                          <td className="fw-bold">
+                                            Collection
+                                          </td>
+                                          <td className="fw-medium">
+                                            Water Orton - Contract
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td className="fw-bold">
+                                            Destination
+                                          </td>
+                                          <td className="fw-medium">
+                                            Staffordshire DE13 7AR
+                                          </td>
+                                        </tr>
+                                        <tr className="fw-bold">
+                                          <td>Travel Time:</td>
+                                          <td className="fw-medium">07:00</td>
+                                        </tr>
+                                        <tr className="fw-bold">
+                                          <td>Price:</td>
+                                          <td className="fw-medium">£525.00</td>
+                                        </tr>
+                                      </tbody>
+                                    </Table>
+                                  </div>
+                                </Card.Body>
+                                <Card.Footer className="p-0">
+                                  <p className="d-flex justify-content-end">
+                                    2023-10-22
+                                  </p>
+                                </Card.Footer>
+                              </Card>
                             </Tab.Pane>
                           </Tab.Content>
                         </Tab.Container>

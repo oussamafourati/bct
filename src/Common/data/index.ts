@@ -13,6 +13,7 @@ import { ordersList } from "./orders";
 import { vehicleList } from "./sellers";
 import { currencyRate, transaction } from "./localization";
 import { couponsList } from "./coupons";
+import { numbersList } from "./numbers";
 import { shipments } from "./shipping";
 import { driverList } from "./driverlist";
 import { profile, account, accountTransaction } from "./recentorders";
@@ -37,6 +38,7 @@ export {
   categoryListData,
   subCategoryListData,
   ordersList,
+  numbersList,
   vehicleList,
   currencyRate,
   transaction,

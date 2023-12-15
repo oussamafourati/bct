@@ -8,6 +8,7 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { VectorMap } from "@south-paw/react-vector-maps";
 import world from "./world.svg.json";
+import { numbersList } from "Common/data";
 
 const Newquote = () => {
   document.title = "Create New Quote | Bouden Coach Travel";
@@ -42,6 +43,14 @@ const Newquote = () => {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
+
+  const [selected, setSelected] = useState("");
+  const handlePassengerNumber = async (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const passengerNumber = e.target.value;
+    setSelected(await passengerNumber);
+  };
 
   return (
     <React.Fragment>
@@ -268,13 +277,14 @@ const Newquote = () => {
                                     name="choices-single-default"
                                     id="statusSelect"
                                     required
+                                    onChange={handlePassengerNumber}
                                   >
                                     <option value="">Number</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
+                                    {numbersList.map((item) => (
+                                      <option value={item.value}>
+                                        {item.value}
+                                      </option>
+                                    ))}
                                   </select>
                                 </div>
                               </Col>
@@ -287,17 +297,59 @@ const Newquote = () => {
                                   >
                                     Vehicle Type
                                   </label>
-                                  <select
-                                    className="form-select text-muted"
-                                    name="choices-single-default"
-                                    id="statusSelect"
-                                    required
-                                  >
-                                    <option value="">Type</option>
-                                    <option value="Standard">Standard</option>
-                                    <option value="Executive">Executive</option>
-                                    <option value="Luxury">Luxury</option>
-                                  </select>
+                                  {selected === "1" ||
+                                  selected === "2" ||
+                                  selected === "3" ? (
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Type</option>
+                                      <option value="Brit Coaches Ltd">
+                                        Standard Saloon Car
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive Saloon Car
+                                      </option>
+                                      <option value="Brit Coaches Ltd">
+                                        VIP Saloon Car
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Standard 6 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive 6 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Standard Minibus
+                                      </option>
+                                    </select>
+                                  ) : selected === "4" ||
+                                    selected === "5" ||
+                                    selected === "6" ? (
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Type</option>
+
+                                      <option value="Dorset Mini Coach">
+                                        Standard 6 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive 6 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Standard Minibus
+                                      </option>
+                                    </select>
+                                  ) : (
+                                    ""
+                                  )}
                                 </div>
                               </Col>
                               {/* Luggage Details  == Done */}

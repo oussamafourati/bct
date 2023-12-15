@@ -204,50 +204,38 @@ const newcustomers = [
     {
         id: 1,
         productImage: avatar2,
-        productName: "Tommy Carey",
+        productName: "Red Rose Travel",
         date: "02 Jan, 2023"
     },
     {
         id: 2,
         productImage: avatar1,
-        productName: "Cassius Brock",
+        productName: "7 plus travel",
         date: "24 Nov, 2022"
     },
     {
         id: 3,
         productImage: avatar3,
-        productName: "Gabrielle Holden",
+        productName: "Alantic Travel",
         date: "17 Nav, 2022"
     },
     {
         id: 4,
         productImage: avatar5,
-        productName: "Alfred Hurst",
+        productName: "Central Coaches Ltd",
         date: "18 Dec, 2021"
     },
     {
         id: 5,
         productImage: avatar6,
-        productName: "Kristina Hooper",
+        productName: "mighty travels",
         date: "04 Oct, 2022"
     },
     {
         id: 6,
         productImage: avatar8,
-        productName: "Jacques Leon",
+        productName: "Sassi executive travel",
         date: "02 Jan, 2023"
-    },
-    {
-        id: 7,
-        productImage: avatar7,
-        productName: "Edward Rogers",
-        date: "25 Nov, 2022"
-    },
-    {
-        id: 8,
-        productImage: avatar10,
-        productName: "Alina Holland",
-        date: "11 Jan, 2023"
     },
 ];
 

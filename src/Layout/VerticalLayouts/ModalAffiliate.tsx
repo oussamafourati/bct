@@ -21,19 +21,22 @@ import { newcustomers } from "Common/data";
 
 const Status = ({ status }: any) => {
   switch (status) {
-    case "Successful":
+    case "Active":
       return <span className="badge badge-soft-success"> {status}</span>;
-    case "Denied":
+    case "Inactive":
       return <span className="badge badge-soft-danger"> {status}</span>;
-    case "Pending":
-      return <span className="badge badge-soft-warning"> {status}</span>;
     default:
-      return <span className="badge badge-soft-success"> Successful </span>;
+      return <span className="badge badge-soft-success"> Active </span>;
   }
 };
 
 const ModalAffiliate = () => {
   const [paymentDetails, setPaymentDetails] = useState<any>({});
+
+  const [openTab, setOpenTab] = useState(false);
+  function open() {
+    setOpenTab(true);
+  }
 
   const columns = useMemo(
     () => [
@@ -67,18 +70,11 @@ const ModalAffiliate = () => {
                 <div
                   className="p-3 border-bottom border-bottom-dashed"
                   key={key}
+                  onClick={() => open()}
                 >
                   <div className="d-flex align-items-center gap-2">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={item.productImage}
-                        alt=""
-                        className="rounded dash-avatar"
-                      />
-                    </div>
                     <div className="flex-grow-1">
                       <h6 className="mb-1">{item.productName}</h6>
-                      <p className="fs-13 text-muted mb-0">{item.date}</p>
                     </div>
                   </div>
                 </div>
@@ -86,120 +82,81 @@ const ModalAffiliate = () => {
             </SimpleBar>
           </div>
         </div>
-        <div className="col-xxl-6 col-lg-6">
-          <div className="card card-height-100">
-            <div className="card-header align-items-center d-flex">
-              <h4 className="card-title mb-0 flex-grow-1">New Customers</h4>
-            </div>
-
-            <Card.Body id="transactionDetails">
-              <div className="table-responsive table-card">
-                <table className="table table-borderless align-middle">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">
-                          Transaction ID
-                        </span>
-                      </td>
-                      <td>
-                        <span className="fw-semibold">
-                          {paymentDetails.transactionID || "#TBSC320002830"}
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">Date</span>
-                      </td>
-                      <td>
-                        <span className="fw-semibold">
-                          {paymentDetails.transactionDate || "15 Jan, 2023"}
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">
-                          VAT ID:
-                        </span>
-                      </td>
-                      <td>
-                        <span className="fw-semibold">
-                          {paymentDetails.vatId || "TB211145424"}
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">
-                          Client Name
-                        </span>
-                      </td>
-                      <td>
-                        <span className="fw-semibold">
-                          {paymentDetails.clientName || "Diana Nichols"}
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">
-                          Email ID
-                        </span>
-                      </td>
-                      <td>
-                        <span className="fw-semibold">
-                          {paymentDetails.cleintEmail || "diana@toner.com"}
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">
-                          Amount
-                        </span>
-                      </td>
-                      <td>
-                        <span className="fw-semibold">
-                          {paymentDetails.amount || "$253.32"}
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">
-                          Payment Method
-                        </span>
-                      </td>
-                      <td>
-                        <div className="d-flex align-items-center gap-2">
-                          <div className="flex-shrink-0"></div>
-                          <div className="flex-grow-1">
-                            <h6 className="mb-0">
-                              {paymentDetails.paymentMethod ||
-                                "American Express"}
-                            </h6>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span className="text-muted text-uppercase">
-                          Status
-                        </span>
-                      </td>
-                      <td>
-                        <Status status={paymentDetails.status} />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+        {openTab === true ? (
+          <div className="col-xxl-6 col-lg-6">
+            <div className="card card-height-100">
+              <div className="card-header align-items-center d-flex">
+                <h4 className="card-title mb-0 flex-grow-1">Red Rose Travel</h4>
               </div>
-            </Card.Body>
+
+              <Card.Body id="transactionDetails">
+                <div className="table-responsive table-card">
+                  <table className="table table-borderless align-middle">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <span className="text-muted text-uppercase">
+                            Email
+                          </span>
+                        </td>
+                        <td>
+                          <span className="fw-semibold">
+                            bookings@albatrosscars.com
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span className="text-muted text-uppercase">
+                            Phone
+                          </span>
+                        </td>
+                        <td>
+                          <span className="fw-semibold">01332 345343</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span className="text-muted text-uppercase">
+                            Address
+                          </span>
+                        </td>
+                        <td>
+                          <span className="fw-semibold">
+                            14A Midland Rd, Derby
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span className="text-muted text-uppercase">
+                            Joining Date
+                          </span>
+                        </td>
+                        <td>
+                          <span className="fw-semibold">14 Dec 2021</span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <span className="text-muted text-uppercase">
+                            Status
+                          </span>
+                        </td>
+                        <td>
+                          <Status status={paymentDetails.status} />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </Card.Body>
+            </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
       </Row>
     </React.Fragment>
   );

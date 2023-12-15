@@ -24,10 +24,11 @@ const bookmarkProduct = (e: any) => {
 };
 
 const SubcontractorDetails = () => {
-  document.title = "Sub-Contractor Details | Bouden Coach Travel";
+  document.title = "Affiliate Details | Bouden Coach Travel";
   const LocationSubContractor = useLocation();
 
   return (
+    // Company Address Email Phone Region Status
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
@@ -36,7 +37,7 @@ const SubcontractorDetails = () => {
               <Card>
                 <Card.Header>
                   <h5 className="card-title mb-0">
-                    {LocationSubContractor.state.orderId}
+                    Grange Travel Coach Hire Ltd
                   </h5>
                 </Card.Header>
                 <Card.Body>
@@ -116,11 +117,12 @@ const SubcontractorDetails = () => {
                           </div>
                         </Col>
                         <Col xl={5} md={7} className="text-end">
-                          <h5 className="fs-17">Edward Diana</h5>
+                          <h5 className="fs-17">Company Name</h5>
                           <div className="mb-3 text-muted">
-                            <i className="bi bi-geo-alt"></i> Phoenix, USA
+                            <i className="bi bi-geo-alt"></i> Address
                           </div>
-                          <p>Product visual designer, expert in UI design</p>
+                          <p>Phone</p>
+                          <p>Email</p>
 
                           <div className="hstack gap-2 justify-content-end">
                             <Button variant="primary">Invite to Project</Button>

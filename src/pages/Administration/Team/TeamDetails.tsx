@@ -6,6 +6,7 @@ import {
   Container,
   Dropdown,
   Form,
+  Image,
   Nav,
   Row,
   Tab,
@@ -14,9 +15,9 @@ import {
 import { useLocation } from "react-router-dom";
 import profilebgImg from "../../../assets/images/profile-bg.jpg";
 import companyImg3 from "../../../assets/images/companies/img-3.png";
-
+import Flatpickr from "react-flatpickr";
 import avatar1 from "../../../assets/images/users/avatar-1.jpg";
-
+import SimpleBar from "simplebar-react";
 import productsImg1 from "../../../assets/images/products/img-1.png";
 import productsImg4 from "../../../assets/images/products/img-4.png";
 import productsImg5 from "../../../assets/images/products/img-5.png";
@@ -28,6 +29,7 @@ import productsImg11 from "../../../assets/images/products/img-11.png";
 import productsImg14 from "../../../assets/images/products/img-14.png";
 import productsImg15 from "../../../assets/images/products/img-15.png";
 import { Link } from "react-router-dom";
+import country from "Common/country";
 
 const bookmarkProduct = (e: any) => {
   const ele = e.target.closest("button");
@@ -43,6 +45,7 @@ const TeamDetails = () => {
   const LocationTeam = useLocation();
 
   const [activeVerticalTab, setactiveVerticalTab] = useState<number>(1);
+  const [seletedCountry, setseletedCountry] = useState("");
   return (
     <React.Fragment>
       <div className="page-content">
@@ -189,7 +192,7 @@ const TeamDetails = () => {
                                         type="text"
                                         className="form-control"
                                         id="username"
-                                        placeholder="Username"
+                                        placeholder="Enter Address"
                                       />
                                     </div>
                                   </div>
@@ -215,11 +218,12 @@ const TeamDetails = () => {
                                     >
                                       Date of Birth
                                     </label>
-                                    <input
-                                      type="email"
-                                      className="form-control"
-                                      id="email"
-                                      placeholder="Enter Email"
+                                    <Flatpickr
+                                      className="form-control flatpickr-input"
+                                      placeholder="Select Date"
+                                      options={{
+                                        dateFormat: "d M, Y",
+                                      }}
                                     />
                                   </div>
                                   <div className="col-12">
@@ -233,7 +237,7 @@ const TeamDetails = () => {
                                       type="email"
                                       className="form-control"
                                       id="email"
-                                      placeholder="Enter Email"
+                                      placeholder="Enter phone number"
                                     />
                                   </div>
                                   <div className="col-12">
@@ -243,12 +247,17 @@ const TeamDetails = () => {
                                     >
                                       Gender
                                     </label>
-                                    <input
-                                      type="email"
-                                      className="form-control"
-                                      id="email"
-                                      placeholder="Enter Email"
-                                    />
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Gender</option>
+                                      <option value="Male">Male</option>
+                                      <option value="Female">Female</option>
+                                      <option value="Other">Other</option>
+                                    </select>
                                   </div>
                                   <div className="col-12">
                                     <label
@@ -257,12 +266,18 @@ const TeamDetails = () => {
                                     >
                                       Civil Status
                                     </label>
-                                    <input
-                                      type="email"
-                                      className="form-control"
-                                      id="email"
-                                      placeholder="Enter Email"
-                                    />
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Status</option>
+                                      <option value="Married">Married</option>
+                                      <option value="Single">Single</option>
+                                      <option value="Divorced">Divorced</option>
+                                      <option value="Widowed">Widowed</option>
+                                    </select>
                                   </div>
                                   <div className="col-12">
                                     <label
@@ -271,11 +286,11 @@ const TeamDetails = () => {
                                     >
                                       Number of Child
                                     </label>
-                                    <input
-                                      type="email"
-                                      className="form-control"
-                                      id="email"
-                                      placeholder="Enter Email"
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="Enter number of childs"
+                                      required
                                     />
                                   </div>
                                   <div className="col-12">
@@ -285,12 +300,58 @@ const TeamDetails = () => {
                                     >
                                       Nationality
                                     </label>
-                                    <input
-                                      type="email"
-                                      className="form-control"
-                                      id="email"
-                                      placeholder="Enter Email"
-                                    />
+                                    <Dropdown>
+                                      <Dropdown.Toggle
+                                        as="input"
+                                        className="form-control rounded-end flag-input form-select"
+                                        placeholder="Select country"
+                                        readOnly
+                                        defaultValue={seletedCountry}
+                                      ></Dropdown.Toggle>
+                                      <Dropdown.Menu
+                                        as="ul"
+                                        className="list-unstyled w-100 dropdown-menu-list mb-0"
+                                      >
+                                        <SimpleBar
+                                          style={{ maxHeight: "220px" }}
+                                          className="px-3"
+                                        >
+                                          {(country || []).map(
+                                            (item: any, key: number) => (
+                                              <Dropdown.Item
+                                                as="li"
+                                                onClick={() =>
+                                                  setseletedCountry(
+                                                    item.countryName
+                                                  )
+                                                }
+                                                key={key}
+                                                className="dropdown-item d-flex"
+                                              >
+                                                <div className="flex-shrink-0 me-2">
+                                                  <Image
+                                                    src={item.flagImg}
+                                                    alt="country flag"
+                                                    className="options-flagimg"
+                                                    height="20"
+                                                  />
+                                                </div>
+                                                <div className="flex-grow-1">
+                                                  <div className="d-flex">
+                                                    <div className="country-name me-1">
+                                                      {item.countryName}
+                                                    </div>
+                                                    <span className="countrylist-codeno text-muted">
+                                                      {item.countryCode}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                              </Dropdown.Item>
+                                            )
+                                          )}
+                                        </SimpleBar>
+                                      </Dropdown.Menu>
+                                    </Dropdown>
                                   </div>
                                 </Row>
                               </div>
@@ -310,12 +371,13 @@ const TeamDetails = () => {
                                     >
                                       DQC
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Form.Control
+                                      type="file"
+                                      id="supplierName-field"
+                                      placeholder="Enter number"
+                                      className="text-muted"
+                                      required
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -324,12 +386,13 @@ const TeamDetails = () => {
                                     >
                                       DQC Expiry
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Flatpickr
+                                      className="form-control flatpickr-input"
+                                      placeholder="Select Date"
+                                      options={{
+                                        dateFormat: "d M, Y",
+                                      }}
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -338,12 +401,13 @@ const TeamDetails = () => {
                                     >
                                       DBS Check
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Form.Control
+                                      type="file"
+                                      id="supplierName-field"
+                                      placeholder="Enter number"
+                                      className="text-muted"
+                                      required
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -352,12 +416,13 @@ const TeamDetails = () => {
                                     >
                                       DBS Issue Date
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Flatpickr
+                                      className="form-control flatpickr-input"
+                                      placeholder="Select Date"
+                                      options={{
+                                        dateFormat: "d M, Y",
+                                      }}
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -366,12 +431,13 @@ const TeamDetails = () => {
                                     >
                                       DBS badge Date
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Flatpickr
+                                      className="form-control flatpickr-input"
+                                      placeholder="Select Date"
+                                      options={{
+                                        dateFormat: "d M, Y",
+                                      }}
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -380,12 +446,13 @@ const TeamDetails = () => {
                                     >
                                       PCV Expiry
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Flatpickr
+                                      className="form-control flatpickr-input"
+                                      placeholder="Select Date"
+                                      options={{
+                                        dateFormat: "d M, Y",
+                                      }}
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -394,12 +461,13 @@ const TeamDetails = () => {
                                     >
                                       Contract
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Form.Control
+                                      type="file"
+                                      id="supplierName-field"
+                                      placeholder="Enter number"
+                                      className="text-muted"
+                                      required
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -408,12 +476,13 @@ const TeamDetails = () => {
                                     >
                                       Deposit Held
                                     </label>
-                                    <textarea
-                                      className="form-control"
-                                      placeholder="Enter Description"
-                                      id="des-info-description-input"
-                                      rows={3}
-                                    ></textarea>
+                                    <Form.Control
+                                      type="text"
+                                      id="supplierName-field"
+                                      placeholder="0.00"
+                                      className="text-muted"
+                                      required
+                                    />
                                   </div>
                                   <div>
                                     <label
@@ -424,7 +493,7 @@ const TeamDetails = () => {
                                     </label>
                                     <textarea
                                       className="form-control"
-                                      placeholder="Enter Description"
+                                      placeholder="Enter notes"
                                       id="des-info-description-input"
                                       rows={3}
                                     ></textarea>
@@ -611,7 +680,7 @@ const TeamDetails = () => {
                                     <Form.Control
                                       type="text"
                                       id="supplierName-field"
-                                      placeholder="Enter salary"
+                                      placeholder="Enter bank name"
                                       required
                                     />
                                   </div>
@@ -625,7 +694,7 @@ const TeamDetails = () => {
                                     <Form.Control
                                       type="text"
                                       id="supplierName-field"
-                                      placeholder="Enter salary"
+                                      placeholder="Enter account name"
                                       required
                                     />
                                   </div>
@@ -639,7 +708,7 @@ const TeamDetails = () => {
                                     <Form.Control
                                       type="text"
                                       id="supplierName-field"
-                                      placeholder="Enter salary"
+                                      placeholder="Enter account number"
                                       required
                                     />
                                   </div>
@@ -653,7 +722,7 @@ const TeamDetails = () => {
                                     <Form.Control
                                       type="text"
                                       id="supplierName-field"
-                                      placeholder="Enter salary"
+                                      placeholder="Enter sort code"
                                       required
                                     />
                                   </div>

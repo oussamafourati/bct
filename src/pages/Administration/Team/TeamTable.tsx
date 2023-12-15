@@ -91,11 +91,7 @@ const TeamTable = ({ team }: any) => {
             <Col key={key}>
               <Card>
                 <Card.Header>
-                  <Button
-                    className="btn-close float-end fs-11"
-                    aria-label="Close"
-                  ></Button>
-                  <h6 className="card-title mb-0">Employee Card</h6>
+                  <h6 className="card-title mb-0">{item.brandName}</h6>
                 </Card.Header>
                 <Card.Body className="p-4 text-center">
                   <div className="mx-auto avatar-md mb-3">

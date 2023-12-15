@@ -240,7 +240,7 @@ const Navdata = () => {
     {
       id: "Lists",
       label: "Contacts",
-      icon: "mdi mdi-office-building-cog",
+      icon: "mdi mdi-account-cog",
       link: "/#",
       click: function (e: any) {
         e.preventDefault();
