@@ -6,3 +6,5 @@ declare module '@ckeditor/ckeditor5-react';
 declare module '@ckeditor/ckeditor5-build-classic';
 declare module 'google-maps-react';
 declare module 'react-data-table-component';
+declare module 'react-color';
+declare module 'react-google-recaptcha';

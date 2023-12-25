@@ -1,16 +1,8 @@
-import React, { useMemo, useState } from "react";
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Form,
-  Modal,
-  Row,
-} from "react-bootstrap";
+import React, { useMemo } from "react";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import Breadcrumb from "Common/BreadCrumb";
 import { Link, useNavigate } from "react-router-dom";
-import Flatpickr from "react-flatpickr";
+
 import TableContainer from "Common/TableContainer";
 import { shipments } from "Common/data";
 
@@ -57,7 +49,31 @@ const Subcontractors = () => {
       },
       {
         Header: "Status",
-        accessor: "order_date",
+        accessor: (cellProps: any) => {
+          switch (cellProps.order_date) {
+            case "Active":
+              return (
+                <span className="badge badge-soft-success text-uppercase">
+                  {" "}
+                  {cellProps.order_date}
+                </span>
+              );
+            case "Inactive":
+              return (
+                <span className="badge badge-soft-danger text-uppercase">
+                  {" "}
+                  {cellProps.order_date}
+                </span>
+              );
+            default:
+              return (
+                <span className="badge badge-soft-success text-uppercase">
+                  {" "}
+                  {cellProps.order_date}
+                </span>
+              );
+          }
+        },
         disableFilters: true,
         filterable: true,
       },
@@ -70,7 +86,7 @@ const Subcontractors = () => {
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
                 <Link
-                  to={`/subcontractor-details/${cellProps.fullName}`}
+                  to={`/subcontractor-details/${cellProps.orderId}`}
                   className="badge badge-soft-primary edit-item-btn"
                   state={cellProps}
                 >
@@ -78,7 +94,11 @@ const Subcontractors = () => {
                 </Link>
               </li>
               <li>
-                <Link to="#" className="badge badge-soft-success edit-item-btn">
+                <Link
+                  to={`/edit-affiliate/${cellProps.orderId}`}
+                  className="badge badge-soft-success edit-item-btn"
+                  state={cellProps}
+                >
                   <i className="ri-edit-2-line"></i>
                 </Link>
               </li>
@@ -120,10 +140,10 @@ const Subcontractors = () => {
                   <Button
                     variant="success"
                     onClick={() => tog_AddSubContractor()}
-                    className="add-btn"
+                    className="add-btn btn-sm"
                   >
-                    <i className="mdi mdi-hands-pray me-1 align-middle"></i> Add
-                    Affiliate
+                    <i className="mdi mdi-hands-pray me-1 align-middle fs-22"></i>{" "}
+                    Add Affiliate
                   </Button>
                 </Col>
               </Row>

@@ -2,13 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, Card, Col, Image, Modal, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import avtar1 from "assets/images/users/avatar-1.jpg";
+import driverAnimation from "../../../assets/images/Fatmahhhh.json";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 const DriverTable = ({ driver }: any) => {
   const noresult: any = useRef();
   const teamList: any = useRef();
   const [brandList, setBrandList] = useState([]);
   const [show, setShow] = useState(false);
-
+  const lottieRef3 = useRef<LottieRefCurrentProps>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(15);
 
@@ -60,7 +62,7 @@ const DriverTable = ({ driver }: any) => {
               className="form-control"
               id="searchInputList"
               autoComplete="off"
-              placeholder="Search brands..."
+              placeholder="Search drivers..."
             />
             <i className="ri-search-line search-icon"></i>
           </div>
@@ -69,14 +71,22 @@ const DriverTable = ({ driver }: any) => {
           <Button
             variant="success"
             onClick={() => tog_AddDriver()}
-            className="w-100"
+            className="w-100 btn-sm"
           >
-            <i className="mdi mdi-account-plus me-1 align-middle"></i> Add
+            <i className="mdi mdi-account-plus me-1 align-middle fs-22"></i> Add
             Driver
           </Button>
         </Col>
       </Row>
-
+      <Lottie
+        lottieRef={lottieRef3}
+        onComplete={() => {
+          lottieRef3.current?.goToAndPlay(5, true);
+        }}
+        animationData={driverAnimation}
+        loop={false}
+        style={{ width: 80 }}
+      />{" "}
       <Row
         className="d-flex justify-content-center row-cols-xxl-5 row-cols-lg-4 row-cols-sm-2 row-cols-1 gap-5"
         id="brand-list"
@@ -99,25 +109,18 @@ const DriverTable = ({ driver }: any) => {
                     />
                   </div>
                   <div className="flex-grow-1 ms-2">
-                    <h5 className="card-title mb-1">Alfred Hurst</h5>
+                    <h5 className="card-title mb-1">{item.brandName}</h5>
                     <p className="badge bg-danger">Inactive</p>
                     <span>
                       {" "}
                       <i className="mdi mdi-bus align-middle"></i>
                     </span>
-                    {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p> */}
                   </div>
                 </div>
                 <span>
                   <i className="mdi mdi-phone align-middle"></i> +44 203 048
                   4377
                 </span>
-                {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> */}
                 <p>
                   <b>Driving Licence:</b> Exp. 18/05/2025
                 </p>
@@ -131,24 +134,10 @@ const DriverTable = ({ driver }: any) => {
                   </span>
                 </Card.Footer>
               </Card>
-              {/* <Card className="card brand-widget card-animate">
-              <Card.Body className="card-body text-center pb-2">
-                <img src={item.companyLogo} alt="" className="brand-img" />
-              </Card.Body>
-              <div className="card-footer text-center border-0">
-                <h6 className="fs-17">{item.brandName}</h6>
-                <p className="mb-0">
-                  <Link to="#" className="link-success stretched-link">
-                    {item.productItems} Items
-                  </Link>
-                </p>
-              </div>
-            </Card> */}
             </Col>
           </Link>
         ))}
       </Row>
-
       <div
         id="noresult"
         className=""
@@ -164,7 +153,6 @@ const DriverTable = ({ driver }: any) => {
           <h5 className="mt-2">Sorry! No Result Found</h5>
         </div>
       </div>
-
       <Row className="mb-4" id="pagination-element" style={{ display: "flex" }}>
         <Col lg={12}>
           <div className="pagination-block pagination pagination-separated justify-content-center justify-content-sm-end mb-sm-0">
@@ -206,7 +194,6 @@ const DriverTable = ({ driver }: any) => {
           </div>
         </Col>
       </Row>
-
       {/* <Row>
         <Col>
           <Card className="card-body">

@@ -75,12 +75,26 @@ import AddNewOffer from "pages/CorporateTransport/Programming/Offers/AddNewOffer
 import OfferDetails from "pages/CorporateTransport/Programming/Offers/OfferDetails";
 import AddNewTripModel from "pages/CorporateTransport/Programming/TripModels/AddNewTripModel";
 import TripModelDetails from "pages/CorporateTransport/Programming/TripModels/TripModelDetails";
+import SiteSettings from "pages/Settings";
+import RequestFeature from "pages/Help/RequestFeature";
+import ReportError from "pages/Help/ReportError";
+import UserManual from "pages/Help/UserManual";
+import DefectsManagement from "pages/Administration/Vehicles/DefectsManagement";
+import EditSchool from "pages/Corporate/Schools/EditSchools";
+import EditCompany from "pages/Corporate/Companies/EditCompany";
+import EditAffiliate from "pages/Corporate/Subcontractor/EditAffiliate";
 
 const authProtectedRoutes = [];
 
 const publicRoutes = [
   // AuthenticationInner
   { path: "/dashboard", component: <Dashboard /> },
+  { path: "/request-feature", component: <RequestFeature /> },
+  { path: "/report-error", component: <ReportError /> },
+  { path: "/user-manual", component: <UserManual /> },
+  { path: "/defects-management", component: <DefectsManagement /> },
+
+  { path: "/settings", component: <SiteSettings /> },
   //? Tracking
   { path: "/map-tracking", component: <Maptracking /> },
   { path: "/delays&changes", component: <Delayschanges /> },
@@ -115,10 +129,13 @@ const publicRoutes = [
 
   //? Corporate
   { path: "/schools", component: <Schools /> },
+  { path: "/edit-school/:name", component: <EditSchool /> },
   { path: "/companies", component: <Companies /> },
+  { path: "/edit-company/:name", component: <EditCompany /> },
   //? Corporate ==> Sub-Contractor
   { path: "/new-applications", component: <NewApplications /> },
   { path: "/all-sub-contractors", component: <Subcontractors /> },
+  { path: "/edit-affiliate/:name", component: <EditAffiliate /> },
 
   //? Companies
   { path: "/new-company", component: <AddNewCompany /> },

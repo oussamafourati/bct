@@ -12,6 +12,7 @@ const Navdata = () => {
   const [isEmailTemplates, setIsEmailTemplates] = useState(false);
   const [isAdministration, setIsAdministration] = useState(false);
   const [isRevelance, setIsRevelance] = useState(false);
+  const [isHelp, setIsHelp] = useState(false);
 
   // Multi Level
   const [isLevel1, setIsLevel1] = useState(false);
@@ -40,6 +41,9 @@ const Navdata = () => {
 
     if (iscurrentState !== "Tracking") {
       setIsTracking(false);
+    }
+    if (iscurrentState !== "Help") {
+      setIsHelp(false);
     }
     if (iscurrentState !== "Revelance") {
       setIsRevelance(false);
@@ -76,6 +80,7 @@ const Navdata = () => {
     isReportingManagement,
     isAdministration,
     isRevelance,
+    isHelp,
   ]);
 
   const menuItems: any = [
@@ -342,6 +347,13 @@ const Navdata = () => {
           icon: "mdi mdi-email-plus",
           parentId: "Management",
         },
+        {
+          id: "Defects",
+          label: "Defects",
+          link: "/defects-management",
+          icon: "mdi mdi-alert",
+          parentId: "Management",
+        },
       ],
     },
     {
@@ -377,6 +389,42 @@ const Navdata = () => {
           link: "/claims",
           icon: "mdi mdi-thumb-down",
           parentId: "Revelance",
+        },
+      ],
+    },
+    {
+      id: "Help",
+      label: "Help",
+      icon: "mdi mdi-hand-heart",
+      link: "/#",
+      click: function (e: any) {
+        e.preventDefault();
+        setIsHelp(!isHelp);
+        setIscurrentState("Help");
+        updateIconSidebar(e);
+      },
+      stateVariables: isHelp,
+      subItems: [
+        {
+          id: "User Manual",
+          label: "User Manual",
+          link: "/user-manual",
+          icon: "mdi mdi-book-open-page-variant",
+          parentId: "Help",
+        },
+        {
+          id: "Request Feature",
+          label: "Request Feature",
+          link: "/request-feature",
+          icon: "mdi mdi-playlist-plus",
+          parentId: "Help",
+        },
+        {
+          id: "ReportError",
+          label: "Report an Error",
+          link: "/report-error",
+          icon: "mdi mdi-bug",
+          parentId: "Help",
         },
       ],
     },

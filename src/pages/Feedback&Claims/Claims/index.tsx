@@ -186,7 +186,7 @@ const Claims = () => {
                         Archive
                       </Link>
                       <h5 className="card-title mb-0">
-                        Ifor Jones
+                        Ifor Jones{" "}
                         <span className="badge bg-success align-middle fs-10">
                           Answered
                         </span>
@@ -259,7 +259,7 @@ const Claims = () => {
                         Archive
                       </Link>
                       <h5 className="card-title mb-0">
-                        Pam Badham
+                        Pam Badham{" "}
                         <span className="badge bg-success align-middle fs-10">
                           Answered
                         </span>
@@ -332,7 +332,7 @@ const Claims = () => {
                         Archive
                       </Link>
                       <h5 className="card-title mb-0">
-                        Shanice Edwards
+                        Shanice Edwards{" "}
                         <span className="badge bg-success align-middle fs-10">
                           Answered
                         </span>
@@ -408,7 +408,7 @@ const Claims = () => {
                     Answer
                   </Link>
                   <h5 className="card-title mb-0">
-                    Zach Mclean
+                    Zach Mclean{" "}
                     <span className="badge bg-warning align-middle fs-10">
                       Pending
                     </span>
@@ -479,7 +479,7 @@ const Claims = () => {
                     Answer
                   </Link>
                   <h5 className="card-title mb-0">
-                    Kieron
+                    Kieron{" "}
                     <span className="badge bg-warning align-middle fs-10">
                       Pending
                     </span>
@@ -550,7 +550,7 @@ const Claims = () => {
                     Archive
                   </Link>
                   <h5 className="card-title mb-0">
-                    Lesley Harding
+                    Lesley Harding{" "}
                     <span className="badge bg-success align-middle fs-10">
                       Answered
                     </span>

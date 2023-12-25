@@ -79,7 +79,11 @@ const Schools = () => {
           return (
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
-                <Link to="#" className="badge badge-soft-success edit-item-btn">
+                <Link
+                  to={`/edit-school/${cellProps.name}`}
+                  state={cellProps}
+                  className="badge badge-soft-success edit-item-btn"
+                >
                   <i className="ri-edit-2-line"></i>
                 </Link>
               </li>
@@ -121,9 +125,9 @@ const Schools = () => {
                   <Button
                     variant="success"
                     onClick={() => tog_AddSchool()}
-                    className="add-btn"
+                    className="add-btn btn-sm"
                   >
-                    <i className="ph ph-graduation-cap me-1 align-middle"></i>{" "}
+                    <i className="ph ph-graduation-cap me-1 align-middle fs-22"></i>{" "}
                     Add School
                   </Button>
                 </Col>

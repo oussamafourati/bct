@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Form, Nav, Row, Tab } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  Modal,
+  Nav,
+  Row,
+  Tab,
+} from "react-bootstrap";
 import Flatpickr from "react-flatpickr";
 import Select from "react-select";
 
@@ -70,7 +80,10 @@ const AddNewVehicle = () => {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
-
+  const [modal_AddExtra, setmodal_AddExtra] = useState<boolean>(false);
+  function tog_AddExtra() {
+    setmodal_AddExtra(!modal_AddExtra);
+  }
   return (
     <React.Fragment>
       <div className="page-content">
@@ -657,23 +670,8 @@ const AddNewVehicle = () => {
                                         </Col>
                                       </Row>
                                       <Row>
-                                        {/* Extra  == Done */}
-                                        <Col lg={6}>
-                                          <div className="mb-3">
-                                            <label
-                                              htmlFor="statusSelect"
-                                              className="form-label"
-                                            >
-                                              Extra
-                                            </label>
-                                            <Select
-                                              isMulti
-                                              options={colourOptions}
-                                            />
-                                          </div>
-                                        </Col>
                                         {/* Note  == Done */}
-                                        <Col lg={6}>
+                                        <Col lg={12}>
                                           <div className="mb-3">
                                             <Form.Label htmlFor="supplierName-field">
                                               Note
@@ -684,6 +682,36 @@ const AddNewVehicle = () => {
                                                 id="exampleFormControlTextarea5"
                                                 rows={3}
                                               ></textarea>
+                                            </div>
+                                          </div>
+                                        </Col>
+                                      </Row>
+                                      <Row>
+                                        {/* Extra  == Done */}
+                                        <Col lg={12}>
+                                          <div className="input-group mb-3">
+                                            <Form.Label htmlFor="supplierName-field">
+                                              Extra
+                                            </Form.Label>
+                                            {/* <Select
+                                              isMulti
+                                              options={colourOptions}
+                                            /> */}
+                                            <div className="input-group">
+                                              <input
+                                                type="text"
+                                                className="form-control"
+                                                aria-label="Recipient's username"
+                                                aria-describedby="button-addon2"
+                                              />
+                                              <button
+                                                className="btn btn-darken-success"
+                                                type="button"
+                                                id="button-addon2"
+                                                onClick={() => tog_AddExtra()}
+                                              >
+                                                <span className="mdi mdi-plus"></span>
+                                              </button>
                                             </div>
                                           </div>
                                         </Col>
@@ -1069,6 +1097,62 @@ const AddNewVehicle = () => {
               </Card>
             </Row>
           </form>
+          <Modal
+            className="fade zoomIn"
+            size="sm"
+            show={modal_AddExtra}
+            onHide={() => {
+              tog_AddExtra();
+            }}
+            centered
+          >
+            <Modal.Header className="px-4 pt-4" closeButton>
+              <h5 className="modal-title fs-18" id="exampleModalLabel">
+                Add New Vehicle Extra
+              </h5>
+            </Modal.Header>
+            <Modal.Body className="p-4">
+              <div
+                id="alert-error-msg"
+                className="d-none alert alert-danger py-2"
+              ></div>
+              <Form className="tablelist-form">
+                <input type="hidden" id="id-field" />
+                <Row>
+                  <Col lg={12}>
+                    <div className="mb-3">
+                      <Form.Label htmlFor="customerName-field">
+                        Extra Name
+                      </Form.Label>
+                      <Form.Control
+                        type="text"
+                        id="customerName-field"
+                        // placeholder="Enter Limit"
+                        required
+                      />
+                    </div>
+                  </Col>
+                  <Col lg={12}>
+                    <div className="hstack gap-2 justify-content-end">
+                      <Button
+                        className="btn-ghost-danger"
+                        onClick={() => {
+                          tog_AddExtra();
+                        }}
+                        data-bs-dismiss="modal"
+                      >
+                        <i className="ri-close-line align-bottom me-1"></i>{" "}
+                        Close
+                      </Button>
+                      <Button variant="primary" id="add-btn">
+                        Add
+                      </Button>
+                    </div>
+                  </Col>
+                </Row>
+              </Form>
+            </Modal.Body>
+          </Modal>
         </Container>
       </div>
     </React.Fragment>

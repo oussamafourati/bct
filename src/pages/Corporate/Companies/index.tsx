@@ -79,7 +79,11 @@ const Companies = () => {
           return (
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
-                <Link to="#" className="badge badge-soft-success edit-item-btn">
+                <Link
+                  to={`/edit-company/${cellProps.name}`}
+                  className="badge badge-soft-success edit-item-btn"
+                  state={cellProps}
+                >
                   <i className="ri-edit-2-line"></i>
                 </Link>
               </li>
@@ -121,10 +125,10 @@ const Companies = () => {
                   <Button
                     variant="success"
                     onClick={() => tog_AddCompany()}
-                    className="add-btn"
+                    className="add-btn btn-sm"
                   >
-                    <i className="ph ph-buildings me-1 align-middle"></i> Add
-                    Company
+                    <i className="ph ph-buildings me-1 align-middle fs-22"></i>{" "}
+                    Add Company
                   </Button>
                 </Col>
               </Row>

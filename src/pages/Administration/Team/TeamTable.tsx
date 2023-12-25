@@ -60,7 +60,7 @@ const TeamTable = ({ team }: any) => {
               className="form-control"
               id="searchInputList"
               autoComplete="off"
-              placeholder="Search brands..."
+              placeholder="Search teams..."
             />
             <i className="ri-search-line search-icon"></i>
           </div>
@@ -69,9 +69,9 @@ const TeamTable = ({ team }: any) => {
           <Button
             variant="success"
             onClick={() => tog_AddTeam()}
-            className="w-100"
+            className="w-100 btn-sm"
           >
-            <i className="mdi mdi-account-multiple-plus me-1 align-middle"></i>{" "}
+            <i className="mdi mdi-account-multiple-plus me-1 align-middle fs-22"></i>{" "}
             Add Team
           </Button>
         </Col>
@@ -91,7 +91,33 @@ const TeamTable = ({ team }: any) => {
             <Col key={key}>
               <Card>
                 <Card.Header>
-                  <h6 className="card-title mb-0">{item.brandName}</h6>
+                  <div className="d-flex justify-content-between">
+                    <h6 className="card-title mb-0">{item.brandName}</h6>
+                    {item.status === "active" ? (
+                      <span className="badge badge-soft-success text-uppercase">
+                        Active
+                      </span>
+                    ) : (
+                      <span className="badge badge-soft-danger text-uppercase">
+                        Inactive
+                      </span>
+                    )}
+                  </div>
+                  <span>
+                    {item.position === "info" ? (
+                      <span className="badge badge-soft-info text-uppercase">
+                        Info
+                      </span>
+                    ) : item.position === "sales" ? (
+                      <span className="badge badge-soft-secondary text-uppercase">
+                        Sales
+                      </span>
+                    ) : (
+                      <span className="badge badge-soft-dark text-uppercase">
+                        Admin
+                      </span>
+                    )}
+                  </span>
                 </Card.Header>
                 <Card.Body className="p-4 text-center">
                   <div className="mx-auto avatar-md mb-3">
@@ -103,6 +129,7 @@ const TeamTable = ({ team }: any) => {
                   </div>
                   <h5 className="card-title mb-1">{item.brandName}</h5>
                   <p className="text-muted mb-0">{item.productItems}</p>
+                  <p className="text-muted mb-0">{item.phone}</p>
                 </Card.Body>
               </Card>
             </Col>
@@ -167,136 +194,6 @@ const TeamTable = ({ team }: any) => {
           </div>
         </Col>
       </Row>
-
-      {/* <Row>
-        <Col>
-          <Card className="card-body">
-            <div className="d-flex mb-4 align-items-center">
-              <div className="flex-shrink-0">
-                <Image
-                  src={avtar1}
-                  alt=""
-                  className="avatar-sm rounded-circle"
-                />
-              </div>
-              <div className="flex-grow-1 ms-2">
-                <h5 className="card-title mb-1">Alfred Hurst</h5>
-                <p className="badge bg-success">Active</p>
-                <span>
-                  {" "}
-                  <i className="mdi mdi-car-side align-middle"></i>{" "}
-                  <i className="mdi mdi-bus align-middle"></i>
-                </span>
-                {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p> 
-              </div>
-            </div>
-            <span>
-              <i className="mdi mdi-phone align-middle"></i> +44 203 048 4377
-            </span>
-            {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> 
-            <p>
-              <b>Driving Licence:</b> Exp. 18/05/2025
-            </p>
-            <p>
-              <b>DQC:</b> Exp. 18/05/2025
-            </p>
-            <Card.Footer className="p-0">
-              <span className="d-flex justify-content-end">
-                142 <i className="mdi mdi-briefcase-variant align-middle"></i>
-              </span>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col>
-          <Card className="card-body">
-            <div className="d-flex mb-4 align-items-center">
-              <div className="flex-shrink-0">
-                <Image
-                  src={avtar1}
-                  alt=""
-                  className="avatar-sm rounded-circle"
-                />
-              </div>
-              <div className="flex-grow-1 ms-2">
-                <h5 className="card-title mb-1">Alfred Hurst</h5>
-                <p className="badge bg-success">Active</p>
-                <span>
-                  {" "}
-                  <i className="mdi mdi-car-side align-middle"></i>
-                </span>
-                {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p> 
-              </div>
-            </div>
-            <span>
-              <i className="mdi mdi-phone align-middle"></i> +44 203 048 4377
-            </span>
-            {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> 
-            <p>
-              <b>Driving Licence:</b> Exp. 18/05/2025
-            </p>
-            <p>
-              <b>DQC:</b> Exp. 18/05/2025
-            </p>
-            <Card.Footer className="p-0">
-              <span className="d-flex justify-content-end">
-                142 <i className="mdi mdi-briefcase-variant align-middle"></i>
-              </span>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col>
-          <Card className="card-body">
-            <div className="d-flex mb-4 align-items-center">
-              <div className="flex-shrink-0">
-                <Image
-                  src={avtar1}
-                  alt=""
-                  className="avatar-sm rounded-circle"
-                />
-              </div>
-              <div className="flex-grow-1 ms-2">
-                <h5 className="card-title mb-1">Alfred Hurst</h5>
-                <p className="badge bg-danger">Inactive</p>
-                <span>
-                  {" "}
-                  <i className="mdi mdi-bus align-middle"></i>
-                </span>
-                {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p>
-              </div>
-            </div>
-            <span>
-              <i className="mdi mdi-phone align-middle"></i> +44 203 048 4377
-            </span>
-            {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> 
-            <p>
-              <b>Driving Licence:</b> Exp. 18/05/2025
-            </p>
-            <p>
-              <b>DQC:</b> Exp. 18/05/2025
-            </p>
-            <Card.Footer className="p-0">
-              <span className="d-flex justify-content-end">
-                142 <i className="mdi mdi-briefcase-variant align-middle"></i>
-              </span>
-            </Card.Footer>
-          </Card>
-        </Col>
-      </Row> */}
     </React.Fragment>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Dropdown,
@@ -7,6 +7,7 @@ import {
   Card,
   Col,
   Button,
+  Modal,
 } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import Breadcrumb from "Common/BreadCrumb";
@@ -32,125 +33,59 @@ const Offers = () => {
 
   const navigate = useNavigate();
 
+  const [modal_AddOffreModals, setmodal_AddOffreModals] =
+    useState<boolean>(false);
   function tog_AddOffer() {
-    navigate("/new-offer");
+    setmodal_AddOffreModals(!modal_AddOffreModals);
   }
 
   const columns = [
     {
       name: <span className="font-weight-bold fs-13">Name</span>,
-      selector: (row: any) => row.srNo,
+      selector: (row: any) => row.Name,
       sortable: true,
     },
 
     {
       name: <span className="font-weight-bold fs-13">Corporate</span>,
-      selector: (row: any) => row.assigned,
+      selector: (row: any) => row.Corporate,
       sortable: true,
     },
     {
       name: <span className="font-weight-bold fs-13">Contact</span>,
-      selector: (row: any) => row.createdBy,
+      selector: (row: any) => row.Contact,
       sortable: true,
     },
     {
       name: <span className="font-weight-bold fs-13">Vehicle</span>,
-      selector: (row: any) => row.createDate,
+      selector: (row: any) => row.Vehicle,
       sortable: true,
     },
     {
       name: <span className="font-weight-bold fs-13">Driver</span>,
-      selector: (row: any) => row.createDate,
+      selector: (row: any) => row.Driver,
       sortable: true,
     },
     {
       name: <span className="font-weight-bold fs-13">Pickup</span>,
       sortable: true,
-      selector: (cell: any) => {
-        switch (cell.status) {
-          case "Re-open":
-            return (
-              <span className="badge badge-soft-info"> {cell.status} </span>
-            );
-          case "On-Hold":
-            return (
-              <span className="badge badge-soft-secondary">
-                {" "}
-                {cell.status}{" "}
-              </span>
-            );
-          case "Closed":
-            return (
-              <span className="badge badge-soft-danger"> {cell.status} </span>
-            );
-          case "Inprogress":
-            return (
-              <span className="badge badge-soft-warning"> {cell.status} </span>
-            );
-          case "Open":
-            return (
-              <span className="badge badge-soft-primary"> {cell.status} </span>
-            );
-          case "New":
-            return (
-              <span className="badge badge-soft-success"> {cell.status} </span>
-            );
-          default:
-            return (
-              <span className="badge badge-soft-success"> {cell.status} </span>
-            );
-        }
-      },
+      selector: (row: any) => row.Pickup,
     },
     {
       name: <span className="font-weight-bold fs-13">Destination</span>,
       sortable: true,
-      selector: (cell: any) => {
-        switch (cell.priority) {
-          case "High":
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-          case "Medium":
-            return <span className="badge bg-info"> {cell.priority} </span>;
-          case "Low":
-            return <span className="badge bg-success"> {cell.priority} </span>;
-          default:
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-        }
-      },
+      selector: (row: any) => row.Destination,
     },
     {
       name: <span className="font-weight-bold fs-13">Cost</span>,
       sortable: true,
-      selector: (cell: any) => {
-        switch (cell.priority) {
-          case "High":
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-          case "Medium":
-            return <span className="badge bg-info"> {cell.priority} </span>;
-          case "Low":
-            return <span className="badge bg-success"> {cell.priority} </span>;
-          default:
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-        }
-      },
+      selector: (row: any) => row.Cost,
     },
     {
       name: <span className="font-weight-bold fs-13">Offer Number</span>,
       sortable: true,
-      selector: (cell: any) => {
-        switch (cell.priority) {
-          case "High":
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-          case "Medium":
-            return <span className="badge bg-info"> {cell.priority} </span>;
-          case "Low":
-            return <span className="badge bg-success"> {cell.priority} </span>;
-          default:
-            return <span className="badge bg-danger"> {cell.priority} </span>;
-        }
-      },
+      selector: (row: any) => row.OfferNumber,
     },
-
     {
       name: <span className="font-weight-bold fs-13">Action</span>,
       sortable: true,
@@ -254,102 +189,6 @@ const Offers = () => {
       status: "Inprogress",
       priority: "Medium",
     },
-    {
-      srNo: "Harrison Matthews",
-      modalId: "VLZ-458",
-      purchaseId: "MBL2018",
-      title: "Change email option process",
-      user: "James Morris",
-      assigned: "Admin",
-      createdBy: "James Morris",
-      createDate: "12 March, 2022",
-      status: "Open",
-      priority: "High",
-    },
-    {
-      srNo: "Zachariah Poole",
-      modalId: "VLZ-460",
-      purchaseId: "MBS2018",
-      title: "Support for theme",
-      user: "Nathan Cole",
-      assigned: "Nancy Martino",
-      createdBy: "Nathan Cole",
-      createDate: "28 Feb, 2022",
-      status: "On-Hold",
-      priority: "Low",
-    },
-    {
-      srNo: "Carter Francis",
-      modalId: "VLZ-461",
-      purchaseId: "MBL2019",
-      title: "Form submit issue",
-      user: "Grace Coles",
-      assigned: "Admin",
-      createdBy: "Grace Coles",
-      createDate: "07 Jan, 2022",
-      status: "New",
-      priority: "High",
-    },
-    {
-      srNo: "Jasper Parry",
-      modalId: "VLZ-462",
-      purchaseId: "MBS2018",
-      title: "Edit customer testimonial",
-      user: "Freda",
-      assigned: "Alexis Clarke",
-      createdBy: "Freda",
-      createDate: "16 Aug, 2021",
-      status: "Closed",
-      priority: "Medium",
-    },
-    {
-      srNo: "Maximilian Holland",
-      modalId: "VLZ-463",
-      purchaseId: "MBS2020",
-      title: "Ca i have an e-copy invoice",
-      user: "Williams",
-      assigned: "Admin",
-      createdBy: "Williams",
-      createDate: "24 Feb, 2022",
-      status: "Open",
-      priority: "Low",
-    },
-    {
-      srNo: "Carter Francis",
-      modalId: "VLZ-464",
-      purchaseId: "RRS2021",
-      title: "Brand logo design",
-      user: "Richard V.",
-      assigned: "Admin",
-      createdBy: "Richard V.",
-      createDate: "16 March, 2021",
-      status: "Inprogress",
-      priority: "High",
-    },
-    {
-      srNo: "Harrison Matthews",
-      modalId: "VLZ-466",
-      purchaseId: "AE2018",
-      title: "Issue with finding information about order ?",
-      user: "Olive Gunther",
-      assigned: "Alexis Clarke",
-      createdBy: "Schaefer",
-      createDate: "32 March, 2022",
-      status: "New",
-      priority: "High",
-    },
-    {
-      srNo: "Gabrielle Holden",
-      modalId: "VLZ-467",
-      purchaseId: "AE2018",
-      title: "Make a creating an account profile",
-      user: "Edwin",
-      assigned: "Admin",
-      createdBy: "Edwin",
-      createDate: "05 April, 2022",
-      status: "Inprogress",
-      priority: "Low",
-    },
   ];
   return (
     <React.Fragment>
@@ -374,18 +213,321 @@ const Offers = () => {
                     <Button
                       variant="success"
                       onClick={() => tog_AddOffer()}
-                      className="add-btn"
+                      className="add-btn btn-sm"
                     >
-                      <i className="mdi mdi-bullhorn me-1 align-middle"></i> Add
-                      Offre
+                      <i className="mdi mdi-bullhorn me-1 align-middle fs-22"></i>{" "}
+                      Add Offer
                     </Button>
                   </Col>
                 </Row>
               </Card.Header>
               <Card.Body>
                 <DataTable columns={columns} data={data} pagination />
+                {/* <div className="accordion" id="default-accordion-example">
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingOne">
+                      <button
+                        className="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                        How to create a group booking ?
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseOne"
+                      className="accordion-collapse collapse show"
+                      aria-labelledby="headingOne"
+                      data-bs-parent="#default-accordion-example"
+                    >
+                      <div className="accordion-body">
+                        Although you probably won’t get into any legal trouble
+                        if you do it just once, why risk it? If you made your
+                        subscribers a promise, you should honor that. If not,
+                        you run the risk of a drastic increase in opt outs,
+                        which will only hurt you in the long run.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingTwo">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"
+                      >
+                        Why do we use it ?
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseTwo"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="headingTwo"
+                      data-bs-parent="#default-accordion-example"
+                    >
+                      <div className="accordion-body">
+                        No charges are put in place by SlickText when
+                        subscribers join your text list. This does not mean
+                        however that charges 100% will not occur. Charges that
+                        may occur fall under part of the compliance statement
+                        stating "Message and Data rates may apply."
+                      </div>
+                    </div>
+                  </div>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingThree">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"
+                      >
+                        Where does it come from ?
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseThree"
+                      className="accordion-collapse collapse"
+                      aria-labelledby="headingThree"
+                      data-bs-parent="#default-accordion-example"
+                    >
+                      <div className="accordion-body">
+                        Now that you have a general idea of the amount of texts
+                        you will need per month, simply find a plan size that
+                        allows you to have this allotment, plus some extra for
+                        growth. Don't worry, there are no mistakes to be made
+                        here. You can always upgrade and downgrade.
+                      </div>
+                    </div>
+                  </div>
+                </div> */}
               </Card.Body>
             </Card>
+            <Modal
+              className="fade zoomIn"
+              size="lg"
+              show={modal_AddOffreModals}
+              onHide={() => {
+                tog_AddOffer();
+              }}
+              centered
+            >
+              <Modal.Header className="px-4 pt-4" closeButton>
+                <h5 className="modal-title fs-18" id="exampleModalLabel">
+                  Add Offre
+                </h5>
+              </Modal.Header>
+              <Modal.Body className="p-4">
+                <div
+                  id="alert-error-msg"
+                  className="d-none alert alert-danger py-2"
+                ></div>
+                <Form className="tablelist-form">
+                  <input type="hidden" id="id-field" />
+                  <Row>
+                    <Col lg={12}>
+                      <div className="mb-3">
+                        <Form.Label htmlFor="customerName-field">
+                          Name
+                        </Form.Label>
+                        <Form.Control
+                          type="text"
+                          id="customerName-field"
+                          // placeholder="Enter customer name"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="mb-3">
+                        <Form.Label htmlFor="supplierName-field">
+                          Corporate
+                        </Form.Label>
+                        <Form.Control
+                          type="text"
+                          id="supplierName-field"
+                          // placeholder="Enter supplier name"
+                          required
+                        />
+                      </div>
+                    </Col>
+
+                    <Col lg={6}>
+                      <div className="mb-3">
+                        <Form.Label htmlFor="orderDate-field">
+                          Contact
+                        </Form.Label>
+                        <Form.Control
+                          type="text"
+                          id="supplierName-field"
+                          // placeholder="Enter supplier name"
+                          required
+                        />
+                        {/* <Form.Control type="text" id="orderDate-field" data-provider="flatpickr" data-date-format="d M, Y" placeholder="Select date" required /> */}
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="mb-3">
+                        <Form.Label htmlFor="arrivalDate-field">
+                          Vehicle
+                        </Form.Label>
+                        <Form.Control
+                          type="text"
+                          id="supplierName-field"
+                          // placeholder="Enter supplier name"
+                          required
+                        />
+                        {/* <Form.Control type="text" id="arrivalDate-field" data-provider="flatpickr" data-date-format="d M, Y" placeholder="Select date" required /> */}
+                      </div>
+                    </Col>
+                    <div className="col-lg-6">
+                      <div className="mb-3">
+                        <label htmlFor="locationSelect" className="form-label">
+                          Driver
+                        </label>
+                        <select
+                          className="form-select"
+                          name="choices-single-default"
+                          id="locationSelect"
+                          required
+                        >
+                          <option value="">Select</option>
+                          <option value="Ascension Island">
+                            Ascension Island
+                          </option>
+                          <option value="Andorra">Andorra</option>
+                          <option value="United Arab Emirates">
+                            United Arab Emirates
+                          </option>
+                          <option value="Afghanistan">Afghanistan</option>
+                          <option value="Antigua and Barbuda">
+                            Antigua and Barbuda
+                          </option>
+                          <option value="Armenia">Armenia</option>
+                          <option value="Antarctica">Antarctica</option>
+                          <option value="Argentina">Argentina</option>
+                          <option value="Australia">Australia</option>
+                          <option value="Bangladesh">Bangladesh</option>
+                          <option value="Belgium">Belgium</option>
+                          <option value="Benin">Benin</option>
+                          <option value="Bermuda">Bermuda</option>
+                          <option value="Brazil">Brazil</option>
+                          <option value="Belarus">Belarus</option>
+                          <option value="Canada">Canada</option>
+                          <option value="Switzerland">Switzerland</option>
+                          <option value="Cook Islands">Cook Islands</option>
+                          <option value="Chile">Chile</option>
+                          <option value="China">China</option>
+                          <option value="Christmas Island">
+                            Christmas Island
+                          </option>
+                          <option value="Cyprus">Cyprus</option>
+                          <option value="Germany">Germany</option>
+                          <option value="Denmark">Denmark</option>
+                          <option value="Egypt">Egypt</option>
+                          <option value="Estonia">Estonia</option>
+                        </select>
+                      </div>
+                    </div>
+                    <Col lg={6}>
+                      <div className="mb-3">
+                        <label htmlFor="statusSelect" className="form-label">
+                          Pickup
+                        </label>
+                        <select
+                          className="form-select"
+                          name="choices-single-default"
+                          id="statusSelect"
+                          required
+                        >
+                          <option value="">Select</option>
+                          <option value="Pickups">Pickups</option>
+                          <option value="Pending">Pending</option>
+                          <option value="Shipping">Shipping</option>
+                          <option value="Delivered">Delivered</option>
+                          <option value="Out Of Delivery">
+                            Out Of Delivery
+                          </option>
+                        </select>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="mb-3">
+                        <label htmlFor="statusSelect" className="form-label">
+                          Destination
+                        </label>
+                        <select
+                          className="form-select"
+                          name="choices-single-default"
+                          id="statusSelect"
+                          required
+                        >
+                          <option value="">Select</option>
+                          <option value="Pickups">Pickups</option>
+                          <option value="Pending">Pending</option>
+                          <option value="Shipping">Shipping</option>
+                          <option value="Delivered">Delivered</option>
+                          <option value="Out Of Delivery">
+                            Out Of Delivery
+                          </option>
+                        </select>
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="mb-3">
+                        <label htmlFor="statusSelect" className="form-label">
+                          Cost
+                        </label>
+                        <Form.Control
+                          type="text"
+                          id="supplierName-field"
+                          // placeholder="Enter supplier name"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={6}>
+                      <div className="mb-3">
+                        <label htmlFor="statusSelect" className="form-label">
+                          Offer Number
+                        </label>
+                        <Form.Control
+                          type="text"
+                          id="supplierName-field"
+                          // placeholder="Enter supplier name"
+                          required
+                        />
+                      </div>
+                    </Col>
+                    <Col lg={12}>
+                      <div className="hstack gap-2 justify-content-end">
+                        <Button
+                          className="btn-ghost-danger"
+                          onClick={() => {
+                            tog_AddOffer();
+                          }}
+                          data-bs-dismiss="modal"
+                        >
+                          <i className="ri-close-line align-bottom me-1"></i>{" "}
+                          Close
+                        </Button>
+                        <Button variant="primary" id="add-btn">
+                          Add Offer
+                        </Button>
+                      </div>
+                    </Col>
+                  </Row>
+                </Form>
+              </Modal.Body>
+            </Modal>
           </Col>
         </Container>
       </div>
