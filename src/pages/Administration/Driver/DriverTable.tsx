@@ -78,7 +78,7 @@ const DriverTable = ({ driver }: any) => {
           </Button>
         </Col>
       </Row>
-      <Lottie
+      {/* <Lottie
         lottieRef={lottieRef3}
         onComplete={() => {
           lottieRef3.current?.goToAndPlay(5, true);
@@ -86,7 +86,7 @@ const DriverTable = ({ driver }: any) => {
         animationData={driverAnimation}
         loop={false}
         style={{ width: 80 }}
-      />{" "}
+      /> */}
       <Row
         className="d-flex justify-content-center row-cols-xxl-5 row-cols-lg-4 row-cols-sm-2 row-cols-1 gap-5"
         id="brand-list"
@@ -194,135 +194,6 @@ const DriverTable = ({ driver }: any) => {
           </div>
         </Col>
       </Row>
-      {/* <Row>
-        <Col>
-          <Card className="card-body">
-            <div className="d-flex mb-4 align-items-center">
-              <div className="flex-shrink-0">
-                <Image
-                  src={avtar1}
-                  alt=""
-                  className="avatar-sm rounded-circle"
-                />
-              </div>
-              <div className="flex-grow-1 ms-2">
-                <h5 className="card-title mb-1">Alfred Hurst</h5>
-                <p className="badge bg-success">Active</p>
-                <span>
-                  {" "}
-                  <i className="mdi mdi-car-side align-middle"></i>{" "}
-                  <i className="mdi mdi-bus align-middle"></i>
-                </span>
-                {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p> 
-              </div>
-            </div>
-            <span>
-              <i className="mdi mdi-phone align-middle"></i> +44 203 048 4377
-            </span>
-            {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> 
-            <p>
-              <b>Driving Licence:</b> Exp. 18/05/2025
-            </p>
-            <p>
-              <b>DQC:</b> Exp. 18/05/2025
-            </p>
-            <Card.Footer className="p-0">
-              <span className="d-flex justify-content-end">
-                142 <i className="mdi mdi-briefcase-variant align-middle"></i>
-              </span>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col>
-          <Card className="card-body">
-            <div className="d-flex mb-4 align-items-center">
-              <div className="flex-shrink-0">
-                <Image
-                  src={avtar1}
-                  alt=""
-                  className="avatar-sm rounded-circle"
-                />
-              </div>
-              <div className="flex-grow-1 ms-2">
-                <h5 className="card-title mb-1">Alfred Hurst</h5>
-                <p className="badge bg-success">Active</p>
-                <span>
-                  {" "}
-                  <i className="mdi mdi-car-side align-middle"></i>
-                </span>
-                {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p> 
-              </div>
-            </div>
-            <span>
-              <i className="mdi mdi-phone align-middle"></i> +44 203 048 4377
-            </span>
-            {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> 
-            <p>
-              <b>Driving Licence:</b> Exp. 18/05/2025
-            </p>
-            <p>
-              <b>DQC:</b> Exp. 18/05/2025
-            </p>
-            <Card.Footer className="p-0">
-              <span className="d-flex justify-content-end">
-                142 <i className="mdi mdi-briefcase-variant align-middle"></i>
-              </span>
-            </Card.Footer>
-          </Card>
-        </Col>
-        <Col>
-          <Card className="card-body">
-            <div className="d-flex mb-4 align-items-center">
-              <div className="flex-shrink-0">
-                <Image
-                  src={avtar1}
-                  alt=""
-                  className="avatar-sm rounded-circle"
-                />
-              </div>
-              <div className="flex-grow-1 ms-2">
-                <h5 className="card-title mb-1">Alfred Hurst</h5>
-                <p className="badge bg-danger">Inactive</p>
-                <span>
-                  {" "}
-                  <i className="mdi mdi-bus align-middle"></i>
-                </span>
-                {/* <p className="text-muted mb-0">
-                          <span className="mdi mdi-car-side"></span>
-                        </p>
-              </div>
-            </div>
-            <span>
-              <i className="mdi mdi-phone align-middle"></i> +44 203 048 4377
-            </span>
-            {/* <span className="mdi mdi-email-outline"></span>{" "}
-                    <p className="card-text text-muted">
-                      trebor22@lovelyaibrain.com
-                    </p> 
-            <p>
-              <b>Driving Licence:</b> Exp. 18/05/2025
-            </p>
-            <p>
-              <b>DQC:</b> Exp. 18/05/2025
-            </p>
-            <Card.Footer className="p-0">
-              <span className="d-flex justify-content-end">
-                142 <i className="mdi mdi-briefcase-variant align-middle"></i>
-              </span>
-            </Card.Footer>
-          </Card>
-        </Col>
-      </Row> */}
     </React.Fragment>
   );
 };

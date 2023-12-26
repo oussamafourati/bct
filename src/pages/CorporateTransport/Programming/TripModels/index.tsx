@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Dropdown,
@@ -7,33 +7,26 @@ import {
   Card,
   Col,
   Button,
+  Modal,
 } from "react-bootstrap";
 import DataTable from "react-data-table-component";
 import Breadcrumb from "Common/BreadCrumb";
-import Flatpickr from "react-flatpickr";
-import img1 from "assets/images/brands/img-1.png";
-import img2 from "assets/images/brands/img-2.png";
-import img3 from "assets/images/brands/img-3.png";
-import img4 from "assets/images/brands/img-4.png";
-import img5 from "assets/images/brands/img-5.png";
-import img6 from "assets/images/brands/img-6.png";
-import img7 from "assets/images/brands/img-7.png";
-import img8 from "assets/images/brands/img-8.png";
-import img9 from "assets/images/brands/img-9.png";
-import img10 from "assets/images/brands/img-10.png";
-import img11 from "assets/images/brands/img-11.png";
-import img12 from "assets/images/brands/img-12.png";
-import img13 from "assets/images/brands/img-13.png";
-import img14 from "assets/images/brands/img-14.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import AddNewTripModel from "./AddNewTripModel";
 
 const TripModel = () => {
   document.title = "Trip Model | Bouden Coach Travel";
 
-  const navigate = useNavigate();
-
+  const [modal_AddTripModelModals, setmodal_AddTripModelModals] =
+    useState<boolean>(false);
   function tog_AddTripModel() {
-    navigate("/new-trip-model");
+    setmodal_AddTripModelModals(!modal_AddTripModelModals);
+  }
+
+  const [modal_EditTripModelModals, setmodal_EditTripModelModals] =
+    useState<boolean>(false);
+  function tog_EditTripModel() {
+    setmodal_EditTripModelModals(!modal_EditTripModelModals);
   }
 
   const columns = [
@@ -113,7 +106,12 @@ const TripModel = () => {
               </Link>
             </li>
             <li>
-              <Link to="#" className="badge badge-soft-success edit-item-btn">
+              <Link
+                to="#"
+                className="badge badge-soft-success edit-item-btn"
+                state={cell}
+                onClick={() => tog_EditTripModel()}
+              >
                 <i className="ri-edit-2-line"></i>
               </Link>
             </li>
@@ -188,115 +186,21 @@ const TripModel = () => {
       status: "Closed",
       priority: "Low",
     },
-    {
-      srNo: "Edward Rogers",
-      modalId: "VLZ-457",
-      purchaseId: "AE2018",
-      title: "Benner design for FB & Twitter",
-      user: "Mary Rucker",
-      assigned: "Jennifer Carter",
-      createdBy: "Mary Rucker",
-      createDate: "14 Aug, 2021",
-      status: "Inprogress",
-      priority: "Medium",
-    },
-    {
-      srNo: "Harrison Matthews",
-      modalId: "VLZ-458",
-      purchaseId: "MBL2018",
-      title: "Change email option process",
-      user: "James Morris",
-      assigned: "Admin",
-      createdBy: "James Morris",
-      createDate: "12 March, 2022",
-      status: "Open",
-      priority: "High",
-    },
-    {
-      srNo: "Zachariah Poole",
-      modalId: "VLZ-460",
-      purchaseId: "MBS2018",
-      title: "Support for theme",
-      user: "Nathan Cole",
-      assigned: "Nancy Martino",
-      createdBy: "Nathan Cole",
-      createDate: "28 Feb, 2022",
-      status: "On-Hold",
-      priority: "Low",
-    },
-    {
-      srNo: "Carter Francis",
-      modalId: "VLZ-461",
-      purchaseId: "MBL2019",
-      title: "Form submit issue",
-      user: "Grace Coles",
-      assigned: "Admin",
-      createdBy: "Grace Coles",
-      createDate: "07 Jan, 2022",
-      status: "New",
-      priority: "High",
-    },
-    {
-      srNo: "Jasper Parry",
-      modalId: "VLZ-462",
-      purchaseId: "MBS2018",
-      title: "Edit customer testimonial",
-      user: "Freda",
-      assigned: "Alexis Clarke",
-      createdBy: "Freda",
-      createDate: "16 Aug, 2021",
-      status: "Closed",
-      priority: "Medium",
-    },
-    {
-      srNo: "Maximilian Holland",
-      modalId: "VLZ-463",
-      purchaseId: "MBS2020",
-      title: "Ca i have an e-copy invoice",
-      user: "Williams",
-      assigned: "Admin",
-      createdBy: "Williams",
-      createDate: "24 Feb, 2022",
-      status: "Open",
-      priority: "Low",
-    },
-    {
-      srNo: "Carter Francis",
-      modalId: "VLZ-464",
-      purchaseId: "RRS2021",
-      title: "Brand logo design",
-      user: "Richard V.",
-      assigned: "Admin",
-      createdBy: "Richard V.",
-      createDate: "16 March, 2021",
-      status: "Inprogress",
-      priority: "High",
-    },
-    {
-      srNo: "Harrison Matthews",
-      modalId: "VLZ-466",
-      purchaseId: "AE2018",
-      title: "Issue with finding information about order ?",
-      user: "Olive Gunther",
-      assigned: "Alexis Clarke",
-      createdBy: "Schaefer",
-      createDate: "32 March, 2022",
-      status: "New",
-      priority: "High",
-    },
-    {
-      srNo: "Gabrielle Holden",
-      modalId: "VLZ-467",
-      purchaseId: "AE2018",
-      title: "Make a creating an account profile",
-      user: "Edwin",
-      assigned: "Admin",
-      createdBy: "Edwin",
-      createDate: "05 April, 2022",
-      status: "Inprogress",
-      priority: "Low",
-    },
   ];
+
+  const [selected, setSelected] = useState("");
+  const handleOwner = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const ownerName = e.target.value;
+    setSelected(ownerName);
+  };
+
+  const [changeColor, setChangeColor] = useState<boolean>(false);
+
+  // function for handleClick
+  const handleClick = () => {
+    setChangeColor(!changeColor);
+  };
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -320,9 +224,9 @@ const TripModel = () => {
                     <Button
                       variant="success"
                       onClick={() => tog_AddTripModel()}
-                      className="add-btn"
+                      className="add-btn btn-sm"
                     >
-                      <i className="mdi mdi-briefcase-plus me-1 align-middle"></i>{" "}
+                      <i className="mdi mdi-briefcase-plus me-1 align-middle fs-22"></i>{" "}
                       Add Trip Model
                     </Button>
                   </Col>
@@ -334,6 +238,263 @@ const TripModel = () => {
             </Card>
           </Col>
         </Container>
+        {/* Add New Trip Model Modal */}
+        <Modal
+          className="fade zoomIn"
+          size="lg"
+          show={modal_AddTripModelModals}
+          onHide={() => {
+            tog_AddTripModel();
+          }}
+          centered
+        >
+          <Modal.Header className="px-4 pt-4" closeButton>
+            <h5 className="modal-title fs-18" id="exampleModalLabel">
+              Add Trip Model
+            </h5>
+          </Modal.Header>
+          <Modal.Body className="p-4">
+            <div
+              id="alert-error-msg"
+              className="d-none alert alert-danger py-2"
+            ></div>
+            <Form className="tablelist-form">
+              <input type="hidden" id="id-field" />
+              <Row>
+                <Col lg={12}>
+                  <div className="mb-3">
+                    <Form.Label htmlFor="customerName-field">
+                      Corporate
+                    </Form.Label>
+                    <select
+                      className="form-select text-muted"
+                      name="choices-single-default"
+                      id="statusSelect"
+                      required
+                    >
+                      <option value="">All Corporate</option>
+                      <option value="Small">CITY ROAD PRIMARY SCHOOL</option>
+                      <option value="Medium">Denstone College</option>
+                      <option value="Large">ZEELO PROLOGIS</option>
+                    </select>
+                  </div>
+                </Col>
+                <Col lg={6}>
+                  <div className="mb-3">
+                    <Form.Label htmlFor="orderDate-field">
+                      Handled By
+                    </Form.Label>
+                    <select
+                      className="form-select text-muted"
+                      name="choices-single-default"
+                      id="statusSelect"
+                      required
+                      onChange={handleOwner}
+                    >
+                      <option value="">Select</option>
+                      <option value="Bouden">Bouden</option>
+                      <option value="Affiliate">Affiliate</option>
+                    </select>
+                  </div>
+                </Col>
+                {selected === "Affiliate" ? (
+                  <Col lg={4}>
+                    <div className="mb-3">
+                      <Form.Label htmlFor="supplierName-field">
+                        Affiliates
+                      </Form.Label>
+                      <select
+                        className="form-select text-muted"
+                        name="choices-single-default"
+                        id="statusSelect"
+                        required
+                        onChange={handleOwner}
+                      >
+                        <option value="">All Affiliates</option>
+                        <option value="Brit Coaches Ltd">
+                          Brit Coaches Ltd
+                        </option>
+                        <option value="Dorset Mini Coach">
+                          Dorset Mini Coach
+                        </option>
+                        <option value="Brit Coaches Ltd">HOUSEM MORSI</option>
+                        <option value="Dorset Mini Coach">
+                          Top line travel- Amjad
+                        </option>
+                      </select>
+                    </div>
+                  </Col>
+                ) : (
+                  ""
+                )}
+                {selected === "Affiliate" ? (
+                  ""
+                ) : (
+                  <Col lg={4}>
+                    <div className="mb-3">
+                      <Form.Label htmlFor="supplierName-field">
+                        Driver
+                      </Form.Label>
+                      <select
+                        className="form-select text-muted"
+                        name="choices-single-default"
+                        id="statusSelect"
+                        required
+                        onChange={handleOwner}
+                      >
+                        <option value="">All Drivers</option>
+                        <option value="Brit Coaches Ltd">Wadi Hussain</option>
+                        <option value="Dorset Mini Coach">Amar Bashir</option>
+                        <option value="Brit Coaches Ltd">Ahmed Zeeshan</option>
+                        <option value="Dorset Mini Coach">Raghban Ali</option>
+                      </select>
+                    </div>
+                  </Col>
+                )}
+                {selected === "Affiliate" ? (
+                  ""
+                ) : (
+                  <Col lg={4}>
+                    <div className="mb-3">
+                      <Form.Label htmlFor="supplierName-field">
+                        Vehicle
+                      </Form.Label>
+                      <select
+                        className="form-select text-muted"
+                        name="choices-single-default"
+                        id="statusSelect"
+                        required
+                        onChange={handleOwner}
+                      >
+                        <option value="">All Vehicles</option>
+                        <option value="Brit Coaches Ltd">
+                          Standard Saloon Car
+                        </option>
+                        <option value="Dorset Mini Coach">
+                          Executive Saloon Car
+                        </option>
+                        <option value="Brit Coaches Ltd">VIP Saloon Car</option>
+                        <option value="Dorset Mini Coach">
+                          Standard 6 Seat MPV
+                        </option>
+                        <option value="Dorset Mini Coach">
+                          Executive 6 Seat MPV
+                        </option>
+                        <option value="Dorset Mini Coach">
+                          10-16 Seat Standard Minibus
+                        </option>
+                      </select>
+                    </div>
+                  </Col>
+                )}
+              </Row>
+              <Row>
+                <Col lg={4}>
+                  <div className="mb-3">
+                    <Form.Label htmlFor="supplierName-field">
+                      Customer Name
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="customerName-field"
+                      placeholder="Enter Customer name"
+                      required
+                    />
+                  </div>
+                </Col>
+                <Col lg={3}>
+                  <div className="mb-3">
+                    <Form.Label htmlFor="supplierName-field">
+                      Customer Email
+                    </Form.Label>
+                    <Form.Control
+                      type="email"
+                      id="customerName-field"
+                      placeholder="Enter Customer Email"
+                      required
+                    />
+                  </div>
+                </Col>
+                <Col lg={3}>
+                  <div className="mb-3">
+                    <button
+                      onClick={handleClick}
+                      type="button"
+                      className={`btn btn-darken-light custom-toggle text-dark btn-sm ${
+                        changeColor === false
+                          ? "btn-darken-light"
+                          : "btn-darken-light"
+                      }`}
+                      data-bs-toggle="button"
+                    >
+                      <span className="icon-on">
+                        <i
+                          className={`${
+                            changeColor === false
+                              ? "mdi mdi-cog-counterclockwise align-bottom me-1"
+                              : "mdi mdi-robot align-bottom me-1"
+                          }`}
+                        ></i>
+                        {changeColor === false ? "Manual" : "Automatic"}
+                      </span>
+                    </button>
+                    {changeColor === false ? (
+                      <Form.Control
+                        type="email"
+                        id="customerName-field"
+                        placeholder="Enter trip cost"
+                        required
+                      />
+                    ) : (
+                      <Form.Control
+                        type="email"
+                        id="customerName-field"
+                        defaultValue={520}
+                        required
+                      />
+                    )}
+                  </div>
+                </Col>
+                <Col lg={12}>
+                  <div className="hstack gap-2 justify-content-end">
+                    <Button
+                      className="btn-ghost-danger"
+                      onClick={() => {
+                        tog_AddTripModel();
+                      }}
+                      data-bs-dismiss="modal"
+                    >
+                      <i className="ri-close-line align-bottom me-1"></i> Close
+                    </Button>
+                    <Button variant="primary" id="add-btn">
+                      Add Trip Model
+                    </Button>
+                  </div>
+                </Col>
+              </Row>
+            </Form>
+          </Modal.Body>
+        </Modal>
+
+        {/* Edit Trip Model Modal */}
+        <Modal
+          className="fade zoomIn"
+          size="lg"
+          show={modal_EditTripModelModals}
+          onHide={() => {
+            tog_EditTripModel();
+          }}
+          centered
+        >
+          <Modal.Header className="px-4 pt-4" closeButton>
+            <h5 className="modal-title fs-18" id="exampleModalLabel">
+              Edit Trip Model
+            </h5>
+          </Modal.Header>
+          <Modal.Body className="p-4">
+            <AddNewTripModel />
+          </Modal.Body>
+        </Modal>
       </div>
     </React.Fragment>
   );

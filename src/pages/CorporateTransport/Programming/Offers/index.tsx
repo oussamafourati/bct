@@ -102,7 +102,11 @@ const Offers = () => {
               </Link>
             </li>
             <li>
-              <Link to="#" className="badge badge-soft-success edit-item-btn">
+              <Link
+                to={`/edit-offer/${cell.srNo}`}
+                className="badge badge-soft-success edit-item-btn"
+                state={cell}
+              >
                 <i className="ri-edit-2-line"></i>
               </Link>
             </li>
@@ -223,92 +227,6 @@ const Offers = () => {
               </Card.Header>
               <Card.Body>
                 <DataTable columns={columns} data={data} pagination />
-                {/* <div className="accordion" id="default-accordion-example">
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingOne">
-                      <button
-                        className="accordion-button"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                      >
-                        How to create a group booking ?
-                      </button>
-                    </h2>
-                    <div
-                      id="collapseOne"
-                      className="accordion-collapse collapse show"
-                      aria-labelledby="headingOne"
-                      data-bs-parent="#default-accordion-example"
-                    >
-                      <div className="accordion-body">
-                        Although you probably won’t get into any legal trouble
-                        if you do it just once, why risk it? If you made your
-                        subscribers a promise, you should honor that. If not,
-                        you run the risk of a drastic increase in opt outs,
-                        which will only hurt you in the long run.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingTwo">
-                      <button
-                        className="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="collapseTwo"
-                      >
-                        Why do we use it ?
-                      </button>
-                    </h2>
-                    <div
-                      id="collapseTwo"
-                      className="accordion-collapse collapse"
-                      aria-labelledby="headingTwo"
-                      data-bs-parent="#default-accordion-example"
-                    >
-                      <div className="accordion-body">
-                        No charges are put in place by SlickText when
-                        subscribers join your text list. This does not mean
-                        however that charges 100% will not occur. Charges that
-                        may occur fall under part of the compliance statement
-                        stating "Message and Data rates may apply."
-                      </div>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingThree">
-                      <button
-                        className="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree"
-                        aria-expanded="false"
-                        aria-controls="collapseThree"
-                      >
-                        Where does it come from ?
-                      </button>
-                    </h2>
-                    <div
-                      id="collapseThree"
-                      className="accordion-collapse collapse"
-                      aria-labelledby="headingThree"
-                      data-bs-parent="#default-accordion-example"
-                    >
-                      <div className="accordion-body">
-                        Now that you have a general idea of the amount of texts
-                        you will need per month, simply find a plan size that
-                        allows you to have this allotment, plus some extra for
-                        growth. Don't worry, there are no mistakes to be made
-                        here. You can always upgrade and downgrade.
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
               </Card.Body>
             </Card>
             <Modal

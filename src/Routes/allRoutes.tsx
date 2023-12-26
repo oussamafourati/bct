@@ -126,6 +126,7 @@ const publicRoutes = [
 
   { path: "/new-offer", component: <AddNewOffer /> },
   { path: "/offer-details/:name", component: <OfferDetails /> },
+  { path: "/edit-offer/:name", component: <AddNewOffer /> },
 
   //? Corporate
   { path: "/schools", component: <Schools /> },

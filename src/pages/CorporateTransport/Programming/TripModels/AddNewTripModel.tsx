@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import Breadcrumb from "Common/BreadCrumb";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
 import Dropzone from "react-dropzone";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
@@ -57,261 +57,205 @@ const AddNewTripModel = () => {
   const handleClick = () => {
     setChangeColor(!changeColor);
   };
-
+  const tripModelLocation = useLocation();
   return (
     <React.Fragment>
-      <div className="page-content">
-        <Container fluid={true}>
-          {/* <Breadcrumb title="Create Vehicle" pageTitle="Vehicles" /> */}
-          <form
-            id="createproduct-form"
-            autoComplete="off"
-            className="needs-validation"
-            noValidate
-          >
-            <Row>
-              <Col lg={12}>
-                <Card>
-                  <Card.Body>
-                    <div className="mb-3">
-                      <Form className="tablelist-form">
-                        <input type="hidden" id="id-field" />
-                        <Row>
-                          <Row>
-                            {/* Name  == Done */}
-                            <Col lg={4}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="customerName-field">
-                                  Corporate
-                                </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                >
-                                  <option value="">All Corporate</option>
-                                  <option value="Small">
-                                    CITY ROAD PRIMARY SCHOOL
-                                  </option>
-                                  <option value="Medium">
-                                    Denstone College
-                                  </option>
-                                  <option value="Large">ZEELO PROLOGIS</option>
-                                </select>
-                              </div>
-                            </Col>
-                            {/* Address == Done */}
-                            <Col lg={4}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Handled By
-                                </Form.Label>
-                                <select
-                                  className="form-select text-muted"
-                                  name="choices-single-default"
-                                  id="statusSelect"
-                                  required
-                                  onChange={handleOwner}
-                                >
-                                  <option value="">Select</option>
-                                  <option value="Bouden">Bouden</option>
-                                  <option value="Affiliate">Affiliate</option>
-                                </select>
-                              </div>
-                            </Col>
-                            {selected === "Affiliate" ? (
-                              <Col lg={4}>
-                                <div className="mb-3">
-                                  <Form.Label htmlFor="supplierName-field">
-                                    Affiliates
-                                  </Form.Label>
-                                  <select
-                                    className="form-select text-muted"
-                                    name="choices-single-default"
-                                    id="statusSelect"
-                                    required
-                                    onChange={handleOwner}
-                                  >
-                                    <option value="">All Affiliates</option>
-                                    <option value="Brit Coaches Ltd">
-                                      Brit Coaches Ltd
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      Dorset Mini Coach
-                                    </option>
-                                    <option value="Brit Coaches Ltd">
-                                      HOUSEM MORSI
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      Top line travel- Amjad
-                                    </option>
-                                  </select>
-                                </div>
-                              </Col>
-                            ) : (
-                              ""
-                            )}
-                            {selected === "Affiliate" ? (
-                              ""
-                            ) : (
-                              <Col lg={4}>
-                                <div className="mb-3">
-                                  <Form.Label htmlFor="supplierName-field">
-                                    Driver
-                                  </Form.Label>
-                                  <select
-                                    className="form-select text-muted"
-                                    name="choices-single-default"
-                                    id="statusSelect"
-                                    required
-                                    onChange={handleOwner}
-                                  >
-                                    <option value="">All Drivers</option>
-                                    <option value="Brit Coaches Ltd">
-                                      Wadi Hussain
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      Amar Bashir
-                                    </option>
-                                    <option value="Brit Coaches Ltd">
-                                      Ahmed Zeeshan
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      Raghban Ali
-                                    </option>
-                                  </select>
-                                </div>
-                              </Col>
-                            )}
-                            {selected === "Affiliate" ? (
-                              ""
-                            ) : (
-                              <Col lg={4}>
-                                <div className="mb-3">
-                                  <Form.Label htmlFor="supplierName-field">
-                                    Vehicle
-                                  </Form.Label>
-                                  <select
-                                    className="form-select text-muted"
-                                    name="choices-single-default"
-                                    id="statusSelect"
-                                    required
-                                    onChange={handleOwner}
-                                  >
-                                    <option value="">All Vehicles</option>
-                                    <option value="Brit Coaches Ltd">
-                                      Standard Saloon Car
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      Executive Saloon Car
-                                    </option>
-                                    <option value="Brit Coaches Ltd">
-                                      VIP Saloon Car
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      Standard 6 Seat MPV
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      Executive 6 Seat MPV
-                                    </option>
-                                    <option value="Dorset Mini Coach">
-                                      10-16 Seat Standard Minibus
-                                    </option>
-                                  </select>
-                                </div>
-                              </Col>
-                            )}
-                          </Row>
-                          <Row>
-                            {/* Category  == Done */}
-                            <Col lg={4}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Customer Name
-                                </Form.Label>
-                                <Form.Control
-                                  type="text"
-                                  id="customerName-field"
-                                  placeholder="Enter Customer name"
-                                  required
-                                />
-                              </div>
-                            </Col>
-                            {/* Activity  == Done */}
-                            <Col lg={3}>
-                              <div className="mb-3">
-                                <Form.Label htmlFor="supplierName-field">
-                                  Customer Email
-                                </Form.Label>
-                                <Form.Control
-                                  type="email"
-                                  id="customerName-field"
-                                  placeholder="Enter Customer Email"
-                                  required
-                                />
-                              </div>
-                            </Col>
-                            <Col lg={3}>
-                              <div className="mb-3">
-                                <button
-                                  onClick={handleClick}
-                                  type="button"
-                                  className={`btn btn-darken-light custom-toggle text-dark btn-sm ${
-                                    changeColor === false
-                                      ? "btn-darken-light"
-                                      : "btn-darken-light"
-                                  }`}
-                                  data-bs-toggle="button"
-                                >
-                                  <span className="icon-on">
-                                    <i
-                                      className={`${
-                                        changeColor === false
-                                          ? "mdi mdi-cog-counterclockwise align-bottom me-1"
-                                          : "mdi mdi-robot align-bottom me-1"
-                                      }`}
-                                    ></i>
-                                    {changeColor === false
-                                      ? "Manual"
-                                      : "Automatic"}
-                                  </span>
-                                </button>
-                                {changeColor === false ? (
-                                  <Form.Control
-                                    type="email"
-                                    id="customerName-field"
-                                    placeholder="Enter trip cost"
-                                    required
-                                  />
-                                ) : (
-                                  <Form.Control
-                                    type="email"
-                                    id="customerName-field"
-                                    defaultValue={520}
-                                    required
-                                  />
-                                )}
-                              </div>
-                            </Col>
-                          </Row>
-                          <Col lg={12}>
-                            <div className="hstack gap-2 justify-content-end">
-                              <Button variant="primary" id="add-btn">
-                                Add Trip Model
-                              </Button>
-                            </div>
-                          </Col>
-                        </Row>
-                      </Form>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </form>
-        </Container>
-      </div>
+      <Form className="tablelist-form">
+        <input type="hidden" id="id-field" />
+        <Row>
+          <Col lg={12}>
+            <div className="mb-3">
+              <Form.Label htmlFor="customerName-field">Corporate</Form.Label>
+              <select
+                className="form-select text-muted"
+                name="choices-single-default"
+                id="statusSelect"
+                required
+              >
+                <option value="">All Corporate</option>
+                <option value="Small" selected>
+                  CITY ROAD PRIMARY SCHOOL
+                </option>
+                <option value="Medium">Denstone College</option>
+                <option value="Large">ZEELO PROLOGIS</option>
+              </select>
+            </div>
+          </Col>
+          <Col lg={4}>
+            <div className="mb-3">
+              <Form.Label htmlFor="orderDate-field">Handled By</Form.Label>
+              <select
+                className="form-select text-muted"
+                name="choices-single-default"
+                id="statusSelect"
+                required
+                onChange={handleOwner}
+              >
+                <option value="">Select</option>
+                <option value="Bouden" selected>
+                  Bouden
+                </option>
+                <option value="Affiliate">Affiliate</option>
+              </select>
+            </div>
+          </Col>
+          {selected === "Affiliate" ? (
+            <Col lg={4}>
+              <div className="mb-3">
+                <Form.Label htmlFor="supplierName-field">Affiliates</Form.Label>
+                <select
+                  className="form-select text-muted"
+                  name="choices-single-default"
+                  id="statusSelect"
+                  required
+                  onChange={handleOwner}
+                >
+                  <option value="">All Affiliates</option>
+                  <option value="Brit Coaches Ltd">Brit Coaches Ltd</option>
+                  <option value="Dorset Mini Coach">Dorset Mini Coach</option>
+                  <option value="Brit Coaches Ltd">HOUSEM MORSI</option>
+                  <option value="Dorset Mini Coach">
+                    Top line travel- Amjad
+                  </option>
+                </select>
+              </div>
+            </Col>
+          ) : (
+            ""
+          )}
+          {selected === "Affiliate" ? (
+            ""
+          ) : (
+            <Col lg={4}>
+              <div className="mb-3">
+                <Form.Label htmlFor="supplierName-field">Driver</Form.Label>
+                <select
+                  className="form-select text-muted"
+                  name="choices-single-default"
+                  id="statusSelect"
+                  required
+                  onChange={handleOwner}
+                >
+                  <option value="">All Drivers</option>
+                  <option value="Brit Coaches Ltd" selected>
+                    Wadi Hussain
+                  </option>
+                  <option value="Dorset Mini Coach">Amar Bashir</option>
+                  <option value="Brit Coaches Ltd">Ahmed Zeeshan</option>
+                  <option value="Dorset Mini Coach">Raghban Ali</option>
+                </select>
+              </div>
+            </Col>
+          )}
+          {selected === "Affiliate" ? (
+            ""
+          ) : (
+            <Col lg={4}>
+              <div className="mb-3">
+                <Form.Label htmlFor="supplierName-field">Vehicle</Form.Label>
+                <select
+                  className="form-select text-muted"
+                  name="choices-single-default"
+                  id="statusSelect"
+                  required
+                  onChange={handleOwner}
+                >
+                  <option value="">All Vehicles</option>
+                  <option value="Brit Coaches Ltd">Standard Saloon Car</option>
+                  <option value="Dorset Mini Coach" selected>
+                    Executive Saloon Car
+                  </option>
+                  <option value="Brit Coaches Ltd">VIP Saloon Car</option>
+                  <option value="Dorset Mini Coach">Standard 6 Seat MPV</option>
+                  <option value="Dorset Mini Coach">
+                    Executive 6 Seat MPV
+                  </option>
+                  <option value="Dorset Mini Coach">
+                    10-16 Seat Standard Minibus
+                  </option>
+                </select>
+              </div>
+            </Col>
+          )}
+        </Row>
+        <Row>
+          <Col lg={4}>
+            <div className="mb-3">
+              <Form.Label htmlFor="supplierName-field">
+                Customer Name
+              </Form.Label>
+              <Form.Control
+                type="text"
+                id="customerName-field"
+                defaultValue={tripModelLocation.state.srNo}
+                required
+              />
+            </div>
+          </Col>
+          <Col lg={4}>
+            <div className="mb-3">
+              <Form.Label htmlFor="supplierName-field">
+                Customer Email
+              </Form.Label>
+              <Form.Control
+                type="email"
+                id="customerName-field"
+                defaultValue={tripModelLocation.state.srNo}
+                required
+              />
+            </div>
+          </Col>
+          <Col lg={4}>
+            <div className="mb-3">
+              <button
+                onClick={handleClick}
+                type="button"
+                className={`btn btn-darken-light custom-toggle text-dark btn-sm ${
+                  changeColor === false
+                    ? "btn-darken-light"
+                    : "btn-darken-light"
+                }`}
+                data-bs-toggle="button"
+              >
+                <span className="icon-on">
+                  <i
+                    className={`${
+                      changeColor === false
+                        ? "mdi mdi-cog-counterclockwise align-bottom me-1"
+                        : "mdi mdi-robot align-bottom me-1"
+                    }`}
+                  ></i>
+                  {changeColor === false ? "Manual" : "Automatic"}
+                </span>
+              </button>
+              {changeColor === false ? (
+                <Form.Control
+                  type="email"
+                  id="customerName-field"
+                  defaultValue={tripModelLocation.state.srNo}
+                  required
+                />
+              ) : (
+                <Form.Control
+                  type="email"
+                  id="customerName-field"
+                  defaultValue={520}
+                  required
+                />
+              )}
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg={12}>
+            <div className="hstack gap-2 justify-content-end">
+              <Button variant="primary" id="add-btn">
+                Apply
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </Form>
     </React.Fragment>
   );
 };

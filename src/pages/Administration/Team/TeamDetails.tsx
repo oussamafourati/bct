@@ -294,7 +294,6 @@ const TeamDetails = () => {
                             </Row>
                           </div>
                         </Tab.Pane>
-
                         <Tab.Pane eventKey="custom-v-pills-profile">
                           <div>
                             <h5>Document</h5>
@@ -449,7 +448,6 @@ const TeamDetails = () => {
                             </Button>
                           </div>
                         </Tab.Pane>
-
                         <Tab.Pane eventKey="custom-v-pills-work">
                           <div>
                             <h5>Work</h5>
