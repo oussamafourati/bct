@@ -83,6 +83,11 @@ import DefectsManagement from "pages/Administration/Vehicles/DefectsManagement";
 import EditSchool from "pages/Corporate/Schools/EditSchools";
 import EditCompany from "pages/Corporate/Companies/EditCompany";
 import EditAffiliate from "pages/Corporate/Subcontractor/EditAffiliate";
+import EditVehicle from "pages/Administration/Vehicles/EditVehicle";
+import Programs from "pages/Programs";
+import ProgramList from "pages/ProgramList";
+import ProgramClone from "pages/ProgramList/ProgramClone";
+import ProgramDetails from "pages/ProgramList/ProgramDetails";
 
 const authProtectedRoutes = [];
 
@@ -94,10 +99,19 @@ const publicRoutes = [
   { path: "/user-manual", component: <UserManual /> },
   { path: "/defects-management", component: <DefectsManagement /> },
 
-  { path: "/settings", component: <SiteSettings /> },
+  
   //? Tracking
   { path: "/map-tracking", component: <Maptracking /> },
   { path: "/delays&changes", component: <Delayschanges /> },
+
+  { path: "/site-settings", component: < SiteSettings/> },
+
+  { path: "/program", component: < Programs/> },
+  { path: "/list-of-program", component: < ProgramList/> },
+  { path: "/program/:name", component: < ProgramClone/> },
+  { path: "/program-details/:name", component: < ProgramDetails/> },
+
+  { path: "/edit-vehicle/:name", component: < EditVehicle/> },
 
   //? Visitors Quote
   { path: "/new-quote", component: <Newquote /> },

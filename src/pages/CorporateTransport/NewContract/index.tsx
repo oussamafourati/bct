@@ -68,7 +68,6 @@ const NewContract = () => {
     {
       name: <span className="font-weight-bold fs-13">Action</span>,
       sortable: true,
-
       cell: () => {
         return (
           <ul className="hstack gap-2 list-unstyled mb-0">

@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 import {
-  Button,
   Card,
   Col,
   Container,
   Row,
   Tab,
   Nav,
-  Form,
-  Image,
   Dropdown,
   Table,
 } from "react-bootstrap";
-import Breadcrumb from "Common/BreadCrumb";
-import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
-import logoDark from "assets/images/logo-dark.png";
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
-
-// import './google-map.scss';
-
-const mapStyles = {
-  height: "180%",
-};
 
 const LoadingContainer = () => <div>Loading...</div>;
 const Maptracking = (props: any) => {

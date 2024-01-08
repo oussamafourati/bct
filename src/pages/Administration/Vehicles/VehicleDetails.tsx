@@ -47,7 +47,7 @@ const VehicleDetails = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Breadcrumb title="Overview" pageTitle="Vehicle" />
+          <Breadcrumb title={LocationVehicle.state.name} pageTitle="Vehicle" />
           <Row className="gx-lg-4" style={{backgroundColor: "#ffffff"}}>
             <Col xl={4} lg={8} className="mx-auto">
               <Row className="sticky-side-div">
@@ -168,9 +168,9 @@ const VehicleDetails = () => {
                     <h4>{LocationVehicle.state.name}</h4>
                     <div className="hstack gap-3 flex-wrap">
                       <div>
-                        <Link to="#" className="text-primary d-block">
+                      <span className="text-body fw-medium">
                           {LocationVehicle.state.serialNumber}
-                        </Link>
+                          </span>
                       </div>
                       <div className="vr"></div>
                       <div className="text-muted">
@@ -191,7 +191,7 @@ const VehicleDetails = () => {
                       placement="top"
                       overlay={<Tooltip id="top"> Edit </Tooltip>}
                     >
-                      <Link to="#" className="btn btn-soft-secondary btn-icon">
+                      <Link to={`/edit-vehicle/${LocationVehicle.state.name}`} className="btn btn-soft-secondary btn-icon" state={LocationVehicle.state}>
                         <i className="ri-pencil-fill align-bottom"></i>
                       </Link>
                     </OverlayTrigger>

@@ -91,7 +91,7 @@ const Vehicles = () => {
           return (
             <ul className="hstack gap-2 list-unstyled mb-0">
               <li>
-                <Link to="#" className="badge badge-soft-success edit-item-btn">
+                <Link to={`/edit-vehicle/${cellProps.name}`} className="badge badge-soft-success edit-item-btn" state={cellProps}>
                   <i className="ri-edit-2-line"></i>
                 </Link>
               </li>
@@ -135,7 +135,7 @@ const Vehicles = () => {
                     onClick={() => tog_AddNewVehicle()}
                     className="add-btn"
                   >
-                    <i className="bx bx-car me-1 align-middle"></i> Add Vehicle
+                    <i className="bx bx-car align-middle fs-22"></i> Add Vehicle
                   </Button>
                 </Col>
               </Row>

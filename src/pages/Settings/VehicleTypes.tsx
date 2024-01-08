@@ -55,17 +55,23 @@ const VehicleTypes = () => {
         return (
           <ul className="hstack gap-2 list-unstyled mb-0">
             <li>
-              <Link to="#" className="badge badge-soft-primary edit-item-btn">
+              <Link to="#" className="badge badge-soft-primary edit-item-btn" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.1em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}>
                 <i className="ri-eye-line"></i>
               </Link>
             </li>
             <li>
-              <Link to="#" className="badge badge-soft-success edit-item-btn">
+              <Link to="#" className="badge badge-soft-success edit-item-btn" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.1em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}>
                 <i className="ri-edit-2-line"></i>
               </Link>
             </li>
             <li>
-              <Link to="#" className="badge badge-soft-danger remove-item-btn">
+              <Link to="#" className="badge badge-soft-danger remove-item-btn" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.1em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}>
                 <i className="ri-delete-bin-2-line"></i>
               </Link>
             </li>
@@ -141,7 +147,9 @@ const VehicleTypes = () => {
                   aria-label="Basic example"
                 >
                   <button type="button" className="btn btn-primary">
-                    <i className="ri-roadster-line align-middle"></i>{" "}
+                    <i className="ri-roadster-line align-middle" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.5em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}></i>{" "}
                     <span>Add New Type</span>
                   </button>
                 </div>

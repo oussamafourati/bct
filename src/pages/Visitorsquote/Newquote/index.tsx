@@ -20,7 +20,6 @@ const Newquote = () => {
   const radioHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedType(event.target.value);
   };
-  console.log(selectedType);
   const [selectedFiles, setselectedFiles] = useState([]);
 
   function handleAcceptedFiles(files: any) {
@@ -45,11 +44,19 @@ const Newquote = () => {
   }
 
   const [selected, setSelected] = useState("");
-  const handlePassengerNumber = async (
+  const handlePassengerNumber = (
     e: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const passengerNumber = e.target.value;
-    setSelected(await passengerNumber);
+    setSelected(passengerNumber);
+  };
+
+  const [selectedVehicle, setSelectedVehicle] = useState("");
+  const handleVehicleType = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const vehicleType = e.target.value;
+    setSelectedVehicle(vehicleType);
   };
 
   return (
@@ -298,32 +305,51 @@ const Newquote = () => {
                                     Vehicle Type
                                   </label>
                                   {selected === "1" ||
-                                  selected === "2" ||
-                                  selected === "3" ? (
+                                    selected === "2" ||
+                                    selected === "3" ? (
                                     <select
                                       className="form-select text-muted"
                                       name="choices-single-default"
                                       id="statusSelect"
+                                      onChange={handleVehicleType}
                                       required
                                     >
                                       <option value="">Type</option>
-                                      <option value="Brit Coaches Ltd">
+                                      <option value="StandardSaloonCar">
                                         Standard Saloon Car
                                       </option>
-                                      <option value="Dorset Mini Coach">
+                                      <option value="ExecutiveSaloonCar">
                                         Executive Saloon Car
                                       </option>
-                                      <option value="Brit Coaches Ltd">
+                                      <option value="VIPSaloonCar">
                                         VIP Saloon Car
                                       </option>
-                                      <option value="Dorset Mini Coach">
+                                      <option value="Standard6SeatMPV">
                                         Standard 6 Seat MPV
                                       </option>
-                                      <option value="Dorset Mini Coach">
+                                      <option value="Executive6SeatMPV">
                                         Executive 6 Seat MPV
                                       </option>
+                                      <option value="VIP6SeatMPV">
+                                        VIP 6 Seat MPV
+                                      </option>
+                                      <option value="Executive7SeatMPV">
+                                        Executive 7 Seat MPV
+                                      </option>
+                                      <option value="Luxury7SeatMPV">
+                                        Luxury 7 Seat MPV
+                                      </option>
                                       <option value="Dorset Mini Coach">
+                                        Standard 8 Seat MPV
+                                      </option>
+                                      <option value="Executive8SeatMPV">
+                                        Executive 8 Seat MPV
+                                      </option>
+                                      <option value="10-16SeatStandardMinibus">
                                         10-16 Seat Standard Minibus
+                                      </option>
+                                      <option value="10-16SeatExecutiveMinibus">
+                                        10-16 Seat Executive Minibus
                                       </option>
                                     </select>
                                   ) : selected === "4" ||
@@ -336,7 +362,6 @@ const Newquote = () => {
                                       required
                                     >
                                       <option value="">Type</option>
-
                                       <option value="Dorset Mini Coach">
                                         Standard 6 Seat MPV
                                       </option>
@@ -344,12 +369,584 @@ const Newquote = () => {
                                         Executive 6 Seat MPV
                                       </option>
                                       <option value="Dorset Mini Coach">
+                                        VIP 6 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive 7 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Luxury 7 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Standard 8 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive 8 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
                                         10-16 Seat Standard Minibus
                                       </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Executive Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        14-16 Seat Luxury Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Standard Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Executive Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Luxury Midi Coach
+                                      </option>
                                     </select>
-                                  ) : (
-                                    ""
-                                  )}
+                                  ) : selected === "7" ? (
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Type</option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive 7 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Luxury 7 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Standard 8 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive 8 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Standard Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Executive Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        14-16 Seat Luxury Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Standard Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Executive Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        25-33 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Standard Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Executive Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Luxury Midi Coach
+                                      </option>
+                                    </select>
+                                  ) : selected === "8" ? (
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Type</option>
+                                      <option value="Dorset Mini Coach">
+                                        Standard 8 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        Executive 8 Seat MPV
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Standard Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Executive Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        14-16 Seat Luxury Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Standard Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Executive Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        25-33 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Standard Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Executive Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        33 Seat Standard
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        33 Seat Executive
+                                      </option>
+                                    </select>
+                                  ) : selected === "9" || selected === "10" || selected === "11" || selected === "12" || selected === "13" || selected === "14" || selected === "15" || selected === "16" ? (
+                                    <select
+                                      className="form-select text-muted"
+                                      name="choices-single-default"
+                                      id="statusSelect"
+                                      required
+                                    >
+                                      <option value="">Type</option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Standard Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        10-16 Seat Executive Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        14-16 Seat Luxury Minibus
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Standard Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Executive Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        17-24 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        25-33 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Standard Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Executive Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        29 Seat Luxury Midi Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        33 Seat Standard
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        33 Seat Executive
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        36 Seat Luxury Team Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        49 Seat Standard Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        49 Seat Executive Coach
+                                      </option>
+                                      <option value="Dorset Mini Coach">
+                                        49 Seat Luxury Coach
+                                      </option>
+                                    </select>
+                                  ) : selected === "17" || selected === "18" || selected === "19"
+                                  || selected === "20" || selected === "21" || selected === "22" || 
+                                  selected === "23" || selected==="24"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      17-24 Seat Standard Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      17-24 Seat Executive Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      17-24 Seat Luxury Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      25-33 Seat Luxury Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      29 Seat Standard Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      29 Seat Executive Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      29 Seat Luxury Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      33 Seat Standard
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      33 Seat Executive
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      36 Seat Luxury Team Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Luxury Coach
+                                    </option>
+                                  </select> : selected === "25" || selected === "26" || selected === "27"
+                                  || selected === "28" || selected === "29"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      25-33 Seat Luxury Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      29 Seat Standard Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      29 Seat Executive Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      29 Seat Luxury Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      33 Seat Standard
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      33 Seat Executive
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      36 Seat Luxury Team Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Luxury Coach
+                                    </option>
+                                  </select>: selected === "30" || selected === "31" || selected === "32"
+                                  || selected === "33"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      25-33 Seat Luxury Midi Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      33 Seat Standard
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      33 Seat Executive
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      36 Seat Luxury Team Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Luxury Coach
+                                    </option>
+                                  </select>:selected === "34" || selected === "35" || selected === "36"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      36 Seat Luxury Team Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Luxury Coach
+                                    </option>
+                                  </select>:selected >= "37" && selected <= "49"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      49 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      63 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      72 Seat Standard Coach
+                                    </option>
+                                  </select>: selected >= "50" && selected <= "53"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      53 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      63 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      72 Seat Standard Coach
+                                    </option>
+                                  </select>: selected >= "54" && selected <= "55"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      55 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      63 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      72 Seat Standard Coach
+                                    </option>
+                                  </select>:selected >= "56" && selected <= "57"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      57 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      63 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      72 Seat Standard Coach
+                                    </option>
+                                  </select>:selected >= "58" && selected <= "62"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Standard Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      62 Seat Luxury Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      63 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      72 Seat Standard Coach
+                                    </option>
+                                  </select>:selected === "63"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      63 Seat Executive Coach
+                                    </option>
+                                    <option value="Dorset Mini Coach">
+                                      72 Seat Standard Coach
+                                    </option>
+                                  </select>:selected > "63" && selected <="72"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="Dorset Mini Coach">
+                                      72 Seat Standard Coach
+                                    </option>
+                                  </select>:selected > "72"
+                                  ? <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                  >
+                                    <option value="">Type</option>
+                                    <option value="MultipleStandardVehicles">
+                                    Multiple Standard Vehicles
+                                    </option>
+                                    <option value="MultipleExecutiveVehicles">
+                                    Multiple Executive Vehicles
+                                    </option>
+                                    <option value="MultipleLuxuryVehicles">
+                                    Multiple Luxury Vehicles
+                                    </option>
+                                  </select>:""}
                                 </div>
                               </Col>
                               {/* Luggage Details  == Done */}
@@ -361,26 +958,74 @@ const Newquote = () => {
                                   >
                                     Luggage Details
                                   </label>
+                                  {selected === "1" && (selectedVehicle === "StandardSaloonCar" || selectedVehicle === "ExecutiveSaloonCar" || selectedVehicle === "VIPSaloonCar") ? 
+                                 <select
+                                 className="form-select text-muted"
+                                 name="choices-single-default"
+                                 id="statusSelect"
+                                 required
+                               >
+                                 <option value="">Details</option>
+                                 <option value="0.00">
+                                   No Luggage
+                                 </option>
+                                 <option value="1.00">
+                                   Lap Luggage Only
+                                 </option>
+                                 <option value="1.20">
+                                 1 x 10kg Hand luggage per person only
+                                 </option>                                
+                                 <option value="2.00">
+                                   1 x 20kg Check in luggage per person only
+                                 </option>
+                               </select>  
+                                : selected === "1" && (selectedVehicle === "StandardSaloonCar" || selectedVehicle === "ExecutiveSaloonCar" || selectedVehicle === "VIPSaloonCar") ?
+                                <select
+                                 className="form-select text-muted"
+                                 name="choices-single-default"
+                                 id="statusSelect"
+                                 required
+                               >
+                                 <option value="">Details</option>
+                                 <option value="0.00">
+                                   No Luggage
+                                 </option>
+                                 <option value="1.00">
+                                   Lap Luggage Only
+                                 </option>
+                                 <option value="1.20">
+                                 1 x 10kg Hand luggage per person only
+                                 </option>                                
+                                 <option value="2.00">
+                                   1 x 20kg Check in luggage per person only
+                                 </option>
+                               </select>
+                                 :selected === "2" && (selectedVehicle === "StandardSaloonCar" || selectedVehicle === "ExecutiveSaloonCar" || selectedVehicle === "VIPSaloonCar") ?
+                                 <select
+                                  className="form-select text-muted"
+                                  name="choices-single-default"
+                                  id="statusSelect"
+                                  required
+                                >
+                                  <option value="">Details</option>
+                                  <option value="1.20">
+                                  1 x 10kg Hand luggage per person only
+                                  </option>                                
+                                </select>
+                                  : selected === "3" && (selectedVehicle === "StandardSaloonCar" || selectedVehicle === "ExecutiveSaloonCar" || selectedVehicle === "VIPSaloonCar") ?
                                   <select
-                                    className="form-select text-muted"
-                                    name="choices-single-default"
-                                    id="statusSelect"
-                                    required
-                                  >
-                                    <option value="">Details</option>
-                                    <option value="No Luggage">
-                                      No Luggage
-                                    </option>
-                                    <option value="10Kg">
-                                      Lap Luggage Only
-                                    </option>
-                                    <option value="20Kg">
-                                      1 x 10kg Hang luggage per person only
-                                    </option>
-                                    <option value="20Kg">
-                                      1 x 20kg Check in luggage per person only
-                                    </option>
-                                  </select>
+                                   className="form-select text-muted"
+                                   name="choices-single-default"
+                                   id="statusSelect"
+                                   required
+                                 >
+                                   <option value="">Details</option>
+                                   <option value="1.00">
+                                   Lap Luggage Only
+                                 </option>                             
+                                 </select>
+                                   :""
+                                }
                                 </div>
                               </Col>
                               {/* Luggage Details  == Done */}

@@ -63,7 +63,7 @@ const Template = ({ emails }: any) => {
           <Button
             variant="success"
             onClick={() => setShow(true)}
-            className="w-100"
+            className="w-100 btn-sm"
           >
             <i className="mdi mdi-email-plus-outline me-1 align-middle"></i> Add Template
           </Button>
@@ -188,20 +188,6 @@ const Template = ({ emails }: any) => {
               <Col lg={12}>
                 <div className="mb-3">
                   <label htmlFor="brandName-input" className="form-label">
-                    Body
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="brandName-input"
-                    placeholder="Enter email body"
-                    required
-                  />
-                </div>
-              </Col>
-              <Col lg={12}>
-                <div className="mb-3">
-                  <label htmlFor="brandName-input" className="form-label">
                     Interaction
                   </label>
                   <select
@@ -211,11 +197,24 @@ const Template = ({ emails }: any) => {
                     required
                   >
                     <option value="">For</option>
-                    <option value="Visitor">Visitor</option>
-                    <option value="Sub-Contractor">Sub-Contractor</option>
+                    <option value="Visitor">Customer</option>
+                    <option value="Sub-Contractor">Affiliate</option>
                   </select>
                 </div>
               </Col>
+              <Col lg={12}>
+                <div className="mb-3">
+                  <label htmlFor="brandName-input" className="form-label">
+                    Body
+                  </label>
+                  <textarea
+                                                className="form-control"
+                                                id="exampleFormControlTextarea5"
+                                                rows={3}
+                                              ></textarea>
+                </div>
+              </Col>
+              
               <Col lg={12}>
                 <div className="hstack gap-2 justify-content-end">
                   <Button

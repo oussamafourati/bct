@@ -306,10 +306,17 @@ const Navdata = () => {
       stateVariables: isFeedbackClaims,
       subItems: [
         {
-          id: "Scheduling",
-          label: "Scheduling",
-          link: "/scheduling",
-          icon: "mdi mdi-calendar-edit",
+          id: "Program",
+          label: "Program",
+          link: "/program",
+          icon: "mdi mdi-map-marker-plus",
+          parentId: "Management",
+        },
+        {
+          id: "ListofPrograms",
+          label: "List of Programs",
+          link: "/list-of-program",
+          icon: "mdi mdi-bus-stop-uncovered",
           parentId: "Management",
         },
         {
@@ -318,26 +325,12 @@ const Navdata = () => {
           link: "/vehicles",
           icon: "mdi mdi-car-side",
           parentId: "Management",
-        },
-        {
-          id: "Stations",
-          label: "Stations",
-          link: "/stations",
-          icon: "mdi mdi-map-marker-plus",
-          parentId: "Management",
-        },
+        },   
         {
           id: "Offers",
           label: "Offers",
           link: "/offers",
           icon: "mdi mdi-bullhorn",
-          parentId: "Management",
-        },
-        {
-          id: "TripModels",
-          label: "Trip Models",
-          link: "/trip-models",
-          icon: "mdi mdi-bag-suitcase",
           parentId: "Management",
         },
         {
@@ -352,6 +345,13 @@ const Navdata = () => {
           label: "Defects",
           link: "/defects-management",
           icon: "mdi mdi-alert",
+          parentId: "Management",
+        },
+        {
+          id: "Settings",
+          label: "Site Settings",
+          link: "/site-settings",
+          icon: "mdi mdi-cogs",
           parentId: "Management",
         },
       ],

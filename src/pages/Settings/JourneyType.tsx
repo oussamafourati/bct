@@ -50,23 +50,28 @@ const JourneyTypes = () => {
     {
       name: <span className="font-weight-bold fs-13">Action</span>,
       sortable: true,
-
       cell: () => {
         return (
           <ul className="hstack gap-2 list-unstyled mb-0">
             <li>
               <Link to="#" className="badge badge-soft-primary edit-item-btn">
-                <i className="ri-eye-line"></i>
+                <i className="ri-eye-line" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.2em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}></i>
               </Link>
             </li>
             <li>
               <Link to="#" className="badge badge-soft-success edit-item-btn">
-                <i className="ri-edit-2-line"></i>
+                <i className="ri-edit-2-line" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.2em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}></i>
               </Link>
             </li>
             <li>
               <Link to="#" className="badge badge-soft-danger remove-item-btn">
-                <i className="ri-delete-bin-2-line"></i>
+                <i className="ri-delete-bin-2-line" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.2em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}></i>
               </Link>
             </li>
           </ul>
@@ -189,7 +194,9 @@ const JourneyTypes = () => {
                   aria-label="Basic example"
                 >
                   <button type="button" className="btn btn-primary">
-                    <i className="ri-add-fill align-middle"></i>{" "}
+                    <i className="ri-add-fill align-middle" style={{ transition: 'transform 0.3s ease-in-out', cursor: 'pointer', fontSize: '1.5em' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.3)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}></i>{" "}
                     <span>Add New Journey</span>
                   </button>
                 </div>

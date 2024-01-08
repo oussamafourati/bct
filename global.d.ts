@@ -8,3 +8,4 @@ declare module 'google-maps-react';
 declare module 'react-data-table-component';
 declare module 'react-color';
 declare module 'react-google-recaptcha';
+declare module 'react-dual-listbox';

@@ -4179,6 +4179,11 @@ ckeditor5@^36.0.1:
     "@ckeditor/ckeditor5-utils" "^36.0.1"
     "@ckeditor/ckeditor5-widget" "^36.0.1"
 
+classnames@^2.2.5:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
+  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
+
 classnames@^2.3.1:
   version "2.3.2"
   resolved "https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz"
@@ -8728,7 +8733,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -8979,6 +8984,15 @@ react-dropzone@^14.2.3:
     attr-accept "^2.2.2"
     file-selector "^0.6.0"
     prop-types "^15.8.1"
+
+react-dual-listbox@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/react-dual-listbox/-/react-dual-listbox-6.0.1.tgz#50cd9506a01f5aec5798b46c1a6ef7103c516a60"
+  integrity sha512-LZi3Dj+sBcz18b0Bq2LNWRDAsMTg2bo/4HoJJFHf/Lb1ydJaUTU79Nw6865CL4IopWb7u16wK2sJk96fFS2uuQ==
+  dependencies:
+    classnames "^2.2.5"
+    lodash "^4.17.21"
+    prop-types "^15.5.8"
 
 react-error-overlay@^6.0.11:
   version "6.0.11"

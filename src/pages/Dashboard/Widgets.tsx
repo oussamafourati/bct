@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card, Col } from "react-bootstrap";
 import CountUp from "react-countup";
 
@@ -13,6 +13,14 @@ interface WidgetsProps {
   iconColor: string;
 }
 const Widgets = () => {
+  const [selectedFilter, setSelectedFilter] = useState("");
+  const handleFilters =  (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const newFilter = e.target.value;
+    setSelectedFilter( newFilter);
+  };
+
   const widgetsData: Array<WidgetsProps> = [
     {
       id: 1,
@@ -103,9 +111,24 @@ const Widgets = () => {
                 </div>
               </div>
             </Card.Body>
+            
           </Card>
         </Col>
       ))}
+      <Card>
+      <Card.Body>
+            <select
+                                    className="form-select text-muted"
+                                    name="choices-single-default"
+                                    id="statusSelect"
+                                    required
+                                    onChange={handleFilters}
+                                  >
+                                    <option value="">Filters</option>
+                                    
+                                  </select>
+            </Card.Body>
+      </Card>
     </React.Fragment>
   );
 };

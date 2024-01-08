@@ -361,7 +361,7 @@ const VerticalLayout = (props: any) => {
                 className="mdi mdi-shape-square-plus"
                 style={{ fontSize: "24px" }}
               ></i>
-              <span className="text-info mt-1 fs-12">NewQuote</span>
+              <span className="text-info mt-1 fs-12">NewJob</span>
             </button>
           </div>
         </Col>

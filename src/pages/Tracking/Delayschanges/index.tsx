@@ -80,7 +80,7 @@ const Delayschanges = () => {
               <i className="ri-more-fill align-middle"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-menu-end">
-              <Dropdown.Item to="#!">
+              <Dropdown.Item to="#">
                 <i className="ri-eye-fill align-bottom me-2 text-muted"></i>View
               </Dropdown.Item>
               <Dropdown.Item className="edit-item-btn">
